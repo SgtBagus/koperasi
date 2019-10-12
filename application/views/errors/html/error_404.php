@@ -1,13 +1,15 @@
+<?php $url = 'http://localhost/koperasi/'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>404 &mdash; Stisla</title>
-  <link rel="stylesheet" href="http://192.168.1.13:8000/assets/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://192.168.1.13:8000/assets/modules/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="http://192.168.1.13:8000/assets/css/style.css">
-  <link rel="stylesheet" href="http://192.168.1.13:8000/assets/css/components.css">
+  <link rel="stylesheet" href="<?= $url ?>assets/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= $url ?>assets/modules/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="<?= $url ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?= $url ?>assets/css/components.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 </head>
 
@@ -23,7 +25,7 @@
             </div>
             <div class="page-search">
               <div class="mt-3">
-                <a href="http://192.168.1.13:8000/">Back to Home</a>
+                <a href="<?= $url ?>">Back to Home</a>
               </div>
             </div>
           </div>
