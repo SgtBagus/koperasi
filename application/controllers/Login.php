@@ -86,7 +86,6 @@ class Login extends MY_Controller {
 				$dt['status'] = "ENABLE";
 				$this->db->insert('anggota', $dt);
 
-
 				$this->load->library('email');
 				$config = array(
 					'protocol'  => 'smtp',
