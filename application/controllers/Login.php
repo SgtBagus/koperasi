@@ -24,6 +24,7 @@ class Login extends MY_Controller {
 		$dt = $_POST['dt'];
 		
 		$dt['identification_file'] = $identification_file;
+		$dt['verification'] = "Waiting Verification";
 		$dt['created_at'] = date('Y-m-d H:i:s');
 		$dt['status'] = "ENABLE";
 		$this->db->insert('anggota', $dt);  
