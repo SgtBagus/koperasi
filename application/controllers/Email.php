@@ -35,7 +35,7 @@ class Email extends MY_Controller {
 		$button = ''; 
 		//button tambahan seperi (class css tidak bisa disini, style nya langsung di htmlnya)
 
-		$pesan = $this->emailtemplate->template($name, $content, $content2, $button); 
+		$pesan = $this->sendemail->template($name, $content, $content2, $button); 
 		//ambil template email ada di application/mobal/emailtemplate
 
 		$pesan = $pesan; 
