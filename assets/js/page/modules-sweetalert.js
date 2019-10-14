@@ -14,7 +14,7 @@ $("#swal-3").click(function() {
 
 $("#swal-4").click(function() {
 	swal('Good Job', 'You clicked the button!', 'info');
-});
+}); 
 
 $("#swal-5").click(function() {
 	swal('Good Job', 'You clicked the button!', 'error');
