@@ -13,4 +13,5 @@ class Login extends MY_Controller {
 		$data['page'] = 'Register';
         $this->template->load('login/template','login/register', $data); 
 	}
+	
 }

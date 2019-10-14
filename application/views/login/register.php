@@ -24,16 +24,6 @@
                                 <div class="invalid-feedback">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="password2" class="d-block">Password</label>
-                                    <input type="password" class="form-control" name="dt[password]">
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="password2" class="d-block">Password Konfirmasi</label>
-                                    <input type="password" class="form-control" name="dt[passwordkonfirmasi]">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label>Nomor Hp</label>
                                 <div class="input-group">
@@ -46,26 +36,26 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Tanggal Lahir</label>
                                     <input type="text" class="form-control datepicker" name="dt[birth_date]">
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Tempat Lahir</label>
                                     <input type="text" class="form-control" name="dt[birth_place]">
                                 </div>
-                                <div class="form-group col-4">
-                                    <label>Jenis Kelamin</label>
-                                    <select class="form-control selectric" name="dt[sex]">>
-                                        <option>Laki Laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Kelamin</label>
+                                <select class="form-control" name="dt[sex]">>
+                                    <option>Laki Laki</option>
+                                    <option>Perempuan</option>
+                                </select>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Status Kawin</label>
-                                    <select class="form-control selectric" name="dt[marital_status]">>
+                                    <select class="form-control" name="dt[marital_status]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -76,7 +66,7 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Status Keluarga</label>
-                                    <select class="form-control selectric" name="dt[family_status]">>
+                                    <select class="form-control" name="dt[family_status]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -87,9 +77,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Agama</label>
-                                    <select class="form-control selectric" name="dt[religion]">>
+                                    <select class="form-control" name="dt[religion]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -98,9 +88,9 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Kewarganegaraan</label>
-                                    <select class="form-control selectric" name="dt[nationality]">>
+                                    <select class="form-control" name="dt[nationality]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -108,44 +98,44 @@
                                         <option>Option 5</option>
                                         <option>Option 6</option>
                                     </select>
-                                </div>
-                                <div class="form-group col-4">
-                                    <label>No NPWP</label>
-                                    <input type="text" class="form-control" name="dt[npwp_id]">>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>No NPWP</label>
+                                <input type="text" class="form-control" name="dt[npwp_id]">
+                            </div>
                             <div class="row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Kartu Identitas</label>
-                                    <select class="form-control selectric" name="dt[identification_type]">>
+                                    <select class="form-control" name="dt[identification_type]">
                                         <option>KTP</option>
                                         <option>SIM</option>
                                         <option>Pasport</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-6">
                                     <label>Id Identitas</label>
-                                    <input type="text" class="form-control" name="dt[identification_id]">>
+                                    <input type="text" class="form-control" name="dt[identification_id]">
                                 </div>
-                                <div class="form-group col-4">
-                                    <label>Upload Kartu Identitas</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Upload Kartu Identitas</label>
 
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-primary" id="btnFile"><i class="fa fa-file"></i> File</button>
-                                        </div>
-                                        <input type="text" id="file_name" class="form-control">
-                                        <input type="file" id="imageFile" style="display: none;" name="dt[identification_file]" accept="image/x-png,image/jpeg,image/jpg" />
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-primary" id="btnFile"><i class="fa fa-file"></i> File</button>
                                     </div>
+                                    <input type="text" id="file_name" class="form-control">
+                                    <input type="file" id="imageFile" style="display: none;" name="dt[identification_file]" accept="image/x-png,image/jpeg,image/jpg" />
                                 </div>
                             </div>
                             <div class="card-header">
                                 <h4>Alamat Sesuai KTP</h4>
                             </div>
                             <div class="row">
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Provinsi</label>
-                                    <select class="form-control selectric" name="dt[ktp_province_id]">
+                                    <select class="form-control" name="dt[ktp_province_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -154,9 +144,9 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Kota/Kabupaten</label>
-                                    <select class="form-control selectric" name="dt[ktp_city_id]">
+                                    <select class="form-control" name="dt[ktp_city_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -165,9 +155,11 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
                                     <label>Kecamatan</label>
-                                    <select class="form-control selectric" name="dt[ktp_district_id]">
+                                    <select class="form-control" name="dt[ktp_district_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -176,9 +168,9 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Kode Pos</label>
-                                    <select class="form-control selectric" name="dt[ktp_zip_code_id]">
+                                    <select class="form-control" name="dt[ktp_zip_code_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -196,9 +188,9 @@
                                 <h4>Alamat Domisili</h4>
                             </div>
                             <div class="row">
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Provinsi</label>
-                                    <select class="form-control selectric" name="dt[domicile_province_id]">
+                                    <select class="form-control" name="dt[domicile_province_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -207,9 +199,9 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Kota/Kabupaten</label>
-                                    <select class="form-control selectric" name="dt[domicile_city_id]">
+                                    <select class="form-control" name="dt[domicile_city_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -218,9 +210,11 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
                                     <label>Kecamatan</label>
-                                    <select class="form-control selectric" name="dt[domicile_district_id]">
+                                    <select class="form-control" name="dt[domicile_district_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -229,9 +223,9 @@
                                         <option>Option 6</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-6">
                                     <label>Kode Pos</label>
-                                    <select class="form-control selectric" name="dt[domicile_zip_code_id]">
+                                    <select class="form-control" name="dt[domicile_zip_code_id]">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
@@ -248,22 +242,20 @@
                             <div class="card-header">
                                 <h4>Data Perusahaan</h4>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label>Nama Perusahaan</label>
-                                    <select class="form-control selectric" name="dt[employer_name]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label>Alamat Perusahaan</label>
-                                    <textarea class="form-control" name="dt[employer_address]"></textarea>
-                                </div>
+                            <div class="form-group">
+                                <label>Nama Perusahaan</label>
+                                <select class="form-control" name="dt[employer_name]">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                    <option>Option 6</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat Perusahaan</label>
+                                <textarea class="form-control" name="dt[employer_address]"></textarea>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
@@ -307,6 +299,7 @@
                                 Punya Akun Silakan Login <a href="<?= base_url('login') ?>">  Disini ! </a>
                             </div>
                         </form>
+                        <button class="btn btn-primary" id="registerSuccess">Launch</button>
                     </div>
                 </div>
                 <div class="simple-footer">
@@ -316,3 +309,8 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    $("#registerSuccess").click(function() {
+        swal('Pendaftaran Berhasi!', 'Mohon Tunggu Verfikasi dari kami melalui Watchapps!', 'success');
+    })
+</script>
