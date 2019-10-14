@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- version 4.4.14
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 14, 2019 at 07:04 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Generation Time: 14 Okt 2019 pada 09.22
+-- Versi Server: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,18 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `access`
+-- Struktur dari tabel `access`
 --
 
-CREATE TABLE `access` (
+CREATE TABLE IF NOT EXISTS `access` (
   `id` int(11) NOT NULL,
   `access_control_id` int(11) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `access`
+-- Dumping data untuk tabel `access`
 --
 
 INSERT INTO `access` (`id`, `access_control_id`, `role_id`, `status`) VALUES
@@ -45,19 +43,19 @@ INSERT INTO `access` (`id`, `access_control_id`, `role_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `access_control`
+-- Struktur dari tabel `access_control`
 --
 
-CREATE TABLE `access_control` (
+CREATE TABLE IF NOT EXISTS `access_control` (
   `id` int(11) NOT NULL,
   `folder` varchar(255) DEFAULT NULL,
   `class` varchar(255) DEFAULT NULL,
   `method` varchar(255) DEFAULT NULL,
   `val` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=268 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `access_control`
+-- Dumping data untuk tabel `access_control`
 --
 
 INSERT INTO `access_control` (`id`, `folder`, `class`, `method`, `val`) VALUES
@@ -332,83 +330,83 @@ INSERT INTO `access_control` (`id`, `folder`, `class`, `method`, `val`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `activity`
+-- Struktur dari tabel `activity`
 --
 
-CREATE TABLE `activity` (
+CREATE TABLE IF NOT EXISTS `activity` (
   `ip` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
-  `get` longtext DEFAULT NULL,
-  `post` longtext DEFAULT NULL,
+  `get` longtext,
+  `post` longtext,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `activity`
+-- Dumping data untuk tabel `activity`
 --
 
 INSERT INTO `activity` (`ip`, `link`, `get`, `post`, `user_id`, `created_at`) VALUES
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('182.0.231.50', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:10'),
 ('182.0.231.50', 'http://gatoko1.com/sop/report/users', '[]', '[]', 1, '2019-03-25 11:32:12'),
-('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"0\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"1\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"2\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"3\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"4\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"5\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"6\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"7\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"8\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"9\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"10\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:13'),
+('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{"draw":"1","columns":[{"data":"0","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"1","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"2","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"3","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"4","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"5","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"6","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"7","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"8","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"9","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"10","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:13'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:57'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:57'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:57'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:58'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:59'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:59'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:32:00'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:01'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{\"term\":\"ke\"}', '[]', 1, '2019-03-25 11:32:21'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:22'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:23'),
-('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:24'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:01'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{"term":"ke"}', '[]', 1, '2019-03-25 11:32:21'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:22'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:23'),
+('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:24'),
 ('182.0.197.180', 'http://gatoko1.com/sop/login/logout', '[]', '[]', 1, '2019-03-25 11:32:31'),
 ('182.0.197.180', 'http://gatoko1.com/sop/index.php/login', '[]', '[]', NULL, '2019-03-25 11:32:31'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{\"user\":\"smartsoft\"}', '[]', NULL, '2019-03-25 11:32:38'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{\"username\":\"smartsoft\",\"password\":\"admin\"}', NULL, '2019-03-25 11:32:41'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{"user":"smartsoft"}', '[]', NULL, '2019-03-25 11:32:38'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{"username":"smartsoft","password":"admin"}', NULL, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-03-25 11:32:45'),
-('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:46'),
+('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:46'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('182.0.231.50', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:10'),
 ('182.0.231.50', 'http://gatoko1.com/sop/report/users', '[]', '[]', 1, '2019-03-25 11:32:12'),
-('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"0\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"1\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"2\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"3\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"4\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"5\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"6\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"7\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"8\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"9\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"10\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:13'),
+('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{"draw":"1","columns":[{"data":"0","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"1","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"2","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"3","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"4","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"5","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"6","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"7","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"8","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"9","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"10","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:13'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:57'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:57'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:57'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:58'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:59'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:59'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:32:00'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:01'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{\"term\":\"ke\"}', '[]', 1, '2019-03-25 11:32:21'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:22'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:23'),
-('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:24'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:01'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{"term":"ke"}', '[]', 1, '2019-03-25 11:32:21'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:22'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:23'),
+('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:24'),
 ('182.0.197.180', 'http://gatoko1.com/sop/login/logout', '[]', '[]', 1, '2019-03-25 11:32:31'),
 ('182.0.197.180', 'http://gatoko1.com/sop/index.php/login', '[]', '[]', NULL, '2019-03-25 11:32:31'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{\"user\":\"smartsoft\"}', '[]', NULL, '2019-03-25 11:32:38'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{\"username\":\"smartsoft\",\"password\":\"admin\"}', NULL, '2019-03-25 11:32:41'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{"user":"smartsoft"}', '[]', NULL, '2019-03-25 11:32:38'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{"username":"smartsoft","password":"admin"}', NULL, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-03-25 11:32:45'),
-('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:46'),
+('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:46'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53');
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anggota`
+-- Struktur dari tabel `anggota`
 --
 
-CREATE TABLE `anggota` (
+CREATE TABLE IF NOT EXISTS `anggota` (
   `id_anggota` int(11) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -441,25 +439,33 @@ CREATE TABLE `anggota` (
   `employer_industry` varchar(255) NOT NULL,
   `placement_location` varchar(255) NOT NULL,
   `employee_dept` varchar(255) NOT NULL,
+  `verification` enum('Waiting Verification','Waiting Payment','Payment Approved','Verified','Rejected') NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `anggota`
+--
+
+INSERT INTO `anggota` (`id_anggota`, `full_name`, `email`, `password`, `phone_number`, `birth_date`, `birth_place`, `sex`, `marital_status`, `family_status`, `religion`, `nationality`, `npwpid`, `identification_type`, `identification_id`, `identification_file`, `ktp_province_id`, `ktp_city_id`, `ktp_district_id`, `ktp_zip_code_id`, `ktp_address`, `domicile_province_id`, `domicile_city_id`, `domicile_district_id`, `domicile_zip_code_id`, `domicile_address`, `employer_name`, `employer_address`, `employer_phone`, `employer_industry`, `placement_location`, `employee_dept`, `verification`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Arvin Fairuz Huda', 'arvin.fairuz.af@gmail.com', '', '6281334574255', '1997-08-02', 'Malang', 'Laki Laki', 1, 3, 1, 102, '91239810298', 'KTP', '0123091829038', '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', 15, 228, 0, '65083', 'Sawojajar Malang', 15, 228, 0, '65083', 'Sawojajar Malang', '1', 'Sawojajar Malang', '081310980912', 'Perikanan', 'Malang', 'Pemancingan', 'Waiting Verification', 'ENABLE', '2019-10-14 12:23:09', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `apps_countries`
+-- Struktur dari tabel `apps_countries`
 --
 
-CREATE TABLE `apps_countries` (
+CREATE TABLE IF NOT EXISTS `apps_countries` (
   `id` int(11) NOT NULL,
   `country_code` varchar(2) NOT NULL DEFAULT '',
   `country_name` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `apps_countries`
+-- Dumping data untuk tabel `apps_countries`
 --
 
 INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
@@ -578,12 +584,12 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 (113, 'KZ', 'Kazakhstan'),
 (114, 'KE', 'Kenya'),
 (115, 'KI', 'Kiribati'),
-(116, 'KP', 'Korea, Democratic People\'s Republic of'),
+(116, 'KP', 'Korea, Democratic People''s Republic of'),
 (117, 'KR', 'Korea, Republic of'),
 (118, 'XK', 'Kosovo'),
 (119, 'KW', 'Kuwait'),
 (120, 'KG', 'Kyrgyzstan'),
-(121, 'LA', 'Lao People\'s Democratic Republic'),
+(121, 'LA', 'Lao People''s Democratic Republic'),
 (122, 'LV', 'Latvia'),
 (123, 'LB', 'Lebanon'),
 (124, 'LS', 'Lesotho'),
@@ -713,10 +719,10 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Struktur dari tabel `customer`
 --
 
-CREATE TABLE `customer` (
+CREATE TABLE IF NOT EXISTS `customer` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -725,10 +731,10 @@ CREATE TABLE `customer` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `customer`
+-- Dumping data untuk tabel `customer`
 --
 
 INSERT INTO `customer` (`id`, `nama`, `email`, `telp`, `alamat`, `status`, `created_at`, `updated_at`) VALUES
@@ -738,10 +744,10 @@ INSERT INTO `customer` (`id`, `nama`, `email`, `telp`, `alamat`, `status`, `crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `file`
+-- Struktur dari tabel `file`
 --
 
-CREATE TABLE `file` (
+CREATE TABLE IF NOT EXISTS `file` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `mime` varchar(255) DEFAULT NULL,
@@ -751,10 +757,10 @@ CREATE TABLE `file` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `file`
+-- Dumping data untuk tabel `file`
 --
 
 INSERT INTO `file` (`id`, `name`, `mime`, `dir`, `table`, `table_id`, `status`, `created_at`, `updated_at`) VALUES
@@ -978,17 +984,17 @@ INSERT INTO `file` (`id`, `name`, `mime`, `dir`, `table`, `table_id`, `status`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grafik`
+-- Struktur dari tabel `grafik`
 --
 
-CREATE TABLE `grafik` (
+CREATE TABLE IF NOT EXISTS `grafik` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `grafik`
+-- Dumping data untuk tabel `grafik`
 --
 
 INSERT INTO `grafik` (`id`, `name`, `value`) VALUES
@@ -1008,16 +1014,16 @@ INSERT INTO `grafik` (`id`, `name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image`
+-- Struktur dari tabel `image`
 --
 
-CREATE TABLE `image` (
+CREATE TABLE IF NOT EXISTS `image` (
   `id` int(12) NOT NULL,
   `path` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `image`
+-- Dumping data untuk tabel `image`
 --
 
 INSERT INTO `image` (`id`, `path`) VALUES
@@ -1052,10 +1058,10 @@ INSERT INTO `image` (`id`, `path`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keys`
+-- Struktur dari tabel `keys`
 --
 
-CREATE TABLE `keys` (
+CREATE TABLE IF NOT EXISTS `keys` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `key` varchar(255) DEFAULT NULL,
@@ -1067,10 +1073,10 @@ CREATE TABLE `keys` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `keys`
+-- Dumping data untuk tabel `keys`
 --
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`, `status`, `created_at`, `updated_at`) VALUES
@@ -1079,29 +1085,29 @@ INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_privat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konfig`
+-- Struktur dari tabel `konfig`
 --
 
-CREATE TABLE `konfig` (
+CREATE TABLE IF NOT EXISTS `konfig` (
   `id` int(11) NOT NULL,
   `slug` varchar(255) DEFAULT NULL,
-  `value` text DEFAULT NULL,
+  `value` text,
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `konfig`
+-- Dumping data untuk tabel `konfig`
 --
 
 INSERT INTO `konfig` (`id`, `slug`, `value`, `status`, `created_at`, `updated_at`) VALUES
 (6, 'APPLICATION', 'KOPERASI', 'ENABLE', '2019-02-18 15:28:44', '2019-10-14 01:29:57'),
 (7, 'LOGO', 'http://www.pertanian.go.id/img/logo.png', 'ENABLE', '2019-02-18 15:29:32', '2019-04-29 10:56:09'),
-(8, 'LOGIN_BACKGROUND', 'background-image: url(\'https://coloredbrain.com/wp-content/uploads/2016/07/login-background.jpg\');background-size: cover;background-position: center;', 'ENABLE', '2019-02-18 15:29:52', '2019-04-29 10:57:19'),
+(8, 'LOGIN_BACKGROUND', 'background-image: url(''https://coloredbrain.com/wp-content/uploads/2016/07/login-background.jpg'');background-size: cover;background-position: center;', 'ENABLE', '2019-02-18 15:29:52', '2019-04-29 10:57:19'),
 (9, 'COLOR_HEADER', 'background: linear-gradient(to right,#0052D4,#65C7F7);', 'DISABLE', '2019-02-18 15:30:24', '2019-02-18 15:31:08'),
 (10, 'VERSION', '1.0.0', 'ENABLE', '2019-02-18 15:30:39', NULL),
-(11, 'COPYRIGHT', '© 2019 <a href=\"http://karyastudio.com/\" target=\"_blank\">Karya Studio</a>.</strong> All rights     reserved.', 'ENABLE', '2019-02-18 15:32:01', '2019-02-19 10:27:32'),
+(11, 'COPYRIGHT', '© 2019 <a href="http://karyastudio.com/" target="_blank">Karya Studio</a>.</strong> All rights     reserved.', 'ENABLE', '2019-02-18 15:32:01', '2019-02-19 10:27:32'),
 (12, 'SKIN', 'skin-green-light', 'ENABLE', '2019-02-18 15:34:01', '2019-10-14 01:33:13'),
 (13, 'TITLE_APPLICATION', 'Koperasi', 'ENABLE', '2019-02-18 15:39:54', '2019-10-14 01:30:59'),
 (14, 'APPLICATION_SMALL', 'KS', 'ENABLE', '2019-02-18 15:42:41', '2019-08-15 17:59:06'),
@@ -1109,175 +1115,175 @@ INSERT INTO `konfig` (`id`, `slug`, `value`, `status`, `created_at`, `updated_at
 (16, 'TITLE_LOGIN_APPLICATION', 'Koperasi | Login', 'ENABLE', '2019-02-18 15:47:41', '2019-10-14 01:31:12'),
 (17, 'LOGIN_TITLE', 'LOGIN ADMIN', 'ENABLE', '2019-02-18 15:48:55', NULL),
 (24, 'LOGIN', '1', 'ENABLE', '2019-02-21 14:12:14', '2019-08-15 17:59:17'),
-(25, 'email-template', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\r\n<head>\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n\r\n\r\n    <style type=\"text/css\">\r\n        /* Your custom styles go here */\r\n        * {\r\n            margin: 0;\r\n            padding: 0;\r\n            font-size: 100%;\r\n            font-family: \'Avenir Next\', \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif;\r\n            line-height: 1.65;\r\n        }\r\n\r\n        img {\r\n            max-width: 100%;\r\n            margin: 0 auto;\r\n            display: block;\r\n        }\r\n\r\n        body,\r\n        .body-wrap {\r\n            width: 100% !important;\r\n            height: 100%;\r\n            background: #f8f8f8;\r\n        }\r\n\r\n        a {\r\n            color: #71bc37;\r\n            text-decoration: none;\r\n        }\r\n\r\n        a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n        .text-center {\r\n            text-align: center;\r\n        }\r\n\r\n        .text-right {\r\n            text-align: right;\r\n        }\r\n\r\n        .text-left {\r\n            text-align: left;\r\n        }\r\n\r\n        .button {\r\n            display: inline-block;\r\n            color: white;\r\n            background: #71bc37;\r\n            border: solid #71bc37;\r\n            border-width: 10px 20px 8px;\r\n            font-weight: bold;\r\n            border-radius: 4px;\r\n        }\r\n\r\n        .button:hover {\r\n            text-decoration: none;\r\n        }\r\n\r\n        h1,\r\n        h2,\r\n        h3,\r\n        h4,\r\n        h5,\r\n        h6 {\r\n            margin-bottom: 20px;\r\n            line-height: 1.25;\r\n        }\r\n\r\n        h1 {\r\n            font-size: 32px;\r\n        }\r\n\r\n        h2 {\r\n            font-size: 28px;\r\n        }\r\n\r\n        h3 {\r\n            font-size: 24px;\r\n        }\r\n\r\n        h4 {\r\n            font-size: 20px;\r\n        }\r\n\r\n        h5 {\r\n            font-size: 16px;\r\n        }\r\n\r\n        p,\r\n        ul,\r\n        ol {\r\n            font-size: 16px;\r\n            font-weight: normal;\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        .container {\r\n            display: block !important;\r\n            clear: both !important;\r\n            margin: 0 auto !important;\r\n            max-width: 580px !important;\r\n        }\r\n\r\n        .container table {\r\n            width: 100% !important;\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        .container .masthead {\r\n            padding: 80px 0;\r\n            background: #71bc37;\r\n            color: white;\r\n        }\r\n\r\n        .container .masthead h1 {\r\n            margin: 0 auto !important;\r\n            max-width: 90%;\r\n            text-transform: uppercase;\r\n        }\r\n\r\n        .container .content {\r\n            background: white;\r\n            padding: 30px 35px;\r\n        }\r\n\r\n        .container .content.footer {\r\n            background: none;\r\n        }\r\n\r\n        .container .content.footer p {\r\n            margin-bottom: 0;\r\n            color: #888;\r\n            text-align: center;\r\n            font-size: 14px;\r\n        }\r\n\r\n        .container .content.footer a {\r\n            color: #888;\r\n            text-decoration: none;\r\n            font-weight: bold;\r\n        }\r\n\r\n        .container .content.footer a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n    <table class=\"body-wrap\">\r\n        <tr>\r\n            <td class=\"container\">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td align=\"center\" class=\"masthead\">\r\n\r\n                            <h1>Something Big...</h1>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class=\"content\">\r\n\r\n                            <h2>Hi Stranger,</h2>\r\n\r\n                            <p>Kielbasa venison ball tip shankle. Boudin prosciutto landjaeger, pancetta jowl turkey tri-tip porchetta beef pork loin drumstick. Frankfurter short ribs kevin pig ribeye drumstick bacon kielbasa. Pork loin brisket biltong, pork belly filet mignon ribeye pig ground round porchetta turducken turkey. Pork belly beef ribs sausage ham hock, ham doner frankfurter pork chop tail meatball beef pig meatloaf short ribs shoulder. Filet mignon ham hock kielbasa beef ribs shank. Venison swine beef ribs sausage pastrami shoulder.</p>\r\n\r\n                            <table>\r\n                                <tr>\r\n                                    <td align=\"center\">\r\n                                        <p>\r\n                                            <a href=\"#\" class=\"button\">Share the Awesomeness</a>\r\n                                        </p>\r\n                                    </td>\r\n                                </tr>\r\n                            </table>\r\n\r\n                            <p>By the way, if you\'re wondering where you can find more of this fine meaty filler, visit <a href=\"http://baconipsum.com\">Bacon Ipsum</a>.</p>\r\n\r\n                            <p><em>– Mr. Pen</em></p>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td class=\"container\">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td class=\"content footer\" align=\"center\">\r\n                            <p>Sent by <a href=\"#\">Company Name</a>, 1234 Yellow Brick Road, OZ, 99999</p>\r\n                            <p><a href=\"mailto:\">hello@company.com</a> | <a href=\"#\">Unsubscribe</a></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n\r\n</html>\r\n', 'ENABLE', NULL, NULL);
+(25, 'email-template', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n\r\n<head>\r\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\r\n    <meta name="viewport" content="width=device-width" />\r\n\r\n\r\n    <style type="text/css">\r\n        /* Your custom styles go here */\r\n        * {\r\n            margin: 0;\r\n            padding: 0;\r\n            font-size: 100%;\r\n            font-family: ''Avenir Next'', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;\r\n            line-height: 1.65;\r\n        }\r\n\r\n        img {\r\n            max-width: 100%;\r\n            margin: 0 auto;\r\n            display: block;\r\n        }\r\n\r\n        body,\r\n        .body-wrap {\r\n            width: 100% !important;\r\n            height: 100%;\r\n            background: #f8f8f8;\r\n        }\r\n\r\n        a {\r\n            color: #71bc37;\r\n            text-decoration: none;\r\n        }\r\n\r\n        a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n        .text-center {\r\n            text-align: center;\r\n        }\r\n\r\n        .text-right {\r\n            text-align: right;\r\n        }\r\n\r\n        .text-left {\r\n            text-align: left;\r\n        }\r\n\r\n        .button {\r\n            display: inline-block;\r\n            color: white;\r\n            background: #71bc37;\r\n            border: solid #71bc37;\r\n            border-width: 10px 20px 8px;\r\n            font-weight: bold;\r\n            border-radius: 4px;\r\n        }\r\n\r\n        .button:hover {\r\n            text-decoration: none;\r\n        }\r\n\r\n        h1,\r\n        h2,\r\n        h3,\r\n        h4,\r\n        h5,\r\n        h6 {\r\n            margin-bottom: 20px;\r\n            line-height: 1.25;\r\n        }\r\n\r\n        h1 {\r\n            font-size: 32px;\r\n        }\r\n\r\n        h2 {\r\n            font-size: 28px;\r\n        }\r\n\r\n        h3 {\r\n            font-size: 24px;\r\n        }\r\n\r\n        h4 {\r\n            font-size: 20px;\r\n        }\r\n\r\n        h5 {\r\n            font-size: 16px;\r\n        }\r\n\r\n        p,\r\n        ul,\r\n        ol {\r\n            font-size: 16px;\r\n            font-weight: normal;\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        .container {\r\n            display: block !important;\r\n            clear: both !important;\r\n            margin: 0 auto !important;\r\n            max-width: 580px !important;\r\n        }\r\n\r\n        .container table {\r\n            width: 100% !important;\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        .container .masthead {\r\n            padding: 80px 0;\r\n            background: #71bc37;\r\n            color: white;\r\n        }\r\n\r\n        .container .masthead h1 {\r\n            margin: 0 auto !important;\r\n            max-width: 90%;\r\n            text-transform: uppercase;\r\n        }\r\n\r\n        .container .content {\r\n            background: white;\r\n            padding: 30px 35px;\r\n        }\r\n\r\n        .container .content.footer {\r\n            background: none;\r\n        }\r\n\r\n        .container .content.footer p {\r\n            margin-bottom: 0;\r\n            color: #888;\r\n            text-align: center;\r\n            font-size: 14px;\r\n        }\r\n\r\n        .container .content.footer a {\r\n            color: #888;\r\n            text-decoration: none;\r\n            font-weight: bold;\r\n        }\r\n\r\n        .container .content.footer a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n    <table class="body-wrap">\r\n        <tr>\r\n            <td class="container">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td align="center" class="masthead">\r\n\r\n                            <h1>Something Big...</h1>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class="content">\r\n\r\n                            <h2>Hi Stranger,</h2>\r\n\r\n                            <p>Kielbasa venison ball tip shankle. Boudin prosciutto landjaeger, pancetta jowl turkey tri-tip porchetta beef pork loin drumstick. Frankfurter short ribs kevin pig ribeye drumstick bacon kielbasa. Pork loin brisket biltong, pork belly filet mignon ribeye pig ground round porchetta turducken turkey. Pork belly beef ribs sausage ham hock, ham doner frankfurter pork chop tail meatball beef pig meatloaf short ribs shoulder. Filet mignon ham hock kielbasa beef ribs shank. Venison swine beef ribs sausage pastrami shoulder.</p>\r\n\r\n                            <table>\r\n                                <tr>\r\n                                    <td align="center">\r\n                                        <p>\r\n                                            <a href="#" class="button">Share the Awesomeness</a>\r\n                                        </p>\r\n                                    </td>\r\n                                </tr>\r\n                            </table>\r\n\r\n                            <p>By the way, if you''re wondering where you can find more of this fine meaty filler, visit <a href="http://baconipsum.com">Bacon Ipsum</a>.</p>\r\n\r\n                            <p><em>– Mr. Pen</em></p>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td class="container">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td class="content footer" align="center">\r\n                            <p>Sent by <a href="#">Company Name</a>, 1234 Yellow Brick Road, OZ, 99999</p>\r\n                            <p><a href="mailto:">hello@company.com</a> | <a href="#">Unsubscribe</a></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n\r\n</html>\r\n', 'ENABLE', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
+-- Struktur dari tabel `logs`
 --
 
-CREATE TABLE `logs` (
+CREATE TABLE IF NOT EXISTS `logs` (
   `id` int(11) NOT NULL,
   `uri` varchar(255) NOT NULL,
   `method` varchar(6) NOT NULL,
-  `params` text DEFAULT NULL,
+  `params` text,
   `api_key` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `time` int(11) NOT NULL,
   `rtime` float DEFAULT NULL,
   `authorized` varchar(1) NOT NULL,
-  `response_code` smallint(3) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `response_code` smallint(3) DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `logs`
+-- Dumping data untuk tabel `logs`
 --
 
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(12, 'api/example/users/1', 'get', 'a:13:{s:2:\"id\";s:1:\"1\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b95151e2-01cb-48b0-fc71-74788b971014\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426798, 1549430000, '1', 400),
-(13, 'api/example/users/1', 'get', 'a:13:{s:2:\"id\";s:1:\"1\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"da6c7ebc-d468-82cd-b107-a43b223e3229\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426847, 1549430000, '1', 400),
-(14, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"295384ee-de46-448a-ee33-5da93f0ee6d3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426895, 1549430000, '1', 200),
-(15, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"9463f032-7a0c-d92f-b412-4fe3b0e3283d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426900, 1549430000, '1', 400),
-(16, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"466fe8da-8fb3-03e6-9281-d0d53ff867b5\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426910, 1549430000, '1', 400),
-(17, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"a4353c0f-ae54-9d99-82b9-3952449d6589\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426923, 1549430000, '1', 400),
-(18, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4b9ec719-7307-81d5-7700-cc52c1882174\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426931, 1549430000, '1', 400),
-(19, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"1a9c3d5a-3eea-1ea0-192d-69d8b0d3bd7e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426934, 1549430000, '1', 400),
-(20, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"faf745f8-86a1-6571-45a1-1d5c705857e3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426935, 1549430000, '1', 400),
-(21, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d66bf86e-f241-d6bc-59a8-53e219895de5\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426936, 1549430000, '1', 400),
-(22, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"8d1e6190-f1ee-732f-0712-9b86f649431a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426958, 1549430000, '1', 400),
-(23, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d947680b-21bb-f0d0-cb14-816ffd6557e6\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426959, 1549430000, '1', 400),
-(24, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"196ad13d-5766-c800-4cc0-6521f1f0a5fa\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426967, 1549430000, '1', 400),
-(25, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"aa627fb0-cd37-f6b7-1353-a00ab4db601f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426968, 1549430000, '1', 400),
-(26, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"5cd4e253-2ef5-0abe-87fd-1c70c0b74460\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426978, 1549430000, '1', 400),
-(27, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"313f78a7-c82e-0686-8762-b874535cdcbf\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427000, 1549430000, '1', 400),
-(28, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"465eac17-0ecf-a742-60c1-d1bb5aad672c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427018, 1549430000, '1', 400),
-(29, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b1a5d762-4c11-9bf5-3a0f-c672375a4477\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427058, 1549430000, '1', 200),
-(30, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"bc6fbf72-1adf-b4ba-a316-5b75ea6b1cb9\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427061, 1549430000, '1', 200),
-(31, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"541c15c3-9e59-a3ec-6a6c-65e6eee16eda\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427100, 1549430000, '1', 200),
-(32, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4ea9e5cc-a4c2-710e-9f72-f921bcd470f7\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427157, 1549430000, '1', 200),
-(33, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"c58bbf9d-48fe-4890-0e5a-87c7d21f1bcb\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427166, 1549430000, '1', 200),
-(34, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"a864cc0c-2540-09b1-c9e4-15a3c7791f89\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427177, 1549430000, '1', 200),
-(35, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"97063f8c-c173-d733-e5b1-eb36b50c6717\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427200, 1549430000, '1', 200),
-(36, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d74b25e0-c53c-1b24-ee1e-a456ca5e754a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428325, 1549430000, '1', 0),
-(37, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"2dcb425a-4947-898b-1c78-91cda05e66a3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428345, 1549430000, '1', 404),
-(38, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"ad64360f-e0c5-ec3c-3da3-c50b37fbef7f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428370, 1549430000, '1', 404),
-(39, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"7c2b7aba-7f85-deed-d309-3d825769427e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428382, 1549430000, '1', 404),
-(40, 'api/example/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"337\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"a927b74d-cc4b-7215-9fdd-f3592820fcb0\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:12:\"Content-Type\";s:68:\"multipart/form-data; boundary=----WebKitFormBoundarymV0NNVKnF6IL7z29\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:5:\"title\";s:3:\"tes\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428413, 1549430000, '1', 200),
-(41, 'api/example/services', 'put', 'a:18:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"43\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"612f28dc-dc61-b57a-c9c0-69a5a8262b98\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:5:\"title\";s:4:\"tesa\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428448, 1549430000, '1', 200),
-(42, 'api/example/services-enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"391bbf12-fd99-4e28-7fc5-6496dc491b0c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428468, 1549430000, '1', 200),
-(43, 'api/example/services-disable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d5cbf18b-d9b5-f44d-c232-f84cc4d11db2\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428472, 1549430000, '1', 200),
-(44, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"16344db9-d25f-e334-9651-333d7e88314e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428480, 1549430000, '1', 200),
-(45, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"caef2b39-8710-18ca-6ce5-4fe6b70992a0\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428655, 1549430000, '1', 404),
-(46, 'api/example/services/1', 'get', 'a:15:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"5c1fc3d5-e1a0-32d4-5577-0da8790112ac\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428659, 1549430000, '1', 404),
-(47, 'api/example/services/0', 'get', 'a:15:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b65e8ad4-2781-d95d-de2c-4c8e8aa447fc\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428662, 1549430000, '1', 404),
-(48, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b6e9a137-e2d0-9180-a433-6216c066a468\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428677, 1549430000, '1', 404),
-(49, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"72518478-f719-4e92-cfe4-bf027a496092\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428680, 1549430000, '1', 404),
-(50, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"faff51a0-75b3-9d5f-3b80-ba00e099b484\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428682, 1549430000, '1', 404),
-(51, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"f20c8e54-9446-4d38-8a0f-219f1d5a561e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428715, 1549430000, '1', 404),
-(52, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"5801b626-9ea3-b456-ae32-9af94267f20c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428717, 1549430000, '1', 404),
-(53, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"43e761b9-d088-5745-33a6-e6e2c77f8e0a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428725, 1549430000, '1', 0),
-(54, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"dda3a68d-329e-371a-e751-4fd11e3241e7\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428727, 1549430000, '1', 0),
-(55, 'api/example/services/aa', 'get', 'a:14:{s:2:\"aa\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"c960faa4-1219-26de-d6fe-b7ddc07ec486\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428729, 1549430000, '1', 0),
-(56, 'api/example/services/aa', 'get', 'a:14:{s:2:\"aa\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ab82d302-2290-2edd-eb75-0771e0de4f73\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428730, 1549430000, '1', 0),
-(57, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b5495e5a-91ee-67ca-07fd-505c64ac0685\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428734, 1549430000, '1', 0),
-(58, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"9923d27a-b199-e900-361a-1d6b440579a1\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428741, 1549430000, '1', 404),
-(59, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"0e4e077d-2103-723e-61fb-c5ec2ee8d025\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428742, 1549430000, '1', 404),
-(60, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"f47e693b-addb-43f8-7837-ab0c7793c087\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428748, 1549430000, '1', 404),
-(61, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"cbbd6ccb-dc98-f683-b919-c56aa9c0e66d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428749, 1549430000, '1', 404),
-(62, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d1976171-7268-0319-2e50-4851a2fd6c22\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428786, 1549430000, '1', 200),
-(63, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"fabc78b4-cc98-1a61-3131-0c44475cbcdc\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428800, 1549430000, '1', 404),
-(64, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1ea384ac-8306-2f85-88da-49178e8a7f0e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428801, 1549430000, '1', 404),
-(65, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ab54ff73-1a8a-cb60-b1b0-870b35536d9d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428805, 1549430000, '1', 404),
-(66, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ea261273-b754-5389-5412-58e6beb47631\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428807, 1549430000, '1', 404);
+(12, 'api/example/users/1', 'get', 'a:13:{s:2:"id";s:1:"1";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b95151e2-01cb-48b0-fc71-74788b971014";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426798, 1549430000, '1', 400),
+(13, 'api/example/users/1', 'get', 'a:13:{s:2:"id";s:1:"1";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"da6c7ebc-d468-82cd-b107-a43b223e3229";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426847, 1549430000, '1', 400),
+(14, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"295384ee-de46-448a-ee33-5da93f0ee6d3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426895, 1549430000, '1', 200),
+(15, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"9463f032-7a0c-d92f-b412-4fe3b0e3283d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426900, 1549430000, '1', 400),
+(16, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"466fe8da-8fb3-03e6-9281-d0d53ff867b5";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426910, 1549430000, '1', 400),
+(17, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"a4353c0f-ae54-9d99-82b9-3952449d6589";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426923, 1549430000, '1', 400),
+(18, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4b9ec719-7307-81d5-7700-cc52c1882174";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426931, 1549430000, '1', 400),
+(19, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"1a9c3d5a-3eea-1ea0-192d-69d8b0d3bd7e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426934, 1549430000, '1', 400),
+(20, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"faf745f8-86a1-6571-45a1-1d5c705857e3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426935, 1549430000, '1', 400),
+(21, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d66bf86e-f241-d6bc-59a8-53e219895de5";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426936, 1549430000, '1', 400),
+(22, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"8d1e6190-f1ee-732f-0712-9b86f649431a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426958, 1549430000, '1', 400),
+(23, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d947680b-21bb-f0d0-cb14-816ffd6557e6";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426959, 1549430000, '1', 400),
+(24, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"196ad13d-5766-c800-4cc0-6521f1f0a5fa";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426967, 1549430000, '1', 400),
+(25, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"aa627fb0-cd37-f6b7-1353-a00ab4db601f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426968, 1549430000, '1', 400),
+(26, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"5cd4e253-2ef5-0abe-87fd-1c70c0b74460";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426978, 1549430000, '1', 400),
+(27, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"313f78a7-c82e-0686-8762-b874535cdcbf";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427000, 1549430000, '1', 400),
+(28, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"465eac17-0ecf-a742-60c1-d1bb5aad672c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427018, 1549430000, '1', 400),
+(29, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b1a5d762-4c11-9bf5-3a0f-c672375a4477";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427058, 1549430000, '1', 200),
+(30, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"bc6fbf72-1adf-b4ba-a316-5b75ea6b1cb9";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427061, 1549430000, '1', 200),
+(31, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"541c15c3-9e59-a3ec-6a6c-65e6eee16eda";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427100, 1549430000, '1', 200),
+(32, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4ea9e5cc-a4c2-710e-9f72-f921bcd470f7";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427157, 1549430000, '1', 200),
+(33, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"c58bbf9d-48fe-4890-0e5a-87c7d21f1bcb";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427166, 1549430000, '1', 200),
+(34, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"a864cc0c-2540-09b1-c9e4-15a3c7791f89";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427177, 1549430000, '1', 200),
+(35, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"97063f8c-c173-d733-e5b1-eb36b50c6717";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427200, 1549430000, '1', 200),
+(36, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d74b25e0-c53c-1b24-ee1e-a456ca5e754a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428325, 1549430000, '1', 0),
+(37, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"2dcb425a-4947-898b-1c78-91cda05e66a3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428345, 1549430000, '1', 404),
+(38, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"ad64360f-e0c5-ec3c-3da3-c50b37fbef7f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428370, 1549430000, '1', 404),
+(39, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"7c2b7aba-7f85-deed-d309-3d825769427e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428382, 1549430000, '1', 404),
+(40, 'api/example/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"337";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"a927b74d-cc4b-7215-9fdd-f3592820fcb0";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:12:"Content-Type";s:68:"multipart/form-data; boundary=----WebKitFormBoundarymV0NNVKnF6IL7z29";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:5:"title";s:3:"tes";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428413, 1549430000, '1', 200),
+(41, 'api/example/services', 'put', 'a:18:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"43";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"612f28dc-dc61-b57a-c9c0-69a5a8262b98";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:5:"title";s:4:"tesa";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428448, 1549430000, '1', 200),
+(42, 'api/example/services-enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"391bbf12-fd99-4e28-7fc5-6496dc491b0c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428468, 1549430000, '1', 200),
+(43, 'api/example/services-disable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d5cbf18b-d9b5-f44d-c232-f84cc4d11db2";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428472, 1549430000, '1', 200),
+(44, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"16344db9-d25f-e334-9651-333d7e88314e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428480, 1549430000, '1', 200),
+(45, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"caef2b39-8710-18ca-6ce5-4fe6b70992a0";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428655, 1549430000, '1', 404),
+(46, 'api/example/services/1', 'get', 'a:15:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"5c1fc3d5-e1a0-32d4-5577-0da8790112ac";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428659, 1549430000, '1', 404),
+(47, 'api/example/services/0', 'get', 'a:15:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b65e8ad4-2781-d95d-de2c-4c8e8aa447fc";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428662, 1549430000, '1', 404),
+(48, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b6e9a137-e2d0-9180-a433-6216c066a468";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428677, 1549430000, '1', 404),
+(49, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"72518478-f719-4e92-cfe4-bf027a496092";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428680, 1549430000, '1', 404),
+(50, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"faff51a0-75b3-9d5f-3b80-ba00e099b484";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428682, 1549430000, '1', 404),
+(51, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"f20c8e54-9446-4d38-8a0f-219f1d5a561e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428715, 1549430000, '1', 404),
+(52, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"5801b626-9ea3-b456-ae32-9af94267f20c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428717, 1549430000, '1', 404),
+(53, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"43e761b9-d088-5745-33a6-e6e2c77f8e0a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428725, 1549430000, '1', 0),
+(54, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"dda3a68d-329e-371a-e751-4fd11e3241e7";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428727, 1549430000, '1', 0),
+(55, 'api/example/services/aa', 'get', 'a:14:{s:2:"aa";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"c960faa4-1219-26de-d6fe-b7ddc07ec486";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428729, 1549430000, '1', 0),
+(56, 'api/example/services/aa', 'get', 'a:14:{s:2:"aa";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ab82d302-2290-2edd-eb75-0771e0de4f73";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428730, 1549430000, '1', 0),
+(57, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b5495e5a-91ee-67ca-07fd-505c64ac0685";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428734, 1549430000, '1', 0),
+(58, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"9923d27a-b199-e900-361a-1d6b440579a1";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428741, 1549430000, '1', 404),
+(59, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"0e4e077d-2103-723e-61fb-c5ec2ee8d025";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428742, 1549430000, '1', 404),
+(60, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"f47e693b-addb-43f8-7837-ab0c7793c087";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428748, 1549430000, '1', 404),
+(61, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"cbbd6ccb-dc98-f683-b919-c56aa9c0e66d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428749, 1549430000, '1', 404),
+(62, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d1976171-7268-0319-2e50-4851a2fd6c22";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428786, 1549430000, '1', 200),
+(63, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"fabc78b4-cc98-1a61-3131-0c44475cbcdc";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428800, 1549430000, '1', 404),
+(64, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1ea384ac-8306-2f85-88da-49178e8a7f0e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428801, 1549430000, '1', 404),
+(65, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ab54ff73-1a8a-cb60-b1b0-870b35536d9d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428805, 1549430000, '1', 404),
+(66, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ea261273-b754-5389-5412-58e6beb47631";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428807, 1549430000, '1', 404),
+(67, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"9e35cfeb-4c7c-699b-5643-8470aca0fbcb";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428808, 1549430000, '1', 404),
+(68, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"04edaf72-fcb9-e17b-2fc6-2986cbbbf741";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428815, 1549430000, '1', 200),
+(69, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"2514eb50-6c21-1356-dfa9-e4eac100bf8a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428816, 1549430000, '1', 200);
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(67, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"9e35cfeb-4c7c-699b-5643-8470aca0fbcb\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428808, 1549430000, '1', 404),
-(68, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"04edaf72-fcb9-e17b-2fc6-2986cbbbf741\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428815, 1549430000, '1', 200),
-(69, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"2514eb50-6c21-1356-dfa9-e4eac100bf8a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428816, 1549430000, '1', 200),
-(70, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"be916c7e-09f8-5b25-2c50-d09787853210\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428826, 1549430000, '1', 200),
-(71, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"fddcff9d-7292-6c1e-ae51-0e74db0f397e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428841, 1549430000, '1', 200),
-(72, 'api/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"bb1329fc-8f5a-bd41-0f66-d7fe899375b6\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434763, 1549430000, '1', 404),
-(73, 'api/services/disable', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1e145c56-5906-ea88-a56e-a6c2bf9ae277\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434776, 1549430000, '1', 200),
-(74, 'api/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"340\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"003e2e9a-9dda-4605-9c78-fedc0f0a57be\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:78:\"------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition:_form-data;_name\";s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";i:0;s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";i:1;s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434796, 1549430000, '1', 200),
-(75, 'api/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"340\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"21a992d3-2eab-652c-dd40-fdb1b27632f2\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:12:\"Content-Type\";s:68:\"multipart/form-data; boundary=----WebKitFormBoundaryT4EoJtBkCQ8K6lqn\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:6:\"tes ah\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434803, 1549430000, '1', 200),
-(76, 'api/services/detail', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"e91f5cdb-a803-5c82-de2d-af59bdf0072b\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434820, 1549430000, '1', 200),
-(77, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"da4fade1-054f-e5bc-7b3d-7bdfd6dc0890\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434823, 1549430000, '1', 200),
-(78, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"216ef3d2-4d51-94bb-4a48-6947f622e27f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434825, 1549430000, '1', 200),
-(79, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"537a295c-f413-84a0-cf08-67482a6c039d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434830, 1549430000, '1', 200),
-(80, 'api/services/detail', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4f91ad2b-5a8b-947f-efdd-412572cc6296\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434831, 1549430000, '1', 200),
-(81, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"15127d88-080d-fb1b-d526-47437f9257d2\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434849, 1549430000, '1', 200),
-(82, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b2321b65-d3c7-71b6-c06c-bf8c11305996\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434851, 1549430000, '1', 200),
-(83, 'api/services', 'put', 'a:18:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"47\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d74656c0-5e25-a4c6-7237-23ef9a1ce210\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:8:\"tesah uh\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434871, 1549430000, '1', 200),
-(84, 'api/services/enable/1', 'put', 'a:19:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"47\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"c2454b7a-dddb-d292-306e-ddc176572eb8\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:8:\"tesah uh\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434936, 1549430000, '1', 200),
-(85, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"35291873-7622-cfd6-23b5-c0c943dddcef\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434952, 1549440000, '1', 200),
-(86, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"043b2b1f-e7e5-18ca-e0de-b3efa3271808\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434970, 1549440000, '1', 200),
-(87, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"6b1ddca4-8512-a1b9-382e-ebc1a7796a91\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434971, 1549440000, '1', 200),
-(88, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d41aed32-18b4-96a0-6158-0d008a068ca1\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434990, 1549440000, '1', 200),
-(89, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"bcfb6c42-5e8e-3733-2fe7-bede9320fbd0\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435032, 1549440000, '1', 200),
-(90, 'api/services/disable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"8ba1482d-f892-55a3-293d-faadb1ceb153\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435039, 1549440000, '1', 200),
-(91, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"7bd0b329-191e-52a9-d139-a2d7c158cd13\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435046, 1549440000, '1', 200),
-(92, 'api/services/delete', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"643bb8b6-7edb-359a-7151-afb177dc0837\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435056, 1549440000, '1', 200),
-(93, 'api/services', 'delete', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"041e4196-2eea-aa15-bad9-20df6c9acb1d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435078, 1549440000, '1', 200),
-(94, 'api/services', 'delete', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1f715e2e-ea3b-d008-56b0-946c4f5f4d53\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=nkv3g7akvntgcd18ur7a4k02o5pm9rv6\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435084, 1549440000, '1', 200),
-(95, 'api/services', 'get', 'a:9:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"9eb3274b-e76d-48c9-8398-904cb2c09d56\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.148.201', 1550041680, 0.046937, '0', 403),
-(96, 'api/services', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"fac2440a-8f8a-430b-a974-b987f96839ca\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041746, 0.03969, '1', 0),
-(97, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"d183c396-83d6-46f9-8625-9c7e996b1ee6\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041890, 0.0436552, '1', 404),
-(98, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"58030595-56be-4fbe-888c-be60f7e5563c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550042033, 0.3466, '1', 200),
-(99, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7fe9cef8-cbb0-4272-80d3-f9900f4a2297\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=00p5toh62fbnfbrapstu4do5pd2m5k1g\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043293, 0.038852, '1', 200),
-(100, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"08d7c7d9-094a-41ea-81ef-e36b64bc9014\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043338, 0.038234, '1', 200),
-(101, 'api/customer/detail/3', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7df16ff6-d61f-4187-9c17-c5ce6167b3df\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043341, 0.0393689, '1', 200),
-(102, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"bd5e8835-e313-43fa-af33-d81fe9524a2b\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043345, 0.0416031, '1', 200),
-(103, 'api/customer/detail', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"ad35228d-cc4d-49bc-a4bf-8cea06c5e871\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043354, 0.041436, '1', 200),
-(104, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"e30dc5a1-111a-4df7-9f68-10b8a01b5d2f\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043357, 0.0402689, '1', 200),
-(105, 'api/customer/index_detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"378b4b80-ba76-4700-a7f2-90843fe6d12c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043363, 0.0494442, '1', 200),
-(106, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"92d2bfcb-f7c6-4a74-b267-8f7ec2c94079\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043379, 0.045403, '1', 200),
-(107, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"3319eaf6-e27f-4fc8-9127-e9f085acca16\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043412, 0.040298, '1', 200),
-(108, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"e5354978-963c-47d5-9011-9df26f790075\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043439, 0.0403781, '1', 404),
-(109, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"6f15e59e-9569-43bc-a36b-6e38d2614227\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------270277143471167715971007\";s:14:\"Content-Length\";s:3:\"583\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:18:\"Bayu Briyan El Roy\";s:5:\"email\";s:24:\"bayubriyanelroy@gmal.com\";s:5:\"phone\";s:12:\"081230008101\";s:7:\"address\";s:56:\"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043765, 0.0433841, '1', 200),
-(110, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"021b5b57-e343-4b71-8bd7-9eb0ee56608b\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------241408044604135091511042\";s:14:\"Content-Length\";s:3:\"473\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:0:\"\";s:5:\"email\";s:0:\"\";s:7:\"address\";s:0:\"\";s:5:\"phone\";s:0:\"\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043819, 0.074012, '1', 200),
-(111, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c7c07d35-658f-4bc5-91fe-808d684170b1\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:3:\"167\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:18:\"Bayu Briyan El Roy\";s:5:\"email\";s:24:\"bayubriyanelroy@gmal.com\";s:7:\"address\";s:12:\"081230008101\";s:5:\"phone\";s:56:\"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048354, 0.0457339, '1', 200),
-(112, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"891707bc-ee69-4f66-9f9a-d443df828569\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"33\";s:10:\"Connection\";s:10:\"keep-alive\";s:7:\"address\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:2:\"id\";s:1:\"2\";s:4:\"name\";s:0:\"\";s:5:\"email\";s:0:\"\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048393, 0.0788889, '1', 200),
-(113, 'api/customer', 'delete', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"20c22bab-e0ff-4ae7-93e9-1b31a76b80fe\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048516, 0.04495, '1', 400),
-(114, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c81411b7-5a9b-412d-bb50-45725d178c11\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"3\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048560, 0.0388892, '1', 200),
-(115, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"26396c1a-8e8d-47f3-9602-dc03e8e12fc3\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"3\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048595, 0.0394552, '1', 404),
-(116, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"ac36bcce-0e42-4a69-8308-4ede1e1f3561\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048671, 0.0670228, '1', 200),
-(117, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c407981f-055a-4663-96fd-2d9e281bdff5\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048689, 0.04316, '1', 404),
-(118, 'api/customer/enable', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"55701b25-9c14-46aa-ba95-fde151a8281d\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048728, 0.046968, '1', 200),
-(119, 'api/customer/enable', 'put', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"56c42994-6fd9-4291-a637-426d62fa3c6a\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048810, 0.0421109, '1', 200),
-(120, 'api/customer', 'get', 'a:10:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"55658acd-5e8a-420b-ac48-52cd56478e31\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.101.98', 1553486265, 0.043426, '0', 403),
-(121, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"580bffef-90d3-49fb-b877-2c5a0b3768f6\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486285, 0.0393262, '1', 200),
-(122, 'api/customer', 'post', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"74e8aac9-a514-4fd1-a378-7cb584845d45\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486435, 0.0415149, '1', 200),
-(123, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"61ad4f72-a273-4b0c-90d1-776651ee155d\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486456, 0.0401361, '1', 200),
-(124, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"f48b46f5-ef2c-4ced-828d-d55dcf4741e4\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486464, 0.0408051, '1', 200);
+(70, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"be916c7e-09f8-5b25-2c50-d09787853210";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428826, 1549430000, '1', 200),
+(71, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"fddcff9d-7292-6c1e-ae51-0e74db0f397e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428841, 1549430000, '1', 200),
+(72, 'api/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"bb1329fc-8f5a-bd41-0f66-d7fe899375b6";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434763, 1549430000, '1', 404),
+(73, 'api/services/disable', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1e145c56-5906-ea88-a56e-a6c2bf9ae277";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434776, 1549430000, '1', 200),
+(74, 'api/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"340";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"003e2e9a-9dda-4605-9c78-fedc0f0a57be";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:78:"------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition:_form-data;_name";s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";i:0;s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";i:1;s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434796, 1549430000, '1', 200),
+(75, 'api/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"340";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"21a992d3-2eab-652c-dd40-fdb1b27632f2";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:12:"Content-Type";s:68:"multipart/form-data; boundary=----WebKitFormBoundaryT4EoJtBkCQ8K6lqn";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:6:"tes ah";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434803, 1549430000, '1', 200),
+(76, 'api/services/detail', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"e91f5cdb-a803-5c82-de2d-af59bdf0072b";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434820, 1549430000, '1', 200),
+(77, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"da4fade1-054f-e5bc-7b3d-7bdfd6dc0890";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434823, 1549430000, '1', 200),
+(78, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"216ef3d2-4d51-94bb-4a48-6947f622e27f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434825, 1549430000, '1', 200),
+(79, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"537a295c-f413-84a0-cf08-67482a6c039d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434830, 1549430000, '1', 200),
+(80, 'api/services/detail', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4f91ad2b-5a8b-947f-efdd-412572cc6296";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434831, 1549430000, '1', 200),
+(81, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"15127d88-080d-fb1b-d526-47437f9257d2";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434849, 1549430000, '1', 200),
+(82, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b2321b65-d3c7-71b6-c06c-bf8c11305996";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434851, 1549430000, '1', 200),
+(83, 'api/services', 'put', 'a:18:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"47";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d74656c0-5e25-a4c6-7237-23ef9a1ce210";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:8:"tesah uh";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434871, 1549430000, '1', 200),
+(84, 'api/services/enable/1', 'put', 'a:19:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"47";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"c2454b7a-dddb-d292-306e-ddc176572eb8";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:8:"tesah uh";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434936, 1549430000, '1', 200),
+(85, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"35291873-7622-cfd6-23b5-c0c943dddcef";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434952, 1549440000, '1', 200),
+(86, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"043b2b1f-e7e5-18ca-e0de-b3efa3271808";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434970, 1549440000, '1', 200),
+(87, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"6b1ddca4-8512-a1b9-382e-ebc1a7796a91";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434971, 1549440000, '1', 200),
+(88, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d41aed32-18b4-96a0-6158-0d008a068ca1";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434990, 1549440000, '1', 200),
+(89, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"bcfb6c42-5e8e-3733-2fe7-bede9320fbd0";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435032, 1549440000, '1', 200),
+(90, 'api/services/disable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"8ba1482d-f892-55a3-293d-faadb1ceb153";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435039, 1549440000, '1', 200),
+(91, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"7bd0b329-191e-52a9-d139-a2d7c158cd13";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435046, 1549440000, '1', 200),
+(92, 'api/services/delete', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"643bb8b6-7edb-359a-7151-afb177dc0837";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435056, 1549440000, '1', 200),
+(93, 'api/services', 'delete', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"041e4196-2eea-aa15-bad9-20df6c9acb1d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435078, 1549440000, '1', 200),
+(94, 'api/services', 'delete', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1f715e2e-ea3b-d008-56b0-946c4f5f4d53";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=nkv3g7akvntgcd18ur7a4k02o5pm9rv6";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435084, 1549440000, '1', 200),
+(95, 'api/services', 'get', 'a:9:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"9eb3274b-e76d-48c9-8398-904cb2c09d56";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.148.201', 1550041680, 0.046937, '0', 403),
+(96, 'api/services', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"fac2440a-8f8a-430b-a974-b987f96839ca";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041746, 0.03969, '1', 0),
+(97, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"d183c396-83d6-46f9-8625-9c7e996b1ee6";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041890, 0.0436552, '1', 404),
+(98, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"58030595-56be-4fbe-888c-be60f7e5563c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550042033, 0.3466, '1', 200),
+(99, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7fe9cef8-cbb0-4272-80d3-f9900f4a2297";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=00p5toh62fbnfbrapstu4do5pd2m5k1g";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043293, 0.038852, '1', 200),
+(100, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"08d7c7d9-094a-41ea-81ef-e36b64bc9014";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043338, 0.038234, '1', 200),
+(101, 'api/customer/detail/3', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7df16ff6-d61f-4187-9c17-c5ce6167b3df";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043341, 0.0393689, '1', 200),
+(102, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"bd5e8835-e313-43fa-af33-d81fe9524a2b";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043345, 0.0416031, '1', 200),
+(103, 'api/customer/detail', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"ad35228d-cc4d-49bc-a4bf-8cea06c5e871";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043354, 0.041436, '1', 200),
+(104, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"e30dc5a1-111a-4df7-9f68-10b8a01b5d2f";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043357, 0.0402689, '1', 200),
+(105, 'api/customer/index_detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"378b4b80-ba76-4700-a7f2-90843fe6d12c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043363, 0.0494442, '1', 200),
+(106, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"92d2bfcb-f7c6-4a74-b267-8f7ec2c94079";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043379, 0.045403, '1', 200),
+(107, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"3319eaf6-e27f-4fc8-9127-e9f085acca16";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043412, 0.040298, '1', 200),
+(108, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"e5354978-963c-47d5-9011-9df26f790075";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043439, 0.0403781, '1', 404),
+(109, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"6f15e59e-9569-43bc-a36b-6e38d2614227";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------270277143471167715971007";s:14:"Content-Length";s:3:"583";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:18:"Bayu Briyan El Roy";s:5:"email";s:24:"bayubriyanelroy@gmal.com";s:5:"phone";s:12:"081230008101";s:7:"address";s:56:"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043765, 0.0433841, '1', 200),
+(110, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"021b5b57-e343-4b71-8bd7-9eb0ee56608b";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------241408044604135091511042";s:14:"Content-Length";s:3:"473";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:0:"";s:5:"email";s:0:"";s:7:"address";s:0:"";s:5:"phone";s:0:"";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043819, 0.074012, '1', 200),
+(111, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c7c07d35-658f-4bc5-91fe-808d684170b1";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:3:"167";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:18:"Bayu Briyan El Roy";s:5:"email";s:24:"bayubriyanelroy@gmal.com";s:7:"address";s:12:"081230008101";s:5:"phone";s:56:"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048354, 0.0457339, '1', 200),
+(112, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"891707bc-ee69-4f66-9f9a-d443df828569";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"33";s:10:"Connection";s:10:"keep-alive";s:7:"address";s:0:"";s:5:"phone";s:0:"";s:2:"id";s:1:"2";s:4:"name";s:0:"";s:5:"email";s:0:"";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048393, 0.0788889, '1', 200),
+(113, 'api/customer', 'delete', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"20c22bab-e0ff-4ae7-93e9-1b31a76b80fe";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048516, 0.04495, '1', 400),
+(114, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c81411b7-5a9b-412d-bb50-45725d178c11";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"3";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048560, 0.0388892, '1', 200),
+(115, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"26396c1a-8e8d-47f3-9602-dc03e8e12fc3";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"3";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048595, 0.0394552, '1', 404),
+(116, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"ac36bcce-0e42-4a69-8308-4ede1e1f3561";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048671, 0.0670228, '1', 200),
+(117, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c407981f-055a-4663-96fd-2d9e281bdff5";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048689, 0.04316, '1', 404),
+(118, 'api/customer/enable', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"55701b25-9c14-46aa-ba95-fde151a8281d";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048728, 0.046968, '1', 200),
+(119, 'api/customer/enable', 'put', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"56c42994-6fd9-4291-a637-426d62fa3c6a";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048810, 0.0421109, '1', 200),
+(120, 'api/customer', 'get', 'a:10:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"55658acd-5e8a-420b-ac48-52cd56478e31";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.101.98', 1553486265, 0.043426, '0', 403),
+(121, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"580bffef-90d3-49fb-b877-2c5a0b3768f6";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486285, 0.0393262, '1', 200),
+(122, 'api/customer', 'post', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"74e8aac9-a514-4fd1-a378-7cb584845d45";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486435, 0.0415149, '1', 200),
+(123, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"61ad4f72-a273-4b0c-90d1-776651ee155d";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486456, 0.0401361, '1', 200),
+(124, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"f48b46f5-ef2c-4ced-828d-d55dcf4741e4";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486464, 0.0408051, '1', 200),
+(125, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"25a837ed-9429-4b7b-adf2-f6a4c5a37024";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486468, 0.0408051, '1', 404),
+(126, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"d35dbdaa-e37f-4b92-9b2b-12f285cb0b12";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486471, 0.042562, '1', 200),
+(127, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"914bbbda-2ea7-46f7-b9a4-41e60cbcbfcf";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486475, 0.041795, '1', 200),
+(128, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"b931dae0-efcf-4311-bad6-6b0281842cf9";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486478, 0.0405412, '1', 200),
+(129, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"776eb3f3-8102-4bd7-b787-1a5c4bcb4795";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486548, 0.0437829, '1', 200),
+(130, 'api/customer', 'put', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"28873dba-1b14-4637-916e-8cdb5119f1eb";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486610, 0.0680921, '1', 200),
+(131, 'api/customer', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7e1eac1e-faf7-44dd-b734-af0e471a8dea";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------132173021837729928827018";s:14:"Content-Length";s:3:"601";s:10:"Connection";s:10:"keep-alive";s:90:"----------------------------132173021837729928827018\r\nContent-Disposition:_form-data;_name";s:510:""id"\r\n\r\n1\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="name"\r\n\r\nMarcell\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="email"\r\n\r\nmarcell@gmail.com\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="phone"\r\n\r\n0\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="address"\r\n\r\n-\r\n----------------------------132173021837729928827018--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486651, 0.0602229, '1', 200);
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(125, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"25a837ed-9429-4b7b-adf2-f6a4c5a37024\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486468, 0.0408051, '1', 404),
-(126, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"d35dbdaa-e37f-4b92-9b2b-12f285cb0b12\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486471, 0.042562, '1', 200),
-(127, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"914bbbda-2ea7-46f7-b9a4-41e60cbcbfcf\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486475, 0.041795, '1', 200),
-(128, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"b931dae0-efcf-4311-bad6-6b0281842cf9\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486478, 0.0405412, '1', 200),
-(129, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"776eb3f3-8102-4bd7-b787-1a5c4bcb4795\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486548, 0.0437829, '1', 200),
-(130, 'api/customer', 'put', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"28873dba-1b14-4637-916e-8cdb5119f1eb\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486610, 0.0680921, '1', 200),
-(131, 'api/customer', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7e1eac1e-faf7-44dd-b734-af0e471a8dea\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------132173021837729928827018\";s:14:\"Content-Length\";s:3:\"601\";s:10:\"Connection\";s:10:\"keep-alive\";s:90:\"----------------------------132173021837729928827018\r\nContent-Disposition:_form-data;_name\";s:510:\"\"id\"\r\n\r\n1\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nMarcell\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\nmarcell@gmail.com\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n0\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\n-\r\n----------------------------132173021837729928827018--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486651, 0.0602229, '1', 200),
-(132, 'api/customer/index', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"bdc624da-d819-4d43-a638-2841595334cf\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------058076299379341907803355\";s:14:\"Content-Length\";s:3:\"601\";s:10:\"Connection\";s:10:\"keep-alive\";s:90:\"----------------------------058076299379341907803355\r\nContent-Disposition:_form-data;_name\";s:510:\"\"id\"\r\n\r\n1\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nMarcell\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\nmarcell@gmail.com\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n0\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\n-\r\n----------------------------058076299379341907803355--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486659, 0.0498202, '1', 200),
-(133, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7017eee3-7f68-470d-b48f-cda8a497db21\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"61\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";s:4:\"name\";s:7:\"Marcell\";s:5:\"email\";s:17:\"marcell@gmail.com\";s:5:\"phone\";s:1:\"0\";s:7:\"address\";s:1:\"-\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486677, 0.0547671, '1', 200),
-(134, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"0919d15c-ab2d-4719-905a-294bab410871\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"72\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";s:4:\"name\";s:7:\"Marcell\";s:5:\"email\";s:17:\"marcell@gmail.com\";s:5:\"phone\";s:12:\"023489234234\";s:7:\"address\";s:1:\"-\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486705, 0.067431, '1', 200),
-(135, 'api/customer', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"22946704-6ecb-4ae0-818a-984fe1ebb128\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486710, 0.0617602, '1', 200),
-(136, 'api/service/1', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Cache-Control\";s:9:\"max-age=0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:25:\"Upgrade-Insecure-Requests\";s:1:\"1\";s:10:\"User-Agent\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\";s:6:\"Accept\";s:118:\"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:23:\"en-US,en;q=0.9,id;q=0.8\";s:6:\"Cookie\";s:162:\"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ikkhl00q5hb0lmtih2p6drde5dd37s1v\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553490057, 0.0625389, '1', 200),
-(137, 'api/service/1', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Cache-Control\";s:9:\"max-age=0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:25:\"Upgrade-Insecure-Requests\";s:1:\"1\";s:10:\"User-Agent\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\";s:6:\"Accept\";s:118:\"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:23:\"en-US,en;q=0.9,id;q=0.8\";s:6:\"Cookie\";s:162:\"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ng0su29jtcb11lv1ee30qq70g9o6j7fs\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553493660, 0.158972, '1', 200),
-(138, 'api/example/users', 'get', 'a:9:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"0a4c05b5-5bda-4ae6-b446-a56b0f58dd10\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.101.98', 1554794034, 0.0983059, '0', 403),
-(139, 'api/example/users', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"10838701-cb4f-4a83-a991-0e05906965ca\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=p051e6s1ql0263n5n3sddmlsk9u8rqs6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554794302, 0.0760469, '1', 0),
-(140, 'api/example/users', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"3a770d89-3c5a-426c-8a88-ab7b2ff71a96\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cb1hqv00que8cpvs70e1d5895usqu7td\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883642, 0.0705218, '1', 0),
-(141, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"48c7470c-04ff-47f0-9e30-e464283234f0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883651, 0.055877, '1', 0),
-(142, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"f5001237-7200-4352-b3f3-4aef64823792\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883678, 0.0204818, '1', 0),
-(143, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"aba6da08-f4f7-4619-99b5-04c6ee8ffc87\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883745, 0.136361, '1', 200),
-(144, 'api/example', 'get', 'a:9:{s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"deflate, gzip\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"postman-token\";s:36:\"a99bba16-ad49-13bc-4f20-f6991eb24681\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:14:\"Content-Length\";s:1:\"0\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '103.233.102.8', 1554883924, 0.0799909, '1', 200);
+(132, 'api/customer/index', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"bdc624da-d819-4d43-a638-2841595334cf";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------058076299379341907803355";s:14:"Content-Length";s:3:"601";s:10:"Connection";s:10:"keep-alive";s:90:"----------------------------058076299379341907803355\r\nContent-Disposition:_form-data;_name";s:510:""id"\r\n\r\n1\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="name"\r\n\r\nMarcell\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="email"\r\n\r\nmarcell@gmail.com\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="phone"\r\n\r\n0\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="address"\r\n\r\n-\r\n----------------------------058076299379341907803355--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486659, 0.0498202, '1', 200),
+(133, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7017eee3-7f68-470d-b48f-cda8a497db21";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"61";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";s:4:"name";s:7:"Marcell";s:5:"email";s:17:"marcell@gmail.com";s:5:"phone";s:1:"0";s:7:"address";s:1:"-";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486677, 0.0547671, '1', 200),
+(134, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"0919d15c-ab2d-4719-905a-294bab410871";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"72";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";s:4:"name";s:7:"Marcell";s:5:"email";s:17:"marcell@gmail.com";s:5:"phone";s:12:"023489234234";s:7:"address";s:1:"-";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486705, 0.067431, '1', 200),
+(135, 'api/customer', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"22946704-6ecb-4ae0-818a-984fe1ebb128";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486710, 0.0617602, '1', 200),
+(136, 'api/service/1', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Cache-Control";s:9:"max-age=0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:25:"Upgrade-Insecure-Requests";s:1:"1";s:10:"User-Agent";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36";s:6:"Accept";s:118:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:23:"en-US,en;q=0.9,id;q=0.8";s:6:"Cookie";s:162:"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ikkhl00q5hb0lmtih2p6drde5dd37s1v";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553490057, 0.0625389, '1', 200),
+(137, 'api/service/1', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Cache-Control";s:9:"max-age=0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:25:"Upgrade-Insecure-Requests";s:1:"1";s:10:"User-Agent";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36";s:6:"Accept";s:118:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:23:"en-US,en;q=0.9,id;q=0.8";s:6:"Cookie";s:162:"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ng0su29jtcb11lv1ee30qq70g9o6j7fs";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553493660, 0.158972, '1', 200),
+(138, 'api/example/users', 'get', 'a:9:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"0a4c05b5-5bda-4ae6-b446-a56b0f58dd10";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.101.98', 1554794034, 0.0983059, '0', 403),
+(139, 'api/example/users', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"10838701-cb4f-4a83-a991-0e05906965ca";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=p051e6s1ql0263n5n3sddmlsk9u8rqs6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554794302, 0.0760469, '1', 0),
+(140, 'api/example/users', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"3a770d89-3c5a-426c-8a88-ab7b2ff71a96";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cb1hqv00que8cpvs70e1d5895usqu7td";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883642, 0.0705218, '1', 0),
+(141, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"48c7470c-04ff-47f0-9e30-e464283234f0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883651, 0.055877, '1', 0),
+(142, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"f5001237-7200-4352-b3f3-4aef64823792";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883678, 0.0204818, '1', 0),
+(143, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"aba6da08-f4f7-4619-99b5-04c6ee8ffc87";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883745, 0.136361, '1', 200),
+(144, 'api/example', 'get', 'a:9:{s:4:"Host";s:11:"gatoko1.com";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"deflate, gzip";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:13:"postman-token";s:36:"a99bba16-ad49-13bc-4f20-f6991eb24681";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:14:"Content-Length";s:1:"0";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '103.233.102.8', 1554883924, 0.0799909, '1', 200);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_master`
+-- Struktur dari tabel `menu_master`
 --
 
-CREATE TABLE `menu_master` (
+CREATE TABLE IF NOT EXISTS `menu_master` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
@@ -1288,10 +1294,10 @@ CREATE TABLE `menu_master` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menu_master`
+-- Dumping data untuk tabel `menu_master`
 --
 
 INSERT INTO `menu_master` (`id`, `name`, `icon`, `link`, `urutan`, `parent`, `notif`, `status`, `created_at`, `updated_at`) VALUES
@@ -1305,67 +1311,67 @@ INSERT INTO `menu_master` (`id`, `name`, `icon`, `link`, `urutan`, `parent`, `no
 -- --------------------------------------------------------
 
 --
--- Table structure for table `report`
+-- Struktur dari tabel `report`
 --
 
-CREATE TABLE `report` (
+CREATE TABLE IF NOT EXISTS `report` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `query` longtext DEFAULT NULL,
-  `header` text DEFAULT NULL,
+  `query` longtext,
+  `header` text,
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `report`
+-- Dumping data untuk tabel `report`
 --
 
 INSERT INTO `report` (`id`, `name`, `query`, `header`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Users', 'SELECT * FROM user', '[\"nip\",\"name\",\"email\",\"password\",\"role_id\",\"desc\",\"status\",\"created_at\",\"updated_at\"]', 'ENABLE', '2019-03-13 09:57:07', '2019-03-19 17:13:35'),
-(2, 'Customer', 'SELECT customer.*,file.dir FROM customer LEFT JOIN file ON file.table_id = customer.id and file.table= \'customer\'', '[\"nama\",\"email\",\"telp\",\"alamat\",\"status\",\"dir\"]', 'ENABLE', '2019-03-25 10:47:39', '2019-07-01 09:01:19'),
-(3, 'Report SPM', 'SELECT * FROM surat_pembayaran', '[\"tanggal_register\",\"nomor_register\",\"skpd\",\"tanggal_spm\",\"nomor_spm\",\"kode_rekening_program\",\"kode_rekening_belanja\",\"uraian\",\"jumlah_gu\",\"jumlah_up\",\"jumlah_tu\",\"jumlah_ls\",\"pihak_ketiga\"]', 'ENABLE', '2019-07-28 08:13:14', '2019-07-28 08:25:00'),
+(1, 'Users', 'SELECT * FROM user', '["nip","name","email","password","role_id","desc","status","created_at","updated_at"]', 'ENABLE', '2019-03-13 09:57:07', '2019-03-19 17:13:35'),
+(2, 'Customer', 'SELECT customer.*,file.dir FROM customer LEFT JOIN file ON file.table_id = customer.id and file.table= ''customer''', '["nama","email","telp","alamat","status","dir"]', 'ENABLE', '2019-03-25 10:47:39', '2019-07-01 09:01:19'),
+(3, 'Report SPM', 'SELECT * FROM surat_pembayaran', '["tanggal_register","nomor_register","skpd","tanggal_spm","nomor_spm","kode_rekening_program","kode_rekening_belanja","uraian","jumlah_gu","jumlah_up","jumlah_tu","jumlah_ls","pihak_ketiga"]', 'ENABLE', '2019-07-28 08:13:14', '2019-07-28 08:25:00'),
 (4, 'Report Realisasi Tahap Fisik', 'SELECT a.*, b.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', NULL, 'DISABLE', '2019-08-06 13:10:12', NULL),
-(5, 'Report Realisasi Tahap Fisik', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '[\"tanggal\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"keterangan\",\"name\"]', 'ENABLE', '2019-08-06 13:10:46', '2019-08-06 13:11:41'),
-(6, 'Report Realisasi Tahap Anggaran', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_anggaran a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '[\"name\",\"tanggal\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"keterangan\"]', 'ENABLE', '2019-08-06 13:13:22', '2019-08-07 18:21:01'),
-(7, 'Tahap Fisik', 'SELECT a.id, YEAR(a.created_at) as tahun, a.target as target, b.name as kab_kota\r\n,SUM(c.penyuluhan) as penyuluhan\r\n,(100*SUM(c.penyuluhan)/a.target) as persentase_penyuluhan\r\n,SUM(c.Inventarisasi_dan_identifikasi_os) as Inventarisasi_dan_identifikasi_os\r\n,(100*SUM(c.Inventarisasi_dan_identifikasi_os)/a.target) as persentase_Inventarisasi_dan_identifikasi_os\r\n,SUM(c.pengukuran_dan_pemetaan) as pengukuran_dan_pemetaan\r\n,(100*SUM(c.pengukuran_dan_pemetaan)/a.target)as persentase_pengukuran_dan_pemetaan\r\n,SUM(c.sidang_ppl) as sidang_ppl\r\n,(100*SUM(c.sidang_ppl)/a.target) as persentase_sidang_ppl\r\n,SUM(c.penetapan_obyek_dan_subyek) as penetapan_obyek_dan_subyek\r\n,(100*SUM(c.penetapan_obyek_dan_subyek)/a.target)as persentase_penetapan_obyek_dan_subyek\r\n,SUM(c.sk_redis) as sk_redis\r\n,(100*SUM(c.sk_redis)/a.target) as persentase_sk_redis\r\n,SUM(c.pembukuan_hak_dan_penerbitan_sertipikat) as pembukuan_hak_dan_penerbitan_sertipikat\r\n,(100*SUM(c.pembukuan_hak_dan_penerbitan_sertipikat)/a.target) as persentase_pembukuan_hak_dan_penerbitan_sertipikat, \r\n\r\n\r\n\r\nCOUNT(c.id) as total_laporan\r\nFROM user x\r\ntarget_bidang a\r\nON x.id = a.u_id\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nLEFT OUTER JOIN realisasi_tahap_fisik c\r\nON a.u_id = c.u_id\r\nWHERE b.role_id=18 AND a.status=\'ENABLE\' AND b.status = \'ENABLE\' AND c.status=\'ENABLE\'\r\nGROUP BY a.id', '[\"tahun\",\"target\",\"kab_kota\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'DISABLE', '2019-08-06 14:45:17', '2019-08-07 18:03:11'),
-(8, 'Tahap Anggaran', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),\'0\') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),\'0\') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),\'0\') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),\'0\') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),\'0\') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),\'0\') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),\'0\') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),\'0\') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),\'0\') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),\'0\') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),\'0\') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),\'0\') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),\'0\') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),\'0\') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),\'0\') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,\'-\',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,\'-\',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_anggaran c\r\nWHERE  c.status=\'ENABLE\'\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '[\"tahun\",\"kota_kab\",\"target\",\"penyuluhan\",\"persentase_penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"persentase_Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"persentase_pengukuran_dan_pemetaan\",\"sidang_ppl\",\"persentase_sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"persentase_penetapan_obyek_dan_subyek\",\"sk_redis\",\"persentase_sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"persentase_pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'ENABLE', '2019-08-06 14:51:20', '2019-08-09 14:33:46'),
-(9, 'Tahap FIsik', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),\'0\') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),\'0\') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),\'0\') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),\'0\') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),\'0\') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),\'0\') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),\'0\') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),\'0\') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),\'0\') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),\'0\') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),\'0\') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),\'0\') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),\'0\') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),\'0\') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),\'0\') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,\'-\',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,\'-\',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_fisik c\r\nWHERE  c.status=\'ENABLE\'\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '[\"tahun\",\"kota_kab\",\"target\",\"penyuluhan\",\"persentase_penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"persentase_Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"persentase_pengukuran_dan_pemetaan\",\"sidang_ppl\",\"persentase_sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"persentase_penetapan_obyek_dan_subyek\",\"sk_redis\",\"persentase_sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"persentase_pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'ENABLE', '2019-08-09 14:34:28', '2019-08-09 14:34:58'),
-(10, 'Report Transaksi', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = \'19\' AND date(transaksi.created_at) BETWEEN \'2019-08-18\' AND \'2019-08-18\' GROUP BY date(transaksi.created_at)', '[\"tanggal\",\"jumlah\",\"qty\",\"totaljual\",\"totalbeli\"]', 'ENABLE', '2019-08-19 11:51:23', '2019-08-19 11:51:41'),
-(11, 'Report Transaksi Admin', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = \'19\' AND date(transaksi.created_at) BETWEEN \'2019-08-18\' AND \'2019-08-18\' GROUP BY date(transaksi.created_at)', '[\"tanggal\",\"jumlah\",\"qty\",\"totaljual\",\"totalbeli\"]', 'ENABLE', '2019-08-19 12:31:00', '2019-08-19 12:31:46');
+(5, 'Report Realisasi Tahap Fisik', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '["tanggal","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","keterangan","name"]', 'ENABLE', '2019-08-06 13:10:46', '2019-08-06 13:11:41'),
+(6, 'Report Realisasi Tahap Anggaran', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_anggaran a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '["name","tanggal","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","keterangan"]', 'ENABLE', '2019-08-06 13:13:22', '2019-08-07 18:21:01'),
+(7, 'Tahap Fisik', 'SELECT a.id, YEAR(a.created_at) as tahun, a.target as target, b.name as kab_kota\r\n,SUM(c.penyuluhan) as penyuluhan\r\n,(100*SUM(c.penyuluhan)/a.target) as persentase_penyuluhan\r\n,SUM(c.Inventarisasi_dan_identifikasi_os) as Inventarisasi_dan_identifikasi_os\r\n,(100*SUM(c.Inventarisasi_dan_identifikasi_os)/a.target) as persentase_Inventarisasi_dan_identifikasi_os\r\n,SUM(c.pengukuran_dan_pemetaan) as pengukuran_dan_pemetaan\r\n,(100*SUM(c.pengukuran_dan_pemetaan)/a.target)as persentase_pengukuran_dan_pemetaan\r\n,SUM(c.sidang_ppl) as sidang_ppl\r\n,(100*SUM(c.sidang_ppl)/a.target) as persentase_sidang_ppl\r\n,SUM(c.penetapan_obyek_dan_subyek) as penetapan_obyek_dan_subyek\r\n,(100*SUM(c.penetapan_obyek_dan_subyek)/a.target)as persentase_penetapan_obyek_dan_subyek\r\n,SUM(c.sk_redis) as sk_redis\r\n,(100*SUM(c.sk_redis)/a.target) as persentase_sk_redis\r\n,SUM(c.pembukuan_hak_dan_penerbitan_sertipikat) as pembukuan_hak_dan_penerbitan_sertipikat\r\n,(100*SUM(c.pembukuan_hak_dan_penerbitan_sertipikat)/a.target) as persentase_pembukuan_hak_dan_penerbitan_sertipikat, \r\n\r\n\r\n\r\nCOUNT(c.id) as total_laporan\r\nFROM user x\r\ntarget_bidang a\r\nON x.id = a.u_id\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nLEFT OUTER JOIN realisasi_tahap_fisik c\r\nON a.u_id = c.u_id\r\nWHERE b.role_id=18 AND a.status=''ENABLE'' AND b.status = ''ENABLE'' AND c.status=''ENABLE''\r\nGROUP BY a.id', '["tahun","target","kab_kota","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'DISABLE', '2019-08-06 14:45:17', '2019-08-07 18:03:11'),
+(8, 'Tahap Anggaran', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),''0'') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),''0'') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),''0'') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),''0'') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),''0'') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),''0'') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),''0'') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),''0'') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),''0'') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),''0'') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),''0'') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),''0'') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),''0'') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),''0'') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),''0'') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,''-'',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,''-'',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_anggaran c\r\nWHERE  c.status=''ENABLE''\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '["tahun","kota_kab","target","penyuluhan","persentase_penyuluhan","Inventarisasi_dan_identifikasi_os","persentase_Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","persentase_pengukuran_dan_pemetaan","sidang_ppl","persentase_sidang_ppl","penetapan_obyek_dan_subyek","persentase_penetapan_obyek_dan_subyek","sk_redis","persentase_sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","persentase_pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'ENABLE', '2019-08-06 14:51:20', '2019-08-09 14:33:46'),
+(9, 'Tahap FIsik', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),''0'') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),''0'') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),''0'') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),''0'') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),''0'') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),''0'') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),''0'') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),''0'') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),''0'') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),''0'') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),''0'') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),''0'') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),''0'') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),''0'') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),''0'') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,''-'',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,''-'',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_fisik c\r\nWHERE  c.status=''ENABLE''\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '["tahun","kota_kab","target","penyuluhan","persentase_penyuluhan","Inventarisasi_dan_identifikasi_os","persentase_Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","persentase_pengukuran_dan_pemetaan","sidang_ppl","persentase_sidang_ppl","penetapan_obyek_dan_subyek","persentase_penetapan_obyek_dan_subyek","sk_redis","persentase_sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","persentase_pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'ENABLE', '2019-08-09 14:34:28', '2019-08-09 14:34:58'),
+(10, 'Report Transaksi', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = ''19'' AND date(transaksi.created_at) BETWEEN ''2019-08-18'' AND ''2019-08-18'' GROUP BY date(transaksi.created_at)', '["tanggal","jumlah","qty","totaljual","totalbeli"]', 'ENABLE', '2019-08-19 11:51:23', '2019-08-19 11:51:41'),
+(11, 'Report Transaksi Admin', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = ''19'' AND date(transaksi.created_at) BETWEEN ''2019-08-18'' AND ''2019-08-18'' GROUP BY date(transaksi.created_at)', '["tanggal","jumlah","qty","totaljual","totalbeli"]', 'ENABLE', '2019-08-19 12:31:00', '2019-08-19 12:31:46');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE IF NOT EXISTS `role` (
   `id` int(11) NOT NULL,
   `role` varchar(255) DEFAULT NULL,
   `status` enum('DISABLE','ENABLE') DEFAULT NULL,
-  `menu` text DEFAULT NULL,
+  `menu` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`id`, `role`, `status`, `menu`, `created_at`, `updated_at`) VALUES
-(17, 'Super Admin', 'ENABLE', '[\"17\",\"16\",\"33\"]', '2018-10-12 17:03:59', '2019-08-19 12:33:36'),
-(18, 'Operator', 'ENABLE', '[\"17\",\"34\",\"35\",\"37\",\"36\"]', '2018-10-24 10:29:54', '2019-10-14 01:32:38'),
+(17, 'Super Admin', 'ENABLE', '["17","16","33"]', '2018-10-12 17:03:59', '2019-08-19 12:33:36'),
+(18, 'Operator', 'ENABLE', '["17","34","35","37","36"]', '2018-10-24 10:29:54', '2019-10-14 01:32:38'),
 (19, 'Pelanggan', 'DISABLE', NULL, '2019-08-18 01:31:39', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `site`
+-- Struktur dari tabel `site`
 --
 
-CREATE TABLE `site` (
+CREATE TABLE IF NOT EXISTS `site` (
   `id` int(11) NOT NULL,
   `code` varchar(255) DEFAULT NULL,
   `site` varchar(225) DEFAULT NULL,
@@ -1373,10 +1379,10 @@ CREATE TABLE `site` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `site`
+-- Dumping data untuk tabel `site`
 --
 
 INSERT INTO `site` (`id`, `code`, `site`, `name`, `status`, `created_at`, `updated_at`) VALUES
@@ -1402,17 +1408,17 @@ INSERT INTO `site` (`id`, `code`, `site`, `name`, `status`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_agama`
+-- Struktur dari tabel `tbl_agama`
 --
 
-CREATE TABLE `tbl_agama` (
+CREATE TABLE IF NOT EXISTS `tbl_agama` (
   `id_agama` int(11) NOT NULL,
   `kode_agama` varchar(255) NOT NULL,
   `nama_agama` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_agama`
+-- Dumping data untuk tabel `tbl_agama`
 --
 
 INSERT INTO `tbl_agama` (`id_agama`, `kode_agama`, `nama_agama`) VALUES
@@ -1426,19 +1432,19 @@ INSERT INTO `tbl_agama` (`id_agama`, `kode_agama`, `nama_agama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_employer`
+-- Struktur dari tabel `tbl_employer`
 --
 
-CREATE TABLE `tbl_employer` (
+CREATE TABLE IF NOT EXISTS `tbl_employer` (
   `id_employer` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_employer`
+-- Dumping data untuk tabel `tbl_employer`
 --
 
 INSERT INTO `tbl_employer` (`id_employer`, `value`, `status`, `created_at`, `updated_at`) VALUES
@@ -1448,19 +1454,19 @@ INSERT INTO `tbl_employer` (`id_employer`, `value`, `status`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_family`
+-- Struktur dari tabel `tbl_family`
 --
 
-CREATE TABLE `tbl_family` (
+CREATE TABLE IF NOT EXISTS `tbl_family` (
   `id_family` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_family`
+-- Dumping data untuk tabel `tbl_family`
 --
 
 INSERT INTO `tbl_family` (`id_family`, `value`, `status`, `created_at`, `updated_at`) VALUES
@@ -1471,19 +1477,19 @@ INSERT INTO `tbl_family` (`id_family`, `value`, `status`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kabkot`
+-- Struktur dari tabel `tbl_kabkot`
 --
 
-CREATE TABLE `tbl_kabkot` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `provinsi_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `tbl_kabkot` (
+  `id` int(11) unsigned NOT NULL,
+  `provinsi_id` int(11) unsigned NOT NULL,
   `kabupaten_kota` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ibukota` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `k_bsni` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=515 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `tbl_kabkot`
+-- Dumping data untuk tabel `tbl_kabkot`
 --
 
 INSERT INTO `tbl_kabkot` (`id`, `provinsi_id`, `kabupaten_kota`, `ibukota`, `k_bsni`) VALUES
@@ -2005,17 +2011,17 @@ INSERT INTO `tbl_kabkot` (`id`, `provinsi_id`, `kabupaten_kota`, `ibukota`, `k_b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kecamatan`
+-- Struktur dari tabel `tbl_kecamatan`
 --
 
-CREATE TABLE `tbl_kecamatan` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `kabkot_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `tbl_kecamatan` (
+  `id` int(11) unsigned NOT NULL,
+  `kabkot_id` int(11) unsigned NOT NULL,
   `kecamatan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4900 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `tbl_kecamatan`
+-- Dumping data untuk tabel `tbl_kecamatan`
 --
 
 INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
@@ -2054,7 +2060,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (33, 3, 'Kuta Baro'),
 (34, 3, 'Lembah Seulawah'),
 (35, 3, 'Leupung'),
-(36, 3, 'Lhoknga (Lho\'nga)'),
+(36, 3, 'Lhoknga (Lho''nga)'),
 (37, 3, 'Lhoong'),
 (38, 3, 'Mantasiek (Montasik)'),
 (39, 3, 'Mesjid Raya'),
@@ -2478,7 +2484,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (457, 35, 'Hili Serangkai (Hilisaranggu)'),
 (458, 35, 'Hiliduho'),
 (459, 35, 'Idano Gawo'),
-(460, 35, 'Ma\'u'),
+(460, 35, 'Ma''u'),
 (461, 35, 'Sogae Adu (Sogaeadu)'),
 (462, 35, 'Somolo-Molo (Samolo)'),
 (463, 35, 'Ulugawo'),
@@ -2487,9 +2493,9 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (466, 36, 'Mandrehe'),
 (467, 36, 'Mandrehe Barat'),
 (468, 36, 'Mandrehe Utara'),
-(469, 36, 'Moro\'o'),
+(469, 36, 'Moro''o'),
 (470, 36, 'Sirombu'),
-(471, 36, 'Ulu Moro\'o (Ulu Narwo)'),
+(471, 36, 'Ulu Moro''o (Ulu Narwo)'),
 (472, 37, 'Amandraya'),
 (473, 37, 'Aramo'),
 (474, 37, 'Boronadu'),
@@ -2497,7 +2503,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (476, 37, 'Gomo'),
 (477, 37, 'Hibala'),
 (478, 37, 'Hilimegai'),
-(479, 37, 'Hilisalawa\'ahe (Hilisalawaahe)'),
+(479, 37, 'Hilisalawa''ahe (Hilisalawaahe)'),
 (480, 37, 'Huruna'),
 (481, 37, 'Lahusa'),
 (482, 37, 'Lolomatua'),
@@ -2505,13 +2511,13 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (484, 37, 'Maniamolo'),
 (485, 37, 'Mazino'),
 (486, 37, 'Mazo'),
-(487, 37, 'O\'o\'u (Oou)'),
+(487, 37, 'O''o''u (Oou)'),
 (488, 37, 'Onohazumba'),
 (489, 37, 'Pulau-Pulau Batu'),
 (490, 37, 'Pulau-Pulau Batu Barat'),
 (491, 37, 'Pulau-Pulau Batu Timur'),
 (492, 37, 'Pulau-Pulau Batu Utara'),
-(493, 37, 'Sidua\'ori'),
+(493, 37, 'Sidua''ori'),
 (494, 37, 'Simuk'),
 (495, 37, 'Somambawa'),
 (496, 37, 'Susua'),
@@ -2689,7 +2695,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (668, 49, 'Binjai Timur'),
 (669, 49, 'Binjai Utara'),
 (670, 50, 'Gunungsitoli'),
-(671, 50, 'Gunungsitoli Alo\'oa'),
+(671, 50, 'Gunungsitoli Alo''oa'),
 (672, 50, 'Gunungsitoli Barat'),
 (673, 50, 'Gunungsitoli Idanoi'),
 (674, 50, 'Gunungsitoli Selatan'),
@@ -5641,7 +5647,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (3619, 246, 'Larangan'),
 (3620, 246, 'Pademawu'),
 (3621, 246, 'Pakong'),
-(3622, 246, 'Palenga\'an'),
+(3622, 246, 'Palenga''an'),
 (3623, 246, 'Pamekasan'),
 (3624, 246, 'Pasean'),
 (3625, 246, 'Pegantenan'),
@@ -5788,7 +5794,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (3766, 253, 'Nonggunong'),
 (3767, 253, 'Pasongsongan'),
 (3768, 253, 'Pragaan'),
-(3769, 253, 'Ra\'as'),
+(3769, 253, 'Ra''as'),
 (3770, 253, 'Rubaru'),
 (3771, 253, 'Sapeken'),
 (3772, 253, 'Saronggi'),
@@ -6137,7 +6143,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (4115, 283, 'Woha'),
 (4116, 284, 'Dompu');
 INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
-(4117, 284, 'Hu\'u'),
+(4117, 284, 'Hu''u'),
 (4118, 284, 'Kempo'),
 (4119, 284, 'Kilo'),
 (4120, 284, 'Manggalewa'),
@@ -6489,7 +6495,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (4466, 312, 'Fatukopa'),
 (4467, 312, 'Fatumnasi'),
 (4468, 312, 'Fautmolo'),
-(4469, 312, 'Kie (Ki\'e)'),
+(4469, 312, 'Kie (Ki''e)'),
 (4470, 312, 'Kok Baun'),
 (4471, 312, 'Kolbano'),
 (4472, 312, 'Kot Olin'),
@@ -6924,18 +6930,18 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kelurahan`
+-- Struktur dari tabel `tbl_kelurahan`
 --
 
-CREATE TABLE `tbl_kelurahan` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `kecamatan_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `tbl_kelurahan` (
+  `id` int(11) unsigned NOT NULL,
+  `kecamatan_id` int(11) unsigned NOT NULL,
   `kelurahan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kd_pos` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=82504 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `tbl_kelurahan`
+-- Dumping data untuk tabel `tbl_kelurahan`
 --
 
 INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
@@ -9577,7 +9583,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (2635, 130, 'Kuala Peudawa Puntong', '24454'),
 (2636, 130, 'Kuta Blang', '24454'),
 (2637, 130, 'Kuta Lawah', '24454'),
-(2638, 130, 'Meunasah Pu\'uk', '24454'),
+(2638, 130, 'Meunasah Pu''uk', '24454'),
 (2639, 130, 'Sampoimah', '24454'),
 (2640, 130, 'Seuneubok Bacee', '24454'),
 (2641, 130, 'Seuneubok Rambong', '24454'),
@@ -13321,7 +13327,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (6376, 283, 'Balohan', '23525'),
 (6377, 283, 'Beurawang', '23527'),
 (6378, 283, 'Cot Abeuk', '23523'),
-(6379, 283, 'Cot Ba\'U', '23522'),
+(6379, 283, 'Cot Ba''U', '23522'),
 (6380, 283, 'Ie Meulee', '23521'),
 (6381, 283, 'Jaboi', '23526'),
 (6382, 283, 'Keunekai', '23528'),
@@ -15652,7 +15658,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8705, 453, 'Simpang Duhu Lombang', '22998'),
 (8706, 453, 'Simpang Pining', '22998'),
 (8707, 453, 'Tolang', '22998'),
-(8708, 454, 'Balale Toba\'a', '22876'),
+(8708, 454, 'Balale Toba''a', '22876'),
 (8709, 454, 'Banua Sibohou Silima Ewali', '22876'),
 (8710, 454, 'Botohaenga', '22876'),
 (8711, 454, 'Dahana Bawolato', '22851'),
@@ -15668,7 +15674,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8721, 454, 'Orahili', '22876'),
 (8722, 454, 'Orahua', '22876'),
 (8723, 454, 'Orahua Faondrato', '22876'),
-(8724, 454, 'Si\'ofaewali Selatan', '22876'),
+(8724, 454, 'Si''ofaewali Selatan', '22876'),
 (8725, 454, 'Sifaoroasi Uluhou', '22876'),
 (8726, 454, 'Sindrondro', '22876'),
 (8727, 454, 'Siofabanua', '22876'),
@@ -15686,7 +15692,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8739, 455, 'Hiliwaele I', '22815'),
 (8740, 455, 'Hiliwaele II', '22815'),
 (8741, 455, 'Lazara Botomuzoi', '22815'),
-(8742, 455, 'Lololana\'a', '22815'),
+(8742, 455, 'Lololana''a', '22815'),
 (8743, 455, 'Mohili Berua Botomuzoi', '22815'),
 (8744, 455, 'Ola Nori', '22815'),
 (8745, 455, 'Ononamolo Talafu', '22815'),
@@ -15707,14 +15713,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8760, 456, 'Lasela', '22871'),
 (8761, 456, 'Loloanaa Gido', '22871'),
 (8762, 456, 'Lolozasai', '22871'),
-(8763, 456, 'Nifolo\'o Lauru', '22871'),
+(8763, 456, 'Nifolo''o Lauru', '22871'),
 (8764, 456, 'Olindrawa Sisarahili', '22871'),
 (8765, 456, 'Sirete', '22871'),
 (8766, 456, 'Sisobahili', '22871'),
 (8767, 456, 'Soewe (Saewe)', '22871'),
 (8768, 456, 'Somi', '22871'),
-(8769, 456, 'Somi Botogo\'o', '22871'),
-(8770, 456, 'Tulumbaho Salo\'o', '22871'),
+(8769, 456, 'Somi Botogo''o', '22871'),
+(8770, 456, 'Tulumbaho Salo''o', '22871'),
 (8771, 456, 'Umbu', '22871'),
 (8772, 457, 'Awela', '22851'),
 (8773, 457, 'Dahadano Botombawo', '22851'),
@@ -15735,8 +15741,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8788, 458, 'Fadoro Lauru', '22854'),
 (8789, 458, 'Hiliduho', '22854'),
 (8790, 458, 'Hiligodu Tanoseo', '22851'),
-(8791, 458, 'Lasara Tanose\'o', '22854'),
-(8792, 458, 'Ombolalasalo\'o', '22854'),
+(8791, 458, 'Lasara Tanose''o', '22854'),
+(8792, 458, 'Ombolalasalo''o', '22854'),
 (8793, 458, 'Ombolata Sisarahili', '22854'),
 (8794, 458, 'Ononamolo I Bot', '22854'),
 (8795, 458, 'Onowaembo Hiligara', '22854'),
@@ -15754,8 +15760,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8807, 459, 'Biouti Timur', '22872'),
 (8808, 459, 'Bobozioli Loloanaa', '22872'),
 (8809, 459, 'Bozihona', '22872'),
-(8810, 459, 'Hili\'adulo', '22872'),
-(8811, 459, 'Hiligogowaya Maliwa\'a', '22872'),
+(8810, 459, 'Hili''adulo', '22872'),
+(8811, 459, 'Hiligogowaya Maliwa''a', '22872'),
 (8812, 459, 'Hililawae', '22872'),
 (8813, 459, 'Hilimoasio', '22872'),
 (8814, 459, 'Hilimoasio Dua', '22872'),
@@ -15773,7 +15779,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8826, 459, 'Sisobahili Iraonohura', '22872'),
 (8827, 459, 'Tete Goenaai', '22872'),
 (8828, 459, 'Tetehosi', '22872'),
-(8829, 459, 'Tiga Serangkai Maliwa\'a', '22872'),
+(8829, 459, 'Tiga Serangkai Maliwa''a', '22872'),
 (8830, 459, 'Tuhewaebu', '22872'),
 (8831, 460, 'Atualuo', '22852'),
 (8832, 460, 'Balodano', '22852'),
@@ -15782,8 +15788,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8835, 460, 'Lewa - Lewa', '22852'),
 (8836, 460, 'Lewu Oguru II (Lewuaguru II)', '22852'),
 (8837, 460, 'Sihaero III', '22852'),
-(8838, 460, 'Sihare\'o III Bawosalo\'o Berua', '22852'),
-(8839, 460, 'Sihare\'o III Hilibadalu', '22852'),
+(8838, 460, 'Sihare''o III Bawosalo''o Berua', '22852'),
+(8839, 460, 'Sihare''o III Hilibadalu', '22852'),
 (8840, 460, 'Sisarahili Ma U', '22852'),
 (8841, 460, 'Tuhemberua', '22852'),
 (8842, 461, 'Baruzo', '22871'),
@@ -15806,7 +15812,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8859, 462, 'Sifaoroasi', '22871'),
 (8860, 462, 'Sisaratandrawa', '22871'),
 (8861, 462, 'Sisobawino I', '22871'),
-(8862, 462, 'So\'ewali', '22871'),
+(8862, 462, 'So''ewali', '22871'),
 (8863, 462, 'Somolo-Molo', '22871'),
 (8864, 463, 'Fahandrona', '22861'),
 (8865, 463, 'Fatodano', '22861'),
@@ -15820,7 +15826,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8873, 463, 'Onodalinga', '22861'),
 (8874, 463, 'Orahili Somolomolo', '22861'),
 (8875, 463, 'Sifaoroasi Ulugawo', '22861'),
-(8876, 463, 'Sisarahili Soroma\'asi', '22861'),
+(8876, 463, 'Sisarahili Soroma''asi', '22861'),
 (8877, 463, 'Sisobahili Ulugawo', '22861'),
 (8878, 464, 'Bawozamaiwo', '22864'),
 (8879, 464, 'Hiliadulo', '22864'),
@@ -15845,19 +15851,19 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8898, 466, 'Fadoro', '22862'),
 (8899, 466, 'Fadoro Bahili', '22862'),
 (8900, 466, 'Hayo', '22867'),
-(8901, 466, 'Hiliwalo\'o I', '22862'),
+(8901, 466, 'Hiliwalo''o I', '22862'),
 (8902, 466, 'Iraono Gambo', '22862'),
 (8903, 466, 'Iriani Gambo', '22862'),
 (8904, 466, 'Lakhena', '22862'),
 (8905, 466, 'Lasara Baene', '22862'),
 (8906, 466, 'Lologolu', '22862'),
 (8907, 466, 'Lolozirugi', '22862'),
-(8908, 466, 'Siana\'a', '22862'),
-(8909, 466, 'Simae\'asi', '22862'),
+(8908, 466, 'Siana''a', '22862'),
+(8909, 466, 'Simae''asi', '22862'),
 (8910, 466, 'Sisarahili I', '22862'),
 (8911, 466, 'Tetehosi', '22862'),
 (8912, 466, 'Tuhemberua', '22862'),
-(8913, 466, 'Tuho\'owo', '22862'),
+(8913, 466, 'Tuho''owo', '22862'),
 (8914, 466, 'Tumori', '22862'),
 (8915, 466, 'Tuwuuna', '22862'),
 (8916, 466, 'ZuzuNdrao', '22862'),
@@ -15935,13 +15941,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8988, 472, 'Hilimbowo', '22866'),
 (8989, 472, 'Hilimbulawa', '22866'),
 (8990, 472, 'Hilindraso', '22866'),
-(8991, 472, 'Hilisalo\'o', '22866'),
+(8991, 472, 'Hilisalo''o', '22866'),
 (8992, 472, 'Loloabolo', '22866'),
 (8993, 472, 'Lolomoyo', '22866'),
 (8994, 472, 'Lolozaria', '22866'),
 (8995, 472, 'Orahili Eho', '22866'),
-(8996, 472, 'Sifaoro\'asi', '22866'),
-(8997, 472, 'Sinar Ino\'o', '22866'),
+(8996, 472, 'Sifaoro''asi', '22866'),
+(8997, 472, 'Sinar Ino''o', '22866'),
 (8998, 472, 'Sirofi', '22866'),
 (8999, 472, 'Sisarahili', '22866'),
 (9000, 472, 'Sisobahili', '22866'),
@@ -15981,7 +15987,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9034, 475, 'Bawonahono', '22865'),
 (9035, 475, 'Botohili Silambo', '22865'),
 (9036, 475, 'Botohili Sorake', '22865'),
-(9037, 475, 'Botohilisalo\'o', '22865'),
+(9037, 475, 'Botohilisalo''o', '22865'),
 (9038, 475, 'Botohilitano', '22865'),
 (9039, 475, 'Eho Orahili', '22865'),
 (9040, 475, 'Ete Batu', '22865'),
@@ -16011,11 +16017,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9064, 476, 'Fonedanu', '22873'),
 (9065, 476, 'Gununggabungan', '22873'),
 (9066, 476, 'Harefa Orahua', '22873'),
-(9067, 476, 'Hilialo\'oa', '22873'),
+(9067, 476, 'Hilialo''oa', '22873'),
 (9068, 476, 'Hilianaa Gomo', '22873'),
 (9069, 476, 'Hiligabungan', '22873'),
 (9070, 476, 'Hilimbowo Idano Tae', '22873'),
-(9071, 476, 'Hilisalo\'o', '22873'),
+(9071, 476, 'Hilisalo''o', '22873'),
 (9072, 476, 'Hiliserangkai', '22873'),
 (9073, 476, 'Lahusa Idano Tae', '22873'),
 (9074, 476, 'Lawa-Lawaluo Gomo', '22873'),
@@ -16029,7 +16035,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9082, 476, 'Sisarahili Ewo', '22873'),
 (9083, 476, 'Sisiwa Ewali', '22873'),
 (9084, 476, 'Suka Maju Mohili', '22873'),
-(9085, 476, 'Tanoniko\'o', '22873'),
+(9085, 476, 'Tanoniko''o', '22873'),
 (9086, 476, 'Umbu Idano Tae', '22873'),
 (9087, 476, 'Umbu Orahua', '22873'),
 (9088, 477, 'Baruyu Sibohou', '22881'),
@@ -16049,7 +16055,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9102, 477, 'Tano Mokinu', '22881'),
 (9103, 477, 'Tebolo Melayu', '22881'),
 (9104, 477, 'Tuwaso', '22881'),
-(9105, 478, 'Bawasalo\'o Dao-dao', '22864'),
+(9105, 478, 'Bawasalo''o Dao-dao', '22864'),
 (9106, 478, 'Dao-dao Sowo', '22864'),
 (9107, 478, 'Hiliadulo', '22864'),
 (9108, 478, 'Hilitoese', '22864'),
@@ -16068,7 +16074,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9121, 479, 'Manawadano', '22864'),
 (9122, 479, 'Sisobahili Siwalawa', '22864'),
 (9123, 479, 'Talio', '22864'),
-(9124, 479, 'Umbu\'asi', '22864'),
+(9124, 479, 'Umbu''asi', '22864'),
 (9125, 479, 'Umbuasi Barat', '22864'),
 (9126, 480, 'Bawahosi Huruna', '22867'),
 (9127, 480, 'Ehosakhozi', '22867'),
@@ -16082,7 +16088,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9135, 480, 'Mombawa Oladano', '22867'),
 (9136, 480, 'Olayama', '22867'),
 (9137, 480, 'Sifalago', '22867'),
-(9138, 480, 'Sifaoro\'asi', '22867'),
+(9138, 480, 'Sifaoro''asi', '22867'),
 (9139, 480, 'Sifaoroasi Huruna', '22867'),
 (9140, 480, 'Sisarahili Huruna', '22867'),
 (9141, 480, 'Tarewe', '22867'),
@@ -16116,7 +16122,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9169, 482, 'Hili Otalua', '22867'),
 (9170, 482, 'Hilifaondrato', '22867'),
 (9171, 482, 'Hilisangowola', '22867'),
-(9172, 482, 'Ko\'olotano', '22867'),
+(9172, 482, 'Ko''olotano', '22867'),
 (9173, 482, 'Koendrafo', '22867'),
 (9174, 482, 'Lawa-Lawa Luo', '22867'),
 (9175, 482, 'Orudua Lawa-Lawa Lou', '22867'),
@@ -16152,15 +16158,15 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9205, 484, 'Ndraso Hilisimaetano', '22865'),
 (9206, 484, 'Pekan Hilisimaetano', '22865'),
 (9207, 484, 'Samadaya Hilisimaetano', '22865'),
-(9208, 484, 'Soto\'o Hilisimaetano', '22865'),
+(9208, 484, 'Soto''o Hilisimaetano', '22865'),
 (9209, 485, 'Bawolahusa', '22865'),
 (9210, 485, 'Bawolahusa Doli-doli', '22865'),
 (9211, 485, 'Hilifondege Hilizoroilawa', '22865'),
 (9212, 485, 'Hililaza Hilinawalo Mazino', '22865'),
 (9213, 485, 'Hilinawalo Mazino / Mazingo', '22865'),
-(9214, 485, 'Hilizalo\'otano', '22865'),
-(9215, 485, 'Hilizalo\'otano Laowo', '22865'),
-(9216, 485, 'Hilizalo\'otano Larono', '22865'),
+(9214, 485, 'Hilizalo''otano', '22865'),
+(9215, 485, 'Hilizalo''otano Laowo', '22865'),
+(9216, 485, 'Hilizalo''otano Larono', '22865'),
 (9217, 485, 'Hilizoroilawa', '22865'),
 (9218, 485, 'Lawindra', '22865'),
 (9219, 485, 'Lolomboli', '22865'),
@@ -16171,11 +16177,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9224, 486, 'Orahuahili', '22873'),
 (9225, 486, 'Siofabanua', '22873'),
 (9226, 486, 'Tafulu', '22873'),
-(9227, 486, 'Tetegawa\'ai', '22873'),
-(9228, 486, 'Tetegawa\'ai Ehomo', '22873'),
+(9227, 486, 'Tetegawa''ai', '22873'),
+(9228, 486, 'Tetegawa''ai Ehomo', '22873'),
 (9229, 486, 'Ulu Mazo', '22873'),
-(9230, 487, 'Balohili O\'o\'u', '22864'),
-(9231, 487, 'Bawosalo\'o Bawoluo', '22864'),
+(9230, 487, 'Balohili O''o''u', '22864'),
+(9231, 487, 'Bawosalo''o Bawoluo', '22864'),
 (9232, 487, 'Hilimbowo', '22864'),
 (9233, 487, 'Hilimbuasi', '22864'),
 (9234, 487, 'Hilinamozihono', '22864'),
@@ -16183,17 +16189,17 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9236, 487, 'Hilioru dua', '22864'),
 (9237, 487, 'Lolomaya', '22864'),
 (9238, 487, 'Simandraolo / Simandaolo', '22864'),
-(9239, 487, 'Simandraolo O\'ou', '22864'),
+(9239, 487, 'Simandraolo O''ou', '22864'),
 (9240, 487, 'Suka Maju', '22864'),
-(9241, 488, 'Fadoro\'ewo', '22864'),
+(9241, 488, 'Fadoro''ewo', '22864'),
 (9242, 488, 'Helefanikha', '22864'),
 (9243, 488, 'Hiliweto', '22864'),
-(9244, 488, 'La\'uso', '22864'),
+(9244, 488, 'La''uso', '22864'),
 (9245, 488, 'Onohazumba', '22864'),
 (9246, 488, 'Orahili Huruna', '22864'),
 (9247, 488, 'Sisarahili Oyo', '22864'),
 (9248, 488, 'Sisobahili Huruna', '22864'),
-(9249, 488, 'Soroma\'asi', '22864'),
+(9249, 488, 'Soroma''asi', '22864'),
 (9250, 488, 'Tetehosi', '22864'),
 (9251, 489, 'Balogia', '22881'),
 (9252, 489, 'Baruyu Lasara', '22881'),
@@ -16250,11 +16256,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9303, 492, 'Ziabiang', '22881'),
 (9304, 493, 'Hilidohona', '22874'),
 (9305, 493, 'Hililaora', '22874'),
-(9306, 493, 'Hilisao\'oto', '22874'),
+(9306, 493, 'Hilisao''oto', '22874'),
 (9307, 493, 'Hilizanuwo', '22874'),
 (9308, 493, 'Hoya', '22874'),
 (9309, 493, 'Mondrowe', '22874'),
-(9310, 493, 'Na\'ai', '22874'),
+(9310, 493, 'Na''ai', '22874'),
 (9311, 493, 'Olanori', '22874'),
 (9312, 493, 'Taluzusua', '22874'),
 (9313, 493, 'Uluidanoduo', '22874'),
@@ -16316,12 +16322,12 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9369, 498, 'Ganowo Saua', '22865'),
 (9370, 498, 'Hilialito Saua', '22865'),
 (9371, 498, 'Hiliamuri', '22865'),
-(9372, 498, 'Hiliana\'a', '22865'),
+(9372, 498, 'Hiliana''a', '22865'),
 (9373, 498, 'Hilifalago', '22865'),
 (9374, 498, 'Hilifalago Raya', '22865'),
 (9375, 498, 'Hilifarono', '22865'),
 (9376, 498, 'Hiliganowo', '22865'),
-(9377, 498, 'Hiliganowo Salo\'o', '22865'),
+(9377, 498, 'Hiliganowo Salo''o', '22865'),
 (9378, 498, 'Hiligeho', '22865'),
 (9379, 498, 'Hilikara', '22865'),
 (9380, 498, 'Hililaza', '22865'),
@@ -16356,7 +16362,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9409, 500, 'Hilifakhe', '22867'),
 (9410, 500, 'Hilimaera', '22867'),
 (9411, 500, 'Hiliwaebu', '22867'),
-(9412, 500, 'Loloana\'a', '22867'),
+(9412, 500, 'Loloana''a', '22867'),
 (9413, 500, 'Marao', '22867'),
 (9414, 500, 'Orahili Ulunoyo', '22867'),
 (9415, 500, 'Puncak Lolomatua', '22867'),
@@ -16406,7 +16412,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9459, 504, 'Fulolo', '22861'),
 (9460, 504, 'Hiligawoni', '22861'),
 (9461, 504, 'Lahemboho', '22861'),
-(9462, 504, 'Loloana\'a', '22861'),
+(9462, 504, 'Loloana''a', '22861'),
 (9463, 504, 'Ombolata', '22861'),
 (9464, 504, 'Ononamolo Alasa', '22861'),
 (9465, 504, 'Ononamolo Tumula', '22861'),
@@ -16485,14 +16491,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9538, 511, 'Hilisaloo', '22852'),
 (9539, 511, 'Tetehosi Maziaya', '22852'),
 (9540, 511, 'Umbubalodano', '22852'),
-(9541, 512, 'Botona\'ai', '22861'),
+(9541, 512, 'Botona''ai', '22861'),
 (9542, 512, 'Fabaliwa Oyo', '22861'),
 (9543, 512, 'Gunung Tua', '22861'),
 (9544, 512, 'Harefa', '22861'),
 (9545, 512, 'Humene Siheneasi', '22861'),
 (9546, 512, 'Ononazara', '22861'),
 (9547, 512, 'Siwawo', '22861'),
-(9548, 512, 'Te\'olo', '22861'),
+(9548, 512, 'Te''olo', '22861'),
 (9549, 513, 'Alooa', '22852'),
 (9550, 513, 'Banuagea', '22852'),
 (9551, 513, 'Botolakha', '22852'),
@@ -19072,10 +19078,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (12123, 671, 'Fadoro You', '22851'),
 (12124, 671, 'Irano Lase (Iraono Lase)', '22851'),
 (12125, 671, 'Lololawa', '22851'),
-(12126, 671, 'Nazalou Alo\'oa', '22851'),
+(12126, 671, 'Nazalou Alo''oa', '22851'),
 (12127, 671, 'Nazalou Lolowua', '22851'),
-(12128, 671, 'Niko\'otano Dao', '22851'),
-(12129, 671, 'Orahili Tanose\'o', '22851'),
+(12128, 671, 'Niko''otano Dao', '22851'),
+(12129, 671, 'Orahili Tanose''o', '22851'),
 (12130, 671, 'Tarakhaini', '22851'),
 (12131, 672, 'Gada', '22811'),
 (12132, 672, 'Hilinakhe', '22811'),
@@ -22670,7 +22676,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (15718, 1084, 'Bedaro', '37216'),
 (15719, 1084, 'Datar', '37216'),
 (15720, 1084, 'Mangun Jayo', '37216'),
-(15721, 1084, 'Pekan Jum\'at', '37216'),
+(15721, 1084, 'Pekan Jum''at', '37216'),
 (15722, 1084, 'Suka Jaya', '37216'),
 (15723, 1084, 'Tanjung Agung', '37216'),
 (15724, 1084, 'Tebat', '37216'),
@@ -26497,7 +26503,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (19542, 1367, 'Kepayang', '32276'),
 (19543, 1367, 'Kota Baru', '32276'),
 (19544, 1367, 'Kota Dalam', '32276'),
-(19545, 1367, 'Pere\'an', '32276'),
+(19545, 1367, 'Pere''an', '32276'),
 (19546, 1367, 'Pulau Duku', '32276'),
 (19547, 1367, 'Selabung Belimbing Jaya', '32276'),
 (19548, 1367, 'Sinar Marga', '32276'),
@@ -27522,7 +27528,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (20566, 1457, 'Air Sebakul', '38385'),
 (20567, 1457, 'Bukit', '38385'),
 (20568, 1457, 'Jaya Karta', '38385'),
-(20569, 1457, 'Jum\'at (Jumat)', '38385'),
+(20569, 1457, 'Jum''at (Jumat)', '38385'),
 (20570, 1457, 'Kembang Seri', '38385'),
 (20571, 1457, 'Lagan', '38385'),
 (20572, 1457, 'Lagan Bungin', '38385'),
@@ -47467,7 +47473,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40497, 3224, 'Karang Panasan', '69174'),
 (40498, 3224, 'Karangnangka', '69174'),
 (40499, 3224, 'Karpote', '69174'),
-(40500, 3224, 'Kojolan (Ko\'olan)', '69174'),
+(40500, 3224, 'Kojolan (Ko''olan)', '69174'),
 (40501, 3224, 'Lomaer', '69174'),
 (40502, 3224, 'Lombang Daya', '69174'),
 (40503, 3224, 'Lombang Laok', '69174'),
@@ -47499,7 +47505,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40529, 3226, 'Lantek Barat', '69173'),
 (40530, 3226, 'Lantek Temor', '69173'),
 (40531, 3226, 'Longkek', '69173'),
-(40532, 3226, 'Paka\'an Laok', '69173'),
+(40532, 3226, 'Paka''an Laok', '69173'),
 (40533, 3226, 'Pakaan Daya', '69173'),
 (40534, 3226, 'Paterongan', '69173'),
 (40535, 3226, 'Pekadan', '69173'),
@@ -47539,7 +47545,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40569, 3229, 'Karang Asem', '69153'),
 (40570, 3229, 'Klampis Barat', '69153'),
 (40571, 3229, 'Klampis Timur', '69153'),
-(40572, 3229, 'Ko\'ol', '69153'),
+(40572, 3229, 'Ko''ol', '69153'),
 (40573, 3229, 'Larangan Glintong', '69153'),
 (40574, 3229, 'Larangan Sorjan', '69153'),
 (40575, 3229, 'Lergunong', '69153'),
@@ -47548,7 +47554,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40578, 3229, 'Muarah (Moarah)', '69153'),
 (40579, 3229, 'Panyaksagan', '69153'),
 (40580, 3229, 'Polongan', '69153'),
-(40581, 3229, 'Ra\'as', '69153'),
+(40581, 3229, 'Ra''as', '69153'),
 (40582, 3229, 'Tenggun Daya', '69153'),
 (40583, 3229, 'Tobaddung', '69153'),
 (40584, 3229, 'Tolbuk (Tolluk)', '69153'),
@@ -47563,7 +47569,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40593, 3230, 'Kokop', '69155'),
 (40594, 3230, 'Lembung Gunung/Gunong', '69155'),
 (40595, 3230, 'Mandung', '69155'),
-(40596, 3230, 'Mano\'an', '69155'),
+(40596, 3230, 'Mano''an', '69155'),
 (40597, 3230, 'Tlokoh', '69155'),
 (40598, 3230, 'Tramok', '69155'),
 (40599, 3231, 'Bandung', '69175'),
@@ -47595,7 +47601,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40625, 3232, 'Pasanggrahan (Pesanggrahan)', '69163'),
 (40626, 3232, 'Sumur Kuning (Somor Koneng)', '69163'),
 (40627, 3232, 'Tebul', '69163'),
-(40628, 3233, 'Ba\'engas', '69163'),
+(40628, 3233, 'Ba''engas', '69163'),
 (40629, 3233, 'Bringin (Bringen)', '69163'),
 (40630, 3233, 'Bunajih', '69163'),
 (40631, 3233, 'Jukong', '69163'),
@@ -52626,7 +52632,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45653, 3620, 'Pagagan', '69323'),
 (45654, 3620, 'Prekbun', '69323'),
 (45655, 3620, 'Sentol', '69323'),
-(45656, 3620, 'Sopa\'ah', '69323'),
+(45656, 3620, 'Sopa''ah', '69323'),
 (45657, 3620, 'Sumedangan', '69323'),
 (45658, 3620, 'Tambung', '69323'),
 (45659, 3620, 'Tanjung', '69323'),
@@ -52697,10 +52703,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45724, 3626, 'Badung', '69363'),
 (45725, 3626, 'Banyu Bulu', '69363'),
 (45726, 3626, 'Batu Kalangan', '69363'),
-(45727, 3626, 'Billa\'an', '69363'),
+(45727, 3626, 'Billa''an', '69363'),
 (45728, 3626, 'Campor', '69363'),
 (45729, 3626, 'Candi Burung', '69363'),
-(45730, 3626, 'Gro\'om', '69363'),
+(45730, 3626, 'Gro''om', '69363'),
 (45731, 3626, 'Jambringin', '69363'),
 (45732, 3626, 'Karanganyar', '69363'),
 (45733, 3626, 'Klampar', '69363'),
@@ -52734,7 +52740,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45761, 3627, 'Larangan Tokol', '69371'),
 (45762, 3627, 'Mangar', '69371'),
 (45763, 3627, 'Panglegur', '69371'),
-(45764, 3627, 'Taro\'an', '69371'),
+(45764, 3627, 'Taro''an', '69371'),
 (45765, 3627, 'Terrak', '69371'),
 (45766, 3627, 'Tlanakan', '69371'),
 (45767, 3627, 'Tlesa', '69371'),
@@ -54363,7 +54369,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47388, 3738, 'Kesambi Rampak', '68362'),
 (47389, 3738, 'Landangan', '68362'),
 (47390, 3738, 'Peleyan', '68362'),
-(47391, 3738, 'Poka\'an', '68362'),
+(47391, 3738, 'Poka''an', '68362'),
 (47392, 3738, 'Seletreng', '68362'),
 (47393, 3738, 'Wonokoyo', '68362'),
 (47394, 3739, 'Balung', '68352'),
@@ -54613,7 +54619,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47638, 3759, 'Tambuko', '69463'),
 (47639, 3760, 'Kalianget Barat', '69471'),
 (47640, 3760, 'Kalianget Timur', '69471'),
-(47641, 3760, 'Kalimo\'ok', '69471'),
+(47641, 3760, 'Kalimo''ok', '69471'),
 (47642, 3760, 'Karang Anyar', '69471'),
 (47643, 3760, 'Kertasada', '69471'),
 (47644, 3760, 'Marengan Laok', '69471'),
@@ -54666,7 +54672,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47691, 3764, 'Gadding', '69452'),
 (47692, 3764, 'Giring', '69452'),
 (47693, 3764, 'Gunung Kembar', '69452'),
-(47694, 3764, 'Jaba\'an', '69452'),
+(47694, 3764, 'Jaba''an', '69452'),
 (47695, 3764, 'Kasengan', '69452'),
 (47696, 3764, 'Lalangon', '69452'),
 (47697, 3764, 'Lanjuk', '69452'),
@@ -54735,7 +54741,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47760, 3771, 'Paleyat', '69493'),
 (47761, 3771, 'Sadulang', '69493'),
 (47762, 3771, 'Sakala', '69493'),
-(47763, 3771, 'Sase\'el', '69493'),
+(47763, 3771, 'Sase''el', '69493'),
 (47764, 3771, 'Saunten', '69493'),
 (47765, 3771, 'Saur Saebus', '69493'),
 (47766, 3771, 'Sepanjang', '69493'),
@@ -58233,11 +58239,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51256, 4101, 'Kala', '84162'),
 (51257, 4101, 'Mbawa', '84162'),
 (51258, 4101, 'Mpili', '84162'),
-(51259, 4101, 'Ndano Na\'e', '84162'),
-(51260, 4101, 'O\'o', '84162'),
+(51259, 4101, 'Ndano Na''e', '84162'),
+(51260, 4101, 'O''o', '84162'),
 (51261, 4101, 'Palama', '84162'),
 (51262, 4101, 'Rora', '84162'),
-(51263, 4102, 'Ka\'owa', '84181'),
+(51263, 4102, 'Ka''owa', '84181'),
 (51264, 4102, 'Kabaro', '84181'),
 (51265, 4102, 'Kuta', '84181'),
 (51266, 4102, 'Londu', '84181'),
@@ -58257,7 +58263,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51280, 4103, 'Simpasai', '84182'),
 (51281, 4103, 'Soro', '84182'),
 (51282, 4103, 'Sumi', '84182'),
-(51283, 4104, 'Doro O\'o', '84181'),
+(51283, 4104, 'Doro O''o', '84181'),
 (51284, 4104, 'Dumu', '84181'),
 (51285, 4104, 'Kalodu', '84181'),
 (51286, 4104, 'Kangga', '84181'),
@@ -58327,13 +58333,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51350, 4110, 'Jia', '84182'),
 (51351, 4110, 'Kowo', '84182'),
 (51352, 4110, 'Lamera', '84182'),
-(51353, 4110, 'Na\'e', '84182'),
+(51353, 4110, 'Na''e', '84182'),
 (51354, 4110, 'Naru', '84182'),
 (51355, 4110, 'Naru Barat', '84182'),
 (51356, 4110, 'Oi Maci', '84182'),
 (51357, 4110, 'Parangina', '84182'),
 (51358, 4110, 'Poja', '84182'),
-(51359, 4110, 'Rai O\'i', '84182'),
+(51359, 4110, 'Rai O''i', '84182'),
 (51360, 4110, 'Rasabou', '84182'),
 (51361, 4110, 'Sangia', '84182'),
 (51362, 4110, 'Sari', '84182'),
@@ -58402,13 +58408,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51425, 4116, 'Mangge Nae', '84219'),
 (51426, 4116, 'Manggeasi', '84219'),
 (51427, 4116, 'Mbawi', '84219'),
-(51428, 4116, 'O\'o', '84219'),
+(51428, 4116, 'O''o', '84219'),
 (51429, 4116, 'Potu', '84214'),
 (51430, 4116, 'Sori Sakolo', '84213'),
 (51431, 4117, 'Adu', '84271'),
 (51432, 4117, 'Cempi Jaya', '84271'),
 (51433, 4117, 'Daha', '84271'),
-(51434, 4117, 'Hu\'u', '84271'),
+(51434, 4117, 'Hu''u', '84271'),
 (51435, 4117, 'Jala', '84271'),
 (51436, 4117, 'Merada', '84271'),
 (51437, 4117, 'Rasa Bou', '84271'),
@@ -58419,7 +58425,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51442, 4118, 'Songgaja', '84261'),
 (51443, 4118, 'Soro', '84261'),
 (51444, 4118, 'Soro Barat', '84261'),
-(51445, 4118, 'Ta\'a', '84261'),
+(51445, 4118, 'Ta''a', '84261'),
 (51446, 4118, 'Tolo Kalo', '84261'),
 (51447, 4119, 'Kiwu', '84252'),
 (51448, 4119, 'Kramat 2 (Keramat)', '84252'),
@@ -59286,7 +59292,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52308, 4207, 'Lampe', '84119'),
 (52309, 4207, 'Lelamase', '84119'),
 (52310, 4207, 'Nungga', '84119'),
-(52311, 4207, 'Oi Fo\'o', '84119'),
+(52311, 4207, 'Oi Fo''o', '84119'),
 (52312, 4208, 'Ampenan Selatan', '83114'),
 (52313, 4208, 'Ampenan Tengah', '83112'),
 (52314, 4208, 'Ampenan Utara', '83511'),
@@ -59583,7 +59589,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52605, 4241, 'Tukuneno', '85752'),
 (52606, 4242, 'Bauho', '85771'),
 (52607, 4242, 'Dafala', '85771'),
-(52608, 4242, 'Fatuba\'a', '85771'),
+(52608, 4242, 'Fatuba''a', '85771'),
 (52609, 4242, 'Halimodok', '85771'),
 (52610, 4242, 'Manleten', '85771'),
 (52611, 4242, 'Sabarau/Saraban', '85771'),
@@ -59595,7 +59601,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52617, 4242, 'Umaklaran', '85771'),
 (52618, 4243, 'Detukeli', '86371'),
 (52619, 4243, 'Detumbewa', '86371'),
-(52620, 4243, 'Jeo Du\'a', '86371'),
+(52620, 4243, 'Jeo Du''a', '86371'),
 (52621, 4243, 'Kanganara', '86371'),
 (52622, 4243, 'Kebesani', '86371'),
 (52623, 4243, 'Maurole Selatan', '86371'),
@@ -59859,7 +59865,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52881, 4263, 'Jopu', '86372'),
 (52882, 4263, 'Likanaka', '86372'),
 (52883, 4263, 'Lise Lowobora', '86372'),
-(52884, 4263, 'Lise Pu\'u', '86372'),
+(52884, 4263, 'Lise Pu''u', '86372'),
 (52885, 4263, 'Lisedetu', '86372'),
 (52886, 4263, 'Mbuli Loo', '86372'),
 (52887, 4263, 'Mbuliwaralau', '86372'),
@@ -59868,7 +59874,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52890, 4263, 'Niromesi', '86372'),
 (52891, 4263, 'Nualise', '86372'),
 (52892, 4263, 'Rindiwawo', '86372'),
-(52893, 4263, 'Tana Lo\'o', '86372'),
+(52893, 4263, 'Tana Lo''o', '86372'),
 (52894, 4263, 'Wolokoli', '86372'),
 (52895, 4263, 'Wolosoko', '86372'),
 (52896, 4264, 'Adonara', '86262'),
@@ -60313,7 +60319,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53334, 4307, 'Nubaboli', '86685'),
 (53335, 4307, 'Nubahaeraka', '86685'),
 (53336, 4307, 'Tubuk Rajan', '86685'),
-(53337, 4308, 'Atu Wa\'lupang', '86692'),
+(53337, 4308, 'Atu Wa''lupang', '86692'),
 (53338, 4308, 'Atulaleng', '86692'),
 (53339, 4308, 'Bareng', '86692'),
 (53340, 4308, 'Bean', '86692'),
@@ -60776,7 +60782,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53797, 4341, 'Golo Lewe', '86752'),
 (53798, 4341, 'Golo Pua', '86752'),
 (53799, 4341, 'Golo Riwu', '86752'),
-(53800, 4341, 'Golo Ru\'u', '86752'),
+(53800, 4341, 'Golo Ru''u', '86752'),
 (53801, 4341, 'Golo Wedong', '86752'),
 (53802, 4341, 'Kolang', '86752'),
 (53803, 4341, 'Lawi', '86752'),
@@ -60864,7 +60870,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53885, 4346, 'Golo Bore', '86752'),
 (53886, 4346, 'Golo Keli', '86752'),
 (53887, 4346, 'Golo Poleng', '86752'),
-(53888, 4346, 'Golo Ru\'a', '86752'),
+(53888, 4346, 'Golo Ru''a', '86752'),
 (53889, 4346, 'Kasong', '86752'),
 (53890, 4346, 'Lumut', '86752'),
 (53891, 4346, 'Momol', '86752'),
@@ -61383,7 +61389,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (54404, 4380, 'Sonimanu', '85973'),
 (54405, 4380, 'Tesabela', '85973'),
 (54406, 4380, 'Tunganamo', '85973'),
-(54407, 4381, 'Bo\'a (Boa)', '85982'),
+(54407, 4381, 'Bo''a (Boa)', '85982'),
 (54408, 4381, 'Mbueain', '85981'),
 (54409, 4381, 'Nemberala', '85982'),
 (54410, 4381, 'Oelolot', '85981'),
@@ -62172,7 +62178,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55192, 4467, 'Mutis', '85561'),
 (55193, 4467, 'Nenas', '85561'),
 (55194, 4467, 'Nuapin', '85561'),
-(55195, 4468, 'Besle\'u', '85572'),
+(55195, 4468, 'Besle''u', '85572'),
 (55196, 4468, 'Bileon', '85572'),
 (55197, 4468, 'Kaeneno', '85572'),
 (55198, 4468, 'Nunuhakniti', '85572'),
@@ -62185,7 +62191,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55205, 4469, 'Fallas', '85575'),
 (55206, 4469, 'Fatukusi', '85575'),
 (55207, 4469, 'Fatuulan', '85575'),
-(55208, 4469, 'Naile\'u', '85575'),
+(55208, 4469, 'Naile''u', '85575'),
 (55209, 4469, 'Napi', '85575'),
 (55210, 4469, 'Nekmese', '85575'),
 (55211, 4469, 'Oenai', '85575'),
@@ -62275,7 +62281,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55295, 4479, 'Binaus', '85561'),
 (55296, 4479, 'Kualeu', '85561'),
 (55297, 4479, 'Neke Manifeto', '85561'),
-(55298, 4479, 'Oel\'ekam', '85561'),
+(55298, 4479, 'Oel''ekam', '85561'),
 (55299, 4479, 'Oelbubuk', '85561'),
 (55300, 4479, 'Pika', '85561'),
 (55301, 4480, 'Ajaobaki', '85552'),
@@ -62285,7 +62291,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55305, 4480, 'Fatukoto', '85552'),
 (55306, 4480, 'Halme', '85552'),
 (55307, 4480, 'Iusmolo', '85552'),
-(55308, 4480, 'Kokfe\'u', '85552'),
+(55308, 4480, 'Kokfe''u', '85552'),
 (55309, 4480, 'Lelobatan', '85552'),
 (55310, 4480, 'Leloboko', '85552'),
 (55311, 4480, 'Nefokoko', '85552'),
@@ -62293,8 +62299,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55313, 4480, 'Obesi', '85552'),
 (55314, 4480, 'Sebot', '85552'),
 (55315, 4480, 'Taiftob', '85552'),
-(55316, 4480, 'To\'fen', '85552'),
-(55317, 4480, 'To\'manat', '85552'),
+(55316, 4480, 'To''fen', '85552'),
+(55317, 4480, 'To''manat', '85552'),
 (55318, 4480, 'Tunua', '85552'),
 (55319, 4481, 'Fatumnasi', '85573'),
 (55320, 4481, 'Mella', '85573'),
@@ -62444,7 +62450,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55464, 4500, 'Bitauni', '85671'),
 (55465, 4500, 'Botof', '85671'),
 (55466, 4500, 'Fatoin', '85671'),
-(55467, 4500, 'Fatu\'ana', '85671'),
+(55467, 4500, 'Fatu''ana', '85671'),
 (55468, 4500, 'Keun', '85671'),
 (55469, 4500, 'Loeram', '85671'),
 (55470, 4500, 'Manunain A', '85671'),
@@ -62505,7 +62511,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55525, 4506, 'Manusasi', '85661'),
 (55526, 4506, 'Neotoko', '85661'),
 (55527, 4506, 'Noepesu', '85661'),
-(55528, 4506, 'Sa\'tab', '85661'),
+(55528, 4506, 'Sa''tab', '85661'),
 (55529, 4506, 'Saenam', '85661'),
 (55530, 4506, 'Sallu', '85661'),
 (55531, 4506, 'Suanae', '85661'),
@@ -62665,7 +62671,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55685, 4527, 'Bukit Serayan', '79281'),
 (55686, 4527, 'Marunsu', '79281'),
 (55687, 4527, 'Pasti Jaya', '79281'),
-(55688, 4527, 'Saba\'u', '79281'),
+(55688, 4527, 'Saba''u', '79281'),
 (55689, 4527, 'Samalantan', '79281'),
 (55690, 4527, 'Tumiang', '79281'),
 (55691, 4528, 'Bange', '79284'),
@@ -62741,7 +62747,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55761, 4537, 'Tajum', '78767'),
 (55762, 4537, 'Tinting Seligi', '78767'),
 (55763, 4538, 'Labian', '78766'),
-(55764, 4538, 'Labian Ira\'ang', '78766'),
+(55764, 4538, 'Labian Ira''ang', '78766'),
 (55765, 4538, 'Lanjak Deras', '78766'),
 (55766, 4538, 'Melemba', '78766'),
 (55767, 4538, 'Mensiau', '78766'),
@@ -63497,7 +63503,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (56516, 4600, 'Parigi', '79363'),
 (56517, 4600, 'Sabaka', '79363'),
 (56518, 4600, 'Sailo', '79363'),
-(56519, 4600, 'Sala\'as', '79363'),
+(56519, 4600, 'Sala''as', '79363'),
 (56520, 4600, 'Salumang', '79363'),
 (56521, 4600, 'Sampuro', '79363'),
 (56522, 4600, 'Sei/Sungai Laki', '79363'),
@@ -68439,7 +68445,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (61454, 5006, 'Intu Lingau', '75777'),
 (61455, 5006, 'Jontai', '75777'),
 (61456, 5006, 'Lakan Bilem', '75776'),
-(61457, 5006, 'Mu\'ut', '75776'),
+(61457, 5006, 'Mu''ut', '75776'),
 (61458, 5006, 'Sembuan', '75777'),
 (61459, 5006, 'Sentalar', '75776'),
 (61460, 5006, 'Temula', '75777'),
@@ -69705,7 +69711,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (62719, 5135, 'Bilalang III', '95751'),
 (62720, 5135, 'Bilalang III Utara', '95751'),
 (62721, 5135, 'Bilalang IV', '95751'),
-(62722, 5135, 'Kolinganga\'an', '95751'),
+(62722, 5135, 'Kolinganga''an', '95751'),
 (62723, 5135, 'Tudu Aog', '95751'),
 (62724, 5135, 'Tudu Aog Baru', '95751'),
 (62725, 5136, 'Bangomolunow', '95752'),
@@ -71525,7 +71531,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (64538, 5302, 'Luok', '94773'),
 (64539, 5302, 'Mamping', '94773'),
 (64540, 5302, 'Padang', '94773'),
-(64541, 5302, 'Ra\'u', '94773'),
+(64541, 5302, 'Ra''u', '94773'),
 (64542, 5302, 'Talang Batu', '94773'),
 (64543, 5302, 'Talima A', '94773'),
 (64544, 5302, 'Talima B', '94773'),
@@ -72304,7 +72310,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65317, 5365, 'Sipeso', '94353'),
 (65318, 5365, 'Tamarenja', '94353'),
 (65319, 5366, 'Batusuya', '94353'),
-(65320, 5366, 'Batusuya Go\'o', '94353'),
+(65320, 5366, 'Batusuya Go''o', '94353'),
 (65321, 5366, 'Kaliburu', '94353'),
 (65322, 5366, 'Kaliburu Kata', '94353'),
 (65323, 5366, 'Saloya', '94353'),
@@ -72390,7 +72396,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65403, 5374, 'Tandaoleo', '94974'),
 (65404, 5374, 'Tangofa', '94974'),
 (65405, 5374, 'Torete', '94974'),
-(65406, 5374, 'Were\'a', '94974'),
+(65406, 5374, 'Were''a', '94974'),
 (65407, 5375, 'Bakala', '94974'),
 (65408, 5375, 'Boelimau', '94974'),
 (65409, 5375, 'Buajangka', '94974'),
@@ -72407,7 +72413,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65420, 5375, 'Pado-Pado', '94974'),
 (65421, 5375, 'Paku', '94974'),
 (65422, 5375, 'Panimbawang', '94974'),
-(65423, 5375, 'Po\'o', '94974'),
+(65423, 5375, 'Po''o', '94974'),
 (65424, 5375, 'Poaro', '94974'),
 (65425, 5375, 'Polewali', '94974'),
 (65426, 5375, 'Pulau Dua', '94974'),
@@ -72532,9 +72538,9 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65544, 5383, 'Jamur Jaya', '94966'),
 (65545, 5383, 'Lembobelala', '94966'),
 (65546, 5383, 'Mandula', '94966'),
-(65547, 5383, 'Pa\'awaru', '94966'),
+(65547, 5383, 'Pa''awaru', '94966'),
 (65548, 5383, 'Petumbea', '94966'),
-(65549, 5383, 'Po\'ona', '94966'),
+(65549, 5383, 'Po''ona', '94966'),
 (65550, 5383, 'Pontangoa', '94966'),
 (65551, 5383, 'Ronta', '94966'),
 (65552, 5384, 'Girimulya', '94972'),
@@ -72770,7 +72776,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65782, 5400, 'Jono Kalora', '94471'),
 (65783, 5400, 'Kayuboko', '94471'),
 (65784, 5400, 'Lobu Mandiri', '94471'),
-(65785, 5400, 'Parigimpu\'u', '94471'),
+(65785, 5400, 'Parigimpu''u', '94471'),
 (65786, 5401, 'Boyantongo', '94471'),
 (65787, 5401, 'Dolago', '94471'),
 (65788, 5401, 'Dolago Padang', '94471'),
@@ -72876,7 +72882,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65888, 5410, 'Ogotumubu Barat', '94476'),
 (65889, 5410, 'Sipontan', '94476'),
 (65890, 5410, 'Supilopong', '94476'),
-(65891, 5410, 'Ta\'aniuge', '94476'),
+(65891, 5410, 'Ta''aniuge', '94476'),
 (65892, 5410, 'Tilung', '94476'),
 (65893, 5410, 'Tingkulang', '94476'),
 (65894, 5410, 'Tomini', '94476'),
@@ -72904,7 +72910,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65916, 5413, 'Malei', '94661'),
 (65917, 5413, 'Maliwuko', '94661'),
 (65918, 5413, 'Pandiri', '94661'),
-(65919, 5413, 'Rato\'ombu', '94661'),
+(65919, 5413, 'Rato''ombu', '94661'),
 (65920, 5413, 'Sepe', '94661'),
 (65921, 5413, 'Silanca', '94661'),
 (65922, 5413, 'Sintuwulemba', '94661'),
@@ -73136,7 +73142,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (66148, 5439, 'Lawua', '94363'),
 (66149, 5439, 'Lempelero', '94363'),
 (66150, 5439, 'Moa', '94363'),
-(66151, 5439, 'O\'o', '94363'),
+(66151, 5439, 'O''o', '94363'),
 (66152, 5439, 'Palamaki', '94363'),
 (66153, 5439, 'Palimakijawa (Pilimakujawa/Makujawa)', '94363'),
 (66154, 5439, 'Salutome', '94363'),
@@ -73305,7 +73311,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (66317, 5453, 'Motobiai', '94683'),
 (66318, 5453, 'Pulau Enam', '94683'),
 (66319, 5453, 'Sampobae', '94683'),
-(66320, 5453, 'Titiri\'i', '94683'),
+(66320, 5453, 'Titiri''i', '94683'),
 (66321, 5453, 'Tobil', '94683'),
 (66322, 5453, 'Tongkabo', '94683'),
 (66323, 5453, 'Urulepe', '94683'),
@@ -74692,7 +74698,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67703, 5584, 'Maindo', '91992'),
 (67704, 5584, 'Pantilang', '91992'),
 (67705, 5584, 'Salubua', '91992'),
-(67706, 5584, 'Ta\'ba', '91992'),
+(67706, 5584, 'Ta''ba', '91992'),
 (67707, 5584, 'Tasangtongkonan', '91992'),
 (67708, 5584, 'Tede', '91992'),
 (67709, 5584, 'Urasu (Uraso)', '91992'),
@@ -74809,7 +74815,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67820, 5595, 'Ranteballa', '91921'),
 (67821, 5595, 'Tabang', '91921'),
 (67822, 5595, 'Tibussan', '91921'),
-(67823, 5595, 'To\'lajuk', '91921'),
+(67823, 5595, 'To''lajuk', '91921'),
 (67824, 5595, 'Tobaru', '91921'),
 (67825, 5595, 'Ulusalu', '91921'),
 (67826, 5596, 'Buntu Kamiri', '91999'),
@@ -74826,7 +74832,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67837, 5597, 'Bassiang', '91999'),
 (67838, 5597, 'Bassiang Timur', '91999'),
 (67839, 5597, 'Buntu Karya', '91999'),
-(67840, 5597, 'Jenne/Je\'ne Maeja', '91999'),
+(67840, 5597, 'Jenne/Je''ne Maeja', '91999'),
 (67841, 5597, 'Lampuara', '91999'),
 (67842, 5597, 'Olang', '91999'),
 (67843, 5597, 'Paccerakang', '91999'),
@@ -74834,7 +74840,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67845, 5597, 'Pattedong Selatan', '91999'),
 (67846, 5597, 'Tarramatekkeng', '91999'),
 (67847, 5597, 'To Balo', '91999'),
-(67848, 5597, 'To\'bia', '91999'),
+(67848, 5597, 'To''bia', '91999'),
 (67849, 5598, 'Botta', '91996'),
 (67850, 5598, 'Buntu Kunyi', '91996'),
 (67851, 5598, 'Cakkeawo', '91996'),
@@ -75770,8 +75776,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68780, 5694, 'Kalenna Bontongape', '92255'),
 (68781, 5694, 'Kalukuang', '92255'),
 (68782, 5694, 'Mappakalompo', '92255'),
-(68783, 5694, 'Pa\'lalakkang', '92255'),
-(68784, 5694, 'Pa\'rasangang Beru', '92255'),
+(68783, 5694, 'Pa''lalakkang', '92255'),
+(68784, 5694, 'Pa''rasangang Beru', '92255'),
 (68785, 5694, 'Parambambe', '92254'),
 (68786, 5694, 'Parangmata', '92254'),
 (68787, 5694, 'Pattinoang', '92255'),
@@ -75812,7 +75818,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68822, 5698, 'Balangdatu', '92232'),
 (68823, 5698, 'Maccinibaji', '92232'),
 (68824, 5698, 'Mattirobaji', '92232'),
-(68825, 5698, 'Pa\'batangang', '92232'),
+(68825, 5698, 'Pa''batangang', '92232'),
 (68826, 5698, 'Patani', '92232'),
 (68827, 5698, 'Rewataya', '92232'),
 (68828, 5698, 'Soreang', '92232'),
@@ -75836,10 +75842,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68846, 5700, 'Pa Bundukang', '92252'),
 (68847, 5700, 'Patte Ne', '92252'),
 (68848, 5700, 'Rajaya', '92252'),
-(68849, 5700, 'Su\'rulangi', '92252'),
+(68849, 5700, 'Su''rulangi', '92252'),
 (68850, 5701, 'Balangtanaya', '92221'),
 (68851, 5701, 'Barugaya', '92221'),
-(68852, 5701, 'Kale Ko\'mara', '92221'),
+(68852, 5701, 'Kale Ko''mara', '92221'),
 (68853, 5701, 'Kampung Beru', '92221'),
 (68854, 5701, 'Ko Mara', '92221'),
 (68855, 5701, 'Lassang', '92221'),
@@ -75866,20 +75872,20 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68876, 5703, 'Bittuang', '91856'),
 (68877, 5703, 'Burasia', '91856'),
 (68878, 5703, 'Buttu Limbong', '91856'),
-(68879, 5703, 'Kandua\'', '91856'),
+(68879, 5703, 'Kandua''', '91856'),
 (68880, 5703, 'Kole Palian', '91856'),
-(68881, 5703, 'Le\'tek', '91856'),
-(68882, 5703, 'Pali\'', '91856'),
+(68881, 5703, 'Le''tek', '91856'),
+(68882, 5703, 'Pali''', '91856'),
 (68883, 5703, 'Patongloan', '91856'),
 (68884, 5703, 'Rembo-Rembo', '91856'),
 (68885, 5703, 'Sandana', '91856'),
 (68886, 5703, 'Sasak', '91856'),
-(68887, 5703, 'Se\'seng', '91856'),
+(68887, 5703, 'Se''seng', '91856'),
 (68888, 5703, 'Tiroan', '91856'),
 (68889, 5704, 'Bau', '91872'),
 (68890, 5704, 'Bau Selatan', '91872'),
 (68891, 5704, 'Bua Kayu', '91872'),
-(68892, 5704, 'Mappa\'', '91872'),
+(68892, 5704, 'Mappa''', '91872'),
 (68893, 5704, 'Poton', '91872'),
 (68894, 5704, 'Ratte Buttu', '91872'),
 (68895, 5705, 'Benteng Deata', '91871'),
@@ -75922,7 +75928,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68932, 5708, 'Randan Batu', '91815'),
 (68933, 5708, 'Sandabilik', '91815'),
 (68934, 5708, 'Tiromanda', '91815'),
-(68935, 5708, 'To\' Sapan', '91815'),
+(68935, 5708, 'To'' Sapan', '91815'),
 (68936, 5709, 'Bungin', '91812'),
 (68937, 5709, 'Lemo', '91817'),
 (68938, 5709, 'Lion Tondok Iring', '91817'),
@@ -75947,7 +75953,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68957, 5712, 'Paliorong', '91854'),
 (68958, 5712, 'Pondingao', '91854'),
 (68959, 5712, 'Ratte', '91854'),
-(68960, 5712, 'Sese Salu (Sese\'alu)', '91854'),
+(68960, 5712, 'Sese Salu (Sese''alu)', '91854'),
 (68961, 5713, 'Buntu Datu (Batu)', '91871'),
 (68962, 5713, 'Buntu Tangti', '91871'),
 (68963, 5713, 'Gasing', '91871'),
@@ -75955,7 +75961,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68965, 5713, 'Ke Pe Tinoring', '91871'),
 (68966, 5713, 'Lemo', '91871'),
 (68967, 5713, 'Marinding', '91871'),
-(68968, 5713, 'Pa\'Tengko', '91871'),
+(68968, 5713, 'Pa''Tengko', '91871'),
 (68969, 5713, 'Pakala', '91871'),
 (68970, 5713, 'Palipu', '91871'),
 (68971, 5713, 'Randanan', '91871'),
@@ -75988,14 +75994,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68998, 5716, 'Rembon', '91861'),
 (68999, 5716, 'Sarapeang', '91861'),
 (69000, 5716, 'Talion', '91861'),
-(69001, 5716, 'To\' Pao', '91861'),
+(69001, 5716, 'To'' Pao', '91861'),
 (69002, 5716, 'Ullin', '91861'),
 (69003, 5717, 'Batu Tiakka', '91861'),
 (69004, 5717, 'Pattan Ulusalu', '91861'),
-(69005, 5717, 'Ra\'bung', '91861'),
+(69005, 5717, 'Ra''bung', '91861'),
 (69006, 5717, 'Ratte Talonge', '91861'),
 (69007, 5717, 'Rea Tulak Langi', '91861'),
-(69008, 5717, 'Sa\'tandung', '91861'),
+(69008, 5717, 'Sa''tandung', '91861'),
 (69009, 5717, 'Salu', '91861'),
 (69010, 5717, 'Salu Boronan', '91861'),
 (69011, 5717, 'Salutandung', '91861'),
@@ -76041,10 +76047,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69051, 5725, 'Baruppu Selatan', '91854'),
 (69052, 5725, 'Baruppu Utara', '91854'),
 (69053, 5726, 'Issong Kalua', '91853'),
-(69054, 5726, 'Misa Ba\'Bana', '91853'),
-(69055, 5726, 'Rinding Kila\' Balabatu', '91853'),
+(69054, 5726, 'Misa Ba''Bana', '91853'),
+(69055, 5726, 'Rinding Kila'' Balabatu', '91853'),
 (69056, 5726, 'Sapan Kua Kua', '91853'),
-(69057, 5726, 'Tallang Sura\'', '91853'),
+(69057, 5726, 'Tallang Sura''', '91853'),
 (69058, 5726, 'Tongkonan Basse', '91853'),
 (69059, 5727, 'Batu Busa (Batu Basa)', '91854'),
 (69060, 5727, 'Buntu Minanga', '91854'),
@@ -76074,7 +76080,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69084, 5729, 'Polo Padang', '91854'),
 (69085, 5729, 'Sikuku', '91854'),
 (69086, 5730, 'Angin Angin', '91852'),
-(69087, 5730, 'Ba\'tan', '91852'),
+(69087, 5730, 'Ba''tan', '91852'),
 (69088, 5730, 'Pantanakan Lolo', '91852'),
 (69089, 5730, 'Rinding Batu', '91852'),
 (69090, 5730, 'Sangbua (Sangubua)', '91852'),
@@ -76116,22 +76122,22 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69126, 5734, 'Pangala', '91854'),
 (69127, 5734, 'Pangala Utara', '91854'),
 (69128, 5734, 'Rindingallo', '91854'),
-(69129, 5735, 'Sa\' Dan Andulan', '91853'),
-(69130, 5735, 'Sa\' Dan Ballopasange', '91853'),
-(69131, 5735, 'Sa\' Dan Liku Lambe', '91853'),
-(69132, 5735, 'Sa\' Dan Malimbong', '91853'),
-(69133, 5735, 'Sa\' Dan Matallo', '91853'),
-(69134, 5735, 'Sa\' Dan Pebulian', '91853'),
-(69135, 5735, 'Sa\' Dan Pesondongan', '91853'),
-(69136, 5735, 'Sa\' Dan Sangkaropi', '91853'),
-(69137, 5735, 'Sa\' Dan Tiroallo', '91853'),
-(69138, 5735, 'Sa\' Dan Ulusalu', '91853'),
-(69139, 5736, 'Buntu La\'Bo', '91852'),
-(69140, 5736, 'La\'Bo', '91852'),
+(69129, 5735, 'Sa'' Dan Andulan', '91853'),
+(69130, 5735, 'Sa'' Dan Ballopasange', '91853'),
+(69131, 5735, 'Sa'' Dan Liku Lambe', '91853'),
+(69132, 5735, 'Sa'' Dan Malimbong', '91853'),
+(69133, 5735, 'Sa'' Dan Matallo', '91853'),
+(69134, 5735, 'Sa'' Dan Pebulian', '91853'),
+(69135, 5735, 'Sa'' Dan Pesondongan', '91853'),
+(69136, 5735, 'Sa'' Dan Sangkaropi', '91853'),
+(69137, 5735, 'Sa'' Dan Tiroallo', '91853'),
+(69138, 5735, 'Sa'' Dan Ulusalu', '91853'),
+(69139, 5736, 'Buntu La''Bo', '91852'),
+(69140, 5736, 'La''Bo', '91852'),
 (69141, 5736, 'Paepalean', '91852'),
-(69142, 5736, 'Pata\' Padang', '91852'),
+(69142, 5736, 'Pata'' Padang', '91852'),
 (69143, 5736, 'Tallung Penanian', '91852'),
-(69144, 5736, 'Tandung La\'bo\'', '91852'),
+(69144, 5736, 'Tandung La''bo''', '91852'),
 (69145, 5737, 'Bori', '91853'),
 (69146, 5737, 'Bori Lombongan', '91853'),
 (69147, 5737, 'Bori Rante Letok', '91853'),
@@ -76161,7 +76167,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69171, 5740, 'Tallunglipu Matallo', '91832'),
 (69172, 5740, 'Tampo Tallunglipu', '91832'),
 (69173, 5740, 'Tantanan Tallunglipu', '91832'),
-(69174, 5741, 'Benteng Kado To\'ria', '91833'),
+(69174, 5741, 'Benteng Kado To''ria', '91833'),
 (69175, 5741, 'Buntu Barana', '91833'),
 (69176, 5741, 'Buntu Batu', '91833'),
 (69177, 5741, 'Embatau', '91833'),
@@ -76549,7 +76555,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69559, 5778, 'Sarutanga', '91921'),
 (69560, 5779, 'Batupasi', '91911'),
 (69561, 5779, 'Luminda', '91912'),
-(69562, 5779, 'Patte\'ne', '91912'),
+(69562, 5779, 'Patte''ne', '91912'),
 (69563, 5779, 'Penggoli', '91914'),
 (69564, 5779, 'Sabbamparu (Saabbang Baru)', '91913'),
 (69565, 5779, 'Salobulo', '91911'),
@@ -76966,7 +76972,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69975, 5827, 'Koepisino', '93673'),
 (69976, 5827, 'Laanoipi', '93673'),
 (69977, 5827, 'Langere', '93673'),
-(69978, 5827, 'Ngapa\'ea', '93673'),
+(69978, 5827, 'Ngapa''ea', '93673'),
 (69979, 5827, 'Rante Gola', '93673'),
 (69980, 5827, 'Ronta', '93673'),
 (69981, 5827, 'Tatombuli', '93673'),
@@ -77000,7 +77006,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70009, 5829, 'Loji', '93672'),
 (70010, 5829, 'Malalanda', '93672'),
 (70011, 5829, 'Rombo', '93672'),
-(70012, 5829, 'Sara\'ea', '93672'),
+(70012, 5829, 'Sara''ea', '93672'),
 (70013, 5829, 'Tomoahi', '93672'),
 (70014, 5829, 'Tri Wacu-Wacu', '93672'),
 (70015, 5829, 'Waculaea', '93672'),
@@ -77021,7 +77027,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70030, 5830, 'Rahmat Baru', '93672'),
 (70031, 5830, 'Soloy/Soioi Agung', '93672'),
 (70032, 5831, 'Bira', '93672'),
-(70033, 5831, 'E\'erinere', '93672'),
+(70033, 5831, 'E''erinere', '93672'),
 (70034, 5831, 'Kurolabu', '93672'),
 (70035, 5831, 'Laanosangia (Lanosangia)', '93672'),
 (70036, 5831, 'Labelete', '93672'),
@@ -77395,7 +77401,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70404, 5864, 'Powalaa', '93954'),
 (70405, 5864, 'Salutotong', '93954'),
 (70406, 5864, 'Tarengga', '93954'),
-(70407, 5864, 'To\'lemo', '93954'),
+(70407, 5864, 'To''lemo', '93954'),
 (70408, 5865, 'Amoe', '93954'),
 (70409, 5865, 'Kalo', '93954'),
 (70410, 5865, 'Lawata', '93954'),
@@ -79060,7 +79066,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72068, 6021, 'Totopo', '96264'),
 (72069, 6022, 'Biluhu Barat', '96272'),
 (72070, 6022, 'Biluhu Tengah', '96272'),
-(72071, 6022, 'Botubolu\'o (Botuboluo)', '96272'),
+(72071, 6022, 'Botubolu''o (Botuboluo)', '96272'),
 (72072, 6022, 'Huwongo', '96272'),
 (72073, 6022, 'Lobuto', '96272'),
 (72074, 6022, 'Lobuto Timur', '96272'),
@@ -79798,7 +79804,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72805, 6097, 'Lasa', '91562'),
 (72806, 6097, 'Limbong', '91562'),
 (72807, 6097, 'Makkaliki', '91562'),
-(72808, 6097, 'Polio (Ba\'san)', '91562'),
+(72808, 6097, 'Polio (Ba''san)', '91562'),
 (72809, 6097, 'Salumakki', '91562'),
 (72810, 6097, 'Sandapang', '91562'),
 (72811, 6097, 'Siraun', '91562'),
@@ -79843,7 +79849,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72850, 6103, 'Kopeang', '91352'),
 (72851, 6103, 'Orobatu', '91352'),
 (72852, 6103, 'Rantedoda', '91352'),
-(72853, 6103, 'Taang (Ta\'an)', '91352'),
+(72853, 6103, 'Taang (Ta''an)', '91352'),
 (72854, 6103, 'Takandeang', '91352'),
 (72855, 6103, 'Tampalang', '91352'),
 (72856, 6104, 'Ahu', '91352'),
@@ -80086,7 +80092,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (73093, 6132, 'Pasiang', '91352'),
 (73094, 6132, 'Patampanua', '91352'),
 (73095, 6132, 'Tonro Lima', '91352'),
-(73096, 6133, 'Ba\'ba Tapua', '91352'),
+(73096, 6133, 'Ba''ba Tapua', '91352'),
 (73097, 6133, 'Katimbang', '91352'),
 (73098, 6133, 'Lilli', '91352'),
 (73099, 6133, 'Mambu Tapua', '91352'),
@@ -89504,19 +89510,19 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_marital`
+-- Struktur dari tabel `tbl_marital`
 --
 
-CREATE TABLE `tbl_marital` (
+CREATE TABLE IF NOT EXISTS `tbl_marital` (
   `id_marital` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_marital`
+-- Dumping data untuk tabel `tbl_marital`
 --
 
 INSERT INTO `tbl_marital` (`id_marital`, `value`, `status`, `created_at`, `updated_at`) VALUES
@@ -89538,17 +89544,17 @@ INSERT INTO `tbl_marital` (`id_marital`, `value`, `status`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_provinsi`
+-- Struktur dari tabel `tbl_provinsi`
 --
 
-CREATE TABLE `tbl_provinsi` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `tbl_provinsi` (
+  `id` int(11) unsigned NOT NULL,
   `provinsi` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `p_bsni` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `tbl_provinsi`
+-- Dumping data untuk tabel `tbl_provinsi`
 --
 
 INSERT INTO `tbl_provinsi` (`id`, `provinsi`, `p_bsni`) VALUES
@@ -89590,10 +89596,10 @@ INSERT INTO `tbl_provinsi` (`id`, `provinsi`, `p_bsni`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `nip` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -89604,10 +89610,10 @@ CREATE TABLE `user` (
   `status` varchar(255) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `nip`, `name`, `email`, `password`, `role_id`, `desc`, `status`, `created_at`, `updated_at`) VALUES
@@ -89731,13 +89737,15 @@ ALTER TABLE `tbl_family`
 -- Indexes for table `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
-  ADD PRIMARY KEY (`id`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `fk_provs_kabkots_idx` (`provinsi_id`);
 
 --
 -- Indexes for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
-  ADD PRIMARY KEY (`id`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `fk_kabkots_kecs_idx` (`kabkot_id`);
 
 --
 -- Indexes for table `tbl_kelurahan`
@@ -89771,162 +89779,137 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `access`
 --
 ALTER TABLE `access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `access_control`
 --
 ALTER TABLE `access_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=268;
 --
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `apps_countries`
 --
 ALTER TABLE `apps_countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=237;
 --
 -- AUTO_INCREMENT for table `grafik`
 --
 ALTER TABLE `grafik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `keys`
 --
 ALTER TABLE `keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `konfig`
 --
 ALTER TABLE `konfig`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=145;
 --
 -- AUTO_INCREMENT for table `menu_master`
 --
 ALTER TABLE `menu_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `site`
 --
 ALTER TABLE `site`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `tbl_agama`
 --
 ALTER TABLE `tbl_agama`
-  MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_employer`
 --
 ALTER TABLE `tbl_employer`
-  MODIFY `id_employer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_employer` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_family`
 --
 ALTER TABLE `tbl_family`
-  MODIFY `id_family` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id_family` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=515;
-
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=515;
 --
 -- AUTO_INCREMENT for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4900;
-
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4900;
 --
 -- AUTO_INCREMENT for table `tbl_kelurahan`
 --
 ALTER TABLE `tbl_kelurahan`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82504;
-
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82504;
 --
 -- AUTO_INCREMENT for table `tbl_marital`
 --
 ALTER TABLE `tbl_marital`
-  MODIFY `id_marital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id_marital` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tbl_provinsi`
 --
 ALTER TABLE `tbl_provinsi`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tbl_kabkot`
+-- Ketidakleluasaan untuk tabel `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
   ADD CONSTRAINT `fk_provs_kabkots_idx` FOREIGN KEY (`provinsi_id`) REFERENCES `tbl_provinsi` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tbl_kecamatan`
+-- Ketidakleluasaan untuk tabel `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
   ADD CONSTRAINT `fk_kabkots_kecs_idx` FOREIGN KEY (`kabkot_id`) REFERENCES `tbl_kabkot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
