@@ -38,6 +38,10 @@ class Email extends MY_Controller {
 		$pesan = $this->emailtemplate->template($name, $content, $content2, $button); 
 		//ambil template email ada di application/mobal/emailtemplate
 
+		var_dump($pesan);
+
+		die();
+
 		$pesan = $pesan; 
 
 		$toemail = 'procw57@gmail.com'; //email tujuan
