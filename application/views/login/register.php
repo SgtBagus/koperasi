@@ -32,13 +32,13 @@
                                             <i class="fas fa-phone"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control phone-number" name="dt[phone_number]">
+                                    <input type="number" class="form-control phone-number" name="dt[phone_number]">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Tanggal Lahir</label>
-                                    <input type="date" class="form-control datepicker" name="dt[birth_date]">
+                                    <input type="date" class="form-control" name="dt[birth_date]">
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Tempat Lahir</label>
@@ -55,21 +55,21 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Status Kawin</label>
-                                    <select class="form-control selectric" name="dt[marital_status]">>
+                                    <select class="form-control" name="dt[marital_status]">>
                                         <?php 
                                         $tbl_marital = $this->mymodel->selectWhere('tbl_marital',null);
                                         foreach ($tbl_marital as $tbl_marital_record) {
-                                        echo "<option value=".$tbl_marital_record['id_marital'].">".$tbl_marital_record['value']."</option>";
+                                            echo "<option value=".$tbl_marital_record['id_marital'].">".$tbl_marital_record['value']."</option>";
                                         }?>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Status Keluarga</label>
-                                    <select class="form-control selectric" name="dt[family_status]">>
+                                    <select class="form-control" name="dt[family_status]">>
                                         <?php 
                                         $tbl_family = $this->mymodel->selectWhere('tbl_family',null);
                                         foreach ($tbl_family as $tbl_family_record) {
-                                        echo "<option value=".$tbl_family_record['id_family'].">".$tbl_family_record['value']."</option>";
+                                            echo "<option value=".$tbl_family_record['id_family'].">".$tbl_family_record['value']."</option>";
                                         }
                                         ?>
                                     </select>
@@ -78,35 +78,35 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Agama</label>
-                                    <select class="form-control selectric" name="dt[religion]">>
+                                    <select class="form-control" name="dt[religion]">>
                                         <?php 
                                         $tbl_agama = $this->mymodel->selectWhere('tbl_agama',null);
                                         foreach ($tbl_agama as $tbl_agama_record) {
-                                        echo "<option value=".$tbl_agama_record['id_agama'].">".$tbl_agama_record['nama_agama']."</option>";
+                                            echo "<option value=".$tbl_agama_record['id_agama'].">".$tbl_agama_record['nama_agama']."</option>";
                                         }
                                         ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Kewarganegaraan</label>
-                                    <select class="form-control selectric" name="dt[nationality]">>
+                                    <select class="form-control" name="dt[nationality]">>
                                         <?php 
                                         $apps_countries = $this->mymodel->selectWhere('apps_countries',null);
                                         foreach ($apps_countries as $apps_countries_record) {
-                                        echo "<option value=".$apps_countries_record['id'].">".$apps_countries_record['country_name']."</option>";
+                                            echo "<option value=".$apps_countries_record['id'].">".$apps_countries_record['country_name']."</option>";
                                         }
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-4">
-                                    <label>No NPWP</label>
-                                    <input type="text" class="form-control" name="dt[npwpid]">
-                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>No NPWP</label>
+                                <input type="text" class="form-control" name="dt[npwpid]">
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Kartu Identitas</label>
-                                    <select class="form-control selectric" name="dt[identification_type]">
+                                    <select class="form-control" name="dt[identification_type]">
                                         <option>KTP</option>
                                         <option>SIM</option>
                                         <option>Pasport</option>
@@ -134,37 +134,27 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Provinsi</label>
-                                    <select class="form-control selectric" name="dt[ktp_province_id]">
+                                    <select class="form-control" name="dt[ktp_province_id]" id="provinsi">
                                         <?php 
                                         $tbl_provinsi = $this->mymodel->selectWhere('tbl_provinsi',null);
                                         foreach ($tbl_provinsi as $tbl_provinsi_record) {
-                                        echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
+                                            echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
                                         }
                                         ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Kota/Kabupaten</label>
-                                    <select class="form-control selectric" name="dt[ktp_city_id]">
-                                        <?php 
-                                        $tbl_kabkot = $this->mymodel->selectWhere('tbl_kabkot',null);
-                                        foreach ($tbl_kabkot as $tbl_kabkot_record) {
-                                        echo "<option value=".$tbl_kabkot_record['id'].">".$tbl_kabkot_record['kabupaten_kota']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[ktp_city_id]" id="kota">
+                                        <option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Kecamatan</label>
-                                    <select class="form-control selectric" name="dt[ktp_district_id]">
-                                        <?php 
-                                        $tbl_kecamatan = $this->mymodel->selectWhere('tbl_kecamatan',null);
-                                        foreach ($tbl_kecamatan as $tbl_kecamatan_record) {
-                                        echo "<option value=".$tbl_kecamatan_record['id'].">".$tbl_kecamatan_record['kecamatan']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[ktp_district_id]" id="kecamatan">
+                                        <option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
@@ -182,37 +172,27 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Provinsi</label>
-                                    <select class="form-control selectric" name="dt[domicile_province_id]">
+                                    <select class="form-control" name="dt[domicile_province_id]"  id="domisili_provinsi">
                                         <?php 
                                         $tbl_provinsi = $this->mymodel->selectWhere('tbl_provinsi',null);
                                         foreach ($tbl_provinsi as $tbl_provinsi_record) {
-                                        echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
+                                            echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
                                         }
                                         ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Kota/Kabupaten</label>
-                                    <select class="form-control selectric" name="dt[domicile_city_id]">
-                                        <?php 
-                                        $tbl_kabkot = $this->mymodel->selectWhere('tbl_kabkot',null);
-                                        foreach ($tbl_kabkot as $tbl_kabkot_record) {
-                                        echo "<option value=".$tbl_kabkot_record['id'].">".$tbl_kabkot_record['kabupaten_kota']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[domicile_city_id]" id="domisili_kota">
+                                        <option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Kecamatan</label>
-                                    <select class="form-control selectric" name="dt[domicile_district_id]">
-                                        <?php 
-                                        $tbl_kecamatan = $this->mymodel->selectWhere('tbl_kecamatan',null);
-                                        foreach ($tbl_kecamatan as $tbl_kecamatan_record) {
-                                        echo "<option value=".$tbl_kecamatan_record['id'].">".$tbl_kecamatan_record['kecamatan']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[domicile_district_id]" id="domisili_kecamatan">
+                                        <option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
@@ -252,7 +232,7 @@
                                                 <i class="fas fa-phone"></i>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" name="dt[employer_phone]">
+                                        <input type="number" class="form-control" name="dt[employer_phone]">
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
@@ -299,4 +279,130 @@
     $("#registerSuccess").click(function() {
         swal('Pendaftaran Berhasi!', 'Mohon Tunggu Verfikasi dari kami melalui Watchapps!', 'success');
     })
+
+    function get_kota(provinsi_id){
+        if (provinsi_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kota/" + provinsi_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#kota").empty();
+                    if(!$.trim(data)){
+                        $("#kota").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#kota").append('<option value="' +
+                              value.id + '">' + value.kabupaten_kota +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#kota").empty();
+            $("#kota").append('<option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>');
+        }
+        get_kecamatan($("#kota").val());
+    }
+
+    function get_kecamatan(kota_id){
+        if (kota_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kecamatan/" + kota_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#kecamatan").empty();
+                    if(!$.trim(data)){
+                        $("#kecamatan").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#kecamatan").append('<option value="' +
+                              value.id + '">' + value.kecamatan +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#kecamatan").empty();
+            $("#kecamatan").append('<option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>');
+        }
+    }
+
+    $("#provinsi").change(function() {
+        get_kota($("#provinsi").val());
+    });
+
+    $("#kota").change(function() {
+        get_kecamatan($("#kota").val());
+    });
+
+    get_kota($("#provinsi").val());
+    get_kecamatan($("#kota").val());
+
+
+    function get_domisili_kota(provinsi_id){
+        if (provinsi_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kota/" + provinsi_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#domisili_kota").empty();
+                    if(!$.trim(data)){
+                        $("#domisili_kota").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#domisili_kota").append('<option value="' +
+                              value.id + '">' + value.kabupaten_kota +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#domisili_kota").empty();
+            $("#domisili_kota").append('<option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>');
+        }
+        get_domisili_kecamatan($("#domisili_kota").val());
+    }
+
+    function get_domisili_kecamatan(kota_id){
+        if (kota_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kecamatan/" + kota_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#domisili_kecamatan").empty();
+                    if(!$.trim(data)){
+                        $("#domisili_kecamatan").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#domisili_kecamatan").append('<option value="' +
+                              value.id + '">' + value.kecamatan +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#domisili_kecamatan").empty();
+            $("#domisili_kecamatan").append('<option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>');
+        }
+    }
+
+    $("#domisili_provinsi").change(function() {
+        get_domisili_kota($("#domisili_provinsi").val());
+    });
+
+    $("#domisili_kota").change(function() {
+        get_domisili_kecamatan($("#domisili_kota").val());
+    });
+
+    get_domisili_kota($("#domisili_provinsi").val());
+    get_domisili_kecamatan($("#domisili_kota").val());
+
 </script>

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 14 Okt 2019 pada 05.06
--- Versi Server: 5.6.26
--- PHP Version: 5.6.12
+-- Host: localhost
+-- Generation Time: Oct 14, 2019 at 05:38 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,18 +25,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `access`
+-- Table structure for table `access`
 --
 
-CREATE TABLE IF NOT EXISTS `access` (
+CREATE TABLE `access` (
   `id` int(11) NOT NULL,
   `access_control_id` int(11) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `access`
+-- Dumping data for table `access`
 --
 
 INSERT INTO `access` (`id`, `access_control_id`, `role_id`, `status`) VALUES
@@ -43,19 +45,19 @@ INSERT INTO `access` (`id`, `access_control_id`, `role_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `access_control`
+-- Table structure for table `access_control`
 --
 
-CREATE TABLE IF NOT EXISTS `access_control` (
+CREATE TABLE `access_control` (
   `id` int(11) NOT NULL,
   `folder` varchar(255) DEFAULT NULL,
   `class` varchar(255) DEFAULT NULL,
   `method` varchar(255) DEFAULT NULL,
   `val` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=268 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `access_control`
+-- Dumping data for table `access_control`
 --
 
 INSERT INTO `access_control` (`id`, `folder`, `class`, `method`, `val`) VALUES
@@ -330,83 +332,83 @@ INSERT INTO `access_control` (`id`, `folder`, `class`, `method`, `val`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `activity`
+-- Table structure for table `activity`
 --
 
-CREATE TABLE IF NOT EXISTS `activity` (
+CREATE TABLE `activity` (
   `ip` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
-  `get` longtext,
-  `post` longtext,
+  `get` longtext DEFAULT NULL,
+  `post` longtext DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `activity`
+-- Dumping data for table `activity`
 --
 
 INSERT INTO `activity` (`ip`, `link`, `get`, `post`, `user_id`, `created_at`) VALUES
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('182.0.231.50', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:10'),
 ('182.0.231.50', 'http://gatoko1.com/sop/report/users', '[]', '[]', 1, '2019-03-25 11:32:12'),
-('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{"draw":"1","columns":[{"data":"0","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"1","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"2","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"3","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"4","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"5","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"6","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"7","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"8","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"9","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"10","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:13'),
+('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"0\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"1\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"2\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"3\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"4\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"5\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"6\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"7\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"8\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"9\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"10\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:13'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:57'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:57'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:57'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:58'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:59'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:59'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:32:00'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:01'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{"term":"ke"}', '[]', 1, '2019-03-25 11:32:21'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:22'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:23'),
-('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:24'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:01'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{\"term\":\"ke\"}', '[]', 1, '2019-03-25 11:32:21'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:22'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:23'),
+('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:24'),
 ('182.0.197.180', 'http://gatoko1.com/sop/login/logout', '[]', '[]', 1, '2019-03-25 11:32:31'),
 ('182.0.197.180', 'http://gatoko1.com/sop/index.php/login', '[]', '[]', NULL, '2019-03-25 11:32:31'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{"user":"smartsoft"}', '[]', NULL, '2019-03-25 11:32:38'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{"username":"smartsoft","password":"admin"}', NULL, '2019-03-25 11:32:41'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{\"user\":\"smartsoft\"}', '[]', NULL, '2019-03-25 11:32:38'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{\"username\":\"smartsoft\",\"password\":\"admin\"}', NULL, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-03-25 11:32:45'),
-('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:46'),
+('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:46'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('182.0.231.50', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:10'),
 ('182.0.231.50', 'http://gatoko1.com/sop/report/users', '[]', '[]', 1, '2019-03-25 11:32:12'),
-('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{"draw":"1","columns":[{"data":"0","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"1","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"2","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"3","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"4","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"5","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"6","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"7","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"8","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"9","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"10","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:13'),
+('182.0.231.50', 'http://gatoko1.com/sop/report/Users/ajaxall/', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"0\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"1\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"2\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"3\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"4\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"5\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"6\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"7\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"8\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"9\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"10\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:13'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:57'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:57'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:57'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:31:58'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:31:59'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:31:59'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53'),
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53'),
 ('182.0.231.50', 'http://gatoko1.com/sop/index.php/master/user/editUser/rRntbEh0leW4k9gNhEWWCbHwo2zGf472OKDemzWpDYM~', '[]', '[]', 1, '2019-03-25 11:32:00'),
-('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:01'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{"term":"ke"}', '[]', 1, '2019-03-25 11:32:21'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:22'),
-('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:23'),
-('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{"term":"kementr"}', '[]', 1, '2019-03-25 11:32:24'),
+('182.0.231.50', 'http://gatoko1.com/sop/master/user/json_activity/9', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:01'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=ke', '{\"term\":\"ke\"}', '[]', 1, '2019-03-25 11:32:21'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:22'),
+('182.0.231.173', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:23'),
+('182.0.197.180', 'http://gatoko1.com/sop/index.php/home/get_autocomplete?term=kementr', '{\"term\":\"kementr\"}', '[]', 1, '2019-03-25 11:32:24'),
 ('182.0.197.180', 'http://gatoko1.com/sop/login/logout', '[]', '[]', 1, '2019-03-25 11:32:31'),
 ('182.0.197.180', 'http://gatoko1.com/sop/index.php/login', '[]', '[]', NULL, '2019-03-25 11:32:31'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{"user":"smartsoft"}', '[]', NULL, '2019-03-25 11:32:38'),
-('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{"username":"smartsoft","password":"admin"}', NULL, '2019-03-25 11:32:41'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/lockscreen?user=smartsoft', '{\"user\":\"smartsoft\"}', '[]', NULL, '2019-03-25 11:32:38'),
+('182.0.231.125', 'http://gatoko1.com/sop/login/act_login', '[]', '{\"username\":\"smartsoft\",\"password\":\"admin\"}', NULL, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/', '[]', '[]', 1, '2019-03-25 11:32:41'),
 ('182.0.231.125', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-03-25 11:32:45'),
-('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{"draw":"1","columns":[{"data":"ip","name":"","searchable":"true","orderable":"false","search":{"value":"","regex":"false"}},{"data":"created_at","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"ip","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"link","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"post","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}},{"data":"get","name":"","searchable":"true","orderable":"true","search":{"value":"","regex":"false"}}],"order":[{"column":"1","dir":"asc"}],"start":"0","length":"10","search":{"value":"","regex":"false"}}', 1, '2019-03-25 11:32:46'),
+('182.0.231.125', 'http://gatoko1.com/sop/master/user/json_activity/1', '[]', '{\"draw\":\"1\",\"columns\":[{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"false\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"created_at\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"ip\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"link\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"post\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}},{\"data\":\"get\",\"name\":\"\",\"searchable\":\"true\",\"orderable\":\"true\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}],\"order\":[{\"column\":\"1\",\"dir\":\"asc\"}],\"start\":\"0\",\"length\":\"10\",\"search\":{\"value\":\"\",\"regex\":\"false\"}}', 1, '2019-03-25 11:32:46'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 10:59:26'),
 ('118.136.148.201', 'http://gatoko1.com/sop/master/user/editUser/6XmR9kAQpXD-j2AwEhMiO54SOxC8fXgNJVwrdGbiesI~', '[]', '[]', 1, '2019-02-19 11:03:04'),
-('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{"ids":"1","name":"Smartsoft Studio","email":"smartsoftstudio1@mail.com","desc":"asda"}', 1, '2019-02-19 11:02:53');
+('118.136.148.201', 'http://gatoko1.com/sop/master/user/updateUser', '[]', '{\"ids\":\"1\",\"name\":\"Smartsoft Studio\",\"email\":\"smartsoftstudio1@mail.com\",\"desc\":\"asda\"}', 1, '2019-02-19 11:02:53');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `anggota`
+-- Table structure for table `anggota`
 --
 
-CREATE TABLE IF NOT EXISTS `anggota` (
+CREATE TABLE `anggota` (
   `id_anggota` int(11) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -442,17 +444,17 @@ CREATE TABLE IF NOT EXISTS `anggota` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apps_countries`
+-- Table structure for table `apps_countries`
 --
 
-CREATE TABLE IF NOT EXISTS `apps_countries` (
+CREATE TABLE `apps_countries` (
   `id` int(11) NOT NULL,
   `country_code` varchar(2) NOT NULL DEFAULT '',
   `country_name` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=MyISAM AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `apps_countries`
+-- Dumping data for table `apps_countries`
 --
 
 INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
@@ -571,12 +573,12 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 (113, 'KZ', 'Kazakhstan'),
 (114, 'KE', 'Kenya'),
 (115, 'KI', 'Kiribati'),
-(116, 'KP', 'Korea, Democratic People''s Republic of'),
+(116, 'KP', 'Korea, Democratic People\'s Republic of'),
 (117, 'KR', 'Korea, Republic of'),
 (118, 'XK', 'Kosovo'),
 (119, 'KW', 'Kuwait'),
 (120, 'KG', 'Kyrgyzstan'),
-(121, 'LA', 'Lao People''s Democratic Republic'),
+(121, 'LA', 'Lao People\'s Democratic Republic'),
 (122, 'LV', 'Latvia'),
 (123, 'LB', 'Lebanon'),
 (124, 'LS', 'Lesotho'),
@@ -706,10 +708,10 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
-CREATE TABLE IF NOT EXISTS `customer` (
+CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -718,10 +720,10 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`id`, `nama`, `email`, `telp`, `alamat`, `status`, `created_at`, `updated_at`) VALUES
@@ -731,10 +733,10 @@ INSERT INTO `customer` (`id`, `nama`, `email`, `telp`, `alamat`, `status`, `crea
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `file`
+-- Table structure for table `file`
 --
 
-CREATE TABLE IF NOT EXISTS `file` (
+CREATE TABLE `file` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `mime` varchar(255) DEFAULT NULL,
@@ -744,10 +746,10 @@ CREATE TABLE IF NOT EXISTS `file` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `file`
+-- Dumping data for table `file`
 --
 
 INSERT INTO `file` (`id`, `name`, `mime`, `dir`, `table`, `table_id`, `status`, `created_at`, `updated_at`) VALUES
@@ -971,17 +973,17 @@ INSERT INTO `file` (`id`, `name`, `mime`, `dir`, `table`, `table_id`, `status`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `grafik`
+-- Table structure for table `grafik`
 --
 
-CREATE TABLE IF NOT EXISTS `grafik` (
+CREATE TABLE `grafik` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `grafik`
+-- Dumping data for table `grafik`
 --
 
 INSERT INTO `grafik` (`id`, `name`, `value`) VALUES
@@ -1001,16 +1003,16 @@ INSERT INTO `grafik` (`id`, `name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `image`
+-- Table structure for table `image`
 --
 
-CREATE TABLE IF NOT EXISTS `image` (
+CREATE TABLE `image` (
   `id` int(12) NOT NULL,
   `path` text NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `image`
+-- Dumping data for table `image`
 --
 
 INSERT INTO `image` (`id`, `path`) VALUES
@@ -1045,10 +1047,10 @@ INSERT INTO `image` (`id`, `path`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keys`
+-- Table structure for table `keys`
 --
 
-CREATE TABLE IF NOT EXISTS `keys` (
+CREATE TABLE `keys` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `key` varchar(255) DEFAULT NULL,
@@ -1060,10 +1062,10 @@ CREATE TABLE IF NOT EXISTS `keys` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `keys`
+-- Dumping data for table `keys`
 --
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`, `status`, `created_at`, `updated_at`) VALUES
@@ -1072,29 +1074,29 @@ INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_privat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konfig`
+-- Table structure for table `konfig`
 --
 
-CREATE TABLE IF NOT EXISTS `konfig` (
+CREATE TABLE `konfig` (
   `id` int(11) NOT NULL,
   `slug` varchar(255) DEFAULT NULL,
-  `value` text,
+  `value` text DEFAULT NULL,
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `konfig`
+-- Dumping data for table `konfig`
 --
 
 INSERT INTO `konfig` (`id`, `slug`, `value`, `status`, `created_at`, `updated_at`) VALUES
 (6, 'APPLICATION', 'KOPERASI', 'ENABLE', '2019-02-18 15:28:44', '2019-10-14 01:29:57'),
 (7, 'LOGO', 'http://www.pertanian.go.id/img/logo.png', 'ENABLE', '2019-02-18 15:29:32', '2019-04-29 10:56:09'),
-(8, 'LOGIN_BACKGROUND', 'background-image: url(''https://coloredbrain.com/wp-content/uploads/2016/07/login-background.jpg'');background-size: cover;background-position: center;', 'ENABLE', '2019-02-18 15:29:52', '2019-04-29 10:57:19'),
+(8, 'LOGIN_BACKGROUND', 'background-image: url(\'https://coloredbrain.com/wp-content/uploads/2016/07/login-background.jpg\');background-size: cover;background-position: center;', 'ENABLE', '2019-02-18 15:29:52', '2019-04-29 10:57:19'),
 (9, 'COLOR_HEADER', 'background: linear-gradient(to right,#0052D4,#65C7F7);', 'DISABLE', '2019-02-18 15:30:24', '2019-02-18 15:31:08'),
 (10, 'VERSION', '1.0.0', 'ENABLE', '2019-02-18 15:30:39', NULL),
-(11, 'COPYRIGHT', '© 2019 <a href="http://karyastudio.com/" target="_blank">Karya Studio</a>.</strong> All rights     reserved.', 'ENABLE', '2019-02-18 15:32:01', '2019-02-19 10:27:32'),
+(11, 'COPYRIGHT', '© 2019 <a href=\"http://karyastudio.com/\" target=\"_blank\">Karya Studio</a>.</strong> All rights     reserved.', 'ENABLE', '2019-02-18 15:32:01', '2019-02-19 10:27:32'),
 (12, 'SKIN', 'skin-green-light', 'ENABLE', '2019-02-18 15:34:01', '2019-10-14 01:33:13'),
 (13, 'TITLE_APPLICATION', 'Koperasi', 'ENABLE', '2019-02-18 15:39:54', '2019-10-14 01:30:59'),
 (14, 'APPLICATION_SMALL', 'KS', 'ENABLE', '2019-02-18 15:42:41', '2019-08-15 17:59:06'),
@@ -1102,175 +1104,175 @@ INSERT INTO `konfig` (`id`, `slug`, `value`, `status`, `created_at`, `updated_at
 (16, 'TITLE_LOGIN_APPLICATION', 'Koperasi | Login', 'ENABLE', '2019-02-18 15:47:41', '2019-10-14 01:31:12'),
 (17, 'LOGIN_TITLE', 'LOGIN ADMIN', 'ENABLE', '2019-02-18 15:48:55', NULL),
 (24, 'LOGIN', '1', 'ENABLE', '2019-02-21 14:12:14', '2019-08-15 17:59:17'),
-(25, 'email-template', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n\r\n<head>\r\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\r\n    <meta name="viewport" content="width=device-width" />\r\n\r\n\r\n    <style type="text/css">\r\n        /* Your custom styles go here */\r\n        * {\r\n            margin: 0;\r\n            padding: 0;\r\n            font-size: 100%;\r\n            font-family: ''Avenir Next'', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;\r\n            line-height: 1.65;\r\n        }\r\n\r\n        img {\r\n            max-width: 100%;\r\n            margin: 0 auto;\r\n            display: block;\r\n        }\r\n\r\n        body,\r\n        .body-wrap {\r\n            width: 100% !important;\r\n            height: 100%;\r\n            background: #f8f8f8;\r\n        }\r\n\r\n        a {\r\n            color: #71bc37;\r\n            text-decoration: none;\r\n        }\r\n\r\n        a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n        .text-center {\r\n            text-align: center;\r\n        }\r\n\r\n        .text-right {\r\n            text-align: right;\r\n        }\r\n\r\n        .text-left {\r\n            text-align: left;\r\n        }\r\n\r\n        .button {\r\n            display: inline-block;\r\n            color: white;\r\n            background: #71bc37;\r\n            border: solid #71bc37;\r\n            border-width: 10px 20px 8px;\r\n            font-weight: bold;\r\n            border-radius: 4px;\r\n        }\r\n\r\n        .button:hover {\r\n            text-decoration: none;\r\n        }\r\n\r\n        h1,\r\n        h2,\r\n        h3,\r\n        h4,\r\n        h5,\r\n        h6 {\r\n            margin-bottom: 20px;\r\n            line-height: 1.25;\r\n        }\r\n\r\n        h1 {\r\n            font-size: 32px;\r\n        }\r\n\r\n        h2 {\r\n            font-size: 28px;\r\n        }\r\n\r\n        h3 {\r\n            font-size: 24px;\r\n        }\r\n\r\n        h4 {\r\n            font-size: 20px;\r\n        }\r\n\r\n        h5 {\r\n            font-size: 16px;\r\n        }\r\n\r\n        p,\r\n        ul,\r\n        ol {\r\n            font-size: 16px;\r\n            font-weight: normal;\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        .container {\r\n            display: block !important;\r\n            clear: both !important;\r\n            margin: 0 auto !important;\r\n            max-width: 580px !important;\r\n        }\r\n\r\n        .container table {\r\n            width: 100% !important;\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        .container .masthead {\r\n            padding: 80px 0;\r\n            background: #71bc37;\r\n            color: white;\r\n        }\r\n\r\n        .container .masthead h1 {\r\n            margin: 0 auto !important;\r\n            max-width: 90%;\r\n            text-transform: uppercase;\r\n        }\r\n\r\n        .container .content {\r\n            background: white;\r\n            padding: 30px 35px;\r\n        }\r\n\r\n        .container .content.footer {\r\n            background: none;\r\n        }\r\n\r\n        .container .content.footer p {\r\n            margin-bottom: 0;\r\n            color: #888;\r\n            text-align: center;\r\n            font-size: 14px;\r\n        }\r\n\r\n        .container .content.footer a {\r\n            color: #888;\r\n            text-decoration: none;\r\n            font-weight: bold;\r\n        }\r\n\r\n        .container .content.footer a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n    <table class="body-wrap">\r\n        <tr>\r\n            <td class="container">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td align="center" class="masthead">\r\n\r\n                            <h1>Something Big...</h1>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class="content">\r\n\r\n                            <h2>Hi Stranger,</h2>\r\n\r\n                            <p>Kielbasa venison ball tip shankle. Boudin prosciutto landjaeger, pancetta jowl turkey tri-tip porchetta beef pork loin drumstick. Frankfurter short ribs kevin pig ribeye drumstick bacon kielbasa. Pork loin brisket biltong, pork belly filet mignon ribeye pig ground round porchetta turducken turkey. Pork belly beef ribs sausage ham hock, ham doner frankfurter pork chop tail meatball beef pig meatloaf short ribs shoulder. Filet mignon ham hock kielbasa beef ribs shank. Venison swine beef ribs sausage pastrami shoulder.</p>\r\n\r\n                            <table>\r\n                                <tr>\r\n                                    <td align="center">\r\n                                        <p>\r\n                                            <a href="#" class="button">Share the Awesomeness</a>\r\n                                        </p>\r\n                                    </td>\r\n                                </tr>\r\n                            </table>\r\n\r\n                            <p>By the way, if you''re wondering where you can find more of this fine meaty filler, visit <a href="http://baconipsum.com">Bacon Ipsum</a>.</p>\r\n\r\n                            <p><em>– Mr. Pen</em></p>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td class="container">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td class="content footer" align="center">\r\n                            <p>Sent by <a href="#">Company Name</a>, 1234 Yellow Brick Road, OZ, 99999</p>\r\n                            <p><a href="mailto:">hello@company.com</a> | <a href="#">Unsubscribe</a></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n\r\n</html>\r\n', 'ENABLE', NULL, NULL);
+(25, 'email-template', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\r\n<head>\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n\r\n\r\n    <style type=\"text/css\">\r\n        /* Your custom styles go here */\r\n        * {\r\n            margin: 0;\r\n            padding: 0;\r\n            font-size: 100%;\r\n            font-family: \'Avenir Next\', \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif;\r\n            line-height: 1.65;\r\n        }\r\n\r\n        img {\r\n            max-width: 100%;\r\n            margin: 0 auto;\r\n            display: block;\r\n        }\r\n\r\n        body,\r\n        .body-wrap {\r\n            width: 100% !important;\r\n            height: 100%;\r\n            background: #f8f8f8;\r\n        }\r\n\r\n        a {\r\n            color: #71bc37;\r\n            text-decoration: none;\r\n        }\r\n\r\n        a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n        .text-center {\r\n            text-align: center;\r\n        }\r\n\r\n        .text-right {\r\n            text-align: right;\r\n        }\r\n\r\n        .text-left {\r\n            text-align: left;\r\n        }\r\n\r\n        .button {\r\n            display: inline-block;\r\n            color: white;\r\n            background: #71bc37;\r\n            border: solid #71bc37;\r\n            border-width: 10px 20px 8px;\r\n            font-weight: bold;\r\n            border-radius: 4px;\r\n        }\r\n\r\n        .button:hover {\r\n            text-decoration: none;\r\n        }\r\n\r\n        h1,\r\n        h2,\r\n        h3,\r\n        h4,\r\n        h5,\r\n        h6 {\r\n            margin-bottom: 20px;\r\n            line-height: 1.25;\r\n        }\r\n\r\n        h1 {\r\n            font-size: 32px;\r\n        }\r\n\r\n        h2 {\r\n            font-size: 28px;\r\n        }\r\n\r\n        h3 {\r\n            font-size: 24px;\r\n        }\r\n\r\n        h4 {\r\n            font-size: 20px;\r\n        }\r\n\r\n        h5 {\r\n            font-size: 16px;\r\n        }\r\n\r\n        p,\r\n        ul,\r\n        ol {\r\n            font-size: 16px;\r\n            font-weight: normal;\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        .container {\r\n            display: block !important;\r\n            clear: both !important;\r\n            margin: 0 auto !important;\r\n            max-width: 580px !important;\r\n        }\r\n\r\n        .container table {\r\n            width: 100% !important;\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        .container .masthead {\r\n            padding: 80px 0;\r\n            background: #71bc37;\r\n            color: white;\r\n        }\r\n\r\n        .container .masthead h1 {\r\n            margin: 0 auto !important;\r\n            max-width: 90%;\r\n            text-transform: uppercase;\r\n        }\r\n\r\n        .container .content {\r\n            background: white;\r\n            padding: 30px 35px;\r\n        }\r\n\r\n        .container .content.footer {\r\n            background: none;\r\n        }\r\n\r\n        .container .content.footer p {\r\n            margin-bottom: 0;\r\n            color: #888;\r\n            text-align: center;\r\n            font-size: 14px;\r\n        }\r\n\r\n        .container .content.footer a {\r\n            color: #888;\r\n            text-decoration: none;\r\n            font-weight: bold;\r\n        }\r\n\r\n        .container .content.footer a:hover {\r\n            text-decoration: underline;\r\n        }\r\n\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n    <table class=\"body-wrap\">\r\n        <tr>\r\n            <td class=\"container\">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td align=\"center\" class=\"masthead\">\r\n\r\n                            <h1>Something Big...</h1>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class=\"content\">\r\n\r\n                            <h2>Hi Stranger,</h2>\r\n\r\n                            <p>Kielbasa venison ball tip shankle. Boudin prosciutto landjaeger, pancetta jowl turkey tri-tip porchetta beef pork loin drumstick. Frankfurter short ribs kevin pig ribeye drumstick bacon kielbasa. Pork loin brisket biltong, pork belly filet mignon ribeye pig ground round porchetta turducken turkey. Pork belly beef ribs sausage ham hock, ham doner frankfurter pork chop tail meatball beef pig meatloaf short ribs shoulder. Filet mignon ham hock kielbasa beef ribs shank. Venison swine beef ribs sausage pastrami shoulder.</p>\r\n\r\n                            <table>\r\n                                <tr>\r\n                                    <td align=\"center\">\r\n                                        <p>\r\n                                            <a href=\"#\" class=\"button\">Share the Awesomeness</a>\r\n                                        </p>\r\n                                    </td>\r\n                                </tr>\r\n                            </table>\r\n\r\n                            <p>By the way, if you\'re wondering where you can find more of this fine meaty filler, visit <a href=\"http://baconipsum.com\">Bacon Ipsum</a>.</p>\r\n\r\n                            <p><em>– Mr. Pen</em></p>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td class=\"container\">\r\n\r\n                <!-- Message start -->\r\n                <table>\r\n                    <tr>\r\n                        <td class=\"content footer\" align=\"center\">\r\n                            <p>Sent by <a href=\"#\">Company Name</a>, 1234 Yellow Brick Road, OZ, 99999</p>\r\n                            <p><a href=\"mailto:\">hello@company.com</a> | <a href=\"#\">Unsubscribe</a></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n\r\n</html>\r\n', 'ENABLE', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `logs`
+-- Table structure for table `logs`
 --
 
-CREATE TABLE IF NOT EXISTS `logs` (
+CREATE TABLE `logs` (
   `id` int(11) NOT NULL,
   `uri` varchar(255) NOT NULL,
   `method` varchar(6) NOT NULL,
-  `params` text,
+  `params` text DEFAULT NULL,
   `api_key` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `time` int(11) NOT NULL,
   `rtime` float DEFAULT NULL,
   `authorized` varchar(1) NOT NULL,
-  `response_code` smallint(3) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8;
+  `response_code` smallint(3) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `logs`
+-- Dumping data for table `logs`
 --
 
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(12, 'api/example/users/1', 'get', 'a:13:{s:2:"id";s:1:"1";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b95151e2-01cb-48b0-fc71-74788b971014";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426798, 1549430000, '1', 400),
-(13, 'api/example/users/1', 'get', 'a:13:{s:2:"id";s:1:"1";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"da6c7ebc-d468-82cd-b107-a43b223e3229";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426847, 1549430000, '1', 400),
-(14, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"295384ee-de46-448a-ee33-5da93f0ee6d3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426895, 1549430000, '1', 200),
-(15, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"9463f032-7a0c-d92f-b412-4fe3b0e3283d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426900, 1549430000, '1', 400),
-(16, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"466fe8da-8fb3-03e6-9281-d0d53ff867b5";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426910, 1549430000, '1', 400),
-(17, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"a4353c0f-ae54-9d99-82b9-3952449d6589";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426923, 1549430000, '1', 400),
-(18, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4b9ec719-7307-81d5-7700-cc52c1882174";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426931, 1549430000, '1', 400),
-(19, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"1a9c3d5a-3eea-1ea0-192d-69d8b0d3bd7e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426934, 1549430000, '1', 400),
-(20, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"faf745f8-86a1-6571-45a1-1d5c705857e3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426935, 1549430000, '1', 400),
-(21, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d66bf86e-f241-d6bc-59a8-53e219895de5";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426936, 1549430000, '1', 400),
-(22, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"8d1e6190-f1ee-732f-0712-9b86f649431a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426958, 1549430000, '1', 400),
-(23, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d947680b-21bb-f0d0-cb14-816ffd6557e6";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426959, 1549430000, '1', 400),
-(24, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"196ad13d-5766-c800-4cc0-6521f1f0a5fa";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426967, 1549430000, '1', 400),
-(25, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"aa627fb0-cd37-f6b7-1353-a00ab4db601f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426968, 1549430000, '1', 400),
-(26, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"5cd4e253-2ef5-0abe-87fd-1c70c0b74460";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426978, 1549430000, '1', 400),
-(27, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"313f78a7-c82e-0686-8762-b874535cdcbf";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427000, 1549430000, '1', 400),
-(28, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"465eac17-0ecf-a742-60c1-d1bb5aad672c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427018, 1549430000, '1', 400),
-(29, 'api/example/users/24', 'get', 'a:13:{s:2:"id";s:2:"24";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b1a5d762-4c11-9bf5-3a0f-c672375a4477";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427058, 1549430000, '1', 200),
-(30, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"bc6fbf72-1adf-b4ba-a316-5b75ea6b1cb9";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427061, 1549430000, '1', 200),
-(31, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"541c15c3-9e59-a3ec-6a6c-65e6eee16eda";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427100, 1549430000, '1', 200),
-(32, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4ea9e5cc-a4c2-710e-9f72-f921bcd470f7";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427157, 1549430000, '1', 200),
-(33, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"c58bbf9d-48fe-4890-0e5a-87c7d21f1bcb";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427166, 1549430000, '1', 200),
-(34, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"a864cc0c-2540-09b1-c9e4-15a3c7791f89";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427177, 1549430000, '1', 200),
-(35, 'api/example/users', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"97063f8c-c173-d733-e5b1-eb36b50c6717";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427200, 1549430000, '1', 200),
-(36, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"d74b25e0-c53c-1b24-ee1e-a456ca5e754a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428325, 1549430000, '1', 0),
-(37, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"2dcb425a-4947-898b-1c78-91cda05e66a3";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428345, 1549430000, '1', 404),
-(38, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"ad64360f-e0c5-ec3c-3da3-c50b37fbef7f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428370, 1549430000, '1', 404),
-(39, 'api/example/services', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"7c2b7aba-7f85-deed-d309-3d825769427e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428382, 1549430000, '1', 404),
-(40, 'api/example/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"337";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"a927b74d-cc4b-7215-9fdd-f3592820fcb0";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:12:"Content-Type";s:68:"multipart/form-data; boundary=----WebKitFormBoundarymV0NNVKnF6IL7z29";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:5:"title";s:3:"tes";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428413, 1549430000, '1', 200),
-(41, 'api/example/services', 'put', 'a:18:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"43";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"612f28dc-dc61-b57a-c9c0-69a5a8262b98";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:5:"title";s:4:"tesa";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428448, 1549430000, '1', 200),
-(42, 'api/example/services-enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"391bbf12-fd99-4e28-7fc5-6496dc491b0c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428468, 1549430000, '1', 200),
-(43, 'api/example/services-disable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d5cbf18b-d9b5-f44d-c232-f84cc4d11db2";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428472, 1549430000, '1', 200),
-(44, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"16344db9-d25f-e334-9651-333d7e88314e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428480, 1549430000, '1', 200),
-(45, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"caef2b39-8710-18ca-6ce5-4fe6b70992a0";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428655, 1549430000, '1', 404),
-(46, 'api/example/services/1', 'get', 'a:15:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"5c1fc3d5-e1a0-32d4-5577-0da8790112ac";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428659, 1549430000, '1', 404),
-(47, 'api/example/services/0', 'get', 'a:15:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b65e8ad4-2781-d95d-de2c-4c8e8aa447fc";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428662, 1549430000, '1', 404),
-(48, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b6e9a137-e2d0-9180-a433-6216c066a468";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428677, 1549430000, '1', 404),
-(49, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"72518478-f719-4e92-cfe4-bf027a496092";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428680, 1549430000, '1', 404),
-(50, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"faff51a0-75b3-9d5f-3b80-ba00e099b484";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428682, 1549430000, '1', 404),
-(51, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"f20c8e54-9446-4d38-8a0f-219f1d5a561e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428715, 1549430000, '1', 404),
-(52, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"5801b626-9ea3-b456-ae32-9af94267f20c";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428717, 1549430000, '1', 404),
-(53, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"43e761b9-d088-5745-33a6-e6e2c77f8e0a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428725, 1549430000, '1', 0),
-(54, 'api/example/services/a', 'get', 'a:14:{s:1:"a";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"dda3a68d-329e-371a-e751-4fd11e3241e7";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428727, 1549430000, '1', 0),
-(55, 'api/example/services/aa', 'get', 'a:14:{s:2:"aa";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"c960faa4-1219-26de-d6fe-b7ddc07ec486";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428729, 1549430000, '1', 0),
-(56, 'api/example/services/aa', 'get', 'a:14:{s:2:"aa";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ab82d302-2290-2edd-eb75-0771e0de4f73";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428730, 1549430000, '1', 0),
-(57, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"b5495e5a-91ee-67ca-07fd-505c64ac0685";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428734, 1549430000, '1', 0),
-(58, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"9923d27a-b199-e900-361a-1d6b440579a1";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428741, 1549430000, '1', 404),
-(59, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"0e4e077d-2103-723e-61fb-c5ec2ee8d025";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428742, 1549430000, '1', 404),
-(60, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"f47e693b-addb-43f8-7837-ab0c7793c087";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428748, 1549430000, '1', 404),
-(61, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"cbbd6ccb-dc98-f683-b919-c56aa9c0e66d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428749, 1549430000, '1', 404),
-(62, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d1976171-7268-0319-2e50-4851a2fd6c22";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428786, 1549430000, '1', 200),
-(63, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"fabc78b4-cc98-1a61-3131-0c44475cbcdc";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428800, 1549430000, '1', 404),
-(64, 'api/example/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1ea384ac-8306-2f85-88da-49178e8a7f0e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428801, 1549430000, '1', 404),
-(65, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ab54ff73-1a8a-cb60-b1b0-870b35536d9d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428805, 1549430000, '1', 404),
-(66, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"ea261273-b754-5389-5412-58e6beb47631";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428807, 1549430000, '1', 404),
-(67, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"9e35cfeb-4c7c-699b-5643-8470aca0fbcb";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428808, 1549430000, '1', 404),
-(68, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"04edaf72-fcb9-e17b-2fc6-2986cbbbf741";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428815, 1549430000, '1', 200),
-(69, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"2514eb50-6c21-1356-dfa9-e4eac100bf8a";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428816, 1549430000, '1', 200);
+(12, 'api/example/users/1', 'get', 'a:13:{s:2:\"id\";s:1:\"1\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b95151e2-01cb-48b0-fc71-74788b971014\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426798, 1549430000, '1', 400),
+(13, 'api/example/users/1', 'get', 'a:13:{s:2:\"id\";s:1:\"1\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"da6c7ebc-d468-82cd-b107-a43b223e3229\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426847, 1549430000, '1', 400),
+(14, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"295384ee-de46-448a-ee33-5da93f0ee6d3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426895, 1549430000, '1', 200),
+(15, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"9463f032-7a0c-d92f-b412-4fe3b0e3283d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426900, 1549430000, '1', 400),
+(16, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"466fe8da-8fb3-03e6-9281-d0d53ff867b5\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426910, 1549430000, '1', 400),
+(17, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"a4353c0f-ae54-9d99-82b9-3952449d6589\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426923, 1549430000, '1', 400),
+(18, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4b9ec719-7307-81d5-7700-cc52c1882174\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426931, 1549430000, '1', 400),
+(19, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"1a9c3d5a-3eea-1ea0-192d-69d8b0d3bd7e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426934, 1549430000, '1', 400),
+(20, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"faf745f8-86a1-6571-45a1-1d5c705857e3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426935, 1549430000, '1', 400),
+(21, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d66bf86e-f241-d6bc-59a8-53e219895de5\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426936, 1549430000, '1', 400),
+(22, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"8d1e6190-f1ee-732f-0712-9b86f649431a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426958, 1549430000, '1', 400),
+(23, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d947680b-21bb-f0d0-cb14-816ffd6557e6\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426959, 1549430000, '1', 400),
+(24, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"196ad13d-5766-c800-4cc0-6521f1f0a5fa\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426967, 1549430000, '1', 400),
+(25, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"aa627fb0-cd37-f6b7-1353-a00ab4db601f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426968, 1549430000, '1', 400),
+(26, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"5cd4e253-2ef5-0abe-87fd-1c70c0b74460\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549426978, 1549430000, '1', 400),
+(27, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"313f78a7-c82e-0686-8762-b874535cdcbf\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427000, 1549430000, '1', 400),
+(28, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"465eac17-0ecf-a742-60c1-d1bb5aad672c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427018, 1549430000, '1', 400),
+(29, 'api/example/users/24', 'get', 'a:13:{s:2:\"id\";s:2:\"24\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b1a5d762-4c11-9bf5-3a0f-c672375a4477\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427058, 1549430000, '1', 200),
+(30, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"bc6fbf72-1adf-b4ba-a316-5b75ea6b1cb9\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427061, 1549430000, '1', 200),
+(31, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"541c15c3-9e59-a3ec-6a6c-65e6eee16eda\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=kp7ibnsa9pihb2thj3g5ejllg6gvs00e\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427100, 1549430000, '1', 200),
+(32, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4ea9e5cc-a4c2-710e-9f72-f921bcd470f7\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427157, 1549430000, '1', 200),
+(33, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"c58bbf9d-48fe-4890-0e5a-87c7d21f1bcb\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427166, 1549430000, '1', 200),
+(34, 'api/example/users-detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"a864cc0c-2540-09b1-c9e4-15a3c7791f89\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427177, 1549430000, '1', 200),
+(35, 'api/example/users', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"97063f8c-c173-d733-e5b1-eb36b50c6717\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549427200, 1549430000, '1', 200),
+(36, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"d74b25e0-c53c-1b24-ee1e-a456ca5e754a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=8rtpkm1nfabdkg2pphk15kukku3536p8\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428325, 1549430000, '1', 0),
+(37, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"2dcb425a-4947-898b-1c78-91cda05e66a3\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428345, 1549430000, '1', 404),
+(38, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"ad64360f-e0c5-ec3c-3da3-c50b37fbef7f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428370, 1549430000, '1', 404),
+(39, 'api/example/services', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"7c2b7aba-7f85-deed-d309-3d825769427e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428382, 1549430000, '1', 404),
+(40, 'api/example/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"337\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"a927b74d-cc4b-7215-9fdd-f3592820fcb0\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:12:\"Content-Type\";s:68:\"multipart/form-data; boundary=----WebKitFormBoundarymV0NNVKnF6IL7z29\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:5:\"title\";s:3:\"tes\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428413, 1549430000, '1', 200),
+(41, 'api/example/services', 'put', 'a:18:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"43\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"612f28dc-dc61-b57a-c9c0-69a5a8262b98\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:5:\"title\";s:4:\"tesa\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428448, 1549430000, '1', 200),
+(42, 'api/example/services-enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"391bbf12-fd99-4e28-7fc5-6496dc491b0c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428468, 1549430000, '1', 200),
+(43, 'api/example/services-disable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d5cbf18b-d9b5-f44d-c232-f84cc4d11db2\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428472, 1549430000, '1', 200),
+(44, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"16344db9-d25f-e334-9651-333d7e88314e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428480, 1549430000, '1', 200),
+(45, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"caef2b39-8710-18ca-6ce5-4fe6b70992a0\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=h6f32vnji308dtjd5sr71vei0ltn58lq\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428655, 1549430000, '1', 404),
+(46, 'api/example/services/1', 'get', 'a:15:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"5c1fc3d5-e1a0-32d4-5577-0da8790112ac\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428659, 1549430000, '1', 404),
+(47, 'api/example/services/0', 'get', 'a:15:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b65e8ad4-2781-d95d-de2c-4c8e8aa447fc\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428662, 1549430000, '1', 404),
+(48, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b6e9a137-e2d0-9180-a433-6216c066a468\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428677, 1549430000, '1', 404),
+(49, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"72518478-f719-4e92-cfe4-bf027a496092\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428680, 1549430000, '1', 404),
+(50, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"faff51a0-75b3-9d5f-3b80-ba00e099b484\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428682, 1549430000, '1', 404),
+(51, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"f20c8e54-9446-4d38-8a0f-219f1d5a561e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428715, 1549430000, '1', 404),
+(52, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"5801b626-9ea3-b456-ae32-9af94267f20c\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428717, 1549430000, '1', 404),
+(53, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"43e761b9-d088-5745-33a6-e6e2c77f8e0a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428725, 1549430000, '1', 0),
+(54, 'api/example/services/a', 'get', 'a:14:{s:1:\"a\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"dda3a68d-329e-371a-e751-4fd11e3241e7\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428727, 1549430000, '1', 0),
+(55, 'api/example/services/aa', 'get', 'a:14:{s:2:\"aa\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"c960faa4-1219-26de-d6fe-b7ddc07ec486\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428729, 1549430000, '1', 0),
+(56, 'api/example/services/aa', 'get', 'a:14:{s:2:\"aa\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ab82d302-2290-2edd-eb75-0771e0de4f73\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428730, 1549430000, '1', 0),
+(57, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"b5495e5a-91ee-67ca-07fd-505c64ac0685\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428734, 1549430000, '1', 0),
+(58, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"9923d27a-b199-e900-361a-1d6b440579a1\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428741, 1549430000, '1', 404),
+(59, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"0e4e077d-2103-723e-61fb-c5ec2ee8d025\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428742, 1549430000, '1', 404),
+(60, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"f47e693b-addb-43f8-7837-ab0c7793c087\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428748, 1549430000, '1', 404),
+(61, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"cbbd6ccb-dc98-f683-b919-c56aa9c0e66d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428749, 1549430000, '1', 404),
+(62, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d1976171-7268-0319-2e50-4851a2fd6c22\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428786, 1549430000, '1', 200),
+(63, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"fabc78b4-cc98-1a61-3131-0c44475cbcdc\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428800, 1549430000, '1', 404),
+(64, 'api/example/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1ea384ac-8306-2f85-88da-49178e8a7f0e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428801, 1549430000, '1', 404),
+(65, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ab54ff73-1a8a-cb60-b1b0-870b35536d9d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428805, 1549430000, '1', 404),
+(66, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"ea261273-b754-5389-5412-58e6beb47631\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428807, 1549430000, '1', 404);
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(70, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"be916c7e-09f8-5b25-2c50-d09787853210";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428826, 1549430000, '1', 200),
-(71, 'api/example/services/disable', 'get', 'a:14:{s:7:"disable";N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"fddcff9d-7292-6c1e-ae51-0e74db0f397e";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428841, 1549430000, '1', 200),
-(72, 'api/services', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"bb1329fc-8f5a-bd41-0f66-d7fe899375b6";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434763, 1549430000, '1', 404),
-(73, 'api/services/disable', 'get', 'a:13:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1e145c56-5906-ea88-a56e-a6c2bf9ae277";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434776, 1549430000, '1', 200),
-(74, 'api/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"340";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"003e2e9a-9dda-4605-9c78-fedc0f0a57be";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:78:"------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition:_form-data;_name";s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";i:0;s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";i:1;s:261:""title"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="date"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name="content"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434796, 1549430000, '1', 200),
-(75, 'api/services', 'post', 'a:17:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:3:"340";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"21a992d3-2eab-652c-dd40-fdb1b27632f2";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:12:"Content-Type";s:68:"multipart/form-data; boundary=----WebKitFormBoundaryT4EoJtBkCQ8K6lqn";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:6:"tes ah";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434803, 1549430000, '1', 200),
-(76, 'api/services/detail', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"e91f5cdb-a803-5c82-de2d-af59bdf0072b";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434820, 1549430000, '1', 200),
-(77, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"da4fade1-054f-e5bc-7b3d-7bdfd6dc0890";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434823, 1549430000, '1', 200),
-(78, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"216ef3d2-4d51-94bb-4a48-6947f622e27f";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434825, 1549430000, '1', 200),
-(79, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"537a295c-f413-84a0-cf08-67482a6c039d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434830, 1549430000, '1', 200),
-(80, 'api/services/detail', 'get', 'a:12:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"4f91ad2b-5a8b-947f-efdd-412572cc6296";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434831, 1549430000, '1', 200),
-(81, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"15127d88-080d-fb1b-d526-47437f9257d2";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434849, 1549430000, '1', 200),
-(82, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Postman-Token";s:36:"b2321b65-d3c7-71b6-c06c-bf8c11305996";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434851, 1549430000, '1', 200),
-(83, 'api/services', 'put', 'a:18:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"47";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d74656c0-5e25-a4c6-7237-23ef9a1ce210";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:8:"tesah uh";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434871, 1549430000, '1', 200),
-(84, 'api/services/enable/1', 'put', 'a:19:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:2:"47";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"c2454b7a-dddb-d292-306e-ddc176572eb8";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:5:"title";s:8:"tesah uh";s:4:"date";s:10:"2019-01-01";s:7:"content";s:3:"ini";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434936, 1549430000, '1', 200),
-(85, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"35291873-7622-cfd6-23b5-c0c943dddcef";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434952, 1549440000, '1', 200),
-(86, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"043b2b1f-e7e5-18ca-e0de-b3efa3271808";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434970, 1549440000, '1', 200),
-(87, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"6b1ddca4-8512-a1b9-382e-ebc1a7796a91";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434971, 1549440000, '1', 200),
-(88, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"d41aed32-18b4-96a0-6158-0d008a068ca1";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434990, 1549440000, '1', 200),
-(89, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"bcfb6c42-5e8e-3733-2fe7-bede9320fbd0";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435032, 1549440000, '1', 200),
-(90, 'api/services/disable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"8ba1482d-f892-55a3-293d-faadb1ceb153";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435039, 1549440000, '1', 200),
-(91, 'api/services/enable', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"7bd0b329-191e-52a9-d139-a2d7c158cd13";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435046, 1549440000, '1', 200),
-(92, 'api/services/delete', 'put', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"643bb8b6-7edb-359a-7151-afb177dc0837";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435056, 1549440000, '1', 200),
-(93, 'api/services', 'delete', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"041e4196-2eea-aa15-bad9-20df6c9acb1d";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435078, 1549440000, '1', 200),
-(94, 'api/services', 'delete', 'a:15:{s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"4";s:10:"User-Agent";s:114:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:13:"Cache-Control";s:8:"no-cache";s:6:"Origin";s:51:"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Postman-Token";s:36:"1f715e2e-ea3b-d008-56b0-946c4f5f4d53";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:45:"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6";s:6:"Cookie";s:43:"ci_session=nkv3g7akvntgcd18ur7a4k02o5pm9rv6";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435084, 1549440000, '1', 200),
-(95, 'api/services', 'get', 'a:9:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"9eb3274b-e76d-48c9-8398-904cb2c09d56";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.148.201', 1550041680, 0.046937, '0', 403),
-(96, 'api/services', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"fac2440a-8f8a-430b-a974-b987f96839ca";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041746, 0.03969, '1', 0),
-(97, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"d183c396-83d6-46f9-8625-9c7e996b1ee6";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041890, 0.0436552, '1', 404),
-(98, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"58030595-56be-4fbe-888c-be60f7e5563c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550042033, 0.3466, '1', 200),
-(99, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7fe9cef8-cbb0-4272-80d3-f9900f4a2297";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=00p5toh62fbnfbrapstu4do5pd2m5k1g";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043293, 0.038852, '1', 200),
-(100, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"08d7c7d9-094a-41ea-81ef-e36b64bc9014";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043338, 0.038234, '1', 200),
-(101, 'api/customer/detail/3', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7df16ff6-d61f-4187-9c17-c5ce6167b3df";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043341, 0.0393689, '1', 200),
-(102, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"bd5e8835-e313-43fa-af33-d81fe9524a2b";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043345, 0.0416031, '1', 200),
-(103, 'api/customer/detail', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"ad35228d-cc4d-49bc-a4bf-8cea06c5e871";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043354, 0.041436, '1', 200),
-(104, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"e30dc5a1-111a-4df7-9f68-10b8a01b5d2f";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043357, 0.0402689, '1', 200),
-(105, 'api/customer/index_detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"378b4b80-ba76-4700-a7f2-90843fe6d12c";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043363, 0.0494442, '1', 200),
-(106, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"92d2bfcb-f7c6-4a74-b267-8f7ec2c94079";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043379, 0.045403, '1', 200),
-(107, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"3319eaf6-e27f-4fc8-9127-e9f085acca16";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043412, 0.040298, '1', 200),
-(108, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"e5354978-963c-47d5-9011-9df26f790075";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043439, 0.0403781, '1', 404),
-(109, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"6f15e59e-9569-43bc-a36b-6e38d2614227";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------270277143471167715971007";s:14:"Content-Length";s:3:"583";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:18:"Bayu Briyan El Roy";s:5:"email";s:24:"bayubriyanelroy@gmal.com";s:5:"phone";s:12:"081230008101";s:7:"address";s:56:"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043765, 0.0433841, '1', 200),
-(110, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"021b5b57-e343-4b71-8bd7-9eb0ee56608b";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------241408044604135091511042";s:14:"Content-Length";s:3:"473";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:0:"";s:5:"email";s:0:"";s:7:"address";s:0:"";s:5:"phone";s:0:"";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043819, 0.074012, '1', 200),
-(111, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c7c07d35-658f-4bc5-91fe-808d684170b1";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:3:"167";s:10:"Connection";s:10:"keep-alive";s:4:"name";s:18:"Bayu Briyan El Roy";s:5:"email";s:24:"bayubriyanelroy@gmal.com";s:7:"address";s:12:"081230008101";s:5:"phone";s:56:"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048354, 0.0457339, '1', 200),
-(112, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"891707bc-ee69-4f66-9f9a-d443df828569";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"33";s:10:"Connection";s:10:"keep-alive";s:7:"address";s:0:"";s:5:"phone";s:0:"";s:2:"id";s:1:"2";s:4:"name";s:0:"";s:5:"email";s:0:"";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048393, 0.0788889, '1', 200),
-(113, 'api/customer', 'delete', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"20c22bab-e0ff-4ae7-93e9-1b31a76b80fe";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048516, 0.04495, '1', 400),
-(114, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c81411b7-5a9b-412d-bb50-45725d178c11";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"3";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048560, 0.0388892, '1', 200),
-(115, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"26396c1a-8e8d-47f3-9602-dc03e8e12fc3";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"3";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048595, 0.0394552, '1', 404),
-(116, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"ac36bcce-0e42-4a69-8308-4ede1e1f3561";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048671, 0.0670228, '1', 200),
-(117, 'api/customer', 'delete', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"c407981f-055a-4663-96fd-2d9e281bdff5";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"2";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048689, 0.04316, '1', 404),
-(118, 'api/customer/enable', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"55701b25-9c14-46aa-ba95-fde151a8281d";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"4";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048728, 0.046968, '1', 200),
-(119, 'api/customer/enable', 'put', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"56c42994-6fd9-4291-a637-426d62fa3c6a";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.0";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048810, 0.0421109, '1', 200),
-(120, 'api/customer', 'get', 'a:10:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"55658acd-5e8a-420b-ac48-52cd56478e31";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.101.98', 1553486265, 0.043426, '0', 403),
-(121, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"580bffef-90d3-49fb-b877-2c5a0b3768f6";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486285, 0.0393262, '1', 200),
-(122, 'api/customer', 'post', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"74e8aac9-a514-4fd1-a378-7cb584845d45";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486435, 0.0415149, '1', 200),
-(123, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"61ad4f72-a273-4b0c-90d1-776651ee155d";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486456, 0.0401361, '1', 200),
-(124, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"f48b46f5-ef2c-4ced-828d-d55dcf4741e4";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486464, 0.0408051, '1', 200),
-(125, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"25a837ed-9429-4b7b-adf2-f6a4c5a37024";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486468, 0.0408051, '1', 404),
-(126, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"d35dbdaa-e37f-4b92-9b2b-12f285cb0b12";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486471, 0.042562, '1', 200),
-(127, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"914bbbda-2ea7-46f7-b9a4-41e60cbcbfcf";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486475, 0.041795, '1', 200),
-(128, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"b931dae0-efcf-4311-bad6-6b0281842cf9";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486478, 0.0405412, '1', 200),
-(129, 'api/customer', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"776eb3f3-8102-4bd7-b787-1a5c4bcb4795";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486548, 0.0437829, '1', 200),
-(130, 'api/customer', 'put', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"28873dba-1b14-4637-916e-8cdb5119f1eb";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486610, 0.0680921, '1', 200),
-(131, 'api/customer', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7e1eac1e-faf7-44dd-b734-af0e471a8dea";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------132173021837729928827018";s:14:"Content-Length";s:3:"601";s:10:"Connection";s:10:"keep-alive";s:90:"----------------------------132173021837729928827018\r\nContent-Disposition:_form-data;_name";s:510:""id"\r\n\r\n1\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="name"\r\n\r\nMarcell\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="email"\r\n\r\nmarcell@gmail.com\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="phone"\r\n\r\n0\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name="address"\r\n\r\n-\r\n----------------------------132173021837729928827018--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486651, 0.0602229, '1', 200);
+(67, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"9e35cfeb-4c7c-699b-5643-8470aca0fbcb\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428808, 1549430000, '1', 404),
+(68, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"04edaf72-fcb9-e17b-2fc6-2986cbbbf741\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428815, 1549430000, '1', 200),
+(69, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"2514eb50-6c21-1356-dfa9-e4eac100bf8a\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428816, 1549430000, '1', 200),
+(70, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"be916c7e-09f8-5b25-2c50-d09787853210\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428826, 1549430000, '1', 200),
+(71, 'api/example/services/disable', 'get', 'a:14:{s:7:\"disable\";N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"fddcff9d-7292-6c1e-ae51-0e74db0f397e\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549428841, 1549430000, '1', 200),
+(72, 'api/services', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"bb1329fc-8f5a-bd41-0f66-d7fe899375b6\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=gfi1v6ub44v9airna31r4vql0d5mq2g2\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434763, 1549430000, '1', 404),
+(73, 'api/services/disable', 'get', 'a:13:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1e145c56-5906-ea88-a56e-a6c2bf9ae277\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434776, 1549430000, '1', 200),
+(74, 'api/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"340\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"003e2e9a-9dda-4605-9c78-fedc0f0a57be\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:78:\"------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition:_form-data;_name\";s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";i:0;s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";i:1;s:261:\"\"title\"\r\n\r\ntes ah\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"date\"\r\n\r\n2019-01-01\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\nini\r\n------WebKitFormBoundarylrlQsIiHIrwCnJE3--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434796, 1549430000, '1', 200),
+(75, 'api/services', 'post', 'a:17:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:3:\"340\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"21a992d3-2eab-652c-dd40-fdb1b27632f2\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:12:\"Content-Type\";s:68:\"multipart/form-data; boundary=----WebKitFormBoundaryT4EoJtBkCQ8K6lqn\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:6:\"tes ah\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434803, 1549430000, '1', 200),
+(76, 'api/services/detail', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"e91f5cdb-a803-5c82-de2d-af59bdf0072b\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434820, 1549430000, '1', 200),
+(77, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"da4fade1-054f-e5bc-7b3d-7bdfd6dc0890\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434823, 1549430000, '1', 200),
+(78, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"216ef3d2-4d51-94bb-4a48-6947f622e27f\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434825, 1549430000, '1', 200),
+(79, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"537a295c-f413-84a0-cf08-67482a6c039d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434830, 1549430000, '1', 200),
+(80, 'api/services/detail', 'get', 'a:12:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"4f91ad2b-5a8b-947f-efdd-412572cc6296\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434831, 1549430000, '1', 200),
+(81, 'api/services/detail/1', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"15127d88-080d-fb1b-d526-47437f9257d2\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434849, 1549430000, '1', 200),
+(82, 'api/services/detail/2', 'get', 'a:14:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Postman-Token\";s:36:\"b2321b65-d3c7-71b6-c06c-bf8c11305996\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434851, 1549430000, '1', 200),
+(83, 'api/services', 'put', 'a:18:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"47\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d74656c0-5e25-a4c6-7237-23ef9a1ce210\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:8:\"tesah uh\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434871, 1549430000, '1', 200),
+(84, 'api/services/enable/1', 'put', 'a:19:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:2:\"47\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"c2454b7a-dddb-d292-306e-ddc176572eb8\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:5:\"title\";s:8:\"tesah uh\";s:4:\"date\";s:10:\"2019-01-01\";s:7:\"content\";s:3:\"ini\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434936, 1549430000, '1', 200),
+(85, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"35291873-7622-cfd6-23b5-c0c943dddcef\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434952, 1549440000, '1', 200),
+(86, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"043b2b1f-e7e5-18ca-e0de-b3efa3271808\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434970, 1549440000, '1', 200),
+(87, 'api/services/enable/1', 'put', 'a:16:{i:0;N;s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"6b1ddca4-8512-a1b9-382e-ebc1a7796a91\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434971, 1549440000, '1', 200),
+(88, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"d41aed32-18b4-96a0-6158-0d008a068ca1\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549434990, 1549440000, '1', 200),
+(89, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"bcfb6c42-5e8e-3733-2fe7-bede9320fbd0\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435032, 1549440000, '1', 200),
+(90, 'api/services/disable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"8ba1482d-f892-55a3-293d-faadb1ceb153\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435039, 1549440000, '1', 200),
+(91, 'api/services/enable', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"7bd0b329-191e-52a9-d139-a2d7c158cd13\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435046, 1549440000, '1', 200),
+(92, 'api/services/delete', 'put', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"643bb8b6-7edb-359a-7151-afb177dc0837\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435056, 1549440000, '1', 200),
+(93, 'api/services', 'delete', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"041e4196-2eea-aa15-bad9-20df6c9acb1d\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=htg6ga22bj85pmfg8eurnju3pe5i262u\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435078, 1549440000, '1', 200),
+(94, 'api/services', 'delete', 'a:15:{s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"User-Agent\";s:114:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Origin\";s:51:\"chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Postman-Token\";s:36:\"1f715e2e-ea3b-d008-56b0-946c4f5f4d53\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:45:\"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,fil;q=0.6\";s:6:\"Cookie\";s:43:\"ci_session=nkv3g7akvntgcd18ur7a4k02o5pm9rv6\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.236.122', 1549435084, 1549440000, '1', 200),
+(95, 'api/services', 'get', 'a:9:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"9eb3274b-e76d-48c9-8398-904cb2c09d56\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.148.201', 1550041680, 0.046937, '0', 403),
+(96, 'api/services', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"fac2440a-8f8a-430b-a974-b987f96839ca\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041746, 0.03969, '1', 0),
+(97, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"d183c396-83d6-46f9-8625-9c7e996b1ee6\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550041890, 0.0436552, '1', 404),
+(98, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"58030595-56be-4fbe-888c-be60f7e5563c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=m7h04auf726kni0f1drtlu2i5gsto0lv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550042033, 0.3466, '1', 200),
+(99, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7fe9cef8-cbb0-4272-80d3-f9900f4a2297\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=00p5toh62fbnfbrapstu4do5pd2m5k1g\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043293, 0.038852, '1', 200),
+(100, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"08d7c7d9-094a-41ea-81ef-e36b64bc9014\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043338, 0.038234, '1', 200),
+(101, 'api/customer/detail/3', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7df16ff6-d61f-4187-9c17-c5ce6167b3df\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043341, 0.0393689, '1', 200),
+(102, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"bd5e8835-e313-43fa-af33-d81fe9524a2b\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043345, 0.0416031, '1', 200),
+(103, 'api/customer/detail', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"ad35228d-cc4d-49bc-a4bf-8cea06c5e871\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043354, 0.041436, '1', 200),
+(104, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"e30dc5a1-111a-4df7-9f68-10b8a01b5d2f\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043357, 0.0402689, '1', 200),
+(105, 'api/customer/index_detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"378b4b80-ba76-4700-a7f2-90843fe6d12c\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043363, 0.0494442, '1', 200),
+(106, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"92d2bfcb-f7c6-4a74-b267-8f7ec2c94079\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043379, 0.045403, '1', 200),
+(107, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"3319eaf6-e27f-4fc8-9127-e9f085acca16\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043412, 0.040298, '1', 200),
+(108, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"e5354978-963c-47d5-9011-9df26f790075\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043439, 0.0403781, '1', 404),
+(109, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"6f15e59e-9569-43bc-a36b-6e38d2614227\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cebaammcrlfrmo22ob063uu9j99aj3or\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------270277143471167715971007\";s:14:\"Content-Length\";s:3:\"583\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:18:\"Bayu Briyan El Roy\";s:5:\"email\";s:24:\"bayubriyanelroy@gmal.com\";s:5:\"phone\";s:12:\"081230008101\";s:7:\"address\";s:56:\"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043765, 0.0433841, '1', 200),
+(110, 'api/customer/detail/2', 'post', 'a:17:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"021b5b57-e343-4b71-8bd7-9eb0ee56608b\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------241408044604135091511042\";s:14:\"Content-Length\";s:3:\"473\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:0:\"\";s:5:\"email\";s:0:\"\";s:7:\"address\";s:0:\"\";s:5:\"phone\";s:0:\"\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550043819, 0.074012, '1', 200),
+(111, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c7c07d35-658f-4bc5-91fe-808d684170b1\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=ocfa57scutskl15se2kfcquut0c5qcf6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:3:\"167\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"name\";s:18:\"Bayu Briyan El Roy\";s:5:\"email\";s:24:\"bayubriyanelroy@gmal.com\";s:7:\"address\";s:12:\"081230008101\";s:5:\"phone\";s:56:\"Jl Madasah Azziadah 24 Klender Duren Sawit Jakarta Timur\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048354, 0.0457339, '1', 200),
+(112, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"891707bc-ee69-4f66-9f9a-d443df828569\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"33\";s:10:\"Connection\";s:10:\"keep-alive\";s:7:\"address\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:2:\"id\";s:1:\"2\";s:4:\"name\";s:0:\"\";s:5:\"email\";s:0:\"\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048393, 0.0788889, '1', 200),
+(113, 'api/customer', 'delete', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"20c22bab-e0ff-4ae7-93e9-1b31a76b80fe\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048516, 0.04495, '1', 400),
+(114, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c81411b7-5a9b-412d-bb50-45725d178c11\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"3\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048560, 0.0388892, '1', 200),
+(115, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"26396c1a-8e8d-47f3-9602-dc03e8e12fc3\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"3\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048595, 0.0394552, '1', 404),
+(116, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"ac36bcce-0e42-4a69-8308-4ede1e1f3561\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=37s1q7gk3gn2aeg9ro5ob31up38apt58\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048671, 0.0670228, '1', 200),
+(117, 'api/customer', 'delete', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"c407981f-055a-4663-96fd-2d9e281bdff5\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"2\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048689, 0.04316, '1', 404),
+(118, 'api/customer/enable', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"55701b25-9c14-46aa-ba95-fde151a8281d\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"4\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048728, 0.046968, '1', 200),
+(119, 'api/customer/enable', 'put', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"56c42994-6fd9-4291-a637-426d62fa3c6a\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.0\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=8i5f6u5b0nfn5tl1ivgjost2obatfvcv\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.148.201', 1550048810, 0.0421109, '1', 200),
+(120, 'api/customer', 'get', 'a:10:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"55658acd-5e8a-420b-ac48-52cd56478e31\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.101.98', 1553486265, 0.043426, '0', 403),
+(121, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"580bffef-90d3-49fb-b877-2c5a0b3768f6\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486285, 0.0393262, '1', 200),
+(122, 'api/customer', 'post', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"74e8aac9-a514-4fd1-a378-7cb584845d45\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=noffqtdft10n5hslgh4410qv6kk88j9l\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486435, 0.0415149, '1', 200),
+(123, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"61ad4f72-a273-4b0c-90d1-776651ee155d\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486456, 0.0401361, '1', 200),
+(124, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"f48b46f5-ef2c-4ced-828d-d55dcf4741e4\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486464, 0.0408051, '1', 200);
 INSERT INTO `logs` (`id`, `uri`, `method`, `params`, `api_key`, `ip_address`, `time`, `rtime`, `authorized`, `response_code`) VALUES
-(132, 'api/customer/index', 'put', 'a:13:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"bdc624da-d819-4d43-a638-2841595334cf";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:12:"Content-Type";s:80:"multipart/form-data; boundary=--------------------------058076299379341907803355";s:14:"Content-Length";s:3:"601";s:10:"Connection";s:10:"keep-alive";s:90:"----------------------------058076299379341907803355\r\nContent-Disposition:_form-data;_name";s:510:""id"\r\n\r\n1\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="name"\r\n\r\nMarcell\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="email"\r\n\r\nmarcell@gmail.com\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="phone"\r\n\r\n0\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name="address"\r\n\r\n-\r\n----------------------------058076299379341907803355--\r\n";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486659, 0.0498202, '1', 200),
-(133, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"7017eee3-7f68-470d-b48f-cda8a497db21";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"61";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";s:4:"name";s:7:"Marcell";s:5:"email";s:17:"marcell@gmail.com";s:5:"phone";s:1:"0";s:7:"address";s:1:"-";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486677, 0.0547671, '1', 200),
-(134, 'api/customer', 'put', 'a:17:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"0919d15c-ab2d-4719-905a-294bab410871";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:2:"72";s:10:"Connection";s:10:"keep-alive";s:2:"id";s:1:"1";s:4:"name";s:7:"Marcell";s:5:"email";s:17:"marcell@gmail.com";s:5:"phone";s:12:"023489234234";s:7:"address";s:1:"-";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486705, 0.067431, '1', 200),
-(135, 'api/customer', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"22946704-6ecb-4ae0-818a-984fe1ebb128";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:14:"Content-Length";s:1:"0";s:10:"Connection";s:10:"keep-alive";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486710, 0.0617602, '1', 200),
-(136, 'api/service/1', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Cache-Control";s:9:"max-age=0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:25:"Upgrade-Insecure-Requests";s:1:"1";s:10:"User-Agent";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36";s:6:"Accept";s:118:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:23:"en-US,en;q=0.9,id;q=0.8";s:6:"Cookie";s:162:"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ikkhl00q5hb0lmtih2p6drde5dd37s1v";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553490057, 0.0625389, '1', 200),
-(137, 'api/service/1', 'get', 'a:12:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:4:"Host";s:11:"gatoko1.com";s:10:"Connection";s:10:"keep-alive";s:13:"Cache-Control";s:9:"max-age=0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:25:"Upgrade-Insecure-Requests";s:1:"1";s:10:"User-Agent";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36";s:6:"Accept";s:118:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:15:"Accept-Language";s:23:"en-US,en;q=0.9,id;q=0.8";s:6:"Cookie";s:162:"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ng0su29jtcb11lv1ee30qq70g9o6j7fs";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553493660, 0.158972, '1', 200),
-(138, 'api/example/users', 'get', 'a:9:{s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"0a4c05b5-5bda-4ae6-b446-a56b0f58dd10";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '', '118.136.101.98', 1554794034, 0.0983059, '0', 403),
-(139, 'api/example/users', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"10838701-cb4f-4a83-a991-0e05906965ca";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=p051e6s1ql0263n5n3sddmlsk9u8rqs6";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554794302, 0.0760469, '1', 0),
-(140, 'api/example/users', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"3a770d89-3c5a-426c-8a88-ab7b2ff71a96";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=cb1hqv00que8cpvs70e1d5895usqu7td";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883642, 0.0705218, '1', 0),
-(141, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"48c7470c-04ff-47f0-9e30-e464283234f0";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883651, 0.055877, '1', 0),
-(142, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"f5001237-7200-4352-b3f3-4aef64823792";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883678, 0.0204818, '1', 0),
-(143, 'api/example', 'get', 'a:11:{s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:13:"Cache-Control";s:8:"no-cache";s:13:"Postman-Token";s:36:"aba6da08-f4f7-4619-99b5-04c6ee8ffc87";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:10:"User-Agent";s:20:"PostmanRuntime/7.6.1";s:6:"Accept";s:3:"*/*";s:4:"Host";s:11:"gatoko1.com";s:6:"Cookie";s:43:"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j";s:15:"Accept-Encoding";s:13:"gzip, deflate";s:10:"Connection";s:10:"keep-alive";s:14:"Content-Length";s:1:"0";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883745, 0.136361, '1', 200),
-(144, 'api/example', 'get', 'a:9:{s:4:"Host";s:11:"gatoko1.com";s:6:"Accept";s:3:"*/*";s:15:"Accept-Encoding";s:13:"deflate, gzip";s:13:"Authorization";s:38:"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==";s:13:"Cache-Control";s:8:"no-cache";s:13:"postman-token";s:36:"a99bba16-ad49-13bc-4f20-f6991eb24681";s:8:"x-sm-key";s:32:"35d3d08c3d7b7f445ceb8e726a87b26c";s:14:"Content-Length";s:1:"0";s:12:"Content-Type";s:33:"application/x-www-form-urlencoded";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '103.233.102.8', 1554883924, 0.0799909, '1', 200);
+(125, 'api/customer/detail/2', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"25a837ed-9429-4b7b-adf2-f6a4c5a37024\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486468, 0.0408051, '1', 404),
+(126, 'api/customer/detail/1', 'get', 'a:13:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"d35dbdaa-e37f-4b92-9b2b-12f285cb0b12\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";i:1;N;}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486471, 0.042562, '1', 200),
+(127, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"914bbbda-2ea7-46f7-b9a4-41e60cbcbfcf\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486475, 0.041795, '1', 200),
+(128, 'api/customer/detail/1', 'post', 'a:12:{i:0;N;s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"b931dae0-efcf-4311-bad6-6b0281842cf9\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486478, 0.0405412, '1', 200),
+(129, 'api/customer', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"776eb3f3-8102-4bd7-b787-1a5c4bcb4795\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486548, 0.0437829, '1', 200),
+(130, 'api/customer', 'put', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"28873dba-1b14-4637-916e-8cdb5119f1eb\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486610, 0.0680921, '1', 200),
+(131, 'api/customer', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7e1eac1e-faf7-44dd-b734-af0e471a8dea\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------132173021837729928827018\";s:14:\"Content-Length\";s:3:\"601\";s:10:\"Connection\";s:10:\"keep-alive\";s:90:\"----------------------------132173021837729928827018\r\nContent-Disposition:_form-data;_name\";s:510:\"\"id\"\r\n\r\n1\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nMarcell\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\nmarcell@gmail.com\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n0\r\n----------------------------132173021837729928827018\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\n-\r\n----------------------------132173021837729928827018--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486651, 0.0602229, '1', 200),
+(132, 'api/customer/index', 'put', 'a:13:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"bdc624da-d819-4d43-a638-2841595334cf\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:12:\"Content-Type\";s:80:\"multipart/form-data; boundary=--------------------------058076299379341907803355\";s:14:\"Content-Length\";s:3:\"601\";s:10:\"Connection\";s:10:\"keep-alive\";s:90:\"----------------------------058076299379341907803355\r\nContent-Disposition:_form-data;_name\";s:510:\"\"id\"\r\n\r\n1\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nMarcell\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\nmarcell@gmail.com\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n0\r\n----------------------------058076299379341907803355\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\n-\r\n----------------------------058076299379341907803355--\r\n\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486659, 0.0498202, '1', 200),
+(133, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"7017eee3-7f68-470d-b48f-cda8a497db21\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"61\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";s:4:\"name\";s:7:\"Marcell\";s:5:\"email\";s:17:\"marcell@gmail.com\";s:5:\"phone\";s:1:\"0\";s:7:\"address\";s:1:\"-\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486677, 0.0547671, '1', 200),
+(134, 'api/customer', 'put', 'a:17:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"0919d15c-ab2d-4719-905a-294bab410871\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:2:\"72\";s:10:\"Connection\";s:10:\"keep-alive\";s:2:\"id\";s:1:\"1\";s:4:\"name\";s:7:\"Marcell\";s:5:\"email\";s:17:\"marcell@gmail.com\";s:5:\"phone\";s:12:\"023489234234\";s:7:\"address\";s:1:\"-\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486705, 0.067431, '1', 200),
+(135, 'api/customer', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"22946704-6ecb-4ae0-818a-984fe1ebb128\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=0ou9naa8qcf17lcnuuh5836h89j9jng2\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:14:\"Content-Length\";s:1:\"0\";s:10:\"Connection\";s:10:\"keep-alive\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553486710, 0.0617602, '1', 200),
+(136, 'api/service/1', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Cache-Control\";s:9:\"max-age=0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:25:\"Upgrade-Insecure-Requests\";s:1:\"1\";s:10:\"User-Agent\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\";s:6:\"Accept\";s:118:\"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:23:\"en-US,en;q=0.9,id;q=0.8\";s:6:\"Cookie\";s:162:\"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ikkhl00q5hb0lmtih2p6drde5dd37s1v\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553490057, 0.0625389, '1', 200),
+(137, 'api/service/1', 'get', 'a:12:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:4:\"Host\";s:11:\"gatoko1.com\";s:10:\"Connection\";s:10:\"keep-alive\";s:13:\"Cache-Control\";s:9:\"max-age=0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:25:\"Upgrade-Insecure-Requests\";s:1:\"1\";s:10:\"User-Agent\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\";s:6:\"Accept\";s:118:\"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:15:\"Accept-Language\";s:23:\"en-US,en;q=0.9,id;q=0.8\";s:6:\"Cookie\";s:162:\"__tawkuuid=e::gatoko1.com::OhUiMUccaj8WHrrU9umxSbLztAdgNdRTssI1QjdAzElG8peDYrIMeFEHEJGxhcsK::2; timezone=Asia/Jakarta; ci_session=ng0su29jtcb11lv1ee30qq70g9o6j7fs\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1553493660, 0.158972, '1', 200),
+(138, 'api/example/users', 'get', 'a:9:{s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"0a4c05b5-5bda-4ae6-b446-a56b0f58dd10\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '', '118.136.101.98', 1554794034, 0.0983059, '0', 403),
+(139, 'api/example/users', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"10838701-cb4f-4a83-a991-0e05906965ca\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=p051e6s1ql0263n5n3sddmlsk9u8rqs6\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554794302, 0.0760469, '1', 0),
+(140, 'api/example/users', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"3a770d89-3c5a-426c-8a88-ab7b2ff71a96\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=cb1hqv00que8cpvs70e1d5895usqu7td\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883642, 0.0705218, '1', 0),
+(141, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"48c7470c-04ff-47f0-9e30-e464283234f0\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883651, 0.055877, '1', 0),
+(142, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"f5001237-7200-4352-b3f3-4aef64823792\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883678, 0.0204818, '1', 0),
+(143, 'api/example', 'get', 'a:11:{s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"Postman-Token\";s:36:\"aba6da08-f4f7-4619-99b5-04c6ee8ffc87\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:10:\"User-Agent\";s:20:\"PostmanRuntime/7.6.1\";s:6:\"Accept\";s:3:\"*/*\";s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Cookie\";s:43:\"ci_session=94jbc6nbivmbtahbnm04qncc3pf2585j\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:10:\"Connection\";s:10:\"keep-alive\";s:14:\"Content-Length\";s:1:\"0\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '118.136.101.98', 1554883745, 0.136361, '1', 200),
+(144, 'api/example', 'get', 'a:9:{s:4:\"Host\";s:11:\"gatoko1.com\";s:6:\"Accept\";s:3:\"*/*\";s:15:\"Accept-Encoding\";s:13:\"deflate, gzip\";s:13:\"Authorization\";s:38:\"Basic c200cnRzMGZ0Oj96d01BeEJuUzlqag==\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:13:\"postman-token\";s:36:\"a99bba16-ad49-13bc-4f20-f6991eb24681\";s:8:\"x-sm-key\";s:32:\"35d3d08c3d7b7f445ceb8e726a87b26c\";s:14:\"Content-Length\";s:1:\"0\";s:12:\"Content-Type\";s:33:\"application/x-www-form-urlencoded\";}', '35d3d08c3d7b7f445ceb8e726a87b26c', '103.233.102.8', 1554883924, 0.0799909, '1', 200);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu_master`
+-- Table structure for table `menu_master`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_master` (
+CREATE TABLE `menu_master` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
@@ -1281,10 +1283,10 @@ CREATE TABLE IF NOT EXISTS `menu_master` (
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu_master`
+-- Dumping data for table `menu_master`
 --
 
 INSERT INTO `menu_master` (`id`, `name`, `icon`, `link`, `urutan`, `parent`, `notif`, `status`, `created_at`, `updated_at`) VALUES
@@ -1298,67 +1300,67 @@ INSERT INTO `menu_master` (`id`, `name`, `icon`, `link`, `urutan`, `parent`, `no
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `report`
+-- Table structure for table `report`
 --
 
-CREATE TABLE IF NOT EXISTS `report` (
+CREATE TABLE `report` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `query` longtext,
-  `header` text,
+  `query` longtext DEFAULT NULL,
+  `header` text DEFAULT NULL,
   `status` enum('ENABLE','DISABLE') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `report`
+-- Dumping data for table `report`
 --
 
 INSERT INTO `report` (`id`, `name`, `query`, `header`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Users', 'SELECT * FROM user', '["nip","name","email","password","role_id","desc","status","created_at","updated_at"]', 'ENABLE', '2019-03-13 09:57:07', '2019-03-19 17:13:35'),
-(2, 'Customer', 'SELECT customer.*,file.dir FROM customer LEFT JOIN file ON file.table_id = customer.id and file.table= ''customer''', '["nama","email","telp","alamat","status","dir"]', 'ENABLE', '2019-03-25 10:47:39', '2019-07-01 09:01:19'),
-(3, 'Report SPM', 'SELECT * FROM surat_pembayaran', '["tanggal_register","nomor_register","skpd","tanggal_spm","nomor_spm","kode_rekening_program","kode_rekening_belanja","uraian","jumlah_gu","jumlah_up","jumlah_tu","jumlah_ls","pihak_ketiga"]', 'ENABLE', '2019-07-28 08:13:14', '2019-07-28 08:25:00'),
+(1, 'Users', 'SELECT * FROM user', '[\"nip\",\"name\",\"email\",\"password\",\"role_id\",\"desc\",\"status\",\"created_at\",\"updated_at\"]', 'ENABLE', '2019-03-13 09:57:07', '2019-03-19 17:13:35'),
+(2, 'Customer', 'SELECT customer.*,file.dir FROM customer LEFT JOIN file ON file.table_id = customer.id and file.table= \'customer\'', '[\"nama\",\"email\",\"telp\",\"alamat\",\"status\",\"dir\"]', 'ENABLE', '2019-03-25 10:47:39', '2019-07-01 09:01:19'),
+(3, 'Report SPM', 'SELECT * FROM surat_pembayaran', '[\"tanggal_register\",\"nomor_register\",\"skpd\",\"tanggal_spm\",\"nomor_spm\",\"kode_rekening_program\",\"kode_rekening_belanja\",\"uraian\",\"jumlah_gu\",\"jumlah_up\",\"jumlah_tu\",\"jumlah_ls\",\"pihak_ketiga\"]', 'ENABLE', '2019-07-28 08:13:14', '2019-07-28 08:25:00'),
 (4, 'Report Realisasi Tahap Fisik', 'SELECT a.*, b.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', NULL, 'DISABLE', '2019-08-06 13:10:12', NULL),
-(5, 'Report Realisasi Tahap Fisik', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '["tanggal","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","keterangan","name"]', 'ENABLE', '2019-08-06 13:10:46', '2019-08-06 13:11:41'),
-(6, 'Report Realisasi Tahap Anggaran', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_anggaran a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '["name","tanggal","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","keterangan"]', 'ENABLE', '2019-08-06 13:13:22', '2019-08-07 18:21:01'),
-(7, 'Tahap Fisik', 'SELECT a.id, YEAR(a.created_at) as tahun, a.target as target, b.name as kab_kota\r\n,SUM(c.penyuluhan) as penyuluhan\r\n,(100*SUM(c.penyuluhan)/a.target) as persentase_penyuluhan\r\n,SUM(c.Inventarisasi_dan_identifikasi_os) as Inventarisasi_dan_identifikasi_os\r\n,(100*SUM(c.Inventarisasi_dan_identifikasi_os)/a.target) as persentase_Inventarisasi_dan_identifikasi_os\r\n,SUM(c.pengukuran_dan_pemetaan) as pengukuran_dan_pemetaan\r\n,(100*SUM(c.pengukuran_dan_pemetaan)/a.target)as persentase_pengukuran_dan_pemetaan\r\n,SUM(c.sidang_ppl) as sidang_ppl\r\n,(100*SUM(c.sidang_ppl)/a.target) as persentase_sidang_ppl\r\n,SUM(c.penetapan_obyek_dan_subyek) as penetapan_obyek_dan_subyek\r\n,(100*SUM(c.penetapan_obyek_dan_subyek)/a.target)as persentase_penetapan_obyek_dan_subyek\r\n,SUM(c.sk_redis) as sk_redis\r\n,(100*SUM(c.sk_redis)/a.target) as persentase_sk_redis\r\n,SUM(c.pembukuan_hak_dan_penerbitan_sertipikat) as pembukuan_hak_dan_penerbitan_sertipikat\r\n,(100*SUM(c.pembukuan_hak_dan_penerbitan_sertipikat)/a.target) as persentase_pembukuan_hak_dan_penerbitan_sertipikat, \r\n\r\n\r\n\r\nCOUNT(c.id) as total_laporan\r\nFROM user x\r\ntarget_bidang a\r\nON x.id = a.u_id\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nLEFT OUTER JOIN realisasi_tahap_fisik c\r\nON a.u_id = c.u_id\r\nWHERE b.role_id=18 AND a.status=''ENABLE'' AND b.status = ''ENABLE'' AND c.status=''ENABLE''\r\nGROUP BY a.id', '["tahun","target","kab_kota","penyuluhan","Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","sidang_ppl","penetapan_obyek_dan_subyek","sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'DISABLE', '2019-08-06 14:45:17', '2019-08-07 18:03:11'),
-(8, 'Tahap Anggaran', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),''0'') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),''0'') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),''0'') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),''0'') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),''0'') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),''0'') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),''0'') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),''0'') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),''0'') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),''0'') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),''0'') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),''0'') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),''0'') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),''0'') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),''0'') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,''-'',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,''-'',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_anggaran c\r\nWHERE  c.status=''ENABLE''\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '["tahun","kota_kab","target","penyuluhan","persentase_penyuluhan","Inventarisasi_dan_identifikasi_os","persentase_Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","persentase_pengukuran_dan_pemetaan","sidang_ppl","persentase_sidang_ppl","penetapan_obyek_dan_subyek","persentase_penetapan_obyek_dan_subyek","sk_redis","persentase_sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","persentase_pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'ENABLE', '2019-08-06 14:51:20', '2019-08-09 14:33:46'),
-(9, 'Tahap FIsik', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),''0'') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),''0'') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),''0'') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),''0'') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),''0'') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),''0'') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),''0'') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),''0'') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),''0'') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),''0'') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),''0'') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),''0'') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),''0'') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),''0'') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),''0'') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,''-'',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,''-'',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_fisik c\r\nWHERE  c.status=''ENABLE''\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '["tahun","kota_kab","target","penyuluhan","persentase_penyuluhan","Inventarisasi_dan_identifikasi_os","persentase_Inventarisasi_dan_identifikasi_os","pengukuran_dan_pemetaan","persentase_pengukuran_dan_pemetaan","sidang_ppl","persentase_sidang_ppl","penetapan_obyek_dan_subyek","persentase_penetapan_obyek_dan_subyek","sk_redis","persentase_sk_redis","pembukuan_hak_dan_penerbitan_sertipikat","persentase_pembukuan_hak_dan_penerbitan_sertipikat","total_laporan"]', 'ENABLE', '2019-08-09 14:34:28', '2019-08-09 14:34:58'),
-(10, 'Report Transaksi', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = ''19'' AND date(transaksi.created_at) BETWEEN ''2019-08-18'' AND ''2019-08-18'' GROUP BY date(transaksi.created_at)', '["tanggal","jumlah","qty","totaljual","totalbeli"]', 'ENABLE', '2019-08-19 11:51:23', '2019-08-19 11:51:41'),
-(11, 'Report Transaksi Admin', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = ''19'' AND date(transaksi.created_at) BETWEEN ''2019-08-18'' AND ''2019-08-18'' GROUP BY date(transaksi.created_at)', '["tanggal","jumlah","qty","totaljual","totalbeli"]', 'ENABLE', '2019-08-19 12:31:00', '2019-08-19 12:31:46');
+(5, 'Report Realisasi Tahap Fisik', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_fisik a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '[\"tanggal\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"keterangan\",\"name\"]', 'ENABLE', '2019-08-06 13:10:46', '2019-08-06 13:11:41'),
+(6, 'Report Realisasi Tahap Anggaran', 'SELECT b.name, a.*\r\nFROM realisasi_tahap_anggaran a\r\nLEFT OUTER JOIN user b\r\nON a.u_id  = b.id', '[\"name\",\"tanggal\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"keterangan\"]', 'ENABLE', '2019-08-06 13:13:22', '2019-08-07 18:21:01'),
+(7, 'Tahap Fisik', 'SELECT a.id, YEAR(a.created_at) as tahun, a.target as target, b.name as kab_kota\r\n,SUM(c.penyuluhan) as penyuluhan\r\n,(100*SUM(c.penyuluhan)/a.target) as persentase_penyuluhan\r\n,SUM(c.Inventarisasi_dan_identifikasi_os) as Inventarisasi_dan_identifikasi_os\r\n,(100*SUM(c.Inventarisasi_dan_identifikasi_os)/a.target) as persentase_Inventarisasi_dan_identifikasi_os\r\n,SUM(c.pengukuran_dan_pemetaan) as pengukuran_dan_pemetaan\r\n,(100*SUM(c.pengukuran_dan_pemetaan)/a.target)as persentase_pengukuran_dan_pemetaan\r\n,SUM(c.sidang_ppl) as sidang_ppl\r\n,(100*SUM(c.sidang_ppl)/a.target) as persentase_sidang_ppl\r\n,SUM(c.penetapan_obyek_dan_subyek) as penetapan_obyek_dan_subyek\r\n,(100*SUM(c.penetapan_obyek_dan_subyek)/a.target)as persentase_penetapan_obyek_dan_subyek\r\n,SUM(c.sk_redis) as sk_redis\r\n,(100*SUM(c.sk_redis)/a.target) as persentase_sk_redis\r\n,SUM(c.pembukuan_hak_dan_penerbitan_sertipikat) as pembukuan_hak_dan_penerbitan_sertipikat\r\n,(100*SUM(c.pembukuan_hak_dan_penerbitan_sertipikat)/a.target) as persentase_pembukuan_hak_dan_penerbitan_sertipikat, \r\n\r\n\r\n\r\nCOUNT(c.id) as total_laporan\r\nFROM user x\r\ntarget_bidang a\r\nON x.id = a.u_id\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nLEFT OUTER JOIN realisasi_tahap_fisik c\r\nON a.u_id = c.u_id\r\nWHERE b.role_id=18 AND a.status=\'ENABLE\' AND b.status = \'ENABLE\' AND c.status=\'ENABLE\'\r\nGROUP BY a.id', '[\"tahun\",\"target\",\"kab_kota\",\"penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'DISABLE', '2019-08-06 14:45:17', '2019-08-07 18:03:11'),
+(8, 'Tahap Anggaran', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),\'0\') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),\'0\') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),\'0\') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),\'0\') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),\'0\') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),\'0\') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),\'0\') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),\'0\') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),\'0\') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),\'0\') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),\'0\') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),\'0\') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),\'0\') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),\'0\') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),\'0\') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,\'-\',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,\'-\',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_anggaran c\r\nWHERE  c.status=\'ENABLE\'\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '[\"tahun\",\"kota_kab\",\"target\",\"penyuluhan\",\"persentase_penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"persentase_Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"persentase_pengukuran_dan_pemetaan\",\"sidang_ppl\",\"persentase_sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"persentase_penetapan_obyek_dan_subyek\",\"sk_redis\",\"persentase_sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"persentase_pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'ENABLE', '2019-08-06 14:51:20', '2019-08-09 14:33:46'),
+(9, 'Tahap FIsik', 'SELECT \r\nx.*, \r\n\r\nCOALESCE(SUM(y.penyuluhan),\'0\') as penyuluhan\r\n,COALESCE((100*SUM(y.penyuluhan)/x.target),\'0\') as persentase_penyuluhan\r\n,COALESCE(SUM(y.Inventarisasi_dan_identifikasi_os),\'0\') as Inventarisasi_dan_identifikasi_os\r\n,COALESCE((100*SUM(y.Inventarisasi_dan_identifikasi_os)/x.target),\'0\') as persentase_Inventarisasi_dan_identifikasi_os\r\n,COALESCE(SUM(y.pengukuran_dan_pemetaan),\'0\') as pengukuran_dan_pemetaan\r\n,COALESCE((100*SUM(y.pengukuran_dan_pemetaan)/x.target),\'0\') as persentase_pengukuran_dan_pemetaan\r\n,COALESCE(SUM(y.sidang_ppl),\'0\') as sidang_ppl\r\n,COALESCE((100*SUM(y.sidang_ppl)/x.target),\'0\') as persentase_sidang_ppl\r\n,COALESCE(SUM(y.penetapan_obyek_dan_subyek),\'0\') as penetapan_obyek_dan_subyek\r\n,COALESCE((100*SUM(y.penetapan_obyek_dan_subyek)/x.target),\'0\') as persentase_penetapan_obyek_dan_subyek\r\n,COALESCE(SUM(y.sk_redis),\'0\') as sk_redis\r\n,COALESCE((100*SUM(y.sk_redis)/x.target),\'0\') as persentase_sk_redis\r\n,COALESCE(SUM(y.pembukuan_hak_dan_penerbitan_sertipikat),\'0\') as pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE((100*SUM(y.pembukuan_hak_dan_penerbitan_sertipikat)/x.target),\'0\') as persentase_pembukuan_hak_dan_penerbitan_sertipikat\r\n,COALESCE(COUNT(y.id),\'0\') as total_laporan\r\nFROM\r\n(\r\n    SELECT CONCAT(a.u_id,\'-\',YEAR(a.tahun)) as id2, YEAR(a.tahun) as tahun, b.name as kota_kab, a.target\r\nFROM target_bidang a\r\nLEFT OUTER JOIN user b\r\nON a.u_id = b.id\r\nORDER BY YEAR(a.tahun) ASC, b.name ASC\r\n) x\r\nLEFT OUTER JOIN\r\n(\r\n   SELECT CONCAT(c.u_id,\'-\',YEAR(c.tanggal)) as id2, c.*\r\nFROM realisasi_tahap_fisik c\r\nWHERE  c.status=\'ENABLE\'\r\n)y\r\nON x.id2 = y.id2\r\nGROUP BY x.id2', '[\"tahun\",\"kota_kab\",\"target\",\"penyuluhan\",\"persentase_penyuluhan\",\"Inventarisasi_dan_identifikasi_os\",\"persentase_Inventarisasi_dan_identifikasi_os\",\"pengukuran_dan_pemetaan\",\"persentase_pengukuran_dan_pemetaan\",\"sidang_ppl\",\"persentase_sidang_ppl\",\"penetapan_obyek_dan_subyek\",\"persentase_penetapan_obyek_dan_subyek\",\"sk_redis\",\"persentase_sk_redis\",\"pembukuan_hak_dan_penerbitan_sertipikat\",\"persentase_pembukuan_hak_dan_penerbitan_sertipikat\",\"total_laporan\"]', 'ENABLE', '2019-08-09 14:34:28', '2019-08-09 14:34:58'),
+(10, 'Report Transaksi', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = \'19\' AND date(transaksi.created_at) BETWEEN \'2019-08-18\' AND \'2019-08-18\' GROUP BY date(transaksi.created_at)', '[\"tanggal\",\"jumlah\",\"qty\",\"totaljual\",\"totalbeli\"]', 'ENABLE', '2019-08-19 11:51:23', '2019-08-19 11:51:41'),
+(11, 'Report Transaksi Admin', 'SELECT date(transaksi.created_at) as tanggal, COUNT(transaksi.idTransaksi) as jumlah, SUM(transaksi.jumlahTransaksi) as qty, SUM(transaksi.totalTransaksi) as totaljual, SUM(transaksi.totalBeliProduk) as totalbeli FROM transaksi WHERE transaksi.idCreator = \'19\' AND date(transaksi.created_at) BETWEEN \'2019-08-18\' AND \'2019-08-18\' GROUP BY date(transaksi.created_at)', '[\"tanggal\",\"jumlah\",\"qty\",\"totaljual\",\"totalbeli\"]', 'ENABLE', '2019-08-19 12:31:00', '2019-08-19 12:31:46');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
+CREATE TABLE `role` (
   `id` int(11) NOT NULL,
   `role` varchar(255) DEFAULT NULL,
   `status` enum('DISABLE','ENABLE') DEFAULT NULL,
-  `menu` text,
+  `menu` text DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id`, `role`, `status`, `menu`, `created_at`, `updated_at`) VALUES
-(17, 'Super Admin', 'ENABLE', '["17","16","33"]', '2018-10-12 17:03:59', '2019-08-19 12:33:36'),
-(18, 'Operator', 'ENABLE', '["17","34","35","37","36"]', '2018-10-24 10:29:54', '2019-10-14 01:32:38'),
+(17, 'Super Admin', 'ENABLE', '[\"17\",\"16\",\"33\"]', '2018-10-12 17:03:59', '2019-08-19 12:33:36'),
+(18, 'Operator', 'ENABLE', '[\"17\",\"34\",\"35\",\"37\",\"36\"]', '2018-10-24 10:29:54', '2019-10-14 01:32:38'),
 (19, 'Pelanggan', 'DISABLE', NULL, '2019-08-18 01:31:39', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `site`
+-- Table structure for table `site`
 --
 
-CREATE TABLE IF NOT EXISTS `site` (
+CREATE TABLE `site` (
   `id` int(11) NOT NULL,
   `code` varchar(255) DEFAULT NULL,
   `site` varchar(225) DEFAULT NULL,
@@ -1366,10 +1368,10 @@ CREATE TABLE IF NOT EXISTS `site` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `site`
+-- Dumping data for table `site`
 --
 
 INSERT INTO `site` (`id`, `code`, `site`, `name`, `status`, `created_at`, `updated_at`) VALUES
@@ -1395,17 +1397,17 @@ INSERT INTO `site` (`id`, `code`, `site`, `name`, `status`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_agama`
+-- Table structure for table `tbl_agama`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_agama` (
+CREATE TABLE `tbl_agama` (
   `id_agama` int(11) NOT NULL,
   `kode_agama` varchar(255) NOT NULL,
   `nama_agama` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_agama`
+-- Dumping data for table `tbl_agama`
 --
 
 INSERT INTO `tbl_agama` (`id_agama`, `kode_agama`, `nama_agama`) VALUES
@@ -1419,19 +1421,41 @@ INSERT INTO `tbl_agama` (`id_agama`, `kode_agama`, `nama_agama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_family`
+-- Table structure for table `tbl_employer`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_family` (
+CREATE TABLE `tbl_employer` (
+  `id_employer` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `status` enum('ENABLE','DISABLE') NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_employer`
+--
+
+INSERT INTO `tbl_employer` (`id_employer`, `value`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'PT SEJAHTER SENTOSA', 'ENABLE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'PT JAYA MAKMUR', 'ENABLE', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_family`
+--
+
+CREATE TABLE `tbl_family` (
   `id_family` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_family`
+-- Dumping data for table `tbl_family`
 --
 
 INSERT INTO `tbl_family` (`id_family`, `value`, `status`, `created_at`, `updated_at`) VALUES
@@ -1442,19 +1466,19 @@ INSERT INTO `tbl_family` (`id_family`, `value`, `status`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kabkot`
+-- Table structure for table `tbl_kabkot`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_kabkot` (
-  `id` int(11) unsigned NOT NULL,
-  `provinsi_id` int(11) unsigned NOT NULL,
+CREATE TABLE `tbl_kabkot` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `provinsi_id` int(11) UNSIGNED NOT NULL,
   `kabupaten_kota` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ibukota` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `k_bsni` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=515 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `tbl_kabkot`
+-- Dumping data for table `tbl_kabkot`
 --
 
 INSERT INTO `tbl_kabkot` (`id`, `provinsi_id`, `kabupaten_kota`, `ibukota`, `k_bsni`) VALUES
@@ -1976,17 +2000,17 @@ INSERT INTO `tbl_kabkot` (`id`, `provinsi_id`, `kabupaten_kota`, `ibukota`, `k_b
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kecamatan`
+-- Table structure for table `tbl_kecamatan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_kecamatan` (
-  `id` int(11) unsigned NOT NULL,
-  `kabkot_id` int(11) unsigned NOT NULL,
+CREATE TABLE `tbl_kecamatan` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `kabkot_id` int(11) UNSIGNED NOT NULL,
   `kecamatan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4900 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `tbl_kecamatan`
+-- Dumping data for table `tbl_kecamatan`
 --
 
 INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
@@ -2025,7 +2049,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (33, 3, 'Kuta Baro'),
 (34, 3, 'Lembah Seulawah'),
 (35, 3, 'Leupung'),
-(36, 3, 'Lhoknga (Lho''nga)'),
+(36, 3, 'Lhoknga (Lho\'nga)'),
 (37, 3, 'Lhoong'),
 (38, 3, 'Mantasiek (Montasik)'),
 (39, 3, 'Mesjid Raya'),
@@ -2449,7 +2473,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (457, 35, 'Hili Serangkai (Hilisaranggu)'),
 (458, 35, 'Hiliduho'),
 (459, 35, 'Idano Gawo'),
-(460, 35, 'Ma''u'),
+(460, 35, 'Ma\'u'),
 (461, 35, 'Sogae Adu (Sogaeadu)'),
 (462, 35, 'Somolo-Molo (Samolo)'),
 (463, 35, 'Ulugawo'),
@@ -2458,9 +2482,9 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (466, 36, 'Mandrehe'),
 (467, 36, 'Mandrehe Barat'),
 (468, 36, 'Mandrehe Utara'),
-(469, 36, 'Moro''o'),
+(469, 36, 'Moro\'o'),
 (470, 36, 'Sirombu'),
-(471, 36, 'Ulu Moro''o (Ulu Narwo)'),
+(471, 36, 'Ulu Moro\'o (Ulu Narwo)'),
 (472, 37, 'Amandraya'),
 (473, 37, 'Aramo'),
 (474, 37, 'Boronadu'),
@@ -2468,7 +2492,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (476, 37, 'Gomo'),
 (477, 37, 'Hibala'),
 (478, 37, 'Hilimegai'),
-(479, 37, 'Hilisalawa''ahe (Hilisalawaahe)'),
+(479, 37, 'Hilisalawa\'ahe (Hilisalawaahe)'),
 (480, 37, 'Huruna'),
 (481, 37, 'Lahusa'),
 (482, 37, 'Lolomatua'),
@@ -2476,13 +2500,13 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (484, 37, 'Maniamolo'),
 (485, 37, 'Mazino'),
 (486, 37, 'Mazo'),
-(487, 37, 'O''o''u (Oou)'),
+(487, 37, 'O\'o\'u (Oou)'),
 (488, 37, 'Onohazumba'),
 (489, 37, 'Pulau-Pulau Batu'),
 (490, 37, 'Pulau-Pulau Batu Barat'),
 (491, 37, 'Pulau-Pulau Batu Timur'),
 (492, 37, 'Pulau-Pulau Batu Utara'),
-(493, 37, 'Sidua''ori'),
+(493, 37, 'Sidua\'ori'),
 (494, 37, 'Simuk'),
 (495, 37, 'Somambawa'),
 (496, 37, 'Susua'),
@@ -2660,7 +2684,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (668, 49, 'Binjai Timur'),
 (669, 49, 'Binjai Utara'),
 (670, 50, 'Gunungsitoli'),
-(671, 50, 'Gunungsitoli Alo''oa'),
+(671, 50, 'Gunungsitoli Alo\'oa'),
 (672, 50, 'Gunungsitoli Barat'),
 (673, 50, 'Gunungsitoli Idanoi'),
 (674, 50, 'Gunungsitoli Selatan'),
@@ -5612,7 +5636,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (3619, 246, 'Larangan'),
 (3620, 246, 'Pademawu'),
 (3621, 246, 'Pakong'),
-(3622, 246, 'Palenga''an'),
+(3622, 246, 'Palenga\'an'),
 (3623, 246, 'Pamekasan'),
 (3624, 246, 'Pasean'),
 (3625, 246, 'Pegantenan'),
@@ -5759,7 +5783,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (3766, 253, 'Nonggunong'),
 (3767, 253, 'Pasongsongan'),
 (3768, 253, 'Pragaan'),
-(3769, 253, 'Ra''as'),
+(3769, 253, 'Ra\'as'),
 (3770, 253, 'Rubaru'),
 (3771, 253, 'Sapeken'),
 (3772, 253, 'Saronggi'),
@@ -6108,7 +6132,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (4115, 283, 'Woha'),
 (4116, 284, 'Dompu');
 INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
-(4117, 284, 'Hu''u'),
+(4117, 284, 'Hu\'u'),
 (4118, 284, 'Kempo'),
 (4119, 284, 'Kilo'),
 (4120, 284, 'Manggalewa'),
@@ -6460,7 +6484,7 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 (4466, 312, 'Fatukopa'),
 (4467, 312, 'Fatumnasi'),
 (4468, 312, 'Fautmolo'),
-(4469, 312, 'Kie (Ki''e)'),
+(4469, 312, 'Kie (Ki\'e)'),
 (4470, 312, 'Kok Baun'),
 (4471, 312, 'Kolbano'),
 (4472, 312, 'Kot Olin'),
@@ -6895,18 +6919,18 @@ INSERT INTO `tbl_kecamatan` (`id`, `kabkot_id`, `kecamatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kelurahan`
+-- Table structure for table `tbl_kelurahan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_kelurahan` (
-  `id` int(11) unsigned NOT NULL,
-  `kecamatan_id` int(11) unsigned NOT NULL,
+CREATE TABLE `tbl_kelurahan` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `kecamatan_id` int(11) UNSIGNED NOT NULL,
   `kelurahan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kd_pos` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=82504 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `tbl_kelurahan`
+-- Dumping data for table `tbl_kelurahan`
 --
 
 INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
@@ -9548,7 +9572,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (2635, 130, 'Kuala Peudawa Puntong', '24454'),
 (2636, 130, 'Kuta Blang', '24454'),
 (2637, 130, 'Kuta Lawah', '24454'),
-(2638, 130, 'Meunasah Pu''uk', '24454'),
+(2638, 130, 'Meunasah Pu\'uk', '24454'),
 (2639, 130, 'Sampoimah', '24454'),
 (2640, 130, 'Seuneubok Bacee', '24454'),
 (2641, 130, 'Seuneubok Rambong', '24454'),
@@ -13292,7 +13316,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (6376, 283, 'Balohan', '23525'),
 (6377, 283, 'Beurawang', '23527'),
 (6378, 283, 'Cot Abeuk', '23523'),
-(6379, 283, 'Cot Ba''U', '23522'),
+(6379, 283, 'Cot Ba\'U', '23522'),
 (6380, 283, 'Ie Meulee', '23521'),
 (6381, 283, 'Jaboi', '23526'),
 (6382, 283, 'Keunekai', '23528'),
@@ -15623,7 +15647,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8705, 453, 'Simpang Duhu Lombang', '22998'),
 (8706, 453, 'Simpang Pining', '22998'),
 (8707, 453, 'Tolang', '22998'),
-(8708, 454, 'Balale Toba''a', '22876'),
+(8708, 454, 'Balale Toba\'a', '22876'),
 (8709, 454, 'Banua Sibohou Silima Ewali', '22876'),
 (8710, 454, 'Botohaenga', '22876'),
 (8711, 454, 'Dahana Bawolato', '22851'),
@@ -15639,7 +15663,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8721, 454, 'Orahili', '22876'),
 (8722, 454, 'Orahua', '22876'),
 (8723, 454, 'Orahua Faondrato', '22876'),
-(8724, 454, 'Si''ofaewali Selatan', '22876'),
+(8724, 454, 'Si\'ofaewali Selatan', '22876'),
 (8725, 454, 'Sifaoroasi Uluhou', '22876'),
 (8726, 454, 'Sindrondro', '22876'),
 (8727, 454, 'Siofabanua', '22876'),
@@ -15657,7 +15681,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8739, 455, 'Hiliwaele I', '22815'),
 (8740, 455, 'Hiliwaele II', '22815'),
 (8741, 455, 'Lazara Botomuzoi', '22815'),
-(8742, 455, 'Lololana''a', '22815'),
+(8742, 455, 'Lololana\'a', '22815'),
 (8743, 455, 'Mohili Berua Botomuzoi', '22815'),
 (8744, 455, 'Ola Nori', '22815'),
 (8745, 455, 'Ononamolo Talafu', '22815'),
@@ -15678,14 +15702,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8760, 456, 'Lasela', '22871'),
 (8761, 456, 'Loloanaa Gido', '22871'),
 (8762, 456, 'Lolozasai', '22871'),
-(8763, 456, 'Nifolo''o Lauru', '22871'),
+(8763, 456, 'Nifolo\'o Lauru', '22871'),
 (8764, 456, 'Olindrawa Sisarahili', '22871'),
 (8765, 456, 'Sirete', '22871'),
 (8766, 456, 'Sisobahili', '22871'),
 (8767, 456, 'Soewe (Saewe)', '22871'),
 (8768, 456, 'Somi', '22871'),
-(8769, 456, 'Somi Botogo''o', '22871'),
-(8770, 456, 'Tulumbaho Salo''o', '22871'),
+(8769, 456, 'Somi Botogo\'o', '22871'),
+(8770, 456, 'Tulumbaho Salo\'o', '22871'),
 (8771, 456, 'Umbu', '22871'),
 (8772, 457, 'Awela', '22851'),
 (8773, 457, 'Dahadano Botombawo', '22851'),
@@ -15706,8 +15730,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8788, 458, 'Fadoro Lauru', '22854'),
 (8789, 458, 'Hiliduho', '22854'),
 (8790, 458, 'Hiligodu Tanoseo', '22851'),
-(8791, 458, 'Lasara Tanose''o', '22854'),
-(8792, 458, 'Ombolalasalo''o', '22854'),
+(8791, 458, 'Lasara Tanose\'o', '22854'),
+(8792, 458, 'Ombolalasalo\'o', '22854'),
 (8793, 458, 'Ombolata Sisarahili', '22854'),
 (8794, 458, 'Ononamolo I Bot', '22854'),
 (8795, 458, 'Onowaembo Hiligara', '22854'),
@@ -15725,8 +15749,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8807, 459, 'Biouti Timur', '22872'),
 (8808, 459, 'Bobozioli Loloanaa', '22872'),
 (8809, 459, 'Bozihona', '22872'),
-(8810, 459, 'Hili''adulo', '22872'),
-(8811, 459, 'Hiligogowaya Maliwa''a', '22872'),
+(8810, 459, 'Hili\'adulo', '22872'),
+(8811, 459, 'Hiligogowaya Maliwa\'a', '22872'),
 (8812, 459, 'Hililawae', '22872'),
 (8813, 459, 'Hilimoasio', '22872'),
 (8814, 459, 'Hilimoasio Dua', '22872'),
@@ -15744,7 +15768,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8826, 459, 'Sisobahili Iraonohura', '22872'),
 (8827, 459, 'Tete Goenaai', '22872'),
 (8828, 459, 'Tetehosi', '22872'),
-(8829, 459, 'Tiga Serangkai Maliwa''a', '22872'),
+(8829, 459, 'Tiga Serangkai Maliwa\'a', '22872'),
 (8830, 459, 'Tuhewaebu', '22872'),
 (8831, 460, 'Atualuo', '22852'),
 (8832, 460, 'Balodano', '22852'),
@@ -15753,8 +15777,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8835, 460, 'Lewa - Lewa', '22852'),
 (8836, 460, 'Lewu Oguru II (Lewuaguru II)', '22852'),
 (8837, 460, 'Sihaero III', '22852'),
-(8838, 460, 'Sihare''o III Bawosalo''o Berua', '22852'),
-(8839, 460, 'Sihare''o III Hilibadalu', '22852'),
+(8838, 460, 'Sihare\'o III Bawosalo\'o Berua', '22852'),
+(8839, 460, 'Sihare\'o III Hilibadalu', '22852'),
 (8840, 460, 'Sisarahili Ma U', '22852'),
 (8841, 460, 'Tuhemberua', '22852'),
 (8842, 461, 'Baruzo', '22871'),
@@ -15777,7 +15801,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8859, 462, 'Sifaoroasi', '22871'),
 (8860, 462, 'Sisaratandrawa', '22871'),
 (8861, 462, 'Sisobawino I', '22871'),
-(8862, 462, 'So''ewali', '22871'),
+(8862, 462, 'So\'ewali', '22871'),
 (8863, 462, 'Somolo-Molo', '22871'),
 (8864, 463, 'Fahandrona', '22861'),
 (8865, 463, 'Fatodano', '22861'),
@@ -15791,7 +15815,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8873, 463, 'Onodalinga', '22861'),
 (8874, 463, 'Orahili Somolomolo', '22861'),
 (8875, 463, 'Sifaoroasi Ulugawo', '22861'),
-(8876, 463, 'Sisarahili Soroma''asi', '22861'),
+(8876, 463, 'Sisarahili Soroma\'asi', '22861'),
 (8877, 463, 'Sisobahili Ulugawo', '22861'),
 (8878, 464, 'Bawozamaiwo', '22864'),
 (8879, 464, 'Hiliadulo', '22864'),
@@ -15816,19 +15840,19 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8898, 466, 'Fadoro', '22862'),
 (8899, 466, 'Fadoro Bahili', '22862'),
 (8900, 466, 'Hayo', '22867'),
-(8901, 466, 'Hiliwalo''o I', '22862'),
+(8901, 466, 'Hiliwalo\'o I', '22862'),
 (8902, 466, 'Iraono Gambo', '22862'),
 (8903, 466, 'Iriani Gambo', '22862'),
 (8904, 466, 'Lakhena', '22862'),
 (8905, 466, 'Lasara Baene', '22862'),
 (8906, 466, 'Lologolu', '22862'),
 (8907, 466, 'Lolozirugi', '22862'),
-(8908, 466, 'Siana''a', '22862'),
-(8909, 466, 'Simae''asi', '22862'),
+(8908, 466, 'Siana\'a', '22862'),
+(8909, 466, 'Simae\'asi', '22862'),
 (8910, 466, 'Sisarahili I', '22862'),
 (8911, 466, 'Tetehosi', '22862'),
 (8912, 466, 'Tuhemberua', '22862'),
-(8913, 466, 'Tuho''owo', '22862'),
+(8913, 466, 'Tuho\'owo', '22862'),
 (8914, 466, 'Tumori', '22862'),
 (8915, 466, 'Tuwuuna', '22862'),
 (8916, 466, 'ZuzuNdrao', '22862'),
@@ -15906,13 +15930,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (8988, 472, 'Hilimbowo', '22866'),
 (8989, 472, 'Hilimbulawa', '22866'),
 (8990, 472, 'Hilindraso', '22866'),
-(8991, 472, 'Hilisalo''o', '22866'),
+(8991, 472, 'Hilisalo\'o', '22866'),
 (8992, 472, 'Loloabolo', '22866'),
 (8993, 472, 'Lolomoyo', '22866'),
 (8994, 472, 'Lolozaria', '22866'),
 (8995, 472, 'Orahili Eho', '22866'),
-(8996, 472, 'Sifaoro''asi', '22866'),
-(8997, 472, 'Sinar Ino''o', '22866'),
+(8996, 472, 'Sifaoro\'asi', '22866'),
+(8997, 472, 'Sinar Ino\'o', '22866'),
 (8998, 472, 'Sirofi', '22866'),
 (8999, 472, 'Sisarahili', '22866'),
 (9000, 472, 'Sisobahili', '22866'),
@@ -15952,7 +15976,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9034, 475, 'Bawonahono', '22865'),
 (9035, 475, 'Botohili Silambo', '22865'),
 (9036, 475, 'Botohili Sorake', '22865'),
-(9037, 475, 'Botohilisalo''o', '22865'),
+(9037, 475, 'Botohilisalo\'o', '22865'),
 (9038, 475, 'Botohilitano', '22865'),
 (9039, 475, 'Eho Orahili', '22865'),
 (9040, 475, 'Ete Batu', '22865'),
@@ -15982,11 +16006,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9064, 476, 'Fonedanu', '22873'),
 (9065, 476, 'Gununggabungan', '22873'),
 (9066, 476, 'Harefa Orahua', '22873'),
-(9067, 476, 'Hilialo''oa', '22873'),
+(9067, 476, 'Hilialo\'oa', '22873'),
 (9068, 476, 'Hilianaa Gomo', '22873'),
 (9069, 476, 'Hiligabungan', '22873'),
 (9070, 476, 'Hilimbowo Idano Tae', '22873'),
-(9071, 476, 'Hilisalo''o', '22873'),
+(9071, 476, 'Hilisalo\'o', '22873'),
 (9072, 476, 'Hiliserangkai', '22873'),
 (9073, 476, 'Lahusa Idano Tae', '22873'),
 (9074, 476, 'Lawa-Lawaluo Gomo', '22873'),
@@ -16000,7 +16024,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9082, 476, 'Sisarahili Ewo', '22873'),
 (9083, 476, 'Sisiwa Ewali', '22873'),
 (9084, 476, 'Suka Maju Mohili', '22873'),
-(9085, 476, 'Tanoniko''o', '22873'),
+(9085, 476, 'Tanoniko\'o', '22873'),
 (9086, 476, 'Umbu Idano Tae', '22873'),
 (9087, 476, 'Umbu Orahua', '22873'),
 (9088, 477, 'Baruyu Sibohou', '22881'),
@@ -16020,7 +16044,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9102, 477, 'Tano Mokinu', '22881'),
 (9103, 477, 'Tebolo Melayu', '22881'),
 (9104, 477, 'Tuwaso', '22881'),
-(9105, 478, 'Bawasalo''o Dao-dao', '22864'),
+(9105, 478, 'Bawasalo\'o Dao-dao', '22864'),
 (9106, 478, 'Dao-dao Sowo', '22864'),
 (9107, 478, 'Hiliadulo', '22864'),
 (9108, 478, 'Hilitoese', '22864'),
@@ -16039,7 +16063,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9121, 479, 'Manawadano', '22864'),
 (9122, 479, 'Sisobahili Siwalawa', '22864'),
 (9123, 479, 'Talio', '22864'),
-(9124, 479, 'Umbu''asi', '22864'),
+(9124, 479, 'Umbu\'asi', '22864'),
 (9125, 479, 'Umbuasi Barat', '22864'),
 (9126, 480, 'Bawahosi Huruna', '22867'),
 (9127, 480, 'Ehosakhozi', '22867'),
@@ -16053,7 +16077,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9135, 480, 'Mombawa Oladano', '22867'),
 (9136, 480, 'Olayama', '22867'),
 (9137, 480, 'Sifalago', '22867'),
-(9138, 480, 'Sifaoro''asi', '22867'),
+(9138, 480, 'Sifaoro\'asi', '22867'),
 (9139, 480, 'Sifaoroasi Huruna', '22867'),
 (9140, 480, 'Sisarahili Huruna', '22867'),
 (9141, 480, 'Tarewe', '22867'),
@@ -16087,7 +16111,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9169, 482, 'Hili Otalua', '22867'),
 (9170, 482, 'Hilifaondrato', '22867'),
 (9171, 482, 'Hilisangowola', '22867'),
-(9172, 482, 'Ko''olotano', '22867'),
+(9172, 482, 'Ko\'olotano', '22867'),
 (9173, 482, 'Koendrafo', '22867'),
 (9174, 482, 'Lawa-Lawa Luo', '22867'),
 (9175, 482, 'Orudua Lawa-Lawa Lou', '22867'),
@@ -16123,15 +16147,15 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9205, 484, 'Ndraso Hilisimaetano', '22865'),
 (9206, 484, 'Pekan Hilisimaetano', '22865'),
 (9207, 484, 'Samadaya Hilisimaetano', '22865'),
-(9208, 484, 'Soto''o Hilisimaetano', '22865'),
+(9208, 484, 'Soto\'o Hilisimaetano', '22865'),
 (9209, 485, 'Bawolahusa', '22865'),
 (9210, 485, 'Bawolahusa Doli-doli', '22865'),
 (9211, 485, 'Hilifondege Hilizoroilawa', '22865'),
 (9212, 485, 'Hililaza Hilinawalo Mazino', '22865'),
 (9213, 485, 'Hilinawalo Mazino / Mazingo', '22865'),
-(9214, 485, 'Hilizalo''otano', '22865'),
-(9215, 485, 'Hilizalo''otano Laowo', '22865'),
-(9216, 485, 'Hilizalo''otano Larono', '22865'),
+(9214, 485, 'Hilizalo\'otano', '22865'),
+(9215, 485, 'Hilizalo\'otano Laowo', '22865'),
+(9216, 485, 'Hilizalo\'otano Larono', '22865'),
 (9217, 485, 'Hilizoroilawa', '22865'),
 (9218, 485, 'Lawindra', '22865'),
 (9219, 485, 'Lolomboli', '22865'),
@@ -16142,11 +16166,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9224, 486, 'Orahuahili', '22873'),
 (9225, 486, 'Siofabanua', '22873'),
 (9226, 486, 'Tafulu', '22873'),
-(9227, 486, 'Tetegawa''ai', '22873'),
-(9228, 486, 'Tetegawa''ai Ehomo', '22873'),
+(9227, 486, 'Tetegawa\'ai', '22873'),
+(9228, 486, 'Tetegawa\'ai Ehomo', '22873'),
 (9229, 486, 'Ulu Mazo', '22873'),
-(9230, 487, 'Balohili O''o''u', '22864'),
-(9231, 487, 'Bawosalo''o Bawoluo', '22864'),
+(9230, 487, 'Balohili O\'o\'u', '22864'),
+(9231, 487, 'Bawosalo\'o Bawoluo', '22864'),
 (9232, 487, 'Hilimbowo', '22864'),
 (9233, 487, 'Hilimbuasi', '22864'),
 (9234, 487, 'Hilinamozihono', '22864'),
@@ -16154,17 +16178,17 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9236, 487, 'Hilioru dua', '22864'),
 (9237, 487, 'Lolomaya', '22864'),
 (9238, 487, 'Simandraolo / Simandaolo', '22864'),
-(9239, 487, 'Simandraolo O''ou', '22864'),
+(9239, 487, 'Simandraolo O\'ou', '22864'),
 (9240, 487, 'Suka Maju', '22864'),
-(9241, 488, 'Fadoro''ewo', '22864'),
+(9241, 488, 'Fadoro\'ewo', '22864'),
 (9242, 488, 'Helefanikha', '22864'),
 (9243, 488, 'Hiliweto', '22864'),
-(9244, 488, 'La''uso', '22864'),
+(9244, 488, 'La\'uso', '22864'),
 (9245, 488, 'Onohazumba', '22864'),
 (9246, 488, 'Orahili Huruna', '22864'),
 (9247, 488, 'Sisarahili Oyo', '22864'),
 (9248, 488, 'Sisobahili Huruna', '22864'),
-(9249, 488, 'Soroma''asi', '22864'),
+(9249, 488, 'Soroma\'asi', '22864'),
 (9250, 488, 'Tetehosi', '22864'),
 (9251, 489, 'Balogia', '22881'),
 (9252, 489, 'Baruyu Lasara', '22881'),
@@ -16221,11 +16245,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9303, 492, 'Ziabiang', '22881'),
 (9304, 493, 'Hilidohona', '22874'),
 (9305, 493, 'Hililaora', '22874'),
-(9306, 493, 'Hilisao''oto', '22874'),
+(9306, 493, 'Hilisao\'oto', '22874'),
 (9307, 493, 'Hilizanuwo', '22874'),
 (9308, 493, 'Hoya', '22874'),
 (9309, 493, 'Mondrowe', '22874'),
-(9310, 493, 'Na''ai', '22874'),
+(9310, 493, 'Na\'ai', '22874'),
 (9311, 493, 'Olanori', '22874'),
 (9312, 493, 'Taluzusua', '22874'),
 (9313, 493, 'Uluidanoduo', '22874'),
@@ -16287,12 +16311,12 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9369, 498, 'Ganowo Saua', '22865'),
 (9370, 498, 'Hilialito Saua', '22865'),
 (9371, 498, 'Hiliamuri', '22865'),
-(9372, 498, 'Hiliana''a', '22865'),
+(9372, 498, 'Hiliana\'a', '22865'),
 (9373, 498, 'Hilifalago', '22865'),
 (9374, 498, 'Hilifalago Raya', '22865'),
 (9375, 498, 'Hilifarono', '22865'),
 (9376, 498, 'Hiliganowo', '22865'),
-(9377, 498, 'Hiliganowo Salo''o', '22865'),
+(9377, 498, 'Hiliganowo Salo\'o', '22865'),
 (9378, 498, 'Hiligeho', '22865'),
 (9379, 498, 'Hilikara', '22865'),
 (9380, 498, 'Hililaza', '22865'),
@@ -16327,7 +16351,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9409, 500, 'Hilifakhe', '22867'),
 (9410, 500, 'Hilimaera', '22867'),
 (9411, 500, 'Hiliwaebu', '22867'),
-(9412, 500, 'Loloana''a', '22867'),
+(9412, 500, 'Loloana\'a', '22867'),
 (9413, 500, 'Marao', '22867'),
 (9414, 500, 'Orahili Ulunoyo', '22867'),
 (9415, 500, 'Puncak Lolomatua', '22867'),
@@ -16377,7 +16401,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9459, 504, 'Fulolo', '22861'),
 (9460, 504, 'Hiligawoni', '22861'),
 (9461, 504, 'Lahemboho', '22861'),
-(9462, 504, 'Loloana''a', '22861'),
+(9462, 504, 'Loloana\'a', '22861'),
 (9463, 504, 'Ombolata', '22861'),
 (9464, 504, 'Ononamolo Alasa', '22861'),
 (9465, 504, 'Ononamolo Tumula', '22861'),
@@ -16456,14 +16480,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (9538, 511, 'Hilisaloo', '22852'),
 (9539, 511, 'Tetehosi Maziaya', '22852'),
 (9540, 511, 'Umbubalodano', '22852'),
-(9541, 512, 'Botona''ai', '22861'),
+(9541, 512, 'Botona\'ai', '22861'),
 (9542, 512, 'Fabaliwa Oyo', '22861'),
 (9543, 512, 'Gunung Tua', '22861'),
 (9544, 512, 'Harefa', '22861'),
 (9545, 512, 'Humene Siheneasi', '22861'),
 (9546, 512, 'Ononazara', '22861'),
 (9547, 512, 'Siwawo', '22861'),
-(9548, 512, 'Te''olo', '22861'),
+(9548, 512, 'Te\'olo', '22861'),
 (9549, 513, 'Alooa', '22852'),
 (9550, 513, 'Banuagea', '22852'),
 (9551, 513, 'Botolakha', '22852'),
@@ -19043,10 +19067,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (12123, 671, 'Fadoro You', '22851'),
 (12124, 671, 'Irano Lase (Iraono Lase)', '22851'),
 (12125, 671, 'Lololawa', '22851'),
-(12126, 671, 'Nazalou Alo''oa', '22851'),
+(12126, 671, 'Nazalou Alo\'oa', '22851'),
 (12127, 671, 'Nazalou Lolowua', '22851'),
-(12128, 671, 'Niko''otano Dao', '22851'),
-(12129, 671, 'Orahili Tanose''o', '22851'),
+(12128, 671, 'Niko\'otano Dao', '22851'),
+(12129, 671, 'Orahili Tanose\'o', '22851'),
 (12130, 671, 'Tarakhaini', '22851'),
 (12131, 672, 'Gada', '22811'),
 (12132, 672, 'Hilinakhe', '22811'),
@@ -22641,7 +22665,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (15718, 1084, 'Bedaro', '37216'),
 (15719, 1084, 'Datar', '37216'),
 (15720, 1084, 'Mangun Jayo', '37216'),
-(15721, 1084, 'Pekan Jum''at', '37216'),
+(15721, 1084, 'Pekan Jum\'at', '37216'),
 (15722, 1084, 'Suka Jaya', '37216'),
 (15723, 1084, 'Tanjung Agung', '37216'),
 (15724, 1084, 'Tebat', '37216'),
@@ -26468,7 +26492,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (19542, 1367, 'Kepayang', '32276'),
 (19543, 1367, 'Kota Baru', '32276'),
 (19544, 1367, 'Kota Dalam', '32276'),
-(19545, 1367, 'Pere''an', '32276'),
+(19545, 1367, 'Pere\'an', '32276'),
 (19546, 1367, 'Pulau Duku', '32276'),
 (19547, 1367, 'Selabung Belimbing Jaya', '32276'),
 (19548, 1367, 'Sinar Marga', '32276'),
@@ -27493,7 +27517,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (20566, 1457, 'Air Sebakul', '38385'),
 (20567, 1457, 'Bukit', '38385'),
 (20568, 1457, 'Jaya Karta', '38385'),
-(20569, 1457, 'Jum''at (Jumat)', '38385'),
+(20569, 1457, 'Jum\'at (Jumat)', '38385'),
 (20570, 1457, 'Kembang Seri', '38385'),
 (20571, 1457, 'Lagan', '38385'),
 (20572, 1457, 'Lagan Bungin', '38385'),
@@ -47438,7 +47462,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40497, 3224, 'Karang Panasan', '69174'),
 (40498, 3224, 'Karangnangka', '69174'),
 (40499, 3224, 'Karpote', '69174'),
-(40500, 3224, 'Kojolan (Ko''olan)', '69174'),
+(40500, 3224, 'Kojolan (Ko\'olan)', '69174'),
 (40501, 3224, 'Lomaer', '69174'),
 (40502, 3224, 'Lombang Daya', '69174'),
 (40503, 3224, 'Lombang Laok', '69174'),
@@ -47470,7 +47494,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40529, 3226, 'Lantek Barat', '69173'),
 (40530, 3226, 'Lantek Temor', '69173'),
 (40531, 3226, 'Longkek', '69173'),
-(40532, 3226, 'Paka''an Laok', '69173'),
+(40532, 3226, 'Paka\'an Laok', '69173'),
 (40533, 3226, 'Pakaan Daya', '69173'),
 (40534, 3226, 'Paterongan', '69173'),
 (40535, 3226, 'Pekadan', '69173'),
@@ -47510,7 +47534,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40569, 3229, 'Karang Asem', '69153'),
 (40570, 3229, 'Klampis Barat', '69153'),
 (40571, 3229, 'Klampis Timur', '69153'),
-(40572, 3229, 'Ko''ol', '69153'),
+(40572, 3229, 'Ko\'ol', '69153'),
 (40573, 3229, 'Larangan Glintong', '69153'),
 (40574, 3229, 'Larangan Sorjan', '69153'),
 (40575, 3229, 'Lergunong', '69153'),
@@ -47519,7 +47543,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40578, 3229, 'Muarah (Moarah)', '69153'),
 (40579, 3229, 'Panyaksagan', '69153'),
 (40580, 3229, 'Polongan', '69153'),
-(40581, 3229, 'Ra''as', '69153'),
+(40581, 3229, 'Ra\'as', '69153'),
 (40582, 3229, 'Tenggun Daya', '69153'),
 (40583, 3229, 'Tobaddung', '69153'),
 (40584, 3229, 'Tolbuk (Tolluk)', '69153'),
@@ -47534,7 +47558,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40593, 3230, 'Kokop', '69155'),
 (40594, 3230, 'Lembung Gunung/Gunong', '69155'),
 (40595, 3230, 'Mandung', '69155'),
-(40596, 3230, 'Mano''an', '69155'),
+(40596, 3230, 'Mano\'an', '69155'),
 (40597, 3230, 'Tlokoh', '69155'),
 (40598, 3230, 'Tramok', '69155'),
 (40599, 3231, 'Bandung', '69175'),
@@ -47566,7 +47590,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (40625, 3232, 'Pasanggrahan (Pesanggrahan)', '69163'),
 (40626, 3232, 'Sumur Kuning (Somor Koneng)', '69163'),
 (40627, 3232, 'Tebul', '69163'),
-(40628, 3233, 'Ba''engas', '69163'),
+(40628, 3233, 'Ba\'engas', '69163'),
 (40629, 3233, 'Bringin (Bringen)', '69163'),
 (40630, 3233, 'Bunajih', '69163'),
 (40631, 3233, 'Jukong', '69163'),
@@ -52597,7 +52621,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45653, 3620, 'Pagagan', '69323'),
 (45654, 3620, 'Prekbun', '69323'),
 (45655, 3620, 'Sentol', '69323'),
-(45656, 3620, 'Sopa''ah', '69323'),
+(45656, 3620, 'Sopa\'ah', '69323'),
 (45657, 3620, 'Sumedangan', '69323'),
 (45658, 3620, 'Tambung', '69323'),
 (45659, 3620, 'Tanjung', '69323'),
@@ -52668,10 +52692,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45724, 3626, 'Badung', '69363'),
 (45725, 3626, 'Banyu Bulu', '69363'),
 (45726, 3626, 'Batu Kalangan', '69363'),
-(45727, 3626, 'Billa''an', '69363'),
+(45727, 3626, 'Billa\'an', '69363'),
 (45728, 3626, 'Campor', '69363'),
 (45729, 3626, 'Candi Burung', '69363'),
-(45730, 3626, 'Gro''om', '69363'),
+(45730, 3626, 'Gro\'om', '69363'),
 (45731, 3626, 'Jambringin', '69363'),
 (45732, 3626, 'Karanganyar', '69363'),
 (45733, 3626, 'Klampar', '69363'),
@@ -52705,7 +52729,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (45761, 3627, 'Larangan Tokol', '69371'),
 (45762, 3627, 'Mangar', '69371'),
 (45763, 3627, 'Panglegur', '69371'),
-(45764, 3627, 'Taro''an', '69371'),
+(45764, 3627, 'Taro\'an', '69371'),
 (45765, 3627, 'Terrak', '69371'),
 (45766, 3627, 'Tlanakan', '69371'),
 (45767, 3627, 'Tlesa', '69371'),
@@ -54334,7 +54358,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47388, 3738, 'Kesambi Rampak', '68362'),
 (47389, 3738, 'Landangan', '68362'),
 (47390, 3738, 'Peleyan', '68362'),
-(47391, 3738, 'Poka''an', '68362'),
+(47391, 3738, 'Poka\'an', '68362'),
 (47392, 3738, 'Seletreng', '68362'),
 (47393, 3738, 'Wonokoyo', '68362'),
 (47394, 3739, 'Balung', '68352'),
@@ -54584,7 +54608,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47638, 3759, 'Tambuko', '69463'),
 (47639, 3760, 'Kalianget Barat', '69471'),
 (47640, 3760, 'Kalianget Timur', '69471'),
-(47641, 3760, 'Kalimo''ok', '69471'),
+(47641, 3760, 'Kalimo\'ok', '69471'),
 (47642, 3760, 'Karang Anyar', '69471'),
 (47643, 3760, 'Kertasada', '69471'),
 (47644, 3760, 'Marengan Laok', '69471'),
@@ -54637,7 +54661,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47691, 3764, 'Gadding', '69452'),
 (47692, 3764, 'Giring', '69452'),
 (47693, 3764, 'Gunung Kembar', '69452'),
-(47694, 3764, 'Jaba''an', '69452'),
+(47694, 3764, 'Jaba\'an', '69452'),
 (47695, 3764, 'Kasengan', '69452'),
 (47696, 3764, 'Lalangon', '69452'),
 (47697, 3764, 'Lanjuk', '69452'),
@@ -54706,7 +54730,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (47760, 3771, 'Paleyat', '69493'),
 (47761, 3771, 'Sadulang', '69493'),
 (47762, 3771, 'Sakala', '69493'),
-(47763, 3771, 'Sase''el', '69493'),
+(47763, 3771, 'Sase\'el', '69493'),
 (47764, 3771, 'Saunten', '69493'),
 (47765, 3771, 'Saur Saebus', '69493'),
 (47766, 3771, 'Sepanjang', '69493'),
@@ -58204,11 +58228,11 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51256, 4101, 'Kala', '84162'),
 (51257, 4101, 'Mbawa', '84162'),
 (51258, 4101, 'Mpili', '84162'),
-(51259, 4101, 'Ndano Na''e', '84162'),
-(51260, 4101, 'O''o', '84162'),
+(51259, 4101, 'Ndano Na\'e', '84162'),
+(51260, 4101, 'O\'o', '84162'),
 (51261, 4101, 'Palama', '84162'),
 (51262, 4101, 'Rora', '84162'),
-(51263, 4102, 'Ka''owa', '84181'),
+(51263, 4102, 'Ka\'owa', '84181'),
 (51264, 4102, 'Kabaro', '84181'),
 (51265, 4102, 'Kuta', '84181'),
 (51266, 4102, 'Londu', '84181'),
@@ -58228,7 +58252,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51280, 4103, 'Simpasai', '84182'),
 (51281, 4103, 'Soro', '84182'),
 (51282, 4103, 'Sumi', '84182'),
-(51283, 4104, 'Doro O''o', '84181'),
+(51283, 4104, 'Doro O\'o', '84181'),
 (51284, 4104, 'Dumu', '84181'),
 (51285, 4104, 'Kalodu', '84181'),
 (51286, 4104, 'Kangga', '84181'),
@@ -58298,13 +58322,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51350, 4110, 'Jia', '84182'),
 (51351, 4110, 'Kowo', '84182'),
 (51352, 4110, 'Lamera', '84182'),
-(51353, 4110, 'Na''e', '84182'),
+(51353, 4110, 'Na\'e', '84182'),
 (51354, 4110, 'Naru', '84182'),
 (51355, 4110, 'Naru Barat', '84182'),
 (51356, 4110, 'Oi Maci', '84182'),
 (51357, 4110, 'Parangina', '84182'),
 (51358, 4110, 'Poja', '84182'),
-(51359, 4110, 'Rai O''i', '84182'),
+(51359, 4110, 'Rai O\'i', '84182'),
 (51360, 4110, 'Rasabou', '84182'),
 (51361, 4110, 'Sangia', '84182'),
 (51362, 4110, 'Sari', '84182'),
@@ -58373,13 +58397,13 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51425, 4116, 'Mangge Nae', '84219'),
 (51426, 4116, 'Manggeasi', '84219'),
 (51427, 4116, 'Mbawi', '84219'),
-(51428, 4116, 'O''o', '84219'),
+(51428, 4116, 'O\'o', '84219'),
 (51429, 4116, 'Potu', '84214'),
 (51430, 4116, 'Sori Sakolo', '84213'),
 (51431, 4117, 'Adu', '84271'),
 (51432, 4117, 'Cempi Jaya', '84271'),
 (51433, 4117, 'Daha', '84271'),
-(51434, 4117, 'Hu''u', '84271'),
+(51434, 4117, 'Hu\'u', '84271'),
 (51435, 4117, 'Jala', '84271'),
 (51436, 4117, 'Merada', '84271'),
 (51437, 4117, 'Rasa Bou', '84271'),
@@ -58390,7 +58414,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (51442, 4118, 'Songgaja', '84261'),
 (51443, 4118, 'Soro', '84261'),
 (51444, 4118, 'Soro Barat', '84261'),
-(51445, 4118, 'Ta''a', '84261'),
+(51445, 4118, 'Ta\'a', '84261'),
 (51446, 4118, 'Tolo Kalo', '84261'),
 (51447, 4119, 'Kiwu', '84252'),
 (51448, 4119, 'Kramat 2 (Keramat)', '84252'),
@@ -59257,7 +59281,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52308, 4207, 'Lampe', '84119'),
 (52309, 4207, 'Lelamase', '84119'),
 (52310, 4207, 'Nungga', '84119'),
-(52311, 4207, 'Oi Fo''o', '84119'),
+(52311, 4207, 'Oi Fo\'o', '84119'),
 (52312, 4208, 'Ampenan Selatan', '83114'),
 (52313, 4208, 'Ampenan Tengah', '83112'),
 (52314, 4208, 'Ampenan Utara', '83511'),
@@ -59554,7 +59578,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52605, 4241, 'Tukuneno', '85752'),
 (52606, 4242, 'Bauho', '85771'),
 (52607, 4242, 'Dafala', '85771'),
-(52608, 4242, 'Fatuba''a', '85771'),
+(52608, 4242, 'Fatuba\'a', '85771'),
 (52609, 4242, 'Halimodok', '85771'),
 (52610, 4242, 'Manleten', '85771'),
 (52611, 4242, 'Sabarau/Saraban', '85771'),
@@ -59566,7 +59590,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52617, 4242, 'Umaklaran', '85771'),
 (52618, 4243, 'Detukeli', '86371'),
 (52619, 4243, 'Detumbewa', '86371'),
-(52620, 4243, 'Jeo Du''a', '86371'),
+(52620, 4243, 'Jeo Du\'a', '86371'),
 (52621, 4243, 'Kanganara', '86371'),
 (52622, 4243, 'Kebesani', '86371'),
 (52623, 4243, 'Maurole Selatan', '86371'),
@@ -59830,7 +59854,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52881, 4263, 'Jopu', '86372'),
 (52882, 4263, 'Likanaka', '86372'),
 (52883, 4263, 'Lise Lowobora', '86372'),
-(52884, 4263, 'Lise Pu''u', '86372'),
+(52884, 4263, 'Lise Pu\'u', '86372'),
 (52885, 4263, 'Lisedetu', '86372'),
 (52886, 4263, 'Mbuli Loo', '86372'),
 (52887, 4263, 'Mbuliwaralau', '86372'),
@@ -59839,7 +59863,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (52890, 4263, 'Niromesi', '86372'),
 (52891, 4263, 'Nualise', '86372'),
 (52892, 4263, 'Rindiwawo', '86372'),
-(52893, 4263, 'Tana Lo''o', '86372'),
+(52893, 4263, 'Tana Lo\'o', '86372'),
 (52894, 4263, 'Wolokoli', '86372'),
 (52895, 4263, 'Wolosoko', '86372'),
 (52896, 4264, 'Adonara', '86262'),
@@ -60284,7 +60308,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53334, 4307, 'Nubaboli', '86685'),
 (53335, 4307, 'Nubahaeraka', '86685'),
 (53336, 4307, 'Tubuk Rajan', '86685'),
-(53337, 4308, 'Atu Wa''lupang', '86692'),
+(53337, 4308, 'Atu Wa\'lupang', '86692'),
 (53338, 4308, 'Atulaleng', '86692'),
 (53339, 4308, 'Bareng', '86692'),
 (53340, 4308, 'Bean', '86692'),
@@ -60747,7 +60771,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53797, 4341, 'Golo Lewe', '86752'),
 (53798, 4341, 'Golo Pua', '86752'),
 (53799, 4341, 'Golo Riwu', '86752'),
-(53800, 4341, 'Golo Ru''u', '86752'),
+(53800, 4341, 'Golo Ru\'u', '86752'),
 (53801, 4341, 'Golo Wedong', '86752'),
 (53802, 4341, 'Kolang', '86752'),
 (53803, 4341, 'Lawi', '86752'),
@@ -60835,7 +60859,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (53885, 4346, 'Golo Bore', '86752'),
 (53886, 4346, 'Golo Keli', '86752'),
 (53887, 4346, 'Golo Poleng', '86752'),
-(53888, 4346, 'Golo Ru''a', '86752'),
+(53888, 4346, 'Golo Ru\'a', '86752'),
 (53889, 4346, 'Kasong', '86752'),
 (53890, 4346, 'Lumut', '86752'),
 (53891, 4346, 'Momol', '86752'),
@@ -61354,7 +61378,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (54404, 4380, 'Sonimanu', '85973'),
 (54405, 4380, 'Tesabela', '85973'),
 (54406, 4380, 'Tunganamo', '85973'),
-(54407, 4381, 'Bo''a (Boa)', '85982'),
+(54407, 4381, 'Bo\'a (Boa)', '85982'),
 (54408, 4381, 'Mbueain', '85981'),
 (54409, 4381, 'Nemberala', '85982'),
 (54410, 4381, 'Oelolot', '85981'),
@@ -62143,7 +62167,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55192, 4467, 'Mutis', '85561'),
 (55193, 4467, 'Nenas', '85561'),
 (55194, 4467, 'Nuapin', '85561'),
-(55195, 4468, 'Besle''u', '85572'),
+(55195, 4468, 'Besle\'u', '85572'),
 (55196, 4468, 'Bileon', '85572'),
 (55197, 4468, 'Kaeneno', '85572'),
 (55198, 4468, 'Nunuhakniti', '85572'),
@@ -62156,7 +62180,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55205, 4469, 'Fallas', '85575'),
 (55206, 4469, 'Fatukusi', '85575'),
 (55207, 4469, 'Fatuulan', '85575'),
-(55208, 4469, 'Naile''u', '85575'),
+(55208, 4469, 'Naile\'u', '85575'),
 (55209, 4469, 'Napi', '85575'),
 (55210, 4469, 'Nekmese', '85575'),
 (55211, 4469, 'Oenai', '85575'),
@@ -62246,7 +62270,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55295, 4479, 'Binaus', '85561'),
 (55296, 4479, 'Kualeu', '85561'),
 (55297, 4479, 'Neke Manifeto', '85561'),
-(55298, 4479, 'Oel''ekam', '85561'),
+(55298, 4479, 'Oel\'ekam', '85561'),
 (55299, 4479, 'Oelbubuk', '85561'),
 (55300, 4479, 'Pika', '85561'),
 (55301, 4480, 'Ajaobaki', '85552'),
@@ -62256,7 +62280,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55305, 4480, 'Fatukoto', '85552'),
 (55306, 4480, 'Halme', '85552'),
 (55307, 4480, 'Iusmolo', '85552'),
-(55308, 4480, 'Kokfe''u', '85552'),
+(55308, 4480, 'Kokfe\'u', '85552'),
 (55309, 4480, 'Lelobatan', '85552'),
 (55310, 4480, 'Leloboko', '85552'),
 (55311, 4480, 'Nefokoko', '85552'),
@@ -62264,8 +62288,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55313, 4480, 'Obesi', '85552'),
 (55314, 4480, 'Sebot', '85552'),
 (55315, 4480, 'Taiftob', '85552'),
-(55316, 4480, 'To''fen', '85552'),
-(55317, 4480, 'To''manat', '85552'),
+(55316, 4480, 'To\'fen', '85552'),
+(55317, 4480, 'To\'manat', '85552'),
 (55318, 4480, 'Tunua', '85552'),
 (55319, 4481, 'Fatumnasi', '85573'),
 (55320, 4481, 'Mella', '85573'),
@@ -62415,7 +62439,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55464, 4500, 'Bitauni', '85671'),
 (55465, 4500, 'Botof', '85671'),
 (55466, 4500, 'Fatoin', '85671'),
-(55467, 4500, 'Fatu''ana', '85671'),
+(55467, 4500, 'Fatu\'ana', '85671'),
 (55468, 4500, 'Keun', '85671'),
 (55469, 4500, 'Loeram', '85671'),
 (55470, 4500, 'Manunain A', '85671'),
@@ -62476,7 +62500,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55525, 4506, 'Manusasi', '85661'),
 (55526, 4506, 'Neotoko', '85661'),
 (55527, 4506, 'Noepesu', '85661'),
-(55528, 4506, 'Sa''tab', '85661'),
+(55528, 4506, 'Sa\'tab', '85661'),
 (55529, 4506, 'Saenam', '85661'),
 (55530, 4506, 'Sallu', '85661'),
 (55531, 4506, 'Suanae', '85661'),
@@ -62636,7 +62660,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55685, 4527, 'Bukit Serayan', '79281'),
 (55686, 4527, 'Marunsu', '79281'),
 (55687, 4527, 'Pasti Jaya', '79281'),
-(55688, 4527, 'Saba''u', '79281'),
+(55688, 4527, 'Saba\'u', '79281'),
 (55689, 4527, 'Samalantan', '79281'),
 (55690, 4527, 'Tumiang', '79281'),
 (55691, 4528, 'Bange', '79284'),
@@ -62712,7 +62736,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (55761, 4537, 'Tajum', '78767'),
 (55762, 4537, 'Tinting Seligi', '78767'),
 (55763, 4538, 'Labian', '78766'),
-(55764, 4538, 'Labian Ira''ang', '78766'),
+(55764, 4538, 'Labian Ira\'ang', '78766'),
 (55765, 4538, 'Lanjak Deras', '78766'),
 (55766, 4538, 'Melemba', '78766'),
 (55767, 4538, 'Mensiau', '78766'),
@@ -63468,7 +63492,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (56516, 4600, 'Parigi', '79363'),
 (56517, 4600, 'Sabaka', '79363'),
 (56518, 4600, 'Sailo', '79363'),
-(56519, 4600, 'Sala''as', '79363'),
+(56519, 4600, 'Sala\'as', '79363'),
 (56520, 4600, 'Salumang', '79363'),
 (56521, 4600, 'Sampuro', '79363'),
 (56522, 4600, 'Sei/Sungai Laki', '79363'),
@@ -68410,7 +68434,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (61454, 5006, 'Intu Lingau', '75777'),
 (61455, 5006, 'Jontai', '75777'),
 (61456, 5006, 'Lakan Bilem', '75776'),
-(61457, 5006, 'Mu''ut', '75776'),
+(61457, 5006, 'Mu\'ut', '75776'),
 (61458, 5006, 'Sembuan', '75777'),
 (61459, 5006, 'Sentalar', '75776'),
 (61460, 5006, 'Temula', '75777'),
@@ -69676,7 +69700,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (62719, 5135, 'Bilalang III', '95751'),
 (62720, 5135, 'Bilalang III Utara', '95751'),
 (62721, 5135, 'Bilalang IV', '95751'),
-(62722, 5135, 'Kolinganga''an', '95751'),
+(62722, 5135, 'Kolinganga\'an', '95751'),
 (62723, 5135, 'Tudu Aog', '95751'),
 (62724, 5135, 'Tudu Aog Baru', '95751'),
 (62725, 5136, 'Bangomolunow', '95752'),
@@ -71496,7 +71520,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (64538, 5302, 'Luok', '94773'),
 (64539, 5302, 'Mamping', '94773'),
 (64540, 5302, 'Padang', '94773'),
-(64541, 5302, 'Ra''u', '94773'),
+(64541, 5302, 'Ra\'u', '94773'),
 (64542, 5302, 'Talang Batu', '94773'),
 (64543, 5302, 'Talima A', '94773'),
 (64544, 5302, 'Talima B', '94773'),
@@ -72275,7 +72299,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65317, 5365, 'Sipeso', '94353'),
 (65318, 5365, 'Tamarenja', '94353'),
 (65319, 5366, 'Batusuya', '94353'),
-(65320, 5366, 'Batusuya Go''o', '94353'),
+(65320, 5366, 'Batusuya Go\'o', '94353'),
 (65321, 5366, 'Kaliburu', '94353'),
 (65322, 5366, 'Kaliburu Kata', '94353'),
 (65323, 5366, 'Saloya', '94353'),
@@ -72361,7 +72385,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65403, 5374, 'Tandaoleo', '94974'),
 (65404, 5374, 'Tangofa', '94974'),
 (65405, 5374, 'Torete', '94974'),
-(65406, 5374, 'Were''a', '94974'),
+(65406, 5374, 'Were\'a', '94974'),
 (65407, 5375, 'Bakala', '94974'),
 (65408, 5375, 'Boelimau', '94974'),
 (65409, 5375, 'Buajangka', '94974'),
@@ -72378,7 +72402,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65420, 5375, 'Pado-Pado', '94974'),
 (65421, 5375, 'Paku', '94974'),
 (65422, 5375, 'Panimbawang', '94974'),
-(65423, 5375, 'Po''o', '94974'),
+(65423, 5375, 'Po\'o', '94974'),
 (65424, 5375, 'Poaro', '94974'),
 (65425, 5375, 'Polewali', '94974'),
 (65426, 5375, 'Pulau Dua', '94974'),
@@ -72503,9 +72527,9 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65544, 5383, 'Jamur Jaya', '94966'),
 (65545, 5383, 'Lembobelala', '94966'),
 (65546, 5383, 'Mandula', '94966'),
-(65547, 5383, 'Pa''awaru', '94966'),
+(65547, 5383, 'Pa\'awaru', '94966'),
 (65548, 5383, 'Petumbea', '94966'),
-(65549, 5383, 'Po''ona', '94966'),
+(65549, 5383, 'Po\'ona', '94966'),
 (65550, 5383, 'Pontangoa', '94966'),
 (65551, 5383, 'Ronta', '94966'),
 (65552, 5384, 'Girimulya', '94972'),
@@ -72741,7 +72765,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65782, 5400, 'Jono Kalora', '94471'),
 (65783, 5400, 'Kayuboko', '94471'),
 (65784, 5400, 'Lobu Mandiri', '94471'),
-(65785, 5400, 'Parigimpu''u', '94471'),
+(65785, 5400, 'Parigimpu\'u', '94471'),
 (65786, 5401, 'Boyantongo', '94471'),
 (65787, 5401, 'Dolago', '94471'),
 (65788, 5401, 'Dolago Padang', '94471'),
@@ -72847,7 +72871,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65888, 5410, 'Ogotumubu Barat', '94476'),
 (65889, 5410, 'Sipontan', '94476'),
 (65890, 5410, 'Supilopong', '94476'),
-(65891, 5410, 'Ta''aniuge', '94476'),
+(65891, 5410, 'Ta\'aniuge', '94476'),
 (65892, 5410, 'Tilung', '94476'),
 (65893, 5410, 'Tingkulang', '94476'),
 (65894, 5410, 'Tomini', '94476'),
@@ -72875,7 +72899,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (65916, 5413, 'Malei', '94661'),
 (65917, 5413, 'Maliwuko', '94661'),
 (65918, 5413, 'Pandiri', '94661'),
-(65919, 5413, 'Rato''ombu', '94661'),
+(65919, 5413, 'Rato\'ombu', '94661'),
 (65920, 5413, 'Sepe', '94661'),
 (65921, 5413, 'Silanca', '94661'),
 (65922, 5413, 'Sintuwulemba', '94661'),
@@ -73107,7 +73131,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (66148, 5439, 'Lawua', '94363'),
 (66149, 5439, 'Lempelero', '94363'),
 (66150, 5439, 'Moa', '94363'),
-(66151, 5439, 'O''o', '94363'),
+(66151, 5439, 'O\'o', '94363'),
 (66152, 5439, 'Palamaki', '94363'),
 (66153, 5439, 'Palimakijawa (Pilimakujawa/Makujawa)', '94363'),
 (66154, 5439, 'Salutome', '94363'),
@@ -73276,7 +73300,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (66317, 5453, 'Motobiai', '94683'),
 (66318, 5453, 'Pulau Enam', '94683'),
 (66319, 5453, 'Sampobae', '94683'),
-(66320, 5453, 'Titiri''i', '94683'),
+(66320, 5453, 'Titiri\'i', '94683'),
 (66321, 5453, 'Tobil', '94683'),
 (66322, 5453, 'Tongkabo', '94683'),
 (66323, 5453, 'Urulepe', '94683'),
@@ -74663,7 +74687,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67703, 5584, 'Maindo', '91992'),
 (67704, 5584, 'Pantilang', '91992'),
 (67705, 5584, 'Salubua', '91992'),
-(67706, 5584, 'Ta''ba', '91992'),
+(67706, 5584, 'Ta\'ba', '91992'),
 (67707, 5584, 'Tasangtongkonan', '91992'),
 (67708, 5584, 'Tede', '91992'),
 (67709, 5584, 'Urasu (Uraso)', '91992'),
@@ -74780,7 +74804,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67820, 5595, 'Ranteballa', '91921'),
 (67821, 5595, 'Tabang', '91921'),
 (67822, 5595, 'Tibussan', '91921'),
-(67823, 5595, 'To''lajuk', '91921'),
+(67823, 5595, 'To\'lajuk', '91921'),
 (67824, 5595, 'Tobaru', '91921'),
 (67825, 5595, 'Ulusalu', '91921'),
 (67826, 5596, 'Buntu Kamiri', '91999'),
@@ -74797,7 +74821,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67837, 5597, 'Bassiang', '91999'),
 (67838, 5597, 'Bassiang Timur', '91999'),
 (67839, 5597, 'Buntu Karya', '91999'),
-(67840, 5597, 'Jenne/Je''ne Maeja', '91999'),
+(67840, 5597, 'Jenne/Je\'ne Maeja', '91999'),
 (67841, 5597, 'Lampuara', '91999'),
 (67842, 5597, 'Olang', '91999'),
 (67843, 5597, 'Paccerakang', '91999'),
@@ -74805,7 +74829,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (67845, 5597, 'Pattedong Selatan', '91999'),
 (67846, 5597, 'Tarramatekkeng', '91999'),
 (67847, 5597, 'To Balo', '91999'),
-(67848, 5597, 'To''bia', '91999'),
+(67848, 5597, 'To\'bia', '91999'),
 (67849, 5598, 'Botta', '91996'),
 (67850, 5598, 'Buntu Kunyi', '91996'),
 (67851, 5598, 'Cakkeawo', '91996'),
@@ -75741,8 +75765,8 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68780, 5694, 'Kalenna Bontongape', '92255'),
 (68781, 5694, 'Kalukuang', '92255'),
 (68782, 5694, 'Mappakalompo', '92255'),
-(68783, 5694, 'Pa''lalakkang', '92255'),
-(68784, 5694, 'Pa''rasangang Beru', '92255'),
+(68783, 5694, 'Pa\'lalakkang', '92255'),
+(68784, 5694, 'Pa\'rasangang Beru', '92255'),
 (68785, 5694, 'Parambambe', '92254'),
 (68786, 5694, 'Parangmata', '92254'),
 (68787, 5694, 'Pattinoang', '92255'),
@@ -75783,7 +75807,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68822, 5698, 'Balangdatu', '92232'),
 (68823, 5698, 'Maccinibaji', '92232'),
 (68824, 5698, 'Mattirobaji', '92232'),
-(68825, 5698, 'Pa''batangang', '92232'),
+(68825, 5698, 'Pa\'batangang', '92232'),
 (68826, 5698, 'Patani', '92232'),
 (68827, 5698, 'Rewataya', '92232'),
 (68828, 5698, 'Soreang', '92232'),
@@ -75807,10 +75831,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68846, 5700, 'Pa Bundukang', '92252'),
 (68847, 5700, 'Patte Ne', '92252'),
 (68848, 5700, 'Rajaya', '92252'),
-(68849, 5700, 'Su''rulangi', '92252'),
+(68849, 5700, 'Su\'rulangi', '92252'),
 (68850, 5701, 'Balangtanaya', '92221'),
 (68851, 5701, 'Barugaya', '92221'),
-(68852, 5701, 'Kale Ko''mara', '92221'),
+(68852, 5701, 'Kale Ko\'mara', '92221'),
 (68853, 5701, 'Kampung Beru', '92221'),
 (68854, 5701, 'Ko Mara', '92221'),
 (68855, 5701, 'Lassang', '92221'),
@@ -75837,20 +75861,20 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68876, 5703, 'Bittuang', '91856'),
 (68877, 5703, 'Burasia', '91856'),
 (68878, 5703, 'Buttu Limbong', '91856'),
-(68879, 5703, 'Kandua''', '91856'),
+(68879, 5703, 'Kandua\'', '91856'),
 (68880, 5703, 'Kole Palian', '91856'),
-(68881, 5703, 'Le''tek', '91856'),
-(68882, 5703, 'Pali''', '91856'),
+(68881, 5703, 'Le\'tek', '91856'),
+(68882, 5703, 'Pali\'', '91856'),
 (68883, 5703, 'Patongloan', '91856'),
 (68884, 5703, 'Rembo-Rembo', '91856'),
 (68885, 5703, 'Sandana', '91856'),
 (68886, 5703, 'Sasak', '91856'),
-(68887, 5703, 'Se''seng', '91856'),
+(68887, 5703, 'Se\'seng', '91856'),
 (68888, 5703, 'Tiroan', '91856'),
 (68889, 5704, 'Bau', '91872'),
 (68890, 5704, 'Bau Selatan', '91872'),
 (68891, 5704, 'Bua Kayu', '91872'),
-(68892, 5704, 'Mappa''', '91872'),
+(68892, 5704, 'Mappa\'', '91872'),
 (68893, 5704, 'Poton', '91872'),
 (68894, 5704, 'Ratte Buttu', '91872'),
 (68895, 5705, 'Benteng Deata', '91871'),
@@ -75893,7 +75917,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68932, 5708, 'Randan Batu', '91815'),
 (68933, 5708, 'Sandabilik', '91815'),
 (68934, 5708, 'Tiromanda', '91815'),
-(68935, 5708, 'To'' Sapan', '91815'),
+(68935, 5708, 'To\' Sapan', '91815'),
 (68936, 5709, 'Bungin', '91812'),
 (68937, 5709, 'Lemo', '91817'),
 (68938, 5709, 'Lion Tondok Iring', '91817'),
@@ -75918,7 +75942,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68957, 5712, 'Paliorong', '91854'),
 (68958, 5712, 'Pondingao', '91854'),
 (68959, 5712, 'Ratte', '91854'),
-(68960, 5712, 'Sese Salu (Sese''alu)', '91854'),
+(68960, 5712, 'Sese Salu (Sese\'alu)', '91854'),
 (68961, 5713, 'Buntu Datu (Batu)', '91871'),
 (68962, 5713, 'Buntu Tangti', '91871'),
 (68963, 5713, 'Gasing', '91871'),
@@ -75926,7 +75950,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68965, 5713, 'Ke Pe Tinoring', '91871'),
 (68966, 5713, 'Lemo', '91871'),
 (68967, 5713, 'Marinding', '91871'),
-(68968, 5713, 'Pa''Tengko', '91871'),
+(68968, 5713, 'Pa\'Tengko', '91871'),
 (68969, 5713, 'Pakala', '91871'),
 (68970, 5713, 'Palipu', '91871'),
 (68971, 5713, 'Randanan', '91871'),
@@ -75959,14 +75983,14 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (68998, 5716, 'Rembon', '91861'),
 (68999, 5716, 'Sarapeang', '91861'),
 (69000, 5716, 'Talion', '91861'),
-(69001, 5716, 'To'' Pao', '91861'),
+(69001, 5716, 'To\' Pao', '91861'),
 (69002, 5716, 'Ullin', '91861'),
 (69003, 5717, 'Batu Tiakka', '91861'),
 (69004, 5717, 'Pattan Ulusalu', '91861'),
-(69005, 5717, 'Ra''bung', '91861'),
+(69005, 5717, 'Ra\'bung', '91861'),
 (69006, 5717, 'Ratte Talonge', '91861'),
 (69007, 5717, 'Rea Tulak Langi', '91861'),
-(69008, 5717, 'Sa''tandung', '91861'),
+(69008, 5717, 'Sa\'tandung', '91861'),
 (69009, 5717, 'Salu', '91861'),
 (69010, 5717, 'Salu Boronan', '91861'),
 (69011, 5717, 'Salutandung', '91861'),
@@ -76012,10 +76036,10 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69051, 5725, 'Baruppu Selatan', '91854'),
 (69052, 5725, 'Baruppu Utara', '91854'),
 (69053, 5726, 'Issong Kalua', '91853'),
-(69054, 5726, 'Misa Ba''Bana', '91853'),
-(69055, 5726, 'Rinding Kila'' Balabatu', '91853'),
+(69054, 5726, 'Misa Ba\'Bana', '91853'),
+(69055, 5726, 'Rinding Kila\' Balabatu', '91853'),
 (69056, 5726, 'Sapan Kua Kua', '91853'),
-(69057, 5726, 'Tallang Sura''', '91853'),
+(69057, 5726, 'Tallang Sura\'', '91853'),
 (69058, 5726, 'Tongkonan Basse', '91853'),
 (69059, 5727, 'Batu Busa (Batu Basa)', '91854'),
 (69060, 5727, 'Buntu Minanga', '91854'),
@@ -76045,7 +76069,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69084, 5729, 'Polo Padang', '91854'),
 (69085, 5729, 'Sikuku', '91854'),
 (69086, 5730, 'Angin Angin', '91852'),
-(69087, 5730, 'Ba''tan', '91852'),
+(69087, 5730, 'Ba\'tan', '91852'),
 (69088, 5730, 'Pantanakan Lolo', '91852'),
 (69089, 5730, 'Rinding Batu', '91852'),
 (69090, 5730, 'Sangbua (Sangubua)', '91852'),
@@ -76087,22 +76111,22 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69126, 5734, 'Pangala', '91854'),
 (69127, 5734, 'Pangala Utara', '91854'),
 (69128, 5734, 'Rindingallo', '91854'),
-(69129, 5735, 'Sa'' Dan Andulan', '91853'),
-(69130, 5735, 'Sa'' Dan Ballopasange', '91853'),
-(69131, 5735, 'Sa'' Dan Liku Lambe', '91853'),
-(69132, 5735, 'Sa'' Dan Malimbong', '91853'),
-(69133, 5735, 'Sa'' Dan Matallo', '91853'),
-(69134, 5735, 'Sa'' Dan Pebulian', '91853'),
-(69135, 5735, 'Sa'' Dan Pesondongan', '91853'),
-(69136, 5735, 'Sa'' Dan Sangkaropi', '91853'),
-(69137, 5735, 'Sa'' Dan Tiroallo', '91853'),
-(69138, 5735, 'Sa'' Dan Ulusalu', '91853'),
-(69139, 5736, 'Buntu La''Bo', '91852'),
-(69140, 5736, 'La''Bo', '91852'),
+(69129, 5735, 'Sa\' Dan Andulan', '91853'),
+(69130, 5735, 'Sa\' Dan Ballopasange', '91853'),
+(69131, 5735, 'Sa\' Dan Liku Lambe', '91853'),
+(69132, 5735, 'Sa\' Dan Malimbong', '91853'),
+(69133, 5735, 'Sa\' Dan Matallo', '91853'),
+(69134, 5735, 'Sa\' Dan Pebulian', '91853'),
+(69135, 5735, 'Sa\' Dan Pesondongan', '91853'),
+(69136, 5735, 'Sa\' Dan Sangkaropi', '91853'),
+(69137, 5735, 'Sa\' Dan Tiroallo', '91853'),
+(69138, 5735, 'Sa\' Dan Ulusalu', '91853'),
+(69139, 5736, 'Buntu La\'Bo', '91852'),
+(69140, 5736, 'La\'Bo', '91852'),
 (69141, 5736, 'Paepalean', '91852'),
-(69142, 5736, 'Pata'' Padang', '91852'),
+(69142, 5736, 'Pata\' Padang', '91852'),
 (69143, 5736, 'Tallung Penanian', '91852'),
-(69144, 5736, 'Tandung La''bo''', '91852'),
+(69144, 5736, 'Tandung La\'bo\'', '91852'),
 (69145, 5737, 'Bori', '91853'),
 (69146, 5737, 'Bori Lombongan', '91853'),
 (69147, 5737, 'Bori Rante Letok', '91853'),
@@ -76132,7 +76156,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69171, 5740, 'Tallunglipu Matallo', '91832'),
 (69172, 5740, 'Tampo Tallunglipu', '91832'),
 (69173, 5740, 'Tantanan Tallunglipu', '91832'),
-(69174, 5741, 'Benteng Kado To''ria', '91833'),
+(69174, 5741, 'Benteng Kado To\'ria', '91833'),
 (69175, 5741, 'Buntu Barana', '91833'),
 (69176, 5741, 'Buntu Batu', '91833'),
 (69177, 5741, 'Embatau', '91833'),
@@ -76520,7 +76544,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69559, 5778, 'Sarutanga', '91921'),
 (69560, 5779, 'Batupasi', '91911'),
 (69561, 5779, 'Luminda', '91912'),
-(69562, 5779, 'Patte''ne', '91912'),
+(69562, 5779, 'Patte\'ne', '91912'),
 (69563, 5779, 'Penggoli', '91914'),
 (69564, 5779, 'Sabbamparu (Saabbang Baru)', '91913'),
 (69565, 5779, 'Salobulo', '91911'),
@@ -76937,7 +76961,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (69975, 5827, 'Koepisino', '93673'),
 (69976, 5827, 'Laanoipi', '93673'),
 (69977, 5827, 'Langere', '93673'),
-(69978, 5827, 'Ngapa''ea', '93673'),
+(69978, 5827, 'Ngapa\'ea', '93673'),
 (69979, 5827, 'Rante Gola', '93673'),
 (69980, 5827, 'Ronta', '93673'),
 (69981, 5827, 'Tatombuli', '93673'),
@@ -76971,7 +76995,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70009, 5829, 'Loji', '93672'),
 (70010, 5829, 'Malalanda', '93672'),
 (70011, 5829, 'Rombo', '93672'),
-(70012, 5829, 'Sara''ea', '93672'),
+(70012, 5829, 'Sara\'ea', '93672'),
 (70013, 5829, 'Tomoahi', '93672'),
 (70014, 5829, 'Tri Wacu-Wacu', '93672'),
 (70015, 5829, 'Waculaea', '93672'),
@@ -76992,7 +77016,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70030, 5830, 'Rahmat Baru', '93672'),
 (70031, 5830, 'Soloy/Soioi Agung', '93672'),
 (70032, 5831, 'Bira', '93672'),
-(70033, 5831, 'E''erinere', '93672'),
+(70033, 5831, 'E\'erinere', '93672'),
 (70034, 5831, 'Kurolabu', '93672'),
 (70035, 5831, 'Laanosangia (Lanosangia)', '93672'),
 (70036, 5831, 'Labelete', '93672'),
@@ -77366,7 +77390,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (70404, 5864, 'Powalaa', '93954'),
 (70405, 5864, 'Salutotong', '93954'),
 (70406, 5864, 'Tarengga', '93954'),
-(70407, 5864, 'To''lemo', '93954'),
+(70407, 5864, 'To\'lemo', '93954'),
 (70408, 5865, 'Amoe', '93954'),
 (70409, 5865, 'Kalo', '93954'),
 (70410, 5865, 'Lawata', '93954'),
@@ -79031,7 +79055,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72068, 6021, 'Totopo', '96264'),
 (72069, 6022, 'Biluhu Barat', '96272'),
 (72070, 6022, 'Biluhu Tengah', '96272'),
-(72071, 6022, 'Botubolu''o (Botuboluo)', '96272'),
+(72071, 6022, 'Botubolu\'o (Botuboluo)', '96272'),
 (72072, 6022, 'Huwongo', '96272'),
 (72073, 6022, 'Lobuto', '96272'),
 (72074, 6022, 'Lobuto Timur', '96272'),
@@ -79769,7 +79793,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72805, 6097, 'Lasa', '91562'),
 (72806, 6097, 'Limbong', '91562'),
 (72807, 6097, 'Makkaliki', '91562'),
-(72808, 6097, 'Polio (Ba''san)', '91562'),
+(72808, 6097, 'Polio (Ba\'san)', '91562'),
 (72809, 6097, 'Salumakki', '91562'),
 (72810, 6097, 'Sandapang', '91562'),
 (72811, 6097, 'Siraun', '91562'),
@@ -79814,7 +79838,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (72850, 6103, 'Kopeang', '91352'),
 (72851, 6103, 'Orobatu', '91352'),
 (72852, 6103, 'Rantedoda', '91352'),
-(72853, 6103, 'Taang (Ta''an)', '91352'),
+(72853, 6103, 'Taang (Ta\'an)', '91352'),
 (72854, 6103, 'Takandeang', '91352'),
 (72855, 6103, 'Tampalang', '91352'),
 (72856, 6104, 'Ahu', '91352'),
@@ -80057,7 +80081,7 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 (73093, 6132, 'Pasiang', '91352'),
 (73094, 6132, 'Patampanua', '91352'),
 (73095, 6132, 'Tonro Lima', '91352'),
-(73096, 6133, 'Ba''ba Tapua', '91352'),
+(73096, 6133, 'Ba\'ba Tapua', '91352'),
 (73097, 6133, 'Katimbang', '91352'),
 (73098, 6133, 'Lilli', '91352'),
 (73099, 6133, 'Mambu Tapua', '91352'),
@@ -89475,19 +89499,19 @@ INSERT INTO `tbl_kelurahan` (`id`, `kecamatan_id`, `kelurahan`, `kd_pos`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_marital`
+-- Table structure for table `tbl_marital`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_marital` (
+CREATE TABLE `tbl_marital` (
   `id_marital` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_marital`
+-- Dumping data for table `tbl_marital`
 --
 
 INSERT INTO `tbl_marital` (`id_marital`, `value`, `status`, `created_at`, `updated_at`) VALUES
@@ -89509,17 +89533,17 @@ INSERT INTO `tbl_marital` (`id_marital`, `value`, `status`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_provinsi`
+-- Table structure for table `tbl_provinsi`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_provinsi` (
-  `id` int(11) unsigned NOT NULL,
+CREATE TABLE `tbl_provinsi` (
+  `id` int(11) UNSIGNED NOT NULL,
   `provinsi` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `p_bsni` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `tbl_provinsi`
+-- Dumping data for table `tbl_provinsi`
 --
 
 INSERT INTO `tbl_provinsi` (`id`, `provinsi`, `p_bsni`) VALUES
@@ -89561,10 +89585,10 @@ INSERT INTO `tbl_provinsi` (`id`, `provinsi`, `p_bsni`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `nip` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -89575,10 +89599,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` varchar(255) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nip`, `name`, `email`, `password`, `role_id`, `desc`, `status`, `created_at`, `updated_at`) VALUES
@@ -89687,6 +89711,12 @@ ALTER TABLE `tbl_agama`
   ADD PRIMARY KEY (`id_agama`);
 
 --
+-- Indexes for table `tbl_employer`
+--
+ALTER TABLE `tbl_employer`
+  ADD PRIMARY KEY (`id_employer`);
+
+--
 -- Indexes for table `tbl_family`
 --
 ALTER TABLE `tbl_family`
@@ -89696,27 +89726,19 @@ ALTER TABLE `tbl_family`
 -- Indexes for table `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `kabkot` (`kabupaten_kota`) USING BTREE,
-  ADD KEY `fk_provs_kabkots_idx` (`provinsi_id`) USING BTREE,
-  ADD KEY `kbsni` (`k_bsni`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `fk_kabkots_kecs_idx` (`kabkot_id`) USING BTREE,
-  ADD KEY `kecamatan` (`kecamatan`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tbl_kelurahan`
 --
 ALTER TABLE `tbl_kelurahan`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `fk_kecs_kels_idx` (`kecamatan_id`) USING BTREE,
-  ADD KEY `kelurahan` (`kelurahan`) USING BTREE,
-  ADD KEY `kdpos` (`kd_pos`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tbl_marital`
@@ -89728,9 +89750,7 @@ ALTER TABLE `tbl_marital`
 -- Indexes for table `tbl_provinsi`
 --
 ALTER TABLE `tbl_provinsi`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `provinsi` (`provinsi`) USING BTREE,
-  ADD KEY `pbsni` (`p_bsni`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `user`
@@ -89746,138 +89766,162 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `access`
 --
 ALTER TABLE `access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `access_control`
 --
 ALTER TABLE `access_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=268;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
+
 --
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
   MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `apps_countries`
 --
 ALTER TABLE `apps_countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+
 --
 -- AUTO_INCREMENT for table `grafik`
 --
 ALTER TABLE `grafik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
 --
 -- AUTO_INCREMENT for table `keys`
 --
 ALTER TABLE `keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `konfig`
 --
 ALTER TABLE `konfig`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+
 --
 -- AUTO_INCREMENT for table `menu_master`
 --
 ALTER TABLE `menu_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT for table `site`
 --
 ALTER TABLE `site`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT for table `tbl_agama`
 --
 ALTER TABLE `tbl_agama`
-  MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_employer`
+--
+ALTER TABLE `tbl_employer`
+  MODIFY `id_employer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `tbl_family`
 --
 ALTER TABLE `tbl_family`
-  MODIFY `id_family` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_family` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=515;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=515;
+
 --
 -- AUTO_INCREMENT for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4900;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4900;
+
 --
 -- AUTO_INCREMENT for table `tbl_kelurahan`
 --
 ALTER TABLE `tbl_kelurahan`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82504;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82504;
+
 --
 -- AUTO_INCREMENT for table `tbl_marital`
 --
 ALTER TABLE `tbl_marital`
-  MODIFY `id_marital` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id_marital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `tbl_provinsi`
 --
 ALTER TABLE `tbl_provinsi`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_kabkot`
+-- Constraints for table `tbl_kabkot`
 --
 ALTER TABLE `tbl_kabkot`
   ADD CONSTRAINT `fk_provs_kabkots_idx` FOREIGN KEY (`provinsi_id`) REFERENCES `tbl_provinsi` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `tbl_kecamatan`
+-- Constraints for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
   ADD CONSTRAINT `fk_kabkots_kecs_idx` FOREIGN KEY (`kabkot_id`) REFERENCES `tbl_kabkot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Ketidakleluasaan untuk tabel `tbl_kelurahan`
---
-ALTER TABLE `tbl_kelurahan`
-  ADD CONSTRAINT `fk_kecs_kels_idx` FOREIGN KEY (`kecamatan_id`) REFERENCES `tbl_kecamatan` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
