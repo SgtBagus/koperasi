@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 14, 2019 at 05:38 AM
+-- Generation Time: Oct 14, 2019 at 07:04 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -435,7 +435,12 @@ CREATE TABLE `anggota` (
   `domicile_district_id` int(11) NOT NULL,
   `domicile_zip_code_id` varchar(255) NOT NULL,
   `domicile_address` text NOT NULL,
-  `employer_id` int(11) NOT NULL,
+  `employer_name` varchar(255) NOT NULL,
+  `employer_address` varchar(255) NOT NULL,
+  `employer_phone` varchar(255) NOT NULL,
+  `employer_industry` varchar(255) NOT NULL,
+  `placement_location` varchar(255) NOT NULL,
+  `employee_dept` varchar(255) NOT NULL,
   `status` enum('ENABLE','DISABLE') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
