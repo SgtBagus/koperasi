@@ -27,6 +27,9 @@ class Login extends MY_Controller {
 		// $dt['created_by'] = '';
 		$dt['created_at'] = date('Y-m-d H:i:s');
 		$dt['status'] = "ENABLE";
+
+		// var_dump($dt);
+		// die();
 		$this->db->insert('anggota', $dt);  
 		
 	}

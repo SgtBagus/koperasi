@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                 <div class="login-brand">
-                    <img src="<?= base_url('assets/') ?>img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+                    <img src="<?= base_url('assets/') ?>img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle" >
                     <div align="center">
                         Mendaftar
                     </div>
                 </div>
                 <div class="card card-primary">
                     <div class="card-body">
-                        <form method="POST" action="<?= base_url('login/addregister') ?>">
+                        <form method="POST" action="<?= base_url('login/addregister') ?>" enctype="multipart/form-data">
                             <div class="card-header">
                                 <h4>Identitas</h4>
                             </div>
@@ -125,7 +125,7 @@
                                         <button type="button" class="btn btn-primary" id="btnFile"><i class="fa fa-file"></i> File</button>
                                     </div>
                                     <input type="text" id="file_name" class="form-control">
-                                    <input type="file" id="imageFile" style="display: none;" name="dt[identification_file]" accept="image/x-png,image/jpeg,image/jpg" />
+                                    <input type="file" id="imageFile" style="display: none;" name="identification_file" accept="image/x-png,image/jpeg,image/jpg" />
                                 </div>
                             </div>
                             <div class="card-header">
@@ -230,12 +230,12 @@
                             <div class="form-group">
                                 <label>Nama Perusahaan</label>
                                 <select class="form-control" name="dt[employer_name]">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
-                                    <option>Option 6</option>
+                                    <?php 
+                                    $tbl_employer = $this->mymodel->selectWhere('tbl_employer',null);
+                                    foreach ($tbl_employer as $tbl_employer_record) {
+                                    echo "<option value=".$tbl_employer_record['value'].">".$tbl_employer_record['value']."</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group">
