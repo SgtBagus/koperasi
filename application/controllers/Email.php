@@ -8,6 +8,7 @@ class Email extends MY_Controller {
 
 		$this->load->library('email');
 
+		//config email, jangan diganti
 		$config = array(
 			'protocol'  => 'smtp',
 			'smtp_host' => 'ssl://cuanselalu.com',
@@ -20,24 +21,38 @@ class Email extends MY_Controller {
 		$this->email->initialize($config);
 		$this->email->set_mailtype("html");
 		$this->email->set_newline("\r\n");
+		//-------------------->
 
-		$name = 'Testing';
-		$content = 'Mohon Untuk Lakukan Pembayaran Sebesar Terlebih dahulu sebesar <br><center><h1><b> Rp. 50.000,- </b></h1></center><br> dan lakukan konfirmasi Pembayaran melalui <a href="google.com" target="_blank">Whatsapp</a> Terima Kasih!';
-		$content2 = '';
-		$button = '';
+		$name = 'Testing'; 
+		// Nama Yang di kasik email
 
-		$pesan = $this->emailtemplate->template($name, $content, $content2, $button);
+		$content = 'Mohon Untuk Lakukan Pembayaran Sebesar Terlebih dahulu sebesar <br><center><h1><b> Rp. 50.000,- </b></h1></center><br> dan lakukan konfirmasi Pembayaran melalui <a href="google.com" target="_blank">Whatsapp</a> Terima Kasih!'; 
+		//content isi email
+
+		$content2 = ''; 
+		//content ke dua jika ada
 		
-		$pesan = $pesan;
+		$button = ''; 
+		//button tambahan seperi (class css tidak bisa disini, style nya langsung di htmlnya)
+
+		$pesan = $this->emailtemplate->template($name, $content, $content2, $button); 
+		//ambil template email ada di application/mobal/emailtemplate
+
+		$pesan = $pesan; 
+
+		$toemail = 'procw57@gmail.com' //email tujuan
+		$fromemail = 'testing@cuanselalu.com' //dari email mana tidak perlu diganti
+		$fromname = 'Bagus Andika' //dari siapa email nya 
+		$subjectemail = 'Subject Kirim email Terima Kasih' //subjet email itu
+
+
+		//proses kirim email
 		$htmlContent = "<p>$pesan</p>";
-		$this->email->to('procw57@gmail.com');
-		$this->email->from("testing@cuanselalu.com","Testing Kirim Email");
-		$this->email->subject('Subject Kirim email Terima Kasih');
+		$this->email->to($toemail);
+		$this->email->from($fromemail,$fromname);
+		$this->email->subject($subjectemail);
 		$this->email->message($htmlContent);
 		$this->email->send();
-	}
-
-	public function view(){
-		$this->load->view('email');
+		//-------------------->
 	}
 }
