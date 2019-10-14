@@ -75,6 +75,7 @@ class Login extends MY_Controller {
 			}
 			$dt = $_POST['dt'];
 
+			$dt['phone_number'] = '62'.$_POST['dt']['phone_number'];
 			$dt['identification_file'] = $identification_file;
 			$dt['created_at'] = date('Y-m-d H:i:s');
 			$dt['status'] = "ENABLE";
