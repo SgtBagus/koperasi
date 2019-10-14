@@ -303,6 +303,12 @@
                     } else {
                         form.find(".show_error").hide().html(response).slideDown("fast");
                         $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
+
+                        Swal.fire({
+                            title: 'Pendaftaran Berhasil',
+                            type: 'success',
+                            html:'Mohon Menunggu Verfikasi dari kami melalui Whatsapps!, serta untuk info lainya bisa menghubungi Kami melalui <a href="#" target="_blank"><i class="fa fa-phone"></i> Whatsapps! </a>',
+                        })
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
