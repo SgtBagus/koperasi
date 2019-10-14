@@ -82,5 +82,6 @@ class Login extends MY_Controller {
 			
             $this->alert->alertsuccess('Success Send Data');
 		}
+
 	}
 }
