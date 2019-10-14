@@ -144,7 +144,7 @@
                                     <div class="input-group-prepend">
                                         <button type="button" class="btn btn-primary" id="btnFile"><i class="fa fa-file"></i> File</button>
                                     </div>
-                                    <input type="text" id="file_name" class="form-control" required>
+                                    <input type="text" id="file_name" class="form-control" required readonly>
                                     <div class="invalid-feedback">
                                         Mohon Upload Kartu Identitas Anda!
                                     </div>
