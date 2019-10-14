@@ -17,6 +17,7 @@ class Password extends MY_Controller {
 	public function changepassword($id){
 
 		$dt['password'] = md5($_POST['password']);
+		$dt['verification'] = 'Verified';
 
 		$this->mymodel->updateData('anggota', $dt, array('kode' => $id));
 		// var_dump($this->mymodel->updateData('anggota', $dt, array('kode' => $id)));

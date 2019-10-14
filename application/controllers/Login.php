@@ -151,7 +151,7 @@ class Login extends MY_Controller
 					$name = $_POST['dt']['full_name'];
 					$toemail = $_POST['dt']['email'];
 					$fromemail = 'testing@cuanselalu.com';
-					$fromname = 'Bagus Andika';
+					$fromname = 'Koperasi';
 					$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!';
 					$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
 
