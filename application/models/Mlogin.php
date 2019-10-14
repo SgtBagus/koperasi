@@ -8,7 +8,7 @@ class Mlogin extends CI_Model {
   }
   
   public function login($email, $pass){
-    $user = $this->mymodel->selectDataone('tbl_investor', array('email'=>$email, 'password' => $pass));
+    $user = $this->mymodel->selectDataone('anggota', array('email'=>$email, 'password' => $pass));
     return $user;
   }
   

@@ -10,7 +10,7 @@
                         <h4>Login</h4>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="#" class="needs-validation" novalidate="">
+                        <form method="POST" action="<?= base_url('login/act_login') ?>" class="needs-validation" novalidate="">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>

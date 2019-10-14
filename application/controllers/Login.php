@@ -27,12 +27,12 @@ class Login extends MY_Controller
 		$session     = $this->mlogin->login($email, $pass);
 		if ($session) {
 			$this->session->set_userdata('session_sop', true);
-			$this->session->set_userdata('id', $session['id']);
+			$this->session->set_userdata('id', $session['id_anggota']);
 			$this->session->set_userdata('email', $session['email']);
-			$this->session->set_userdata('name', $session['name']);
-			$this->session->set_userdata('role', 'Investor');
+			$this->session->set_userdata('name', $session['full_name']);
+			$this->session->set_userdata('role', 'Anggota');
 			echo "success";
-			return TRUE;
+			header("Location:" . base_url());
 		} else {
 			$this->alert->alertdanger("Cek Kembali Email dan Password anda !");
 			return FALSE;
@@ -95,10 +95,68 @@ class Login extends MY_Controller
 			$this->alert->alertdanger(validation_errors());
 		} else {
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
+			$cekstatus = $this->mymodel->selectDataone('anggota', array('verification' => $emailcek['verification']));
 
 			if ($emailcek) {
-				$this->alert->alertdanger('<strong>Email</strong> tersebut sudah Terdaftar');
-				return false;
+				if ($cekstatus['verification'] != 'Rejected') {
+					$this->alert->alertdanger('<strong>Email</strong> tersebut sudah Terdaftar');
+					return false;
+				} 
+				else {
+					$identification_file = "";
+					if (!empty($_FILES['identification_file']['name'])) {
+						$identification_file = file_get_contents($_FILES["identification_file"]["tmp_name"]);
+						$identification_file = base64_encode($identification_file);
+					}
+
+					$chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+					$res = "";
+					for (;;) {
+						for ($i = 0; $i < 7; $i++) {
+							$res .= $chars[mt_rand(0, strlen($chars) - 1)];
+						}
+
+						$query = $this->db->query("SELECT * FROM anggota WHERE kode='$res'")->result();
+						if (count($query) == 0) {
+							// echo 'TIDAK ADA';
+							break;
+						} else {
+							// echo 'ADA';
+						}
+					}
+
+					$dt = $_POST['dt'];
+
+					$dt['phone_number'] = '62' . $_POST['dt']['phone_number'];
+					$dt['identification_file'] = $identification_file;
+					$dt['kode'] = $res;
+					$dt['created_at'] = date('Y-m-d H:i:s');
+					$dt['status'] = "ENABLE";
+					$this->db->insert('anggota', $dt);
+
+					$this->load->library('email');
+					$config = array(
+						'protocol'  => 'smtp',
+						'smtp_host' => 'ssl://cuanselalu.com',
+						'smtp_port' => 465,
+						'smtp_user' => 'testing@cuanselalu.com',
+						'smtp_pass' => 'testing',
+						'charset' => 'iso-8859-1',
+						'wordwrap' => TRUE
+					);
+					$this->email->initialize($config);
+					$this->email->set_mailtype("html");
+					$this->email->set_newline("\r\n");
+
+					$name = $_POST['dt']['full_name'];
+					$toemail = $_POST['dt']['email'];
+					$fromemail = 'testing@cuanselalu.com';
+					$fromname = 'Bagus Andika';
+					$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!';
+					$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
+
+					$this->alert->alertsuccess('Pendaftaran Berhasil Mohon untuk membuka email anda untuk proses lebih lanjut!');
+				}
 			} else {
 				$identification_file = "";
 				if (!empty($_FILES['identification_file']['name'])) {
