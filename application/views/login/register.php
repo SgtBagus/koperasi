@@ -234,7 +234,8 @@
                                     $tbl_employer = $this->mymodel->selectWhere('tbl_employer',null);
                                     foreach ($tbl_employer as $tbl_employer_record) {
                                     echo "<option value=".$tbl_employer_record['id_employer'].">".$tbl_employer_record['value']."</option>";
-                                    }
+                                    } 
+                                    
                                     ?>
                                 </select>
                             </div>
