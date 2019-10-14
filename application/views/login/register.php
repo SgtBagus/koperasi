@@ -32,7 +32,7 @@
                                             <i class="fas fa-phone"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control phone-number" name="dt[phone_number]">
+                                    <input type="number" class="form-control phone-number" name="dt[phone_number]">
                                 </div>
                             </div>
                             <div class="row">
@@ -98,10 +98,10 @@
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-4">
-                                    <label>No NPWP</label>
-                                    <input type="text" class="form-control" name="dt[npwpid]">
-                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>No NPWP</label>
+                                <input type="text" class="form-control" name="dt[npwpid]">
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
@@ -172,7 +172,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Provinsi</label>
-                                    <select class="form-control" name="dt[domicile_province_id]">
+                                    <select class="form-control" name="dt[domicile_province_id]"  id="domisili_provinsi">
                                         <?php 
                                         $tbl_provinsi = $this->mymodel->selectWhere('tbl_provinsi',null);
                                         foreach ($tbl_provinsi as $tbl_provinsi_record) {
@@ -183,26 +183,16 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Kota/Kabupaten</label>
-                                    <select class="form-control" name="dt[domicile_city_id]">
-                                        <?php 
-                                        $tbl_kabkot = $this->mymodel->selectWhere('tbl_kabkot',null);
-                                        foreach ($tbl_kabkot as $tbl_kabkot_record) {
-                                            echo "<option value=".$tbl_kabkot_record['id'].">".$tbl_kabkot_record['kabupaten_kota']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[domicile_city_id]" id="domisili_kota">
+                                        <option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Kecamatan</label>
-                                    <select class="form-control" name="dt[domicile_district_id]">
-                                        <?php 
-                                        $tbl_kecamatan = $this->mymodel->selectWhere('tbl_kecamatan',null);
-                                        foreach ($tbl_kecamatan as $tbl_kecamatan_record) {
-                                            echo "<option value=".$tbl_kecamatan_record['id'].">".$tbl_kecamatan_record['kecamatan']."</option>";
-                                        }
-                                        ?>
+                                    <select class="form-control" name="dt[domicile_district_id]" id="domisili_kecamatan">
+                                        <option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
@@ -241,7 +231,7 @@
                                                 <i class="fas fa-phone"></i>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" name="dt[employer_phone]">
+                                        <input type="number" class="form-control" name="dt[employer_phone]">
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
@@ -289,12 +279,10 @@
         swal('Pendaftaran Berhasi!', 'Mohon Tunggu Verfikasi dari kami melalui Watchapps!', 'success');
     })
 
-
-    function get_kota(){
-        var idProvinsi = $("#provinsi").val();
-        if (idProvinsi) {
+    function get_kota(provinsi_id){
+        if (provinsi_id) {
             $.ajax({
-                url: "<?=base_url()?>ajax/get_kota/" + idProvinsi,
+                url: "<?=base_url()?>ajax/get_kota/" + provinsi_id,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -312,45 +300,108 @@
             });
         } else {
             $("#kota").empty();
-            $("#kota").append('<option value="">Pilih Kota</option>');
+            $("#kota").append('<option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>');
         }
+        get_kecamatan($("#kota").val());
     }
-    
-    function get_kecamatan(){
-        var idProvinsi = $("#provinsi").val();
-        if (idProvinsi) {
+
+    function get_kecamatan(kota_id){
+        if (kota_id) {
             $.ajax({
-                url: "<?=base_url()?>ajax/get_kota/" + idProvinsi,
+                url: "<?=base_url()?>ajax/get_kecamatan/" + kota_id,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
-                    $("#kota").empty();
+                    $("#kecamatan").empty();
                     if(!$.trim(data)){
-                        $("#kota").append('<option value="">Data Tidak Tersedia</option>');
+                        $("#kecamatan").append('<option value="">Data Tidak Tersedia</option>');
                     }else{
                         $.each(data, function (key, value) {
-                            $("#kota").append('<option value="' +
-                              value.id + '">' + value.kabupaten_kota +
+                            $("#kecamatan").append('<option value="' +
+                              value.id + '">' + value.kecamatan +
                               '</option>');
                         });
                     }
                 }
             });
         } else {
-            $("#kota").empty();
-            $("#kota").append('<option value="">Pilih Kota</option>');
+            $("#kecamatan").empty();
+            $("#kecamatan").append('<option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>');
         }
     }
 
     $("#provinsi").change(function() {
-        get_kota();
+        get_kota($("#provinsi").val());
     });
 
-    $("#kecamatan").change(function() {
-        get_kecamatan();
+    $("#kota").change(function() {
+        get_kecamatan($("#kota").val());
     });
 
-    get_kota();
-    get_kecamatan();
+    get_kota($("#provinsi").val());
+    get_kecamatan($("#kota").val());
+
+
+    function get_domisili_kota(provinsi_id){
+        if (provinsi_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kota/" + provinsi_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#domisili_kota").empty();
+                    if(!$.trim(data)){
+                        $("#domisili_kota").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#domisili_kota").append('<option value="' +
+                              value.id + '">' + value.kabupaten_kota +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#domisili_kota").empty();
+            $("#domisili_kota").append('<option value="">-Mohon Pilih Provinsi Terlebih Dahulu-</option>');
+        }
+        get_domisili_kecamatan($("#domisili_kota").val());
+    }
+
+    function get_domisili_kecamatan(kota_id){
+        if (kota_id) {
+            $.ajax({
+                url: "<?=base_url()?>ajax/get_kecamatan/" + kota_id,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#domisili_kecamatan").empty();
+                    if(!$.trim(data)){
+                        $("#domisili_kecamatan").append('<option value="">Data Tidak Tersedia</option>');
+                    }else{
+                        $.each(data, function (key, value) {
+                            $("#domisili_kecamatan").append('<option value="' +
+                              value.id + '">' + value.kecamatan +
+                              '</option>');
+                        });
+                    }
+                }
+            });
+        } else {
+            $("#domisili_kecamatan").empty();
+            $("#domisili_kecamatan").append('<option value="">-Mohon Pilih Kota/Kabupaetn Terlebih Dahulu-</option>');
+        }
+    }
+
+    $("#domisili_provinsi").change(function() {
+        get_domisili_kota($("#domisili_provinsi").val());
+    });
+
+    $("#domisili_kota").change(function() {
+        get_domisili_kecamatan($("#domisili_kota").val());
+    });
+
+    get_domisili_kota($("#domisili_provinsi").val());
+    get_domisili_kecamatan($("#domisili_kota").val());
 
 </script>
