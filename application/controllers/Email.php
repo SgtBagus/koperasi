@@ -40,10 +40,10 @@ class Email extends MY_Controller {
 
 		$pesan = $pesan; 
 
-		$toemail = 'procw57@gmail.com' //email tujuan
-		$fromemail = 'testing@cuanselalu.com' //dari email mana tidak perlu diganti
-		$fromname = 'Bagus Andika' //dari siapa email nya 
-		$subjectemail = 'Subject Kirim email Terima Kasih' //subjet email itu
+		$toemail = 'procw57@gmail.com'; //email tujuan
+		$fromemail = 'testing@cuanselalu.com'; //dari email mana tidak perlu diganti
+		$fromname = 'Bagus Andika'; //dari siapa email nya 
+		$subjectemail = 'Subject Kirim email Terima Kasih'; //subjet email itu
 
 
 		//proses kirim email
