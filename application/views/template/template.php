@@ -16,8 +16,7 @@
   <script src="<?= base_url('assets/') ?>modules/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?= base_url('assets/') ?>modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="<?= base_url('assets/') ?>modules/moment.min.js"></script>
-  <script src="<?= base_url('assets/') ?>modules/sweetalert/sweetalert.min.js"></script>
-  <script src="<?= base_url('assets/') ?>js/page/modules-sweetalert.js"></script>
+    <script src="<?= base_url('assets/') ?>js/sweetalret2.js"></script>
   <script src="<?= base_url('assets/') ?>js/stisla.js"></script>
   <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
   <script src="<?= base_url('assets/') ?>js/custom.js"></script>
