@@ -10,7 +10,8 @@
                 </div>
                 <div class="card card-primary">
                     <div class="card-body">
-                        <form method="POST" action="<?= base_url('login/addregister') ?>" enctype="multipart/form-data">
+                        <form method="POST" action="<?= base_url('login/addregister') ?>" enctype="multipart/form-data" id="sumbit">
+                            <div class="show_error"></div>
                             <div class="card-header">
                                 <h4>Identitas</h4>
                             </div>
@@ -29,7 +30,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <i class="fas fa-phone"></i>
+                                            +62
                                         </div>
                                     </div>
                                     <input type="number" class="form-control phone-number" name="dt[phone_number]">
@@ -213,7 +214,7 @@
                                     <?php 
                                     $tbl_employer = $this->mymodel->selectWhere('tbl_employer',null);
                                     foreach ($tbl_employer as $tbl_employer_record) {
-                                    echo "<option value=".$tbl_employer_record['id_employer'].">".$tbl_employer_record['value']."</option>";
+                                        echo "<option value=".$tbl_employer_record['id_employer'].">".$tbl_employer_record['value']."</option>";
                                     } 
                                     
                                     ?>
@@ -229,7 +230,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                                <i class="fas fa-phone"></i>
+                                                +62
                                             </div>
                                         </div>
                                         <input type="number" class="form-control" name="dt[employer_phone]">
@@ -250,14 +251,9 @@
                                     <input type="text" class="form-control" name="dt[employee_dept]">
                                 </div>
                             </div>
+                            <div class="show_error"></div>
                             <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                                    <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block btn-send">
                                     Register
                                 </button>
                             </div>
@@ -265,7 +261,6 @@
                                 Punya Akun Silakan Login <a href="<?= base_url('login') ?>">  Disini ! </a>
                             </div>
                         </form>
-                        <button class="btn btn-primary" id="registerSuccess">Launch</button>
                     </div>
                 </div>
                 <div class="simple-footer">
@@ -276,9 +271,49 @@
     </div>
 </section>
 <script type="text/javascript">
-    $("#registerSuccess").click(function() {
-        swal('Pendaftaran Berhasi!', 'Mohon Tunggu Verfikasi dari kami melalui Watchapps!', 'success');
-    })
+
+    $(function() {
+        $("#sumbit").submit(function() {
+            var form = $(this);
+            var mydata = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: form.attr("action"),
+                data: mydata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $(".btn-send").addClass("disabled").html("<i class='la la-spinner la-spin'></i>  Memperoses...").attr('disabled', true);
+                    form.find(".show_error").slideUp().html("");
+                },
+
+                success: function(response, textStatus, xhr) {
+                    var str = response;
+                    if (str.indexOf("success") != -1) {
+                        form.find(".show_error").hide().html(response).slideDown("fast");
+                        $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
+
+                        Swal.fire({
+                            title: 'Pendaftaran Berhasil',
+                            type: 'success',
+                            html:'Mohon Menunggu Verfikasi dari kami melalui Whatsapps!, serta untuk info lainya bisa menghubungi Kami melalui <a href="#" target="_blank"><i class="fa fa-phone"></i> Whatsapps! </a>',
+                        })
+
+                    } else {
+                        form.find(".show_error").hide().html(response).slideDown("fast");
+                        $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
+                    form.find(".show_error").hide().html(xhr).slideDown("fast");
+                }
+            });
+            return false;
+        });
+    });
 
     function get_kota(provinsi_id){
         if (provinsi_id) {
