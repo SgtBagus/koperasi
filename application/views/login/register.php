@@ -14,6 +14,7 @@
                             <div class="card-header">
                                 <h4>Identitas</h4>
                             </div>
+                            <div class="show_error"></div>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
                                 <input type="text" class="form-control" name="dt[full_name]" autofocus required>
@@ -299,6 +300,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="show_error"></div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block btn-send">
                                     Register
@@ -331,30 +333,32 @@
                 processData: false,
                 beforeSend: function() {
                     $(".btn-send").addClass("disabled").html("<i class='la la-spinner la-spin'></i>  Memperoses...").attr('disabled', true);
-                    form.find(".show_error").slideUp().html("");
+                    // form.find(".show_error").slideUp().html("");
                 },
 
                 success: function(response, textStatus, xhr) {
                     var str = response;
                     if (str.indexOf("success") != -1) {
-                        form.find(".show_error").hide().html(response).slideDown("fast");
+                        // form.find(".show_error").hide().html(response).slideDown("fast");
                         $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
-
                         Swal.fire({
                             title: 'Pendaftaran Berhasil',
                             type: 'success',
                             html: 'Mohon Menunggu Verfikasi dari kami melalui Whatsapps!, serta untuk info lainya bisa menghubungi Kami melalui <a href="#" target="_blank"><i class="fa fa-phone"></i> Whatsapps! </a>',
                         })
-
                     } else {
                         form.find(".show_error").hide().html(response).slideDown("fast");
                         $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    console.log(xhr);
                     $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
-                    form.find(".show_error").hide().html(xhr).slideDown("fast");
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Mohon Maaf Terjadi Kesalahan...',
+                        text: 'Cobalah beberapa saat lagi!',
+                        footer: '<a href>Why do I have this issue?</a>'
+                    })
                 }
             });
             return false;

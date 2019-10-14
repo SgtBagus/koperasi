@@ -92,7 +92,7 @@ class Login extends MY_Controller
 	{
 		$this->validate();
 		if ($this->form_validation->run() == FALSE) {
-			$this->alert->alertdanger(validation_errors());
+			// $this->alert->alertdanger(validation_errors());
 		} else {
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
 			$cekstatus = $this->mymodel->selectDataone('anggota', array('verification' => $emailcek['verification']));
