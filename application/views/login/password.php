@@ -10,10 +10,10 @@
                         <h4>Tambahkan Password Anda!</h4>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="#" class="needs-validation" novalidate="">
+                        <form method="POST" action="<?= base_url('password/changepassword/'.$_GET['pro']) ?>" class="needs-validation" novalidate="">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" value="<?= md5_decrypt($_GET['pro']) ?>" readonly>
+                                <input id="email" type="email" class="form-control" name="email" value="<?= $email ?>" readonly>
                                 <div class="invalid-feedback">
                                     Please fill in your email
                                 </div>
@@ -31,7 +31,7 @@
                                 <div class="d-block">
                                     <label for="password" class="control-label">Konfirmasi Password</label>
                                 </div>
-                                <input id="password" type="password" class="form-control" name="password" tabindex="3" required>
+                                <input id="password" type="password" class="form-control" name="konfirmasipassword" tabindex="3" required>
                                 <div class="invalid-feedback">
                                     Masukan Konfirmasi Password Anda
                                 </div>

@@ -7,13 +7,21 @@ class Password extends MY_Controller {
 	public function index(){
 
 		$id = $_GET['pro'];
-		$email = md5($id);
+		$anggota = $this->mymodel->selectDataone('anggota', array('kode' => $id));
+		$data['email'] = $anggota['email'];
 
-		$dt['email'] = $email;
-
-		$this->mymodel->updateData('anggota', $dt, array('email' => $email));
 		$data['page'] = 'Ubah Password';
 		$this->template->load('login/template','login/password', $data);
+	}
+
+	public function changepassword($id){
+
+		$dt['password'] = md5($_POST['password']);
+
+		$this->mymodel->updateData('anggota', $dt, array('kode' => $id));
+		// var_dump($this->mymodel->updateData('anggota', $dt, array('kode' => $id)));
+		// die();
+		header("Location:". base_url());
 	}
 	
 }

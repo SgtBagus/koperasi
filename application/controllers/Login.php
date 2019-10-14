@@ -1,38 +1,43 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Login extends MY_Controller {
-	public function __construct(){
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+class Login extends MY_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
 	}
 
-	public function index(){
+	public function index()
+	{
 		$data['page'] = 'Login';
-		$this->template->load('login/template','login/login', $data);
+		$this->template->load('login/template', 'login/login', $data);
 	}
-	
-	public function register(){
+
+	public function register()
+	{
 		$data['page'] = 'Register';
-		$this->template->load('login/template','login/register', $data); 
+		$this->template->load('login/template', 'login/register', $data);
 	}
 
-    public function act_login(){ 
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
-        $pass = md5($password);
+	public function act_login()
+	{
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$pass = md5($password);
 
-        $session     = $this->mlogin->login($email,$pass);
-        if ($session) {
-            $this->session->set_userdata('session_sop', true);
-            $this->session->set_userdata('id', $session['id']);
-            $this->session->set_userdata('email', $session['email']);
-            $this->session->set_userdata('name', $session['name']);
-            $this->session->set_userdata('role', 'Investor');
-            echo "success";
-            return TRUE;
-        } else {
-            $this->alert->alertdanger("Cek Kembali Email dan Password anda !");
-            return FALSE;
-        }
-    }
+		$session     = $this->mlogin->login($email, $pass);
+		if ($session) {
+			$this->session->set_userdata('session_sop', true);
+			$this->session->set_userdata('id', $session['id']);
+			$this->session->set_userdata('email', $session['email']);
+			$this->session->set_userdata('name', $session['name']);
+			$this->session->set_userdata('role', 'Investor');
+			echo "success";
+			return TRUE;
+		} else {
+			$this->alert->alertdanger("Cek Kembali Email dan Password anda !");
+			return FALSE;
+		}
+	}
 
 	public function validate()
 	{
@@ -83,26 +88,45 @@ class Login extends MY_Controller {
 		$this->form_validation->set_message('required', '%s');
 	}
 
-	public function addregister(){
+	public function addregister()
+	{
 		$this->validate();
 		if ($this->form_validation->run() == FALSE) {
 			$this->alert->alertdanger(validation_errors());
 		} else {
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
 
-			if($emailcek){
+			if ($emailcek) {
 				$this->alert->alertdanger('<strong>Email</strong> tersebut sudah Terdaftar');
 				return false;
-			}else{
+			} else {
 				$identification_file = "";
-				if(!empty($_FILES['identification_file']['name'])){
+				if (!empty($_FILES['identification_file']['name'])) {
 					$identification_file = file_get_contents($_FILES["identification_file"]["tmp_name"]);
 					$identification_file = base64_encode($identification_file);
 				}
+
+				$chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				$res = "";
+				for (;;) {
+					for ($i = 0; $i < 7; $i++) {
+						$res .= $chars[mt_rand(0, strlen($chars) - 1)];
+					}
+
+					$query = $this->db->query("SELECT * FROM anggota WHERE kode='$res'")->result();
+					if (count($query) == 0) {
+						// echo 'TIDAK ADA';
+						break;
+					} else {
+						// echo 'ADA';
+					}
+				}
+
 				$dt = $_POST['dt'];
 
-				$dt['phone_number'] = '62'.$_POST['dt']['phone_number'];
+				$dt['phone_number'] = '62' . $_POST['dt']['phone_number'];
 				$dt['identification_file'] = $identification_file;
+				$dt['kode'] = $res;
 				$dt['created_at'] = date('Y-m-d H:i:s');
 				$dt['status'] = "ENABLE";
 				$this->db->insert('anggota', $dt);
@@ -122,19 +146,20 @@ class Login extends MY_Controller {
 				$this->email->set_newline("\r\n");
 
 				$name = $_POST['dt']['full_name'];
-				$toemail = $_POST['dt']['email']; 
+				$toemail = $_POST['dt']['email'];
 				$fromemail = 'testing@cuanselalu.com';
-				$fromname = 'Bagus Andika'; 
-				$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!'; 
-				$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);   
+				$fromname = 'Bagus Andika';
+				$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!';
+				$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
 
 				$this->alert->alertsuccess('Pendaftaran Berhasil Mohon untuk membuka email anda untuk proses lebih lanjut!');
 			}
 		}
 	}
-	
-    public function logout(){
-        $this->session->sess_destroy();
-        header('Location: '.base_url());
-    }
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		header('Location: ' . base_url());
+	}
 }
