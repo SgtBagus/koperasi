@@ -14,6 +14,26 @@ class Login extends MY_Controller {
 		$this->template->load('login/template','login/register', $data); 
 	}
 
+    public function act_login(){ 
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+        $pass = md5($password);
+
+        $session     = $this->mlogin->login($email,$pass);
+        if ($session) {
+            $this->session->set_userdata('session_sop', true);
+            $this->session->set_userdata('id', $session['id']);
+            $this->session->set_userdata('email', $session['email']);
+            $this->session->set_userdata('name', $session['name']);
+            $this->session->set_userdata('role', 'Investor');
+            echo "success";
+            return TRUE;
+        } else {
+            $this->alert->alertdanger("Cek Kembali Email dan Password anda !");
+            return FALSE;
+        }
+    }
+
 	public function validate()
 	{
 		$this->form_validation->set_error_delimiters('<li>', '</li>');
@@ -111,4 +131,9 @@ class Login extends MY_Controller {
 			}
 		}
 	}
+	
+    public function logout(){
+        $this->session->sess_destroy();
+        header('Location: '.base_url());
+    }
 }

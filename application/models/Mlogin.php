@@ -7,31 +7,10 @@ class Mlogin extends CI_Model {
     $this->load->database();
   }
   
-  
-  public function login($email, $password)
-  {
-    $email_special = htmlspecialchars($this->db->escape($email));
-    $password_password = htmlspecialchars($this->db->escape($password));
-    $this->db->select('*');
-    $this->db->from('user');
-    $this->db->where("nip = $email_special"); 
-    $this->db->where("password = $password_password");
-    $query = $this->db->get();
-    return $query->num_rows();
+  public function login($email, $pass){
+    $user = $this->mymodel->selectDataone('tbl_investor', array('email'=>$email, 'password' => $pass));
+    return $user;
   }
-  
-  
-  public function data($email)
-  {
-   $email_special = htmlspecialchars($this->db->escape($email));    
-   $this->db->select('*');
-   $this->db->where("nip = $email_special"); 
-   
-   $query = $this->db->get('user');
-   
-   return $query->row();
-  }
-
   
 }  
 
