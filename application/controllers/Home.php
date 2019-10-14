@@ -6,7 +6,7 @@ class Home extends MY_Controller {
 
 	public function index(){
 		$data['page'] = 'Home';
-        $this->template->load('template/template','index', $data); 
+        header("Location:".base_url('login')); 
 	}
 	
 }

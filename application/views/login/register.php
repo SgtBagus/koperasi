@@ -10,7 +10,7 @@
                 </div>
                 <div class="card card-primary">
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" action="<?= base_url('login/addregister') ?>">
                             <div class="card-header">
                                 <h4>Identitas</h4>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="row">
                                 <div class="form-group col-4">
                                     <label>Tanggal Lahir</label>
-                                    <input type="text" class="form-control datepicker" name="dt[birth_date]">
+                                    <input type="date" class="form-control datepicker" name="dt[birth_date]">
                                 </div>
                                 <div class="form-group col-4">
                                     <label>Tempat Lahir</label>
@@ -66,23 +66,22 @@
                                 <div class="form-group col-6">
                                     <label>Status Kawin</label>
                                     <select class="form-control selectric" name="dt[marital_status]">>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_marital = $this->mymodel->selectWhere('tbl_marital',null);
+                                        foreach ($tbl_marital as $tbl_marital_record) {
+                                        echo "<option value=".$tbl_marital_record['id_marital'].">".$tbl_marital_record['value']."</option>";
+                                        }?>
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Status Keluarga</label>
                                     <select class="form-control selectric" name="dt[family_status]">>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_family = $this->mymodel->selectWhere('tbl_family',null);
+                                        foreach ($tbl_family as $tbl_family_record) {
+                                        echo "<option value=".$tbl_family_record['id_family'].">".$tbl_family_record['value']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -90,34 +89,34 @@
                                 <div class="form-group col-4">
                                     <label>Agama</label>
                                     <select class="form-control selectric" name="dt[religion]">>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_agama = $this->mymodel->selectWhere('tbl_agama',null);
+                                        foreach ($tbl_agama as $tbl_agama_record) {
+                                        echo "<option value=".$tbl_agama_record['id_agama'].">".$tbl_agama_record['nama_agama']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-4">
                                     <label>Kewarganegaraan</label>
                                     <select class="form-control selectric" name="dt[nationality]">>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $apps_countries = $this->mymodel->selectWhere('apps_countries',null);
+                                        foreach ($apps_countries as $apps_countries_record) {
+                                        echo "<option value=".$apps_countries_record['id'].">".$apps_countries_record['country_name']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-4">
                                     <label>No NPWP</label>
-                                    <input type="text" class="form-control" name="dt[npwp_id]">>
+                                    <input type="text" class="form-control" name="dt[npwpid]">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-4">
                                     <label>Kartu Identitas</label>
-                                    <select class="form-control selectric" name="dt[identification_type]">>
+                                    <select class="form-control selectric" name="dt[identification_type]">
                                         <option>KTP</option>
                                         <option>SIM</option>
                                         <option>Pasport</option>
@@ -125,7 +124,7 @@
                                 </div>
                                 <div class="form-group col-4">
                                     <label>Id Identitas</label>
-                                    <input type="text" class="form-control" name="dt[identification_id]">>
+                                    <input type="text" class="form-control" name="dt[identification_id]">
                                 </div>
                                 <div class="form-group col-4">
                                     <label>Upload Kartu Identitas</label>
@@ -146,46 +145,39 @@
                                 <div class="form-group col-3">
                                     <label>Provinsi</label>
                                     <select class="form-control selectric" name="dt[ktp_province_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_provinsi = $this->mymodel->selectWhere('tbl_provinsi',null);
+                                        foreach ($tbl_provinsi as $tbl_provinsi_record) {
+                                        echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kota/Kabupaten</label>
                                     <select class="form-control selectric" name="dt[ktp_city_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_kabkot = $this->mymodel->selectWhere('tbl_kabkot',null);
+                                        foreach ($tbl_kabkot as $tbl_kabkot_record) {
+                                        echo "<option value=".$tbl_kabkot_record['id'].">".$tbl_kabkot_record['kabupaten_kota']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kecamatan</label>
                                     <select class="form-control selectric" name="dt[ktp_district_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_kecamatan = $this->mymodel->selectWhere('tbl_kecamatan',null);
+                                        foreach ($tbl_kecamatan as $tbl_kecamatan_record) {
+                                        echo "<option value=".$tbl_kecamatan_record['id'].">".$tbl_kecamatan_record['kecamatan']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kode Pos</label>
-                                    <select class="form-control selectric" name="dt[ktp_zip_code_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="dt[ktp_zip_code_id]">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -199,46 +191,39 @@
                                 <div class="form-group col-3">
                                     <label>Provinsi</label>
                                     <select class="form-control selectric" name="dt[domicile_province_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_provinsi = $this->mymodel->selectWhere('tbl_provinsi',null);
+                                        foreach ($tbl_provinsi as $tbl_provinsi_record) {
+                                        echo "<option value=".$tbl_provinsi_record['id'].">".$tbl_provinsi_record['provinsi']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kota/Kabupaten</label>
                                     <select class="form-control selectric" name="dt[domicile_city_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_kabkot = $this->mymodel->selectWhere('tbl_kabkot',null);
+                                        foreach ($tbl_kabkot as $tbl_kabkot_record) {
+                                        echo "<option value=".$tbl_kabkot_record['id'].">".$tbl_kabkot_record['kabupaten_kota']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kecamatan</label>
                                     <select class="form-control selectric" name="dt[domicile_district_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
+                                        <?php 
+                                        $tbl_kecamatan = $this->mymodel->selectWhere('tbl_kecamatan',null);
+                                        foreach ($tbl_kecamatan as $tbl_kecamatan_record) {
+                                        echo "<option value=".$tbl_kecamatan_record['id'].">".$tbl_kecamatan_record['kecamatan']."</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Kode Pos</label>
-                                    <select class="form-control selectric" name="dt[domicile_zip_code_id]">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="dt[domicile_zip_code_id]">
                                 </div>
                             </div>
                             <div class="form-group">
