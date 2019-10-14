@@ -1,4 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+error_reporting(0);
 class Login extends MY_Controller
 {
 	public function __construct()
@@ -32,7 +34,7 @@ class Login extends MY_Controller
 			$this->session->set_userdata('name', $session['full_name']);
 			$this->session->set_userdata('role', 'Anggota');
 			echo "success";
-			header("Location:" . base_url());
+			header("Location:" . base_url('home/home'));
 		} else {
 			$this->alert->alertdanger("Cek Kembali Email dan Password anda !");
 			return FALSE;
@@ -96,19 +98,11 @@ class Login extends MY_Controller
 			return false;
 		} else {
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
-			$cekstatus = $this->mymodel->selectDataone('anggota', array('verification' => $emailcek['verification']));
-
+			$email = $_POST['dt']['email'];
+			$cekstatus = $this->mymodel->selectWithQuery("SELECT * FROM anggota WHERE email='$email' ORDER BY created_at DESC");
+			
 			if ($emailcek) {
-				if ($cekstatus['verification'] != 'Rejected') {
-					echo "<script type='text/javascript'>
-					Swal.fire({
-                        type: 'error',
-                        title: 'Kesalahan!',
-                        text: 'Email Tersebut Telah Terdaftar!',
-                    })
-					</script>";
-					return false;
-				} else {
+				if ($cekstatus[0]['verification'] == 'Rejected') {
 					$identification_file = "";
 					if (!empty($_FILES['identification_file']['name'])) {
 						$identification_file = file_get_contents($_FILES["identification_file"]["tmp_name"]);
@@ -162,6 +156,16 @@ class Login extends MY_Controller
 					$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
 
 					$this->alert->alertsuccess('Pendaftaran Berhasil Mohon untuk membuka email anda untuk proses lebih lanjut!');
+					
+				} else {
+					echo "<script type='text/javascript'>
+					Swal.fire({
+                        type: 'error',
+                        title: 'Kesalahan!',
+                        text: 'Email Tersebut Telah Terdaftar!',
+                    })
+					</script>";
+					return false;
 				}
 			} else {
 				$identification_file = "";
