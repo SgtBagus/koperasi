@@ -92,17 +92,23 @@ class Login extends MY_Controller
 	{
 		$this->validate();
 		if ($this->form_validation->run() == FALSE) {
-			$this->alert->alertdanger(validation_errors());
+			// $this->alert->alertdanger(validation_errors());
+			return false;
 		} else {
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
 			$cekstatus = $this->mymodel->selectDataone('anggota', array('verification' => $emailcek['verification']));
 
 			if ($emailcek) {
 				if ($cekstatus['verification'] != 'Rejected') {
-					$this->alert->alertdanger('<strong>Email</strong> tersebut sudah Terdaftar');
+					echo "<script type='text/javascript'>
+					Swal.fire({
+                        type: 'error',
+                        title: 'Kesalahan!',
+                        text: 'Email Tersebut Telah Terdaftar!',
+                    })
+					</script>";
 					return false;
-				} 
-				else {
+				} else {
 					$identification_file = "";
 					if (!empty($_FILES['identification_file']['name'])) {
 						$identification_file = file_get_contents($_FILES["identification_file"]["tmp_name"]);
