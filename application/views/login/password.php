@@ -13,7 +13,7 @@
                         <form method="POST" action="#" class="needs-validation" novalidate="">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" value="procw57@gmail.com" readonly>
+                                <input id="email" type="email" class="form-control" name="email" value="<?= md5_decrypt($_GET['pro']) ?>" readonly>
                                 <div class="invalid-feedback">
                                     Please fill in your email
                                 </div>
