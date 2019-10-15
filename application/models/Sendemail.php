@@ -1,9 +1,32 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Sendemail extends CI_Model {
+class Sendemail extends CI_Model
+{
     public function __construct()
     {
         parent::__construct();
+    }
+
+
+    public function kirimemail($name, $toemail, $subjectemail, $content, $content2 = null, $button = null)
+    {
+        $this->load->library('email');
+        $config = array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://cuanselalu.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'no-reply@cuanselalu.com',
+            'smtp_pass' => 'cuansela123koperasi',
+            'charset' => 'iso-8859-1',
+            'wordwrap' => TRUE
+        );
+        $this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->set_newline("\r\n");
+
+        $fromemail = 'no-reply@cuanselalu.com';
+        $fromname = 'Koperasi Tokokarya';
+        $this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail, $content, $content2, $button);
     }
 
     public function template($name, $content, $content2 = null, $button = null)
@@ -12,7 +35,7 @@ class Sendemail extends CI_Model {
         <html>
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-        <title>Mailto</title>
+        <title>Koperasi Tokokarya</title>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
         <style type="text/css">
         html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
@@ -58,21 +81,21 @@ class Sendemail extends CI_Model {
         <tr>
         <td align="left" valign="top">
         <font face="Source Sans Pro, sans-serif" color="#1a1a1a" style="font-size: 52px; line-height: 60px; font-weight: 300; letter-spacing: -1.5px;">
-        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 52px; line-height: 60px; font-weight: 300; letter-spacing: -1.5px;">Hi '.$name.'!</span>
+        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 52px; line-height: 60px; font-weight: 300; letter-spacing: -1.5px;">Hi ' . $name . '!</span>
         </font>
         <div style="height: 33px; line-height: 33px; font-size: 31px;">&nbsp;</div>
         <font face="Source Sans Pro, sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">'.$content.'</span>
+        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">' . $content . '</span>
         </font>
         <div style="height: 20px; line-height: 20px; font-size: 18px;">&nbsp;</div>
         <font face="Source Sans Pro, sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">'.$content2.'</span>
+        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">' . $content2 . '</span>
         </font>
         <div style="height: 33px; line-height: 33px; font-size: 31px;">&nbsp;</div>
         <table class="mob_btn" cellpadding="0" cellspacing="0" border="0" border-radius: 4px;">
         <tr>
         <td align="center" valign="top"> 
-        '.$button.'
+        ' . $button . '
         </td>
         </tr>
         </table>
@@ -124,11 +147,11 @@ class Sendemail extends CI_Model {
         </table>
         <div style="height: 34px; line-height: 34px; font-size: 32px;">&nbsp;</div>
         <font face="Source Sans Pro, sans-serif" color="#868686" style="font-size: 17px; line-height: 20px;">
-        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #868686; font-size: 17px; line-height: 20px;">Copyright &copy; 2017 Mailto. All&nbsp;Rights&nbsp;Reserved. We&nbsp;appreciate&nbsp;you!</span>
+        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #868686; font-size: 17px; line-height: 20px;">Copyright &copy; Pilot Project Sistem E-Koperasi. All&nbsp;Rights&nbsp;Reserved. We&nbsp;appreciate&nbsp;you!</span>
         </font>
         <div style="height: 3px; line-height: 3px; font-size: 1px;">&nbsp;</div>
         <font face="Source Sans Pro, sans-serif" color="#1a1a1a" style="font-size: 17px; line-height: 20px;">
-        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px;"><a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">help@mailto.com</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">1(800)232-90-26</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">Unsubscribe</a></span>
+        <span style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px;"><a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">help@cuansela.com</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">1(800)232-90-26</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" target="_blank" style="font-family: Source Sans Pro, Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 17px; line-height: 20px; text-decoration: none;">Unsubscribe</a></span>
         </font>
         <div style="height: 35px; line-height: 35px; font-size: 33px;">&nbsp;</div>
         </td>
@@ -150,35 +173,14 @@ class Sendemail extends CI_Model {
         return $html;
     }
 
-    public function register($name, $toemail, $fromemail, $fromname, $subjectemail){
-
-        $content = 'Terima Kasih sudah mendaftar ke koperasi. Selanjutnya silahkan menunggu verifikasi dari kami.'; 
-        $content2 = ''; 
-        $button = ''; 
-
+    public function register($name, $toemail, $fromemail, $fromname, $subjectemail, $content, $content2, $button)
+    {
         $pesan = $this->template($name, $content, $content2, $button);
-        
+
         $this->email->to($toemail);
         $this->email->from($fromemail, $fromname);
         $this->email->subject($subjectemail);
         $this->email->message($pesan);
         $this->email->send();
     }
-
-    public function verification($name, $toemail, $fromemail, $fromname, $subjectemail){
-
-        $content = 'Mohon Untuk Lakukan Pembayaran Sebesar Terlebih dahulu sebesar <br><center><h1><b> Rp. 50.000,- </b></h1></center><br> dan lakukan konfirmasi Pembayaran melalui <a href="google.com" target="_blank">Whatsapp</a> Terima Kasih!'; 
-        $content2 = ''; 
-        $button = ''; 
-
-        $pesan = $this->template($name, $content, $content2, $button);
-        
-        $this->email->to($toemail);
-        $this->email->from($fromemail, $fromname);
-        $this->email->subject($subjectemail);
-        $this->email->message($pesan);
-        $this->email->send();
-    }
-}  
-
-?>
+}

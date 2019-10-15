@@ -100,7 +100,7 @@ class Login extends MY_Controller
 			$emailcek = $this->mymodel->selectDataone('anggota', array('email' => $_POST['dt']['email']));
 			$email = $_POST['dt']['email'];
 			$cekstatus = $this->mymodel->selectWithQuery("SELECT * FROM anggota WHERE email='$email' ORDER BY created_at DESC");
-			
+
 			if ($emailcek) {
 				if ($cekstatus[0]['verification'] == 'Rejected') {
 					$identification_file = "";
@@ -134,29 +134,16 @@ class Login extends MY_Controller
 					$dt['status'] = "ENABLE";
 					$this->db->insert('anggota', $dt);
 
-					$this->load->library('email');
-					$config = array(
-						'protocol'  => 'smtp',
-						'smtp_host' => 'ssl://cuanselalu.com',
-						'smtp_port' => 465,
-						'smtp_user' => 'testing@cuanselalu.com',
-						'smtp_pass' => 'testing',
-						'charset' => 'iso-8859-1',
-						'wordwrap' => TRUE
-					);
-					$this->email->initialize($config);
-					$this->email->set_mailtype("html");
-					$this->email->set_newline("\r\n");
-
 					$name = $_POST['dt']['full_name'];
 					$toemail = $_POST['dt']['email'];
-					$fromemail = 'testing@cuanselalu.com';
-					$fromname = 'Koperasi';
 					$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!';
-					$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
+					$content = 'Terima Kasih sudah mendaftar ke koperasi. Selanjutnya silahkan menunggu verifikasi dari kami.';
+					$content2 = '';
+					$button = '';
+
+					$this->sendemail->kirimemail($name, $toemail, $subjectemail, $content, $content2, $button);
 
 					$this->alert->alertsuccess('Pendaftaran Berhasil Mohon untuk membuka email anda untuk proses lebih lanjut!');
-					
 				} else {
 					echo "<script type='text/javascript'>
 					Swal.fire({
@@ -196,29 +183,20 @@ class Login extends MY_Controller
 				$dt['identification_file'] = $identification_file;
 				$dt['kode'] = $res;
 				$dt['created_at'] = date('Y-m-d H:i:s');
+				$dt['agree_payroll_cut'] = "TRUE";
+				$dt['agree_adart'] = "TRUE";
+				$dt['agree_tnc'] = "TRUE";
 				$dt['status'] = "ENABLE";
 				$this->db->insert('anggota', $dt);
 
-				$this->load->library('email');
-				$config = array(
-					'protocol'  => 'smtp',
-					'smtp_host' => 'ssl://cuanselalu.com',
-					'smtp_port' => 465,
-					'smtp_user' => 'testing@cuanselalu.com',
-					'smtp_pass' => 'testing',
-					'charset' => 'iso-8859-1',
-					'wordwrap' => TRUE
-				);
-				$this->email->initialize($config);
-				$this->email->set_mailtype("html");
-				$this->email->set_newline("\r\n");
-
 				$name = $_POST['dt']['full_name'];
 				$toemail = $_POST['dt']['email'];
-				$fromemail = 'testing@cuanselalu.com';
-				$fromname = 'Bagus Andika';
 				$subjectemail = 'Terima Kasih Telah Mendaftar Bersama Kami!';
-				$this->sendemail->register($name, $toemail, $fromemail, $fromname, $subjectemail);
+				$content = 'Terima Kasih sudah mendaftar ke koperasi. Selanjutnya silahkan menunggu verifikasi dari kami.';
+				$content2 = '';
+				$button = '';
+
+				$this->sendemail->kirimemail($name, $toemail, $subjectemail, $content, $content2, $button);
 
 				$this->alert->alertsuccess('Pendaftaran Berhasil Mohon untuk membuka email anda untuk proses lebih lanjut!');
 			}

@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="simple-footer">
-                    Copyright &copy; Stisla 2018
+                    Copyright &copy; Pilot Project Sistem E-Koperasi
                 </div>
             </div>
         </div>

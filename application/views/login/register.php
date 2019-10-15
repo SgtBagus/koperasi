@@ -302,6 +302,33 @@ error_reporting(0);
                                         Masukan Departemen Perusahaan Anda!
                                     </div>
                                 </div>
+                                <div class="form-group col-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="agree_payroll_cut" class="custom-control-input" id="agree_payroll_cut" required>
+                                        <label class="custom-control-label" for="agree_payroll_cut">Bersedia Untuk Potong Gaji.</label>
+                                        <div class="invalid-feedback">
+                                            Centang Persetujuan diatas!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="agree_adart" class="custom-control-input" id="agree_adart" required>
+                                        <label class="custom-control-label" for="agree_adart">Seteju dengan AD/ART Koperasi.</label>
+                                        <div class="invalid-feedback">
+                                            Centang Persetujuan diatas!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="agree_tnc" class="custom-control-input" id="agree_tnc" required>
+                                        <label class="custom-control-label" for="agree_tnc">Setuju dengan Syarat dan Ketentuan.</label>
+                                        <div class="invalid-feedback">
+                                            Centang Persetujuan diatas!
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="show_error"></div>
                             <div class="form-group">
@@ -316,7 +343,7 @@ error_reporting(0);
                     </div>
                 </div>
                 <div class="simple-footer">
-                    Copyright &copy; Stisla 2018
+                    Copyright &copy; Pilot Project Sistem E-Koperasi
                 </div>
             </div>
         </div>
