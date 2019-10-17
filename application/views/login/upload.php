@@ -1,6 +1,3 @@
-<?php
-error_reporting(0);
-?>
 <section class="section">
     <div class="container mt-5">
         <div class="row">
@@ -10,47 +7,37 @@ error_reporting(0);
                 </div>
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h4>Login</h4>
+                        <h4>Upload Bukti Pembayaran</h4>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="<?= base_url('login/act_login') ?>" class="needs-validation" novalidate="">
+                        <form action="<?= base_url('pembayaran/send') ?>" class="needs-validation" method="post" enctype="multipart/form-data" id="submit">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                                <label for="email">Kode Pendaftaran</label>
+                                <input id="text" type="text" class="form-control" name="kode" value="<?= $_GET['kode'] ?>" tabindex="1" required autofocus>
                                 <div class="invalid-feedback">
-                                    Please fill in your email
+                                    Please fill in your code
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="d-block">
-                                    <label for="password" class="control-label">Password</label>
-                                    <div class="float-right">
-                                        <a href="auth-forgot-password.html" class="text-small">
-                                            Forgot Password?
-                                        </a>
+                                <label>Upload Bukti Pembayaran</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-primary" id="btnFile"><i class="fa fa-file"></i> File</button>
                                     </div>
-                                </div>
-                                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                                <div class="invalid-feedback">
-                                    please fill in your password
+                                    <input type="text" id="file_name" class="form-control" required readonly>
+                                    <div class="invalid-feedback">
+                                        Mohon Upload Bukti Pembayaran Anda!
+                                    </div>
+                                    <input type="file" id="imageFile" required style="display: none;" name="bukti_pembayaran" accept="image/x-png,image/jpeg,image/jpg" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                    Login
+                                    Upload
                                 </button>
                             </div>
                         </form>
-                        <!-- <hr>
-                        <div class="form-group">
-                            <a href="<?= base_url('pembayaran') ?>"  class="btn btn-warning btn-lg btn-block" tabindex="4">
-                                Konfirmasi Pembayaran
-                            </a>
-                        </div> -->
                     </div>
-                </div>
-                <div class="mt-5 text-muted text-center">
-                    Don't have an account? <a href="<?= base_url('login/register') ?>">Create One</a>
                 </div>
                 <div class="simple-footer">
                     Copyright &copy; Pilot Project Sistem E-Koperasi
@@ -83,10 +70,13 @@ error_reporting(0);
                         // form.find(".show_error").hide().html(response).slideDown("fast");
                         $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);
                         Swal.fire({
-                            title: 'Uplaod Berhasil',
+                            title: 'Upload Berhasil',
                             type: 'success',
-                            html: 'Mohon Menunggu Verfikasi dari kami! serta untuk info lainnya bisa menghubungi Kami melalui <a href="#" target="_blank"><i class="fa fa-phone"></i> Whatsapp! </a>',
-                        })
+                            html: 'Mohon Menunggu Verfikasi dari kami! serta untuk info lainnya bisa menghubungi Kami melalui <a href="https://api.whatsapp.com/send?phone=6285526250131" target="_blank"><i class="fa fa-phone"></i> Whatsapp! </a>',
+                        }, function() {
+                            window.location.href = "<?= base_url(); ?>";
+                        });
+
                     } else {
                         form.find(".show_error").hide().html(response).slideDown("fast");
                         $(".btn-send").removeClass("disabled").html('Register').attr('disabled', false);

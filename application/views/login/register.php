@@ -374,7 +374,7 @@ error_reporting(0);
                         Swal.fire({
                             title: 'Pendaftaran Berhasil',
                             type: 'success',
-                            html: 'Mohon Menunggu Verfikasi dari kami melalui Whatsapps!, serta untuk info lainya bisa menghubungi Kami melalui <a href="#" target="_blank"><i class="fa fa-phone"></i> Whatsapps! </a>',
+                            html: 'Mohon Menunggu Verfikasi dari kami melalui Whatsapps!, serta untuk info lainya bisa menghubungi Kami melalui <a href="https://api.whatsapp.com/send?phone=6285526250131" target="_blank"><i class="fa fa-phone"></i> Whatsapps! </a>',
                         })
                     } else {
                         form.find(".show_error").hide().html(response).slideDown("fast");

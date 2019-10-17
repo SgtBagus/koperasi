@@ -33,11 +33,9 @@ class Login extends MY_Controller
 			$this->session->set_userdata('email', $session['email']);
 			$this->session->set_userdata('name', $session['full_name']);
 			$this->session->set_userdata('role', 'Anggota');
-			echo "success";
 			header("Location:" . base_url('home/home'));
 		} else {
-			$this->alert->alertdanger("Cek Kembali Email dan Password anda !");
-			return FALSE;
+			header("Location:" . base_url());
 		}
 	}
 
@@ -87,6 +85,9 @@ class Login extends MY_Controller
 		$this->form_validation->set_rules('dt[employer_industry]', '<strong>Industri Perusahaan</strong> Tidak Boleh Kosong', 'required');
 		$this->form_validation->set_rules('dt[placement_location]', '<strong>Penempatan Kerja Perusahaan</strong> Tidak Boleh Kosong', 'required');
 		$this->form_validation->set_rules('dt[employee_dept]', '<strong>Departemen Perusahaan</strong> Tidak Boleh Kosong', 'required');
+		$this->form_validation->set_rules('agree_payroll_cut', '<strong>Centang Persetujuan diatas!</strong>', 'required');
+		$this->form_validation->set_rules('agree_adart', '<strong>Centang Persetujuan diatas!</strong>', 'required');
+		$this->form_validation->set_rules('agree_tnc', '<strong>Centang Persetujuan diatas!</strong>', 'required');
 		$this->form_validation->set_message('required', '%s');
 	}
 
@@ -127,7 +128,15 @@ class Login extends MY_Controller
 
 					$dt = $_POST['dt'];
 
-					$dt['phone_number'] = '62' . $_POST['dt']['phone_number'];
+					$phone = '';
+					$phonecek = substr($_POST['dt']['phone_number'], 0, 1);
+					if($phonecek == '0'){
+						$phone = '62' . substr($_POST['dt']['phone_number'], 1, 13);
+					}
+					else{
+						$phone = '62' . $_POST['dt']['phone_number'];
+					}
+					$dt['phone_number'] = $phone;
 					$dt['identification_file'] = $identification_file;
 					$dt['kode'] = $res;
 					$dt['created_at'] = date('Y-m-d H:i:s');

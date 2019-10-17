@@ -8,13 +8,8 @@ class Pembayaran extends MY_Controller
 
     public function index()
     {
-
-        $id = $_GET['pro'];
-        $anggota = $this->mymodel->selectDataone('anggota', array('kode' => $id));
-        $data['email'] = $anggota['email'];
-
-        $data['page'] = 'Pembayaran';
-        $this->template->load('login/template', 'login/pembayaran', $data);
+        $data['page'] = 'Upload';
+        $this->template->load('login/template', 'login/upload', $data);
     }
 
     public function send()
